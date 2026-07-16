@@ -1635,3 +1635,127 @@ opacity:1;
 }
 
 }
+/* BACKGROUND PARTICLES */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+background-image:
+
+radial-gradient(#d4af37 1px,transparent 1px);
+
+background-size:80px 80px;
+
+opacity:.08;
+
+animation:starsMove 60s linear infinite;
+
+z-index:-2;
+
+}
+
+@keyframes starsMove{
+
+from{
+
+transform:translateY(0);
+
+}
+
+to{
+
+transform:translateY(80px);
+
+}
+
+}
+
+/* GOLD GLOW */
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+left:-20%;
+
+top:-20%;
+
+width:140%;
+
+height:140%;
+
+background:
+
+radial-gradient(circle,
+
+rgba(212,175,55,.05),
+
+transparent 70%);
+
+pointer-events:none;
+
+animation:lightMove 12s ease-in-out infinite;
+
+z-index:-1;
+
+}
+
+@keyframes lightMove{
+
+0%{
+
+transform:translate(-4%,0);
+
+}
+
+50%{
+
+transform:translate(4%,3%);
+
+}
+
+100%{
+
+transform:translate(-4%,0);
+
+}
+
+}
+#cursorGlow{
+
+position:fixed;
+
+width:260px;
+
+height:260px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(circle,
+
+rgba(212,175,55,.12),
+
+transparent 70%);
+
+pointer-events:none;
+
+transform:translate(-50%,-50%);
+
+z-index:999;
+
+mix-blend-mode:screen;
+
+transition:left .05s linear,top .05s linear;
+
+}

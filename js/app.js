@@ -99,3 +99,16 @@ current=0;
 slides[current].classList.add("active");
 
 },5000);
+const glow=document.createElement("div");
+
+glow.id="cursorGlow";
+
+document.body.appendChild(glow);
+
+document.addEventListener("mousemove",(e)=>{
+
+glow.style.left=e.clientX+"px";
+
+glow.style.top=e.clientY+"px";
+
+});
