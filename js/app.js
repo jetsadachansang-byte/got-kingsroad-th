@@ -69,3 +69,14 @@ observer.observe(card);
 });
 
 });
+const hero=document.getElementById("hero");
+
+window.addEventListener("scroll",()=>{
+
+if(hero){
+
+hero.style.backgroundPositionY=window.scrollY*.35+"px";
+
+}
+
+});
