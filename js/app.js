@@ -1,22 +1,24 @@
-window.addEventListener("load",()=>{
-
-setTimeout(()=>{
+window.addEventListener("DOMContentLoaded",()=>{
 
 const loader=document.getElementById("loading");
 
 if(loader){
 
+setTimeout(()=>{
+
 loader.style.opacity="0";
+
+loader.style.visibility="hidden";
 
 setTimeout(()=>{
 
 loader.remove();
 
-},800);
-
-}
+},600);
 
 },1200);
+
+}
 
 });
 
