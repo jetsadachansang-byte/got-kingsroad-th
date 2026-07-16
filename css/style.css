@@ -104,15 +104,19 @@ z-index:2;
 
 font-family:'Cinzel',serif;
 
-font-size:72px;
+font-size:76px;
 
-letter-spacing:6px;
+font-weight:800;
+
+letter-spacing:8px;
+
+text-transform:uppercase;
 
 color:#d4af37;
 
-margin-bottom:10px;
+text-shadow:0 0 30px rgba(212,175,55,.45);
 
-text-shadow:0 0 25px rgba(212,175,55,.35);
+margin-bottom:10px;
 
 }
 
@@ -120,11 +124,15 @@ text-shadow:0 0 25px rgba(212,175,55,.35);
 
 font-family:'Cinzel',serif;
 
-font-size:96px;
+font-size:110px;
 
-font-weight:700;
+font-weight:800;
 
-margin-bottom:20px;
+line-height:1;
+
+margin-bottom:25px;
+
+color:white;
 
 }
 
@@ -142,7 +150,11 @@ margin-bottom:40px;
 
 .hero button{
 
-padding:18px 60px;
+padding:18px 55px;
+
+border-radius:999px;
+
+border:none;
 
 background:#d4af37;
 
@@ -150,17 +162,13 @@ color:#111;
 
 font-size:18px;
 
-font-weight:bold;
-
-border-radius:10px;
-
-border:none;
+font-weight:700;
 
 cursor:pointer;
 
 transition:.35s;
 
-box-shadow:0 0 25px rgba(212,175,55,.35);
+box-shadow:0 0 30px rgba(212,175,55,.4);
 
 }
 
@@ -301,5 +309,30 @@ top:-250px;
 left:50%;
 
 transform:translateX(-50%);
+
+}
+.hero-tag{
+
+display:inline-block;
+
+padding:10px 22px;
+
+border:1px solid rgba(212,175,55,.45);
+
+border-radius:999px;
+
+font-size:14px;
+
+letter-spacing:3px;
+
+color:#d4af37;
+
+margin-bottom:30px;
+
+text-transform:uppercase;
+
+background:rgba(212,175,55,.06);
+
+backdrop-filter:blur(8px);
 
 }
