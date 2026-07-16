@@ -259,17 +259,6 @@ justify-content:center;
 
 overflow:hidden;
 
-background:
-linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.88)),
-url("../images/hero/hero1.jpg");
-
-transition:background-image .8s ease;
-background-size:cover;
-
-background-position:center;
-
-background-attachment:fixed;
-
 }
 
 .hero-overlay{
