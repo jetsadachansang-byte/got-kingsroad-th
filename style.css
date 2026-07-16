@@ -1,0 +1,13 @@
+body{margin:0;font-family:Arial,sans-serif;background:#0b0b0b;color:#fff}
+.hero{background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.85)),#222;height:55vh;display:flex;align-items:center;justify-content:center;text-align:center}
+.overlay{padding:20px}
+h1{color:#d4af37;font-size:48px;margin:0}
+h2{margin:10px 0}
+nav{margin-top:25px}
+nav a{color:#fff;text-decoration:none;margin:8px;padding:10px 14px;border:1px solid #d4af37;border-radius:8px;display:inline-block}
+nav a:hover{background:#d4af37;color:#000}
+main{max-width:1100px;margin:auto;padding:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:#1b1b1b;border:1px solid #333;border-radius:12px;padding:20px;margin:16px 0}
+button{background:#d4af37;color:#000;border:0;padding:12px 20px;border-radius:8px;font-weight:bold}
+footer{text-align:center;padding:20px;background:#111;margin-top:30px}
