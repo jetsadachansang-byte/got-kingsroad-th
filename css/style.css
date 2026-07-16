@@ -2067,3 +2067,62 @@ transform:translateY(400px);
 }
 
 }
+/* ===========================
+   HERO LOGO
+=========================== */
+
+.hero-logo{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+margin-bottom:35px;
+
+animation:logoFloat 5s ease-in-out infinite;
+
+}
+
+.hero-logo img{
+
+width:min(950px,92vw);
+
+height:auto;
+
+display:block;
+
+filter:
+drop-shadow(0 12px 35px rgba(0,0,0,.75))
+drop-shadow(0 0 20px rgba(212,175,55,.25));
+
+transition:.35s;
+
+}
+
+.hero-logo img:hover{
+
+transform:scale(1.03);
+
+filter:
+drop-shadow(0 18px 45px rgba(0,0,0,.8))
+drop-shadow(0 0 30px rgba(212,175,55,.45));
+
+}
+
+@keyframes logoFloat{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
