@@ -279,7 +279,7 @@ rgba(0,0,0,.85));
 
 position:relative;
 
-z-index:2;
+z-index:10;
 
 max-width:900px;
 
@@ -1942,5 +1942,77 @@ rgba(0,0,0,.55)
 mix-blend-mode:screen;
 
 pointer-events:none;
+
+}
+/* ===========================
+   CURSOR GLOW V2
+=========================== */
+
+#cursorGlow{
+
+position:fixed;
+
+width:320px;
+
+height:320px;
+
+border-radius:50%;
+
+background:radial-gradient(circle,
+rgba(212,175,55,.18),
+rgba(212,175,55,.05),
+transparent 70%);
+
+pointer-events:none;
+
+transform:translate(-50%,-50%);
+
+z-index:99999;
+
+mix-blend-mode:screen;
+
+filter:blur(8px);
+
+transition:left .04s linear,
+top .04s linear;
+
+}
+/* ===========================
+   ASH
+=========================== */
+
+.ash{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+background-image:
+
+url("https://www.transparenttextures.com/patterns/stardust.png");
+
+opacity:.12;
+
+animation:ashMove 45s linear infinite;
+
+z-index:1;
+
+}
+
+@keyframes ashMove{
+
+0%{
+
+transform:translateY(-100px);
+
+}
+
+100%{
+
+transform:translateY(400px);
+
+}
 
 }

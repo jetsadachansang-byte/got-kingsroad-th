@@ -107,6 +107,16 @@ document.body.appendChild(glow);
 
 document.addEventListener("mousemove",(e)=>{
 
+requestAnimationFrame(()=>{
+
+glow.style.left=e.clientX+"px";
+
+glow.style.top=e.clientY+"px";
+
+});
+
+});(e)=>{
+
 glow.style.left=e.clientX+"px";
 
 glow.style.top=e.clientY+"px";
