@@ -112,3 +112,18 @@ glow.style.left=e.clientX+"px";
 glow.style.top=e.clientY+"px";
 
 });
+window.addEventListener("scroll",()=>{
+
+document.querySelectorAll(".quick-card,.news-card").forEach(card=>{
+
+const rect=card.getBoundingClientRect();
+
+if(rect.top<window.innerHeight-80){
+
+card.classList.add("show");
+
+}
+
+});
+
+});
