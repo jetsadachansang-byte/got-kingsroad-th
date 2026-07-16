@@ -225,9 +225,19 @@ width:100%;
 
 display:none;
 
-font-size:32px;
+font-size:34px;
 
 cursor:pointer;
+
+color:white;
+
+transition:.35s;
+
+}
+
+.mobile-btn:hover{
+
+color:#d4af37;
 
 }
 
@@ -830,7 +840,53 @@ transform:translate(-50%,8px);
 
 nav{
 
-display:none;
+position:fixed;
+
+top:82px;
+
+right:-100%;
+
+width:280px;
+
+height:calc(100vh - 82px);
+
+background:#0b0b0b;
+
+display:flex;
+
+justify-content:flex-start;
+
+align-items:flex-start;
+
+padding:40px;
+
+transition:.45s;
+
+border-left:1px solid rgba(212,175,55,.15);
+
+}
+
+nav.open{
+
+right:0;
+
+}
+
+nav ul{
+
+display:flex;
+
+flex-direction:column;
+
+gap:28px;
+
+width:100%;
+
+}
+
+.mobile-btn{
+
+display:block;
 
 }
 
@@ -1278,5 +1334,96 @@ left:-40%;
 left:100%;
 
 }
+
+}
+/* NAVBAR SCROLL */
+
+.navbar.scrolled{
+
+background:rgba(5,5,5,.96);
+
+backdrop-filter:blur(20px);
+
+box-shadow:0 10px 35px rgba(0,0,0,.45);
+
+}
+
+/* GOLD LINE */
+
+.navbar::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:0;
+
+width:100%;
+
+height:1px;
+
+background:linear-gradient(90deg,
+
+transparent,
+
+rgba(212,175,55,.9),
+
+transparent);
+
+opacity:.45;
+
+}
+
+/* LOGO */
+
+.logo{
+
+transition:.35s;
+
+}
+
+.logo:hover{
+
+transform:scale(1.05);
+
+}
+
+/* NAV */
+
+nav a{
+
+padding:10px 0;
+
+}
+
+nav a::before{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+bottom:-10px;
+
+width:0;
+
+height:2px;
+
+background:#d4af37;
+
+transform:translateX(-50%);
+
+transition:.35s;
+
+}
+
+nav a:hover::before,
+
+nav .active::before{
+
+width:100%;
 
 }
