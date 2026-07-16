@@ -2126,3 +2126,15 @@ transform:translateY(0);
 }
 
 }
+.logo-image{
+    width:240px;
+    height:auto;
+    display:block;
+    object-fit:contain;
+}
+
+@media (max-width:768px){
+    .logo-image{
+        width:170px;
+    }
+}
