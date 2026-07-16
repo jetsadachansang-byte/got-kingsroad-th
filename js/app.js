@@ -188,3 +188,34 @@ alert("ยังไม่พบข้อมูล");
 };
 
 }
+const hero=document.querySelector(".hero");
+
+const heroImages=[
+
+"images/hero/hero1.jpg",
+
+"images/hero/hero2.jpg",
+
+"images/hero/hero3.jpg",
+
+"images/hero/hero4.jpg"
+
+];
+
+let heroIndex=0;
+
+setInterval(()=>{
+
+heroIndex++;
+
+if(heroIndex>=heroImages.length){
+
+heroIndex=0;
+
+}
+
+hero.style.backgroundImage=
+
+`linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.88)),url(${heroImages[heroIndex]})`;
+
+},6000);
