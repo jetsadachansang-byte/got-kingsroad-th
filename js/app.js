@@ -127,3 +127,64 @@ card.classList.add("show");
 });
 
 });
+const searchBtn=document.getElementById("searchBtn");
+
+const searchInput=document.getElementById("searchInput");
+
+if(searchBtn){
+
+searchBtn.onclick=()=>{
+
+const value=searchInput.value.toLowerCase();
+
+if(value.includes("ข่าว")){
+
+location.href="news.html";
+
+}
+
+else if(value.includes("road")){
+
+location.href="roadmap.html";
+
+}
+
+else if(value.includes("คู่มือ")){
+
+location.href="guide.html";
+
+}
+
+else if(value.includes("ฐาน")){
+
+location.href="database.html";
+
+}
+
+else if(value.includes("บอส")){
+
+location.href="database.html";
+
+}
+
+else if(value.includes("ไอเทม")){
+
+location.href="database.html";
+
+}
+
+else if(value.includes("ทอง")){
+
+location.href="calculator.html";
+
+}
+
+else{
+
+alert("ยังไม่พบข้อมูล");
+
+}
+
+};
+
+}
