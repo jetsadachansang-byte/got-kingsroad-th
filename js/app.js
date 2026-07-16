@@ -1,71 +1,29 @@
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load",()=>{
 
-const navbar = document.querySelector(".navbar");
+setTimeout(()=>{
 
-window.addEventListener("scroll", () => {
+const loader=document.getElementById("loading");
 
-if (window.scrollY > 60) {
+loader.style.opacity="0";
 
-navbar.style.background = "rgba(5,5,5,.92)";
-navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,.35)";
+setTimeout(()=>{
 
-} else {
+loader.remove();
 
-navbar.style.background = "rgba(8,8,8,.72)";
-navbar.style.boxShadow = "none";
+},800);
 
-}
+},1200);
 
 });
 
-const cards = document.querySelectorAll(
-".news-card,.quick-card,.community-box"
-);
+document.addEventListener("DOMContentLoaded",()=>{
 
-const observer = new IntersectionObserver(
+const navbar=document.querySelector(".navbar");
 
-(entries) => {
+window.addEventListener("scroll",()=>{
 
-entries.forEach((entry) => {
-
-if (entry.isIntersecting) {
-
-entry.target.classList.add("show");
-
-}
+navbar.classList.toggle("scrolled",window.scrollY>50);
 
 });
-
-},
-
-{
-
-threshold: .15
-
-}
-
-);
-
-cards.forEach((card) => {
-
-card.classList.add("hidden");
-
-observer.observe(card);
-
-});
-
-const mobileBtn = document.querySelector(".mobile-btn");
-
-const nav = document.querySelector("nav");
-
-if (mobileBtn) {
-
-mobileBtn.addEventListener("click", () => {
-
-nav.classList.toggle("open");
-
-});
-
-}
 
 });
