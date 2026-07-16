@@ -149,3 +149,77 @@ gap:15px;
 }
 
 }
+/* ===========================
+   HERO V2
+=========================== */
+
+.hero{
+position:relative;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+height:90vh;
+text-align:center;
+overflow:hidden;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(to bottom,rgba(0,0,0,.45),rgba(0,0,0,.9));
+z-index:1;
+}
+
+.hero h1,
+.hero h2,
+.hero p,
+.hero button{
+position:relative;
+z-index:2;
+}
+
+.hero h1{
+font-size:64px;
+letter-spacing:4px;
+text-shadow:0 0 25px rgba(212,175,55,.4);
+}
+
+.hero h2{
+font-size:88px;
+color:#fff;
+margin:10px 0 20px;
+}
+
+.hero p{
+font-size:22px;
+opacity:.9;
+}
+
+.hero button{
+
+margin-top:35px;
+
+background:#d4af37;
+
+color:#111;
+
+padding:16px 48px;
+
+border-radius:12px;
+
+font-weight:bold;
+
+transition:.35s;
+
+}
+
+.hero button:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 0 30px #d4af37;
+
+}
