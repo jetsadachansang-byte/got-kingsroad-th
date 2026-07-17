@@ -15,7 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 loader.remove();
             }, 600);
 
-        }, 1200);
+            }, 1200);
+    }
+      
         
         // Search box: route to matching pages
 const searchInput = document.getElementById("searchInput");
