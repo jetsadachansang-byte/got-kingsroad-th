@@ -192,10 +192,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ==========================
+       BACK TO TOP
+    ========================== */
+
+    const backTop = document.createElement("button");
+    backTop.className = "back-top";
+    backTop.setAttribute("aria-label", "กลับขึ้นด้านบน");
+    backTop.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>';
+    document.body.appendChild(backTop);
+
+    window.addEventListener("scroll", () => {
+        backTop.classList.toggle("visible", window.scrollY > 600);
+    });
+
+    backTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    /* ==========================
        SCROLL REVEAL
     ========================== */
 
-    const cards = document.querySelectorAll(".news-card,.quick-card,.community-box");
+    const cards = document.querySelectorAll(".news-card,.quick-card,.community-box,.class-card,.tl-item,.stat");
 
     if (cards.length > 0) {
 
