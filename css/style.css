@@ -1129,23 +1129,36 @@ footer::before {
 
     nav ul {
         flex-direction: column;
-        align-items: center;
-        gap: 25px;
+        align-items: stretch;
+        gap: 18px;
+        text-align: center;
+    }
+
+    /* จัดทุกรายการให้อยู่กึ่งกลางเสมอ แม้มีเมนูย่อย */
+    nav li {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav a {
+        display: inline-block;
     }
 
     /* dropdown บนมือถือ: แสดงเป็นลิงก์ปกติ */
     .dropdown-menu {
         position: static;
         display: block;
+        min-width: 0;
         border: none;
         box-shadow: none;
         background: transparent;
-        padding: 8px 0 0;
+        padding: 4px 0 0;
         text-align: center;
     }
 
     .dropdown-menu a {
-        padding: 8px 20px;
+        display: inline-block;
+        padding: 4px 14px;
         font-size: 14px;
         color: #999;
     }
