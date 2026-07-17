@@ -2087,3 +2087,162 @@ nav ul > li > a {
     }
 
 }
+
+/* ============================================================
+   CALCULATOR PAGE
+============================================================ */
+
+.calc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    align-items: start;
+}
+
+.calc-card {
+    background: linear-gradient(180deg, rgba(212, 175, 55, .05), transparent 35%), #161513;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px 28px;
+    transition: .35s;
+}
+
+.calc-card:hover {
+    border-color: rgba(212, 175, 55, .55);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, .45);
+}
+
+.calc-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+}
+
+.calc-head .quick-icon {
+    margin-bottom: 0;
+}
+
+.calc-head .quick-icon svg {
+    width: 34px;
+    height: 34px;
+}
+
+.calc-head h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    background: var(--gold-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.calc-desc {
+    color: #a89e8a;
+    font-size: 14px;
+    margin-bottom: 22px;
+}
+
+.calc-card label {
+    display: block;
+    font-size: 13px;
+    letter-spacing: .5px;
+    color: var(--gray);
+    margin-bottom: 14px;
+}
+
+.calc-card input {
+    display: block;
+    width: 100%;
+    margin-top: 6px;
+    height: 46px;
+    padding: 0 16px;
+    font-size: 16px;
+    font-family: inherit;
+    color: #fff;
+    background: #0e0d0b;
+    border: 1px solid rgba(212, 175, 55, .25);
+    border-radius: 12px;
+    outline: none;
+    transition: .25s;
+}
+
+.calc-card input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 14px rgba(212, 175, 55, .2);
+}
+
+/* ซ่อนลูกศร number input */
+.calc-card input::-webkit-outer-spin-button,
+.calc-card input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.calc-card input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.calc-btn {
+    width: 100%;
+    margin-top: 8px;
+    padding: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.calc-result {
+    display: none;
+    margin-top: 18px;
+    padding: 16px 18px;
+    background: #0e0d0b;
+    border: 1px solid rgba(212, 175, 55, .3);
+    border-radius: 12px;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #d7d0bf;
+}
+
+.calc-result.show {
+    display: block;
+    animation: slideFade .4s;
+}
+
+.calc-result .gold {
+    color: var(--gold);
+    font-size: 18px;
+}
+
+.calc-result .bad {
+    color: #e06a5a;
+}
+
+/* ---------- การ์ดเร็วๆ นี้ ---------- */
+
+.quick-card.soon {
+    opacity: .75;
+    cursor: default;
+}
+
+.quick-card.soon:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: var(--border);
+}
+
+.soon-tag {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--gold);
+    border: 1px solid rgba(212, 175, 55, .4);
+    border-radius: 999px;
+    padding: 3px 12px;
+    background: rgba(0, 0, 0, .4);
+}
