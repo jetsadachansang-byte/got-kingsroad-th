@@ -119,6 +119,9 @@ align-items:center;
 
 height:82px;
 
+padding-left:0;
+padding-right:8px;
+
 }
 
 .logo{
@@ -257,7 +260,8 @@ position:relative;
 
 z-index:10;
 
-max-width:950px;
+max-width:1200px;
+width:100%;
 
 text-align:center;
 
@@ -1930,6 +1934,12 @@ margin-bottom:60px;
     display:flex;
 
     align-items:center;
+    
+    
+
+width:100%;
+    flex-shrink:1;
+max-width:320px;
 
     background:linear-gradient(
         180deg,
@@ -1956,7 +1966,8 @@ margin-bottom:60px;
 
 .search-box input{
 
-width:240px;
+width:100%;
+min-width:0;
 
 padding:12px 18px;
 
@@ -2179,7 +2190,7 @@ transform:translateY(0);
 
 }
 .logo-image{
-    width:240px;
+    width:220px;
     height:auto;
     display:block;
     object-fit:contain;
