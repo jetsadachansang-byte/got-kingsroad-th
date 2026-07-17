@@ -500,6 +500,9 @@ color:#111;
 
 .section-title h2{
 
+position:relative;
+display:inline-block;
+
     font-family:'Cinzel', serif;
 
     font-size:52px;
@@ -519,6 +522,36 @@ color:#111;
 
 }
 
+.section-title h2::before,
+.section-title h2::after{
+
+    content:"✦";
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#c9a74f;
+
+    font-size:18px;
+
+    opacity:.9;
+
+}
+
+.section-title h2::before{
+
+    left:-40px;
+
+}
+
+.section-title h2::after{
+
+    right:-40px;
+
+}
 .section-title p{
 
 color:var(--gray);
