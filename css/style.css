@@ -972,6 +972,19 @@ transition:.45s;
 
 border-left:1px solid rgba(212,175,55,.15);
 
+.nav-wrapper{
+    gap:12px;
+}
+
+.logo{
+    flex-shrink:0;
+}
+
+.search-box{
+    flex:1;
+    max-width:none;
+    min-width:0;
+
 }
 
 nav.open{
@@ -1934,8 +1947,9 @@ margin-bottom:60px;
 display:flex;
 align-items:center;
 
-width:100%;
-max-width:280px;
+max-width:100%;
+flex:1;
+min-width:0;
 
 height:48px;
 
