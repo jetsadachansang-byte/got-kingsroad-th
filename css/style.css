@@ -2241,18 +2241,13 @@ transform:translateY(0);
 }
 .steel-title{
 
-    background:
-linear-gradient(
+    background:linear-gradient(
 180deg,
 #ffffff 0%,
-#fcfcfc 8%,
-#efefef 18%,
-#cfcfcf 28%,
-#8f8f8f 42%,
-#f8f8f8 56%,
+#f4f4f4 20%,
+#d8d8d8 45%,
 #ffffff 70%,
-#c2c2c2 86%,
-#8a8a8a 100%
+#d0d0d0 100%
 );
 
     -webkit-background-clip:text;
@@ -2260,12 +2255,13 @@ linear-gradient(
     -webkit-text-fill-color:transparent;
 
     text-shadow:
-        0 1px 0 rgba(255,255,255,.45),
-        0 2px 2px rgba(255,255,255,.18),
-        0 5px 10px rgba(0,0,0,.28);
+0 1px 0 rgba(255,255,255,.35),
+0 2px 0 rgba(210,210,210,.25),
+0 4px 8px rgba(0,0,0,.35);
 
     filter:contrast(115%) saturate(105%);
--webkit-text-stroke:0.4px rgba(255,255,255,.18);
+
+-webkit-text-stroke:0.3px rgba(80,80,80,.35);
 
 text-shadow:
     0 1px 0 rgba(255,255,255,.75),
