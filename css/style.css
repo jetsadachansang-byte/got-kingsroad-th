@@ -343,6 +343,11 @@ nav ul > li > .active::after {
         0 2px 6px rgba(0, 0, 0, .25);
 }
 
+.search-box button svg {
+    width: 16px;
+    height: 16px;
+}
+
 .search-box button:hover {
     transform: scale(1.06);
     box-shadow:
@@ -358,11 +363,16 @@ nav ul > li > .active::after {
 
 .mobile-btn {
     display: none;
-    font-size: 34px;
     cursor: pointer;
     color: #fff;
     transition: .35s;
     flex-shrink: 0;
+}
+
+.mobile-btn svg {
+    width: 30px;
+    height: 30px;
+    display: block;
 }
 
 .mobile-btn:hover {
@@ -892,8 +902,20 @@ nav ul > li > .active::after {
 }
 
 .quick-icon {
-    font-size: 42px;
+    color: var(--gold);
     margin-bottom: 20px;
+}
+
+.quick-icon svg {
+    width: 46px;
+    height: 46px;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, .35));
+    transition: .35s;
+}
+
+.quick-card:hover .quick-icon svg {
+    transform: scale(1.12);
+    filter: drop-shadow(0 0 16px rgba(212, 175, 55, .6));
 }
 
 .quick-card h3 {

@@ -136,15 +136,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         slider.appendChild(dotsWrap);
 
-        // สร้างปุ่มลูกศร
+        // สร้างปุ่มลูกศร (ไอคอน SVG)
+        const CHEVRON_L = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>';
+        const CHEVRON_R = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>';
+
         const prevBtn = document.createElement("button");
         prevBtn.className = "slider-arrow prev";
-        prevBtn.innerHTML = "❮";
+        prevBtn.innerHTML = CHEVRON_L;
         prevBtn.setAttribute("aria-label", "สไลด์ก่อนหน้า");
 
         const nextBtn = document.createElement("button");
         nextBtn.className = "slider-arrow next";
-        nextBtn.innerHTML = "❯";
+        nextBtn.innerHTML = CHEVRON_R;
         nextBtn.setAttribute("aria-label", "สไลด์ถัดไป");
 
         slider.appendChild(prevBtn);
