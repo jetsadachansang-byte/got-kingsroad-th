@@ -505,7 +505,7 @@ display:inline-block;
 
     font-family:'Cinzel', serif;
 
-    font-size:52px;
+    font-size:42px;
 
     font-weight:700;
 
@@ -525,7 +525,7 @@ display:inline-block;
 .section-title h2::before,
 .section-title h2::after{
 
-    content:"✦";
+    content:"◆";
 
     position:absolute;
 
@@ -543,13 +543,13 @@ display:inline-block;
 
 .section-title h2::before{
 
-    left:-40px;
+    left:-24px;
 
 }
 
 .section-title h2::after{
 
-    right:-40px;
+    right:-24px;
 
 }
 .section-title p{
