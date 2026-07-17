@@ -16,7 +16,54 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 600);
 
         }, 1200);
+        
+        // Search box: filter visible content on the page
+const searchInput = document.getElementById("searchInput");
+const searchBtn = document.getElementById("searchBtn");
+
+function performLocalSearch() {
+  const query = searchInput.value.trim().toLowerCase();
+
+  // ถ้าอยากให้ปุ่มค้นหาแค่กระโดดไปส่วนข่าว ก็เปลี่ยน logic ตรงนี้ได้ภายหลัง
+  if (!query) {
+    alert("พิมพ์คำที่ต้องการค้นหาก่อน");
+    return;
+  }
+
+  const searchableItems = document.querySelectorAll(
+    ".news-card, .quick-card, .featured-content, .section-title, .community-box"
+  );
+
+  let firstMatch = null;
+
+  searchableItems.forEach((item) => {
+    const text = item.textContent.toLowerCase();
+    const match = text.includes(query);
+
+    item.style.display = match ? "" : "none";
+
+    if (match && !firstMatch) {
+      firstMatch = item;
     }
+  });
+
+  if (firstMatch) {
+    firstMatch.scrollIntoView({ behavior: "smooth", block: "center" });
+  } else {
+    alert("ไม่พบข้อมูลที่ค้นหา");
+  }
+}
+
+if (searchBtn && searchInput) {
+  searchBtn.addEventListener("click", performLocalSearch);
+
+  searchInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      performLocalSearch();
+    }
+  });
+}
 
     /* ==========================
        NAVBAR
