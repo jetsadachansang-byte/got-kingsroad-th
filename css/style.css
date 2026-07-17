@@ -457,13 +457,35 @@ margin-bottom:70px;
 
 .section-title h2{
 
-font-family:'Cinzel',serif;
+    font-family:'Cinzel', serif;
 
-font-size:48px;
+    font-size:52px;
 
-margin-bottom:12px;
+    font-weight:700;
 
-color:var(--gold);
+    letter-spacing:2px;
+
+    margin-bottom:16px;
+
+    color:#f8f5ef;
+
+    text-transform:uppercase;
+
+    background:linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #ebe6dc 35%,
+        #b8b1a5 70%,
+        #ffffff 100%
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:
+        0 1px 0 rgba(255,255,255,.4),
+        0 2px 0 rgba(170,170,170,.35),
+        0 5px 12px rgba(0,0,0,.75);
 
 }
 
@@ -2128,4 +2150,34 @@ transform:translateY(0);
 
 .hero-overlay{
     display:none;
+}
+/* ===============================
+   GAME OF THRONES TYPOGRAPHY
+================================= */
+
+.got-title{
+    font-family:'Cinzel', serif;
+    font-weight:700;
+    text-transform:uppercase;
+
+    color:#f5f2ea;
+
+    letter-spacing:2px;
+    line-height:1.2;
+
+    background:linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #ece8df 30%,
+        #beb7ad 65%,
+        #ffffff 100%
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:
+        0 1px 0 rgba(255,255,255,.35),
+        0 2px 0 rgba(170,170,170,.35),
+        0 4px 10px rgba(0,0,0,.75);
 }
