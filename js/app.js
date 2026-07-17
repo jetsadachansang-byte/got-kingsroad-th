@@ -7,16 +7,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const loader = document.getElementById("loading");
 
     if (loader) {
+    setTimeout(() => {
+        loader.style.opacity = "0";
+        loader.style.visibility = "hidden";
+
         setTimeout(() => {
-            loader.style.opacity = "0";
-            loader.style.visibility = "hidden";
+            loader.remove();
+        }, 600);
 
-            setTimeout(() => {
-                loader.remove();
-            }, 600);
-
-            }, 1200);
-    }
+    }, 1200);
+}
       
         
         // Search box: route to matching pages
