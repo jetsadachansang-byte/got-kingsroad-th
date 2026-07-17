@@ -511,17 +511,26 @@ display:inline-block;
 
     letter-spacing:1px;
 
-    color:#f4efe4;
-
     margin-bottom:16px;
 
-    text-shadow:
-    0 1px 0 rgba(255,255,255,.45),
-    0 2px 0 rgba(210,210,210,.25),
-    0 3px 0 rgba(140,140,140,.18),
-    0 5px 8px rgba(0,0,0,.45),
-    0 12px 20px rgba(0,0,0,.28);
-    -webkit-text-stroke:1px rgba(30,30,30,.55);
+    background:linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #f4f4f4 18%,
+    #d9d9d9 35%,
+    #9f9f9f 52%,
+    #ececec 70%,
+    #ffffff 100%
+);
+
+-webkit-background-clip:text;
+background-clip:text;
+-webkit-text-fill-color:transparent;
+
+text-shadow:
+    0 1px 0 rgba(255,255,255,.25),
+    0 2px 5px rgba(0,0,0,.30);
+    
 
 }
 
