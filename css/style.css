@@ -1314,3 +1314,304 @@ footer::before {
     }
 
 }
+
+/* ============================================================
+   GOT ROYAL TYPOGRAPHY v2
+   หัวข้อทุกจุด = Cinzel (Latin) + Trirong (ไทย) สไตล์จารึกโลหะ
+   เนื้อหายังคง Inter / Noto Sans Thai เพื่อการอ่าน
+============================================================ */
+
+:root {
+    --font-display: 'Cinzel', 'Trirong', serif;
+    --steel-grad: linear-gradient(to bottom, #ffffff 0%, #ece8df 32%, #b7b0a5 62%, #f4f1ea 100%);
+    --gold-grad: linear-gradient(to bottom, #f6e27a 0%, #e9c65b 35%, #b8860b 75%, #f0d37a 100%);
+}
+
+/* ---------- SECTION TITLE: จารึกเหล็กเงิน ---------- */
+
+.section-title h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 46px;
+    letter-spacing: 2px;
+    line-height: 1.45;
+    background: var(--steel-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, .65));
+}
+
+/* เพชรประดับข้างหัวข้อ ต้องคืนสีเพราะโดน text-fill โปร่งใส */
+.section-title h2::before,
+.section-title h2::after {
+    -webkit-text-fill-color: var(--gold-soft);
+    background: none;
+    filter: none;
+    font-size: 16px;
+}
+
+.section-title p {
+    font-family: 'Trirong', serif;
+    font-style: italic;
+    font-size: 17px;
+    letter-spacing: 1px;
+    color: #a89e8a;
+}
+
+/* ---------- HERO ---------- */
+
+.hero-badge {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 4px;
+    line-height: 1.6;
+}
+
+.hero h1 {
+    background: var(--steel-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .8)) drop-shadow(0 0 25px rgba(255, 255, 255, .08));
+}
+
+.hero h2 {
+    background-image:
+        var(--gold-grad),
+        linear-gradient(#7a0f0f, #4e0505);
+    background-clip: text, border-box;
+    -webkit-background-clip: text, border-box;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ---------- EYEBROW / ป้ายหมวด ---------- */
+
+.news-content span,
+.featured-content span {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    line-height: 1.6;
+}
+
+/* เส้นทองเล็กหน้าป้ายหมวด */
+.news-content span::before {
+    content: "";
+    display: inline-block;
+    width: 22px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* ---------- CARD HEADINGS ---------- */
+
+.news-content h3,
+.featured-content h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.45;
+    letter-spacing: 1px;
+    background: var(--steel-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .6));
+}
+
+.news-content h3 {
+    font-size: 25px;
+}
+
+.quick-card {
+    text-align: center;
+}
+
+.quick-card h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 1px;
+    line-height: 1.45;
+    background: var(--gold-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .55));
+}
+
+.quick-card p {
+    font-size: 15px;
+}
+
+/* ---------- COMMUNITY ---------- */
+
+.community-box h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    line-height: 1.4;
+    background: var(--gold-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, .6));
+}
+
+/* ---------- BUTTONS: ตราประทับราชสำนัก ---------- */
+
+.btn-primary,
+.btn-secondary {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 2px;
+    line-height: 1.5;
+}
+
+.btn-primary {
+    background: linear-gradient(180deg, #f0d37a 0%, #d4af37 55%, #b8912c 100%);
+    border: 1px solid rgba(255, 235, 170, .55);
+}
+
+/* ---------- NAV & TOPBAR ---------- */
+
+nav ul > li > a {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.topbar span {
+    font-family: 'Trirong', serif;
+    letter-spacing: .5px;
+    color: #c9bfa8;
+}
+
+.topbar a {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+/* ---------- FOOTER ---------- */
+
+.footer-grid h3,
+.footer-grid h4 {
+    font-family: var(--font-display);
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    background: var(--gold-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-grid a {
+    font-size: 15px;
+}
+
+.copyright {
+    font-family: 'Trirong', serif;
+    letter-spacing: 1px;
+}
+
+/* ---------- LOADER ---------- */
+
+.loader-logo {
+    background: var(--steel-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ---------- องค์ประกอบเสริมความงาม ---------- */
+
+/* มุมทองบนการ์ดเมนูด่วน */
+.quick-card {
+    position: relative;
+}
+
+.quick-card::before,
+.quick-card::after {
+    content: "";
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border: 1px solid rgba(212, 175, 55, .35);
+    transition: .35s;
+    pointer-events: none;
+}
+
+.quick-card::before {
+    top: 12px;
+    left: 12px;
+    border-right: none;
+    border-bottom: none;
+    border-top-left-radius: 10px;
+}
+
+.quick-card::after {
+    bottom: 12px;
+    right: 12px;
+    border-left: none;
+    border-top: none;
+    border-bottom-right-radius: 10px;
+}
+
+.quick-card:hover::before,
+.quick-card:hover::after {
+    border-color: rgba(212, 175, 55, .85);
+    width: 34px;
+    height: 34px;
+}
+
+/* จั่วหัวมีเส้นคู่บนล่างชัดขึ้น */
+.section-title::before,
+.section-title::after {
+    width: 240px;
+    box-shadow: 0 0 12px rgba(212, 175, 55, .35);
+}
+
+/* ---------- RESPONSIVE ปรับตามฟอนต์ใหม่ ---------- */
+
+@media (max-width: 991px) {
+
+    .section-title h2 {
+        font-size: 36px;
+    }
+
+    nav ul > li > a {
+        font-size: 17px;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .section-title h2 {
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+
+    .news-content h3 {
+        font-size: 22px;
+    }
+
+    .quick-card h3 {
+        font-size: 21px;
+    }
+
+    .community-box h2 {
+        font-size: 28px;
+    }
+
+}
