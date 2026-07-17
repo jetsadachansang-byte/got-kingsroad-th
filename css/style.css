@@ -1952,14 +1952,6 @@ margin-bottom:60px;
 
     transition:.25s;
     
-.search-box:focus-within{
-
-    border-color:#d8b24a;
-
-    box-shadow:
-        0 0 18px rgba(216,178,74,.22),
-        inset 0 1px 0 rgba(255,255,255,.08);
-
 }
 
 .search-box input{
