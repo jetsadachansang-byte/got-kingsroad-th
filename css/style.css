@@ -2106,8 +2106,8 @@ transform:translateY(0);
 
     background-image:
         linear-gradient(
-            rgba(0,0,0,.10),
-            rgba(0,0,0,.35)
+            rgba(0,0,0,.05),
+            rgba(0,0,0,.20)
         ),
         url("/images/background/hero-bg.png");
 
@@ -2115,7 +2115,7 @@ transform:translateY(0);
     background-position:center;
     background-repeat:no-repeat;
 
-    filter:brightness(1.2) contrast(1.08) saturate(1.1);
+    filter:brightness(1.25) contrast(1.08) saturate(1.15);
 
     z-index:-1;
     pointer-events:none;
