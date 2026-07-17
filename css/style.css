@@ -514,13 +514,16 @@ display:inline-block;
     margin-bottom:16px;
 
     background:linear-gradient(
-    to bottom,
+    180deg,
     #ffffff 0%,
-    #f4f4f4 18%,
-    #d9d9d9 35%,
-    #9f9f9f 52%,
-    #ececec 70%,
-    #ffffff 100%
+    #fdfdfd 8%,
+    #e6e6e6 18%,
+    #b8b8b8 30%,
+    #8d8d8d 42%,
+    #dcdcdc 58%,
+    #ffffff 72%,
+    #bfbfbf 88%,
+    #8d8d8d 100%
 );
 
 -webkit-background-clip:text;
@@ -528,8 +531,9 @@ background-clip:text;
 -webkit-text-fill-color:transparent;
 
 text-shadow:
-    0 1px 0 rgba(255,255,255,.25),
-    0 2px 5px rgba(0,0,0,.30);
+    0 1px 0 rgba(255,255,255,.35),
+    0 -1px 0 rgba(70,70,70,.45),
+    0 3px 6px rgba(0,0,0,.35);
     
 
 }
