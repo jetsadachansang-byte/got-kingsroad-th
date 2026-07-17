@@ -511,14 +511,17 @@ display:inline-block;
 
     letter-spacing:1px;
 
-    color:#e8e6e2;
+    color:#f4efe4;
 
     margin-bottom:16px;
 
     text-shadow:
-        0 1px 0 #ffffff22,
-        0 2px 2px rgba(0,0,0,.8),
-        0 4px 6px rgba(0,0,0,.6);
+    0 1px 0 rgba(255,255,255,.45),
+    0 2px 0 rgba(210,210,210,.25),
+    0 3px 0 rgba(140,140,140,.18),
+    0 5px 8px rgba(0,0,0,.45),
+    0 12px 20px rgba(0,0,0,.28);
+    -webkit-text-stroke:1px rgba(30,30,30,.55);
 
 }
 
