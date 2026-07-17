@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,253 +8,159 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
 
+<div class="ash"></div>
+
 <div class="topbar">
-
-<div class="container">
-
-<span>คู่มือการเล่น Game of Thrones: Kingsroad</span>
-
-<a href="index.html">กลับหน้าหลัก</a>
-
-</div>
-
+    <div class="container">
+        <span>คู่มือการเล่น Game of Thrones: Kingsroad</span>
+        <a href="index.html">กลับหน้าหลัก</a>
+    </div>
 </div>
 
 <header class="navbar">
+    <div class="container nav-wrapper">
 
-<div class="container nav-wrapper">
+        <a href="index.html" class="logo">
+            <img src="images/logo/got-header.webp"
+                 class="logo-image"
+                 alt="Game of Thrones Kingsroad Thailand">
+        </a>
 
-<a href="index.html" class="logo">
+        <nav>
+            <ul>
+                <li><a  href="index.html">หน้าหลัก</a></li>
+                <li><a  href="news.html">ข่าวสาร</a></li>
+                <li><a  href="roadmap.html">Roadmap</a></li>
+                <li class="dropdown">
+                    <a  href="database.html">ฐานข้อมูล</a>
+                    <div class="dropdown-menu">
+                        <a href="database.html#class">อาชีพ</a>
+                        <a href="database.html#boss">บอส</a>
+                        <a href="database.html#item">ไอเทม</a>
+                        <a href="database.html#map">แผนที่</a>
+                    </div>
+                </li>
+                <li><a class="active" href="guide.html">คู่มือ</a></li>
+                <li><a href="calculator.html">คำนวณ</a></li>
+                <li><a href="services.html">บริการ</a></li>
+            </ul>
+        </nav>
 
-<span class="logo-icon">⚔</span>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="ค้นหาข่าว คู่มือ บอส ไอเทม...">
+            <button id="searchBtn" aria-label="ค้นหา">⌕</button>
+        </div>
 
-<div>
+        <div class="mobile-btn">☰</div>
 
-<h3>GAME OF THRONES</h3>
-
-<p>KINGSROAD THAILAND</p>
-
-</div>
-
-</a>
-
-<nav>
-
-<ul>
-
-<li><a href="index.html">หน้าหลัก</a></li>
-
-<li><a href="news.html">ข่าวสาร</a></li>
-
-<li><a href="roadmap.html">Roadmap</a></li>
-
-<li><a href="database.html">ฐานข้อมูล</a></li>
-
-<li><a class="active" href="guide.html">คู่มือ</a></li>
-
-<li><a href="calculator.html">คำนวณ</a></li>
-
-<li><a href="services.html">บริการ</a></li>
-
-</ul>
-
-</nav>
-
-<div class="mobile-btn">☰</div>
-
-</div>
-
+    </div>
 </header>
 
 <section class="hero">
 
-<div class="hero-overlay"></div>
+    <div class="hero-overlay"></div>
 
-<div class="container hero-content">
-
-<span class="hero-badge">
-
-GUIDE
-
-</span>
-
-<h1>PLAYER</h1>
-
-<h2>GUIDE</h2>
-
-<p>
-
-รวมคู่มือสำหรับผู้เล่นใหม่และผู้เล่นระดับสูง
-
-</p>
-
-</div>
+    <div class="container hero-content">
+        <span class="hero-badge">GUIDE</span>
+        <h1>PLAYER</h1>
+        <h2>GUIDE</h2>
+        <p>รวมคู่มือสำหรับผู้เล่นใหม่และผู้เล่นระดับสูง</p>
+    </div>
 
 </section>
 
 <section class="latest-news">
+    <div class="container">
 
-<div class="container">
+        <div class="section-title">
+            <h2>คู่มือทั้งหมด</h2>
+            <p>เลือกหัวข้อที่ต้องการศึกษา</p>
+        </div>
 
-<div class="section-title">
+        <div class="quick-grid">
+            <a href="#" class="quick-card">
+                <div class="quick-icon">🎮</div>
+                <h3>เริ่มต้นเล่นเกม</h3>
+                <p>แนะนำระบบพื้นฐานทั้งหมด</p>
+            </a>
+            <a href="#" class="quick-card">
+                <div class="quick-icon">⚔</div>
+                <h3>เลือกอาชีพ</h3>
+                <p>ข้อดีและข้อเสียของทุกอาชีพ</p>
+            </a>
+            <a href="#" class="quick-card">
+                <div class="quick-icon">📈</div>
+                <h3>อัปเลเวลไว</h3>
+                <p>แนวทางเก็บเลเวลอย่างรวดเร็ว</p>
+            </a>
+            <a href="#" class="quick-card">
+                <div class="quick-icon">💰</div>
+                <h3>ฟาร์มทอง</h3>
+                <p>จุดฟาร์มและเทคนิคทำเงิน</p>
+            </a>
+            <a href="#" class="quick-card">
+                <div class="quick-icon">🛡</div>
+                <h3>สร้างตัวละคร</h3>
+                <p>แนวทาง Build และอุปกรณ์</p>
+            </a>
+            <a href="#" class="quick-card">
+                <div class="quick-icon">👹</div>
+                <h3>บอสทั้งหมด</h3>
+                <p>เทคนิคการสู้บอสแต่ละตัว</p>
+            </a>
+            <a href="#" class="quick-card">
+                <div class="quick-icon">🏰</div>
+                <h3>Raid Guide</h3>
+                <p>แนวทางลง Raid แบบละเอียด</p>
+            </a>
+            <a href="#" class="quick-card">
+                <div class="quick-icon">🎒</div>
+                <h3>อุปกรณ์แนะนำ</h3>
+                <p>เซ็ตไอเทมสำหรับแต่ละอาชีพ</p>
+            </a>
+        </div>
 
-<h2>คู่มือทั้งหมด</h2>
-
-<p>เลือกหัวข้อที่ต้องการศึกษา</p>
-
-</div>
-
-<div class="quick-grid">
-
-<a href="#" class="quick-card">
-
-<div class="quick-icon">🎮</div>
-
-<h3>เริ่มต้นเล่นเกม</h3>
-
-<p>แนะนำระบบพื้นฐานทั้งหมด</p>
-
-</a>
-
-<a href="#" class="quick-card">
-
-<div class="quick-icon">⚔</div>
-
-<h3>เลือกอาชีพ</h3>
-
-<p>ข้อดีและข้อเสียของทุกอาชีพ</p>
-
-</a>
-
-<a href="#" class="quick-card">
-
-<div class="quick-icon">📈</div>
-
-<h3>อัปเลเวลไว</h3>
-
-<p>แนวทางเก็บเลเวลอย่างรวดเร็ว</p>
-
-</a>
-
-<a href="#" class="quick-card">
-
-<div class="quick-icon">💰</div>
-
-<h3>ฟาร์มทอง</h3>
-
-<p>จุดฟาร์มและเทคนิคทำเงิน</p>
-
-</a>
-
-<a href="#" class="quick-card">
-
-<div class="quick-icon">🛡</div>
-
-<h3>สร้างตัวละคร</h3>
-
-<p>แนวทาง Build และอุปกรณ์</p>
-
-</a>
-
-<a href="#" class="quick-card">
-
-<div class="quick-icon">👹</div>
-
-<h3>บอสทั้งหมด</h3>
-
-<p>เทคนิคการสู้บอสแต่ละตัว</p>
-
-</a>
-
-<a href="#" class="quick-card">
-
-<div class="quick-icon">🏰</div>
-
-<h3>Raid Guide</h3>
-
-<p>แนวทางลง Raid แบบละเอียด</p>
-
-</a>
-
-<a href="#" class="quick-card">
-
-<div class="quick-icon">🎒</div>
-
-<h3>อุปกรณ์แนะนำ</h3>
-
-<p>เซ็ตไอเทมสำหรับแต่ละอาชีพ</p>
-
-</a>
-
-</div>
-
-</div>
-
+    </div>
 </section>
 
 <footer>
+    <div class="container footer-grid">
 
-<div class="container footer-grid">
+        <div>
+            <h3>Game of Thrones: Kingsroad TH</h3>
+            <p>เว็บไซต์แฟนคอมมูนิตี้ภาษาไทย</p>
+        </div>
 
-<div>
+        <div>
+            <h4>เมนู</h4>
+            <ul>
+                <li><a href="news.html">ข่าวสาร</a></li>
+                <li><a href="roadmap.html">Roadmap</a></li>
+                <li><a href="database.html">ฐานข้อมูล</a></li>
+            </ul>
+        </div>
 
-<h3>Game of Thrones TH</h3>
+        <div>
+            <h4>JC Gameservice</h4>
+            <ul>
+                <li><a href="services.html">บริการ</a></li>
+                <li><a href="calculator.html">เครื่องคำนวณ</a></li>
+            </ul>
+        </div>
 
-<p>เว็บไซต์แฟนคอมมูนิตี้ภาษาไทย</p>
+    </div>
 
-</div>
-
-<div>
-
-<h4>เมนู</h4>
-
-<ul>
-
-<li><a href="news.html">ข่าวสาร</a></li>
-
-<li><a href="roadmap.html">Roadmap</a></li>
-
-<li><a href="database.html">ฐานข้อมูล</a></li>
-
-</ul>
-
-</div>
-
-<div>
-
-<h4>JC Gameservice</h4>
-
-<ul>
-
-<li><a href="services.html">บริการ</a></li>
-
-<li><a href="calculator.html">เครื่องคำนวณ</a></li>
-
-</ul>
-
-</div>
-
-</div>
-
-<div class="copyright">
-
-© 2026 JC Gameservice
-
-</div>
-
+    <div class="copyright">© 2026 Game of Thrones: Kingsroad TH • JC Gameservice</div>
 </footer>
 
 <script src="js/app.js"></script>
 
 </body>
-
 </html>

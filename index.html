@@ -5,555 +5,279 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Game of Thrones: Kingsroad TH</title>
+<meta name="description" content="แฟนคอมมูนิตี้ภาษาไทย Game of Thrones: Kingsroad รวมข่าวสาร Roadmap ฐานข้อมูล และคู่มือ">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
 <div class="ash"></div>
 
 <div class="topbar">
-
-<div class="container">
-
-<span>ประเทศไทยแฟนคอมมูนิตี้ Game of Thrones: Kingsroad</span>
-
-<a href="news.html">ข่าวล่าสุด</a>
-
-</div>
-
+    <div class="container">
+        <span>ประเทศไทยแฟนคอมมูนิตี้ Game of Thrones: Kingsroad</span>
+        <a href="news.html">ข่าวล่าสุด</a>
+    </div>
 </div>
 
 <header class="navbar">
+    <div class="container nav-wrapper">
 
-<div class="container nav-wrapper">
+        <a href="index.html" class="logo">
+            <img src="images/logo/got-header.webp"
+                 class="logo-image"
+                 alt="Game of Thrones Kingsroad Thailand">
+        </a>
 
-<a href="index.html" class="logo">
+        <nav>
+            <ul>
+                <li><a class="active" href="index.html">หน้าหลัก</a></li>
+                <li><a href="news.html">ข่าวสาร</a></li>
+                <li><a href="roadmap.html">Roadmap</a></li>
+                <li class="dropdown">
+                    <a href="database.html">ฐานข้อมูล</a>
+                    <div class="dropdown-menu">
+                        <a href="database.html#class">อาชีพ</a>
+                        <a href="database.html#boss">บอส</a>
+                        <a href="database.html#item">ไอเทม</a>
+                        <a href="database.html#map">แผนที่</a>
+                    </div>
+                </li>
+                <li><a href="guide.html">คู่มือ</a></li>
+                <li><a href="calculator.html">คำนวณ</a></li>
+                <li><a href="services.html">บริการ</a></li>
+            </ul>
+        </nav>
 
-<img src="images/logo/got-header.webp"
-     class="logo-image"
-     alt="Game of Thrones Kingsroad Thailand">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="ค้นหาข่าว คู่มือ บอส ไอเทม...">
+            <button id="searchBtn" aria-label="ค้นหา">⌕</button>
+        </div>
 
-</a>
+        <div class="mobile-btn">☰</div>
 
-</a>
-
-<nav>
-
-<ul>
-
-<li><a class="active" href="index.html">หน้าหลัก</a></li>
-
-<li><a href="news.html">ข่าวสาร</a></li>
-
-<li><a href="roadmap.html">Roadmap</a></li>
-
-<li class="dropdown">
-
-<a href="database.html">ฐานข้อมูล</a>
-
-<div class="dropdown-menu">
-
-<a href="#">อาชีพ</a>
-
-<a href="#">บอส</a>
-
-<a href="#">ไอเทม</a>
-
-<a href="#">แผนที่</a>
-
-</div>
-
-</li>
-
-<li><a href="guide.html">คู่มือ</a></li>
-
-<li><a href="calculator.html">คำนวณ</a></li>
-
-<li><a href="services.html">บริการ</a></li>
-
-</ul>
-
-</nav>
-<div class="search-box">
-
-<input
-type="text"
-id="searchInput"
-placeholder="ค้นหาข่าว คู่มือ บอส ไอเทม...">
-
-<button id="searchBtn">
-
-⌕
-
-</button>
-
-</div>
-
-<div class="mobile-btn">
-
-☰
-
-</div>
-
-</div>
-
+    </div>
 </header>
 
 <section class="hero" id="hero">
 
-<div class="hero-overlay"></div>
+    <div class="hero-overlay"></div>
 
-<div class="container hero-content">
+    <div class="container hero-content">
 
-<span class="hero-badge">
+        <span class="hero-badge">ประเทศไทยแฟนคอมมูนิตี้</span>
 
-ประเทศไทยแฟนคอมมูนิตี้
+        <div class="hero-logo">
+            <img src="images/logo/got-logo.webp" alt="Game of Thrones Kingsroad">
+        </div>
 
-</span>
+        <p>ศูนย์รวมข่าวสาร สารจากผู้พัฒนา Roadmap ฐานข้อมูล และคู่มือภาษาไทย</p>
 
-<div class="hero-logo">
+        <div class="hero-buttons">
+            <a href="news.html" class="btn-primary">อ่านข่าวล่าสุด</a>
+            <a href="database.html" class="btn-secondary">ฐานข้อมูลเกม</a>
+        </div>
 
-<img
-src="images/logo/got-logo.webp"
-alt="Game of Thrones Kingsroad">
+    </div>
 
-</div>
-
-<p>
-
-ศูนย์รวมข่าวสาร สารจากผู้พัฒนา Roadmap ฐานข้อมูล และคู่มือภาษาไทย
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="news.html" class="btn-primary">
-
-อ่านข่าวล่าสุด
-
-</a>
-
-<a href="database.html" class="btn-secondary">
-
-ฐานข้อมูลเกม
-
-</a>
-
-</div>
-
-</div>
-
-<div class="scroll-down">
-
-เลื่อนลง
-
-</div>
+    <div class="scroll-down">เลื่อนลง</div>
 
 </section>
+
 <section class="featured">
+    <div class="container">
 
-<div class="container">
+        <div class="section-title">
+            <h2>ข่าวเด่นประจำสัปดาห์</h2>
+            <p>อัปเดตล่าสุดจากทีมพัฒนา</p>
+        </div>
 
-<div class="section-title">
-    <h2 class="steel-title">ข่าวเด่นประจำสัปดาห์</h2>
-    <p>อัปเดตล่าสุดจากทีมพัฒนา</p>
-</div>
+        <div class="featured-slider">
 
-<div class="featured-slider">
+            <div class="featured-slide active">
+                <img src="images/news/devnotes.jpg" alt="Developer Notes">
+                <div class="featured-content">
+                    <span>Developer Notes</span>
+                    <h2>สรุปสารจากผู้พัฒนา</h2>
+                    <p>สรุปภาษาไทยครบทุกประเด็น</p>
+                    <a href="news.html" class="btn-primary">อ่านต่อ</a>
+                </div>
+            </div>
 
-<div class="featured-slide active">
+            <div class="featured-slide">
+                <img src="images/news/roadmap.jpg" alt="Roadmap">
+                <div class="featured-content">
+                    <span>Roadmap</span>
+                    <h2>Season ใหม่</h2>
+                    <p>แผนการอัปเดตทั้งหมด</p>
+                    <a href="roadmap.html" class="btn-primary">ดูทั้งหมด</a>
+                </div>
+            </div>
 
-<img src="images/news/devnotes.jpg">
+            <div class="featured-slide">
+                <img src="images/news/update.jpg" alt="Patch Update">
+                <div class="featured-content">
+                    <span>Patch</span>
+                    <h2>อัปเดตเวอร์ชันล่าสุด</h2>
+                    <p>รายละเอียดแพตช์ใหม่</p>
+                    <a href="news.html" class="btn-primary">อ่านข่าว</a>
+                </div>
+            </div>
 
-<div class="featured-content">
+        </div>
 
-<span>Developer Notes</span>
-
-<h2>สรุปสารจากผู้พัฒนา</h2>
-
-<p>สรุปภาษาไทยครบทุกประเด็น</p>
-
-<a href="news.html" class="btn-primary">อ่านต่อ</a>
-
-</div>
-
-</div>
-
-<div class="featured-slide">
-
-<img src="images/news/roadmap.jpg">
-
-<div class="featured-content">
-
-<span>Roadmap</span>
-
-<h2>Season ใหม่</h2>
-
-<p>แผนการอัปเดตทั้งหมด</p>
-
-<a href="roadmap.html" class="btn-primary">ดูทั้งหมด</a>
-
-</div>
-
-</div>
-
-<div class="featured-slide">
-
-<img src="images/news/update.jpg">
-
-<div class="featured-content">
-
-<span>Patch</span>
-
-<h2>อัปเดตเวอร์ชันล่าสุด</h2>
-
-<p>รายละเอียดแพตช์ใหม่</p>
-
-<a href="news.html" class="btn-primary">อ่านข่าว</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+    </div>
 </section>
 
 <section class="latest-news">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>
-
-ข่าวล่าสุด
-
-</h2>
-
-<p>
-
-อัปเดตทุกข่าวเกี่ยวกับ Game of Thrones: Kingsroad
-
-</p>
-
-</div>
-
-<div class="news-grid">
-
-<div class="news-card">
-
-<div class="news-image">
-
-<!-- ใส่รูปข่าว -->
-
-</div>
-
-<div class="news-content">
-
-<span>
-
-Developer Notes
-
-</span>
-
-<h3>
-
-สรุปสารจากผู้พัฒนา
-
-</h3>
-
-<p>
-
-บทสรุปและคำแปลภาษาไทยล่าสุด
-
-</p>
-
-<a href="news.html">
-
-อ่านเพิ่มเติม →
-
-</a>
-
-</div>
-
-</div>
-
-<div class="news-card">
-
-<div class="news-image">
-
-</div>
-
-<div class="news-content">
-
-<span>
-
-Season
-
-</span>
-
-<h3>
-
-Roadmap Season ใหม่
-
-</h3>
-
-<p>
-
-ติดตามการอัปเดตของแต่ละซีซัน
-
-</p>
-
-<a href="roadmap.html">
-
-ดู Roadmap →
-
-</a>
-
-</div>
-
-</div>
-
-<div class="news-card">
-
-<div class="news-image">
-
-</div>
-
-<div class="news-content">
-
-<span>
-
-Database
-
-</span>
-
-<h3>
-
-ฐานข้อมูลเกม
-
-</h3>
-
-<p>
-
-ข้อมูลอาชีพ บอส ไอเทม และแผนที่
-
-</p>
-
-<a href="database.html">
-
-เปิดฐานข้อมูล →
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+    <div class="container">
+
+        <div class="section-title">
+            <h2>ข่าวล่าสุด</h2>
+            <p>อัปเดตทุกข่าวเกี่ยวกับ Game of Thrones: Kingsroad</p>
+        </div>
+
+        <div class="news-grid">
+
+            <div class="news-card">
+                <div class="news-image"></div>
+                <div class="news-content">
+                    <span>Developer Notes</span>
+                    <h3>สรุปสารจากผู้พัฒนา</h3>
+                    <p>บทสรุปและคำแปลภาษาไทยล่าสุด</p>
+                    <a href="news.html">อ่านเพิ่มเติม →</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-image"></div>
+                <div class="news-content">
+                    <span>Season</span>
+                    <h3>Roadmap Season ใหม่</h3>
+                    <p>ติดตามการอัปเดตของแต่ละซีซัน</p>
+                    <a href="roadmap.html">ดู Roadmap →</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-image"></div>
+                <div class="news-content">
+                    <span>Database</span>
+                    <h3>ฐานข้อมูลเกม</h3>
+                    <p>ข้อมูลอาชีพ บอส ไอเทม และแผนที่</p>
+                    <a href="database.html">เปิดฐานข้อมูล →</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 </section>
+
 <section class="quick-access">
+    <div class="container">
 
-<div class="container">
+        <div class="section-title">
+            <h2>เมนูด่วน</h2>
+            <p>เข้าถึงข้อมูลสำคัญได้อย่างรวดเร็ว</p>
+        </div>
 
-<div class="section-title">
+        <div class="quick-grid">
 
-<h2>
+            <a href="news.html" class="quick-card">
+                <div class="quick-icon">📰</div>
+                <h3>ข่าวสาร</h3>
+                <p>ข่าวล่าสุดและประกาศจากผู้พัฒนา</p>
+            </a>
 
-เมนูด่วน
+            <a href="roadmap.html" class="quick-card">
+                <div class="quick-icon">🗺</div>
+                <h3>Roadmap</h3>
+                <p>ติดตามการอัปเดตทุกซีซัน</p>
+            </a>
 
-</h2>
+            <a href="database.html" class="quick-card">
+                <div class="quick-icon">📚</div>
+                <h3>ฐานข้อมูล</h3>
+                <p>อาชีพ บอส ไอเทม และแผนที่</p>
+            </a>
 
-<p>
+            <a href="guide.html" class="quick-card">
+                <div class="quick-icon">📖</div>
+                <h3>คู่มือ</h3>
+                <p>แนวทางการเล่นและเทคนิคต่าง ๆ</p>
+            </a>
 
-เข้าถึงข้อมูลสำคัญได้อย่างรวดเร็ว
+            <a href="calculator.html" class="quick-card">
+                <div class="quick-icon">🧮</div>
+                <h3>เครื่องคำนวณ</h3>
+                <p>คำนวณเวลาฟาร์มและข้อมูลต่าง ๆ</p>
+            </a>
 
-</p>
+            <a href="services.html" class="quick-card">
+                <div class="quick-icon">🛒</div>
+                <h3>JC Gameservice</h3>
+                <p>บริการภายในเกมและข้อมูลติดต่อ</p>
+            </a>
 
-</div>
+        </div>
 
-<div class="quick-grid">
-
-<a href="news.html" class="quick-card">
-
-<div class="quick-icon">📰</div>
-
-<h3>ข่าวสาร</h3>
-
-<p>ข่าวล่าสุดและประกาศจากผู้พัฒนา</p>
-
-</a>
-
-<a href="roadmap.html" class="quick-card">
-
-<div class="quick-icon">🗺</div>
-
-<h3>Roadmap</h3>
-
-<p>ติดตามการอัปเดตทุกซีซัน</p>
-
-</a>
-
-<a href="database.html" class="quick-card">
-
-<div class="quick-icon">📚</div>
-
-<h3>ฐานข้อมูล</h3>
-
-<p>อาชีพ บอส ไอเทม และแผนที่</p>
-
-</a>
-
-<a href="guide.html" class="quick-card">
-
-<div class="quick-icon">📖</div>
-
-<h3>คู่มือ</h3>
-
-<p>แนวทางการเล่นและเทคนิคต่าง ๆ</p>
-
-</a>
-
-<a href="calculator.html" class="quick-card">
-
-<div class="quick-icon">🧮</div>
-
-<h3>เครื่องคำนวณ</h3>
-
-<p>คำนวณเวลาฟาร์มและข้อมูลต่าง ๆ</p>
-
-</a>
-
-<a href="services.html" class="quick-card">
-
-<div class="quick-icon">🛒</div>
-
-<h3>JC Gameservice</h3>
-
-<p>บริการภายในเกมและข้อมูลติดต่อ</p>
-
-</a>
-
-</div>
-
-</div>
-
+    </div>
 </section>
 
 <section class="community">
-
-<div class="container">
-
-<div class="community-box">
-
-<h2>
-
-Game of Thrones: Kingsroad Thailand
-
-</h2>
-
-<p>
-
-เว็บไซต์แฟนคอมมูนิตี้ภาษาไทย รวบรวมข่าวสาร สารจากผู้พัฒนา Roadmap ฐานข้อมูล และคู่มือ เพื่อให้ผู้เล่นชาวไทยเข้าถึงข้อมูลได้ง่ายและรวดเร็ว
-
-</p>
-
-<a href="news.html" class="btn-primary">
-
-เริ่มต้นใช้งาน
-
-</a>
-
-</div>
-
-</div>
-
+    <div class="container">
+        <div class="community-box">
+            <h2>Game of Thrones: Kingsroad Thailand</h2>
+            <p>เว็บไซต์แฟนคอมมูนิตี้ภาษาไทย รวบรวมข่าวสาร สารจากผู้พัฒนา Roadmap ฐานข้อมูล และคู่มือ เพื่อให้ผู้เล่นชาวไทยเข้าถึงข้อมูลได้ง่ายและรวดเร็ว</p>
+            <a href="news.html" class="btn-primary">เริ่มต้นใช้งาน</a>
+        </div>
+    </div>
 </section>
 
 <footer>
+    <div class="container footer-grid">
 
-<div class="container footer-grid">
+        <div>
+            <h3>Game of Thrones: Kingsroad TH</h3>
+            <p>เว็บไซต์แฟนคอมมูนิตี้ภาษาไทย</p>
+        </div>
 
-<div>
+        <div>
+            <h4>เมนู</h4>
+            <ul>
+                <li><a href="news.html">ข่าวสาร</a></li>
+                <li><a href="roadmap.html">Roadmap</a></li>
+                <li><a href="database.html">ฐานข้อมูล</a></li>
+            </ul>
+        </div>
 
-<h3>Game of Thrones: Kingsroad TH</h3>
+        <div>
+            <h4>บริการ</h4>
+            <ul>
+                <li><a href="services.html">JC Gameservice</a></li>
+                <li><a href="calculator.html">เครื่องคำนวณ</a></li>
+            </ul>
+        </div>
 
-<p>
-
-เว็บไซต์แฟนคอมมูนิตี้ภาษาไทย
-
-</p>
-
-</div>
-
-<div>
-
-<h4>เมนู</h4>
-
-<ul>
-
-<li><a href="news.html">ข่าวสาร</a></li>
-
-<li><a href="roadmap.html">Roadmap</a></li>
-
-<li><a href="database.html">ฐานข้อมูล</a></li>
-
-</ul>
-
-</div>
-
-<div>
-
-<h4>บริการ</h4>
-
-<ul>
-
-<li><a href="services.html">JC Gameservice</a></li>
-
-<li><a href="calculator.html">เครื่องคำนวณ</a></li>
-
-</ul>
-
-</div>
-
-</div>
-
-<div class="copyright">
-
-© 2026 Game of Thrones: Kingsroad TH • JC Gameservice
-
-</div>
-
-</footer>
-<!--
-<div id="loading">
-
-    <div class="loader-logo">
-        GAME OF THRONES
     </div>
 
-    <div class="loader-line"></div>
+    <div class="copyright">© 2026 Game of Thrones: Kingsroad TH • JC Gameservice</div>
+</footer>
 
+<!--
+<div id="loading">
+    <div class="loader-logo">GAME OF THRONES</div>
+    <div class="loader-line"></div>
 </div>
 -->
+
 <script src="js/app.js"></script>
 
 </body>
-
 </html>
