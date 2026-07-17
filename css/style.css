@@ -463,29 +463,16 @@ margin-bottom:70px;
 
     font-weight:700;
 
-    letter-spacing:2px;
+    letter-spacing:1px;
+
+    color:#e8e6e2;
 
     margin-bottom:16px;
 
-    color:#f8f5ef;
-
-    text-transform:uppercase;
-
-    background:linear-gradient(
-        to bottom,
-        #ffffff 0%,
-        #ebe6dc 35%,
-        #b8b1a5 70%,
-        #ffffff 100%
-    );
-
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-
     text-shadow:
-        0 1px 0 rgba(255,255,255,.4),
-        0 2px 0 rgba(170,170,170,.35),
-        0 5px 12px rgba(0,0,0,.75);
+        0 1px 0 #ffffff22,
+        0 2px 2px rgba(0,0,0,.8),
+        0 4px 6px rgba(0,0,0,.6);
 
 }
 
