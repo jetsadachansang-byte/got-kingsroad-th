@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>เครื่องคำนวณ | Game of Thrones: Kingsroad TH</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Trirong:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-page="calculator" data-topbar="เครื่องคำนวณ Game of Thrones: Kingsroad">
+
+<div class="ash"></div>
+
+<div id="site-header"></div>
+
+<section class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+        <span class="hero-badge">CALCULATOR</span>
+        <h1>GAME</h1>
+        <h2>TOOLS</h2>
+        <p>เครื่องมือสำหรับผู้เล่น Game of Thrones: Kingsroad</p>
+    </div>
+
+</section>
+
+<section class="latest-news">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>เครื่องคำนวณ</h2>
+            <p>ใช้งานได้ทันที ไม่ต้องติดตั้งอะไรเพิ่ม</p>
+        </div>
+
+        <div class="calc-grid">
+
+            <!-- ภาษี Marketplace -->
+            <div class="calc-card">
+                <div class="calc-head">
+                    <div class="quick-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v2H3Z"/><path d="M3 11v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6"/><path d="M12 5v6"/><rect x="10.5" y="11" width="3" height="4" rx="1"/></svg></div>
+                    <h3>ภาษี Marketplace</h3>
+                </div>
+                <p class="calc-desc">คำนวณยอดที่จะได้รับจริงหลังหักภาษีการขาย</p>
+
+                <label>ราคาขาย
+                    <input type="number" id="taxPrice" placeholder="เช่น 10000" min="0" inputmode="decimal">
+                </label>
+                <label>อัตราภาษี (%)
+                    <input type="number" id="taxRate" value="5" min="0" max="100" inputmode="decimal">
+                </label>
+
+                <button class="btn-primary calc-btn" onclick="calcTax()">คำนวณ</button>
+                <div class="calc-result" id="taxResult"></div>
+            </div>
+
+            <!-- เวลาฟาร์ม -->
+            <div class="calc-card">
+                <div class="calc-head">
+                    <div class="quick-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5"/><path d="M9 2h6"/><path d="m19 5 1.5 1.5"/></svg></div>
+                    <h3>เวลาฟาร์ม</h3>
+                </div>
+                <p class="calc-desc">ต้องฟาร์มนานแค่ไหนถึงจะได้ตามเป้า</p>
+
+                <label>จำนวนที่ต้องการ
+                    <input type="number" id="farmTarget" placeholder="เช่น 500" min="0" inputmode="decimal">
+                </label>
+                <label>ได้ต่อชั่วโมง (โดยเฉลี่ย)
+                    <input type="number" id="farmRate" placeholder="เช่น 60" min="0" inputmode="decimal">
+                </label>
+
+                <button class="btn-primary calc-btn" onclick="calcFarm()">คำนวณ</button>
+                <div class="calc-result" id="farmResult"></div>
+            </div>
+
+            <!-- กำไรทอง -->
+            <div class="calc-card">
+                <div class="calc-head">
+                    <div class="quick-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M18.1 10.4A6 6 0 1 1 10.3 18"/><path d="M7 6h1v4"/><path d="m16.7 13.9.7.7-2.8 2.8"/></svg></div>
+                    <h3>กำไรการขาย</h3>
+                </div>
+                <p class="calc-desc">เทียบต้นทุนกับราคาขายรวมภาษี ว่าคุ้มไหม</p>
+
+                <label>ต้นทุนต่อชิ้น
+                    <input type="number" id="profitCost" placeholder="เช่น 800" min="0" inputmode="decimal">
+                </label>
+                <label>ราคาขายต่อชิ้น
+                    <input type="number" id="profitSell" placeholder="เช่น 1000" min="0" inputmode="decimal">
+                </label>
+                <label>จำนวนชิ้น
+                    <input type="number" id="profitQty" value="1" min="1" inputmode="numeric">
+                </label>
+                <label>อัตราภาษี (%)
+                    <input type="number" id="profitTax" value="5" min="0" max="100" inputmode="decimal">
+                </label>
+
+                <button class="btn-primary calc-btn" onclick="calcProfit()">คำนวณ</button>
+                <div class="calc-result" id="profitResult"></div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="quick-access">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>เครื่องมือที่กำลังพัฒนา</h2>
+            <p>เตรียมพบกันเร็ว ๆ นี้</p>
+        </div>
+
+        <div class="quick-grid">
+
+            <a href="#" class="quick-card soon">
+                <span class="soon-tag">เร็ว ๆ นี้</span>
+                <div class="quick-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+                <h3>EXP</h3>
+                <p>คำนวณเวลาการเก็บเลเวล</p>
+            </a>
+
+            <a href="#" class="quick-card soon">
+                <span class="soon-tag">เร็ว ๆ นี้</span>
+                <div class="quick-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"/><line x1="13" y1="19" x2="19" y2="13"/><line x1="16" y1="16" x2="20" y2="20"/><line x1="19" y1="21" x2="21" y2="19"/><polyline points="14.5 6.5 18 3 21 3 21 6 17.5 10"/><line x1="5" y1="14" x2="9" y2="18"/><line x1="7" y1="17" x2="4" y2="20"/><line x1="3" y1="19" x2="5" y2="21"/></svg></div>
+                <h3>Damage</h3>
+                <p>เปรียบเทียบค่า Status</p>
+            </a>
+
+            <a href="#" class="quick-card soon">
+                <span class="soon-tag">เร็ว ๆ นี้</span>
+                <div class="quick-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v2H3Z"/><path d="M3 11v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6"/><path d="M12 5v6"/><rect x="10.5" y="11" width="3" height="4" rx="1"/></svg></div>
+                <h3>Inventory</h3>
+                <p>คำนวณทรัพยากรที่ต้องใช้</p>
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/layout.js"></script>
+<script src="js/app.js"></script>
+<script>
+/* ---------- เครื่องคำนวณ ---------- */
+
+const fmt = (n) => n.toLocaleString("th-TH", { maximumFractionDigits: 2 });
+
+function showResult(id, html) {
+    const el = document.getElementById(id);
+    el.innerHTML = html;
+    el.classList.add("show");
+}
+
+function calcTax() {
+    const price = parseFloat(document.getElementById("taxPrice").value);
+    const rate = parseFloat(document.getElementById("taxRate").value);
+
+    if (isNaN(price) || price <= 0 || isNaN(rate) || rate < 0) {
+        showResult("taxResult", '<span class="bad">กรอกราคาขายและอัตราภาษีให้ถูกต้อง</span>');
+        return;
+    }
+
+    const tax = price * (rate / 100);
+    const net = price - tax;
+
+    showResult("taxResult",
+        `ภาษีที่ถูกหัก: <b>${fmt(tax)}</b><br>` +
+        `ได้รับจริง: <b class="gold">${fmt(net)}</b>`);
+}
+
+function calcFarm() {
+    const target = parseFloat(document.getElementById("farmTarget").value);
+    const rate = parseFloat(document.getElementById("farmRate").value);
+
+    if (isNaN(target) || target <= 0 || isNaN(rate) || rate <= 0) {
+        showResult("farmResult", '<span class="bad">กรอกเป้าหมายและอัตราต่อชั่วโมงให้ถูกต้อง</span>');
+        return;
+    }
+
+    const hoursTotal = target / rate;
+    const h = Math.floor(hoursTotal);
+    const m = Math.round((hoursTotal - h) * 60);
+
+    showResult("farmResult",
+        `ต้องใช้เวลา: <b class="gold">${h} ชั่วโมง ${m} นาที</b>`);
+}
+
+function calcProfit() {
+    const cost = parseFloat(document.getElementById("profitCost").value);
+    const sell = parseFloat(document.getElementById("profitSell").value);
+    const qty = parseInt(document.getElementById("profitQty").value, 10);
+    const tax = parseFloat(document.getElementById("profitTax").value);
+
+    if ([cost, sell, tax].some(isNaN) || cost < 0 || sell <= 0 || tax < 0 || isNaN(qty) || qty < 1) {
+        showResult("profitResult", '<span class="bad">กรอกข้อมูลให้ครบและถูกต้อง</span>');
+        return;
+    }
+
+    const netPerItem = sell * (1 - tax / 100);
+    const profitPerItem = netPerItem - cost;
+    const total = profitPerItem * qty;
+    const good = total >= 0;
+
+    showResult("profitResult",
+        `รับสุทธิ/ชิ้น: <b>${fmt(netPerItem)}</b><br>` +
+        `${good ? "กำไร" : "ขาดทุน"}รวม ${qty} ชิ้น: ` +
+        `<b class="${good ? "gold" : "bad"}">${fmt(Math.abs(total))}</b>`);
+}
+</script>
+
+</body>
+</html>
