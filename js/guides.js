@@ -122,17 +122,17 @@
         "gold-farm": {
             icon: IC.coin, tag: "การเติบโต", read: "4 นาที",
             title: "ฟาร์มทองและทรัพยากร",
-            summary: "แหล่งรายได้หลักบนเซิร์ฟเวอร์ปัจจุบัน และการใช้เครื่องคำนวณ",
+            summary: "แหล่งรายได้หลัก การขายของใน Marketplace และการใช้เครื่องคำนวณ",
             body: [
                 { h: "แหล่งทองหลัก" },
                 { list: [
                     "เควสหลักและเควสรายวัน/รายสัปดาห์",
                     "ดันเจียนและ World Boss ที่ดรอปวัสดุมีค่า",
                     "แยกชิ้นส่วน (dismantle) อุปกรณ์ส่วนเกินเป็นวัสดุ",
-                    "กิจกรรมและซีซันที่ให้ทองและทรัพยากร"
+                    "ขายวัสดุส่วนเกินและของหายากใน Marketplace"
                 ]},
-                { h: "วางแผนก่อนใช้จ่าย" },
-                { p: "ใช้เครื่องคำนวณในเว็บนี้ช่วยประเมินเวลาฟาร์มและทรัพยากรที่ต้องใช้ (ระบบตลาดซื้อขายระหว่างผู้เล่นยังเป็นแผนพัฒนา ยังไม่เข้าเกม)" }
+                { h: "อย่าลืมเรื่องภาษี" },
+                { p: "การขายใน Marketplace มีภาษีหัก ควรคำนวณกำไรสุทธิก่อนตั้งราคา ใช้เครื่องคำนวณในเว็บนี้ช่วยได้ทั้งภาษี เวลาฟาร์ม และกำไรการขาย" }
             ],
             source: { label: "เครื่องคำนวณในเว็บนี้", url: "calculator.html" }
         },
@@ -168,6 +168,22 @@
             ],
             source: { label: "gamesofthrones.org", url: "https://www.gamesofthrones.org/guides/equipment-gear-guide" }
         },
+        "amulet": {
+            icon: IC.amulet, tag: "อุปกรณ์", read: "3 นาที",
+            title: "ระบบ Amulet (เครื่องราง)",
+            summary: "ระบบเสริมความแข็งแกร่งและปรับแต่งบิลด์ในเกม",
+            body: [
+                { p: "Amulet เป็นระบบเสริมความแข็งแกร่งและปรับแต่งบิลด์ ใช้ควบคู่กับ Kraken Raid" },
+                { h: "รายละเอียด" },
+                { list: [
+                    "มีทั้งหมด 9 ชิ้น แบ่งเป็น Rare 3, Epic 3 และ Legendary 3",
+                    "ทุกชิ้นมีเอฟเฟกต์ตายตัว (Fixed) หนึ่งอย่าง",
+                    "และมีเอฟเฟกต์สุ่ม (Random) เพิ่มตามระดับความหายาก — ยิ่งหายากยิ่งได้เอฟเฟกต์สุ่มมาก",
+                    "เลือกเอฟเฟกต์ให้เข้ากับอาชีพและบิลด์ของคุณเพื่อเพิ่ม Momentum"
+                ]}
+            ],
+            source: { label: "Netmarble Update Notes", url: "https://forum.netmarble.com/got/view/4/110" }
+        },
         "build": {
             icon: IC.shield, tag: "อุปกรณ์", read: "4 นาที",
             title: "จัด Trait, Artifact และคอมโบ",
@@ -201,6 +217,23 @@
             ],
             source: { label: "gamesofthrones.org", url: "https://www.gamesofthrones.org/guides/drogon-world-boss" }
         },
+        "kraken": {
+            icon: IC.map, tag: "บอส", read: "5 นาที",
+            title: "Kraken Raid — บอสเรดร่วมมือ",
+            summary: "อสูรทะเลแห่ง Iron Islands ในโหมด Raid แบบร่วมมือ",
+            body: [
+                { p: "Kraken คือ Raid Boss แบบร่วมมือของเกม อสูรทะเลขนาดมหึมาจากตำนาน A Song of Ice and Fire ที่สามารถจมเรือทั้งลำได้" },
+                { h: "จุดเด่นของโหมด Raid" },
+                { list: [
+                    "เป็นความท้าทายแบบร่วมมือ (Co-op) รวมทีมเพื่อปราบ Kraken",
+                    "ต่อสู้กลางทะเล ต้องอาศัยการประสานทีมและเข้าใจกลไกเฉพาะ",
+                    "ปราบสำเร็จมีโอกาสได้วัสดุคราฟ Amulet Core",
+                    "มีกระดานจัดอันดับและ Achievement ให้ท้าทาย"
+                ]},
+                { p: "เชื่อมโยงกับพื้นที่ Stormlands และระบบ Amulet" }
+            ],
+            source: { label: "gamingonphone.com", url: "https://gamingonphone.com/news/game-of-thrones-kingsroad-first-content-update-the-drowned-god-wakes" }
+        },
         "burning-spirit": {
             icon: IC.flame, tag: "ระบบใหม่", read: "3 นาที",
             title: "Burning Battle Spirit — กลไกต่อสู้ใหม่",
@@ -216,6 +249,22 @@
                 { p: "เหมาะกับการเปิดวงหรือจัดการศัตรูเป็นกลุ่มในจังหวะสำคัญ พร้อมยืนระยะได้นานขึ้นจากการฟื้นเลือด" }
             ],
             source: { label: "Gamemeca — Frost and Steel / Fierce Will", url: "https://www.gamemeca.com/en/view.php?gid=1777711" }
+        },
+        "weapon-switching": {
+            icon: IC.swap, tag: "ระบบใหม่", read: "3 นาที",
+            title: "ระบบสลับอาวุธ (Weapon Switching)",
+            summary: "สลับอาวุธกลางการต่อสู้ เปิดชุดสกิลแยกที่มีช่องและคูลดาวน์ของตัวเอง",
+            body: [
+                { p: "ระบบสลับอาวุธให้สลับอาวุธได้ระหว่างการต่อสู้ เพิ่มความหลากหลายของการเล่นอย่างมาก" },
+                { h: "การทำงาน" },
+                { list: [
+                    "สลับอาวุธได้ระหว่างต่อสู้",
+                    "อาวุธแต่ละชิ้นเปิดชุดสกิลแยกที่มีช่องและคูลดาวน์ของตัวเอง",
+                    "เพิ่มจำนวนสกิลรวมที่ใช้ได้ เปิดคอมโบและแนวทางเล่นใหม่ ๆ"
+                ]},
+                { p: "ตัวอย่าง: Knight สลับ Dual Blades กับ Greatsword เพื่อเปิด Fighting Spirit แล้วเทสกิล Active (ดูคู่มือคอมโบ Knight)" }
+            ],
+            source: { label: "Netmarble Developer Note", url: "https://forum.netmarble.com/got/view/12/216" }
         },
         "events": {
             icon: IC.calendar, tag: "อีเวนต์", read: "4 นาที",
@@ -339,6 +388,56 @@
                 { p: "ปริมาณที่ได้จะผันแปรตามจำนวนครั้งที่ตีบวก จึงควรวางแผนตามวัสดุที่มี" }
             ],
             source: { label: "Gamemeca — Refine Before Dismantle", url: "https://www.gamemeca.com/en/view.php?gid=1776814" }
+        },
+        "box-run": {
+            icon: IC.coin, tag: "การเติบโต", read: "3 นาที",
+            title: "Box Run — เก็บกล่องรางวัลโดยไม่เสีย RP",
+            summary: "ฟาร์ม Faction Hideout อย่างคุ้ม เก็บกล่องหลักโดยไม่เปลือง RP",
+            body: [
+                { p: "ผู้เล่นเรียกการกวาดเก็บกล่องทุกใบใน Faction Hideout ว่า 'Box Run' ซึ่งทำได้โดยไม่ต้องเสีย RP" },
+                { h: "วิธีทำ" },
+                { list: [
+                    "ปราบบอสสุดท้ายแล้วเลือก 'Basic Reward' จาก 3 ตัวเลือก จะได้แค่ Faction Coins โดยไม่เสีย RP",
+                    "รางวัลจากกล่องและบอสภายใน Hideout ยังเป็นของเราทั้งหมด จึงควรเปิดกล่องให้ครบทุกใบ",
+                    "ข้ามเป้าหมายเสริม (bonus objective) ได้ ถ้าไม่อยากเปลือง RP เพื่อลูทเพิ่ม"
+                ]},
+                { p: "ข้อควรรู้: กล่องจะรีเซ็ตในวันถัดไปหลังเคลียร์ Hideout จะเก็บเฉพาะกล่องโดยไม่เคลียร์ด่านในวันรุ่งขึ้นไม่ได้" }
+            ],
+            source: { label: "Gamemeca — Box Run", url: "https://www.gamemeca.com/en/view.php?gid=1775627" }
+        },
+        "stormlands-bounty": {
+            icon: IC.map, tag: "การเติบโต", read: "3 นาที",
+            title: "ล่าค่าหัวในแคว้น Stormlands",
+            summary: "ตามล่าอาชญากรในแคว้น Stormlands เพื่อรับแต้ม Weapon Mastery",
+            body: [
+                { p: "แคว้น Stormlands มีระบบล่าค่าหัว (Bounty Hunt) ให้ตามล่าอาชญากร" },
+                { list: [
+                    "ต้องล่าอาชญากรที่ไม่ซ้ำกัน 15 ราย เพื่อรับ 26 แต้ม Weapon Mastery",
+                    "ตัวเลือกระหว่างทางมีผลต่อผลลัพธ์ของค่าหัว ต้องสังเกตให้ดีขณะสำรวจ"
+                ]},
+                { p: "แต้ม Weapon Mastery ช่วยปลดล็อก Mastery ของคอมโบ จึงเป็นเป้าหมายที่ไม่ควรพลาดในพื้นที่นี้" }
+            ],
+            source: { label: "Gamemeca — Stormlands Bounty Hunt", url: "https://www.gamemeca.com/en/view.php?gid=1776551" }
+        },
+        "faction-hideout": {
+            icon: IC.map, tag: "บอส", read: "4 นาที",
+            title: "ลัด Faction Hideout แคว้น Stormlands",
+            summary: "ทางลัด เป้าหมาย และการเก็บลูทของ Faction Hideout",
+            body: [
+                { h: "เป้าหมายของด่าน" },
+                { p: "ทุก Faction Hideout ใน Stormlands มีเป้าหมายเหมือนกัน: ปราบบอสสุดท้าย และกำจัดศัตรูระดับ Elite อย่างน้อย 2 ตัวที่ซ่อนตามทางเดิน" },
+                { h: "รอบแรกต้องปลดล็อกเส้นทาง" },
+                { p: "ครั้งแรกที่เข้า ประตูจะล็อกและบันไดถูกยกขึ้น ต้องสำรวจทุกเส้นทาง ปลดล็อกประตูและปล่อยบันไดลง เพื่อให้รอบต่อ ๆ ไปเร็วและมีประสิทธิภาพ" },
+                { h: "ปุ่ม Shortcut" },
+                { p: "เมื่อผ่าน Phase 1 จะมีปุ่ม 'Shortcut' ที่มุมซ้ายบนของ UI กดแล้วพาไปหาบอสได้ทันที" },
+                { h: "แผนที่และการเก็บลูท" },
+                { list: [
+                    "Fortress of Pain และ Ravensrock Fortress อยู่ใต้ดินลึก",
+                    "Ravensrock Fortress เดินง่ายกว่า เพราะตำแหน่งหีบอุปกรณ์หลักคาดเดาได้ง่าย",
+                    "ดูไอคอนเหนือหีบ — หีบที่มีไอคอนคือหีบอุปกรณ์หลัก ให้เก็บก่อนเป็นอันดับแรก"
+                ]}
+            ],
+            source: { label: "Gamemeca — Faction Hideout Shortcut", url: "https://www.gamemeca.com/en/view.php?gid=1777780" }
         }
     };
 
@@ -346,10 +445,10 @@
 
     const CATEGORIES = [
         { id: "start",   icon: IC.start,  title: "เริ่มต้นเล่นเกม", desc: "พื้นฐานสำหรับผู้เล่นใหม่",       ids: ["intro", "choose-class", "combat-basics"] },
-        { id: "progress",icon: IC.power,  title: "การเติบโต & Momentum", desc: "อัปเลเวล ฟาร์ม และค่าพลัง", ids: ["momentum", "level-fast", "gold-farm", "alliance"] },
-        { id: "gear",    icon: IC.gear,   title: "อุปกรณ์ & บิลด์",  desc: "เซ็ตไอเทม คอมโบ และการจัด Build", ids: ["gear", "build", "knight-combo", "sellsword-combo", "assassin-dagger", "accessory-refine"] },
-        { id: "boss",    icon: IC.boss,   title: "บอส & เวิลด์บอส",  desc: "World Boss บนเซิร์ฟเวอร์ปัจจุบัน", ids: ["drogon"] },
-        { id: "systems", icon: IC.flame,  title: "ระบบใหม่ & อีเวนต์", desc: "กลไกใหม่และกิจกรรมล่าสุด",    ids: ["burning-spirit", "events"] },
+        { id: "progress",icon: IC.power,  title: "การเติบโต & Momentum", desc: "อัปเลเวล ฟาร์ม และค่าพลัง", ids: ["momentum", "level-fast", "gold-farm", "box-run", "stormlands-bounty", "alliance"] },
+        { id: "gear",    icon: IC.gear,   title: "อุปกรณ์ & บิลด์",  desc: "เซ็ตไอเทม Amulet คอมโบ และการจัด Build", ids: ["gear", "amulet", "build", "knight-combo", "sellsword-combo", "assassin-dagger", "accessory-refine"] },
+        { id: "boss",    icon: IC.boss,   title: "บอส & เรด",       desc: "World Boss, Kraken Raid และ Faction Hideout", ids: ["drogon", "kraken", "faction-hideout"] },
+        { id: "systems", icon: IC.flame,  title: "ระบบใหม่ & อีเวนต์", desc: "กลไกใหม่และกิจกรรมล่าสุด",    ids: ["burning-spirit", "weapon-switching", "events"] },
         { id: "tips",    icon: IC.gift,   title: "ทริก & ของฟรี",    desc: "โค้ด คูปอง และของแจกฟรี",       ids: ["codes", "twitch-drops"] }
     ];
 

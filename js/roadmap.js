@@ -113,21 +113,6 @@
             ],
             source: { label: "Developer Note: 2026 Update Preview", url: "https://forum.netmarble.com/got/view/12/216" }
         },
-        "weapon-switching": {
-            kind: "plan", icon: IC.swap, date: "แผนพัฒนา", status: "ยังไม่เข้าเกม",
-            title: "ระบบสลับอาวุธ",
-            subtitle: "Weapon Switching",
-            summary: "สลับอาวุธกลางการต่อสู้ เปิดชุดสกิลแยกที่มีช่องและคูลดาวน์ของตัวเอง",
-            body: [
-                { p: "ทีมพัฒนากำลังพัฒนาระบบสลับอาวุธในการต่อสู้อย่างต่อเนื่อง" },
-                { list: [
-                    "สลับอาวุธได้ระหว่างต่อสู้",
-                    "อาวุธแต่ละชิ้นเปิดชุดสกิลแยกที่มีช่องและคูลดาวน์ของตัวเอง",
-                    "เพิ่มจำนวนสกิลรวมที่ใช้ได้อย่างมาก เปิดแนวทางเล่นใหม่ ๆ"
-                ]}
-            ],
-            source: { label: "Developer Note: 2026 Update Preview", url: "https://forum.netmarble.com/got/view/12/216" }
-        },
         "harrenhal-pve": {
             kind: "plan", icon: IC.group, date: "แผนพัฒนา", status: "ยังไม่เข้าเกม",
             title: "Harrenhal Co-op PvE",
@@ -140,17 +125,6 @@
                     "รับรางวัลจากการเล่นร่วมกัน",
                     "เป็นคอนเทนต์ PvE ไม่มี PvP โดยตรง"
                 ]}
-            ],
-            source: { label: "Developer Note: 2026 Update Preview", url: "https://forum.netmarble.com/got/view/12/216" }
-        },
-        "market-system": {
-            kind: "plan", icon: IC.store, date: "แผนพัฒนา", status: "ยังไม่เข้าเกม",
-            title: "ระบบตลาด",
-            subtitle: "Market System",
-            summary: "ตลาดเต็มรูปแบบ ซื้อขายแลกเปลี่ยนทรัพยากรและวัสดุ",
-            body: [
-                { p: "เกมจะเพิ่มระบบตลาดเต็มรูปแบบ ให้ผู้เล่นซื้อขายแลกเปลี่ยนทรัพยากรและวัสดุกันได้" },
-                { p: "ช่วยให้หาไอเทมที่จำเป็นต่อการพัฒนาตัวละครได้รวดเร็วขึ้น เสริมระบบเศรษฐกิจของเกม" }
             ],
             source: { label: "Developer Note: 2026 Update Preview", url: "https://forum.netmarble.com/got/view/12/216" }
         },
@@ -170,7 +144,7 @@
     };
 
     const CURRENT = ["frost-and-steel", "global-launch"];
-    const PLAN = ["story-chapter-4", "weapon-switching", "harrenhal-pve", "market-system", "graphics-rework"];
+    const PLAN = ["story-chapter-4", "harrenhal-pve", "graphics-rework"];
 
     /* ============================================================
        ตัวเรนเดอร์ (ไม่ต้องแก้)
