@@ -3062,3 +3062,53 @@ nav ul > li > a {
     .rm-subtitle { font-size: 16px; }
     .ga-pager-link.right { text-align: left; }
 }
+
+/* ============================================================
+   ROADMAP — DEVELOPER PLAN SECTION (ยังไม่เข้าเกม)
+============================================================ */
+
+.rm-plan-section {
+    border-top: 1px solid var(--border);
+}
+
+/* การ์ดแผนพัฒนา: โทนหม่นกว่า สื่อว่ายังไม่เข้าเกม */
+.rm-card.rm-plan {
+    border-style: dashed;
+    opacity: .96;
+}
+
+.rm-card.rm-plan .rm-icon {
+    color: var(--gold-soft);
+    opacity: .85;
+}
+
+.rm-plan .rm-badge {
+    color: #9fb4c9;
+    border-color: rgba(159, 180, 201, .4);
+    background: rgba(159, 180, 201, .08);
+}
+
+.rm-card.rm-plan:hover {
+    border-style: solid;
+    border-color: var(--gold);
+}
+
+/* หน้าอ่านรายละเอียด — แผนพัฒนา */
+.ga-icon.rm-plan-icon {
+    border-style: dashed;
+}
+
+.rm-plan-note {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 26px;
+    padding: 14px 18px;
+    border: 1px dashed rgba(159, 180, 201, .45);
+    border-radius: 12px;
+    background: rgba(159, 180, 201, .06);
+    color: #c3d0dd;
+    font-size: 15px;
+}
+
+.rm-plan-note strong { color: #dfe8f1; }
