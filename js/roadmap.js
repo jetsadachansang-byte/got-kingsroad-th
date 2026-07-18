@@ -133,7 +133,7 @@
             subtitle: "Global Launch",
             summary: "จุดเริ่มต้นของ Game of Thrones: Kingsroad — Action RPG ในโลก Westeros พร้อม 3 อาชีพและเนื้อเรื่องหลัก",
             body: [
-                { p: "Game of Thrones: Kingsroad เปิดให้บริการอย่างเป็นทางการเมื่อ 21 พ.ค. 2025 บนมือถือ (Android/iOS) และ PC (Steam, Epic Games Store) หลังช่วง Early Access ตั้งแต่ 26 มี.ค. 2025 (ประกาศครั้งแรกที่งาน The Game Awards 2024)" },
+                { p: "Game of Thrones: Kingsroad เปิดให้บริการอย่างเป็นทางการเมื่อ 21 พ.ค. 2025 บนมือถือ (Android/iOS) และ PC (Steam, Epic Games Store) นับเป็นจุดเริ่มต้นของไทม์ไลน์อัปเดตทั้งหมด" },
                 { h: "แนวเกมและเนื้อเรื่อง" },
                 { p: "เกม Action RPG ที่พาผู้เล่นเดินทางในดินแดน Westeros ตามเส้นทางสายกษัตริย์ (Kingsroad) ผ่านเนื้อเรื่องหลักที่เชื่อมโยงกับตระกูลใหญ่ เริ่มต้นในแดนเหนือ (The North) พื้นที่บทนำ (Prologue) และดินแดนเหนือกำแพง (Beyond the Wall)" },
                 { h: "3 อาชีพให้เลือก" },
