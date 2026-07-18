@@ -19,10 +19,12 @@
         {
             id: "database", href: "database.html",   label: "ฐานข้อมูล",
             dropdown: [
-                { href: "classes.html",       label: "อาชีพ" },
-                { href: "database.html#boss", label: "บอส" },
-                { href: "database.html#item", label: "ไอเทม" },
-                { href: "database.html#map",  label: "แผนที่" },
+                { href: "database.html#cat-class", label: "อาชีพ" },
+                { href: "database.html#cat-boss",  label: "บอส" },
+                { href: "database.html#cat-dungeon", label: "ดันเจียน" },
+                { href: "database.html#cat-map",   label: "แผนที่" },
+                { href: "database.html#cat-item",  label: "ไอเทม" },
+                { href: "database.html#cat-monster", label: "มอนสเตอร์" },
             ],
         },
         { id: "guide",      href: "guide.html",      label: "คู่มือ" },
