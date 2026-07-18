@@ -255,16 +255,16 @@
             title: "Burning Battle Spirit — กลไกต่อสู้ใหม่",
             summary: "ระบบสะสมพลังใจสู้รบเพื่อปลดปล่อยการระเบิดพลังในซีซัน 1",
             body: [
-                { p: "Burning Battle Spirit เป็นกลไกการต่อสู้ใหม่ที่มาพร้อมซีซัน 1 ให้ผู้เล่นสะสม “Battle Spirit” จากการโจมตีศัตรู" },
+                { p: "Burning Battle Spirit (บางเวอร์ชันแปลว่า 'Fierce Will') เป็นกลไกการต่อสู้ใหม่ที่มาพร้อมซีซัน 1 ให้ผู้เล่นสะสม 'Battle Spirit / Will' จากการโจมตีศัตรู" },
                 { h: "การทำงาน" },
                 { list: [
-                    "โจมตีศัตรูต่อเนื่องเพื่อสะสม Battle Spirit",
+                    "โจมตีศัตรูต่อเนื่องเพื่อสะสม Will และ Adrenaline",
                     "สะสมอะดรีนาลีนจนถึงจุดสูงสุด",
-                    "ปลดปล่อยการระเบิดพลังที่สร้างความเสียหายรุนแรงต่อศัตรูรอบข้าง"
+                    "ปลดปล่อยเป็นสกิลพิเศษพลังสูง สร้างการระเบิดความเสียหายรุนแรงต่อศัตรูรอบข้าง และยังฟื้นฟูพลังชีวิตได้ด้วย"
                 ]},
-                { p: "เหมาะกับการเปิดวงหรือจัดการศัตรูเป็นกลุ่มในจังหวะสำคัญ" }
+                { p: "เหมาะกับการเปิดวงหรือจัดการศัตรูเป็นกลุ่มในจังหวะสำคัญ พร้อมยืนระยะได้นานขึ้นจากการฟื้นเลือด" }
             ],
-            source: { label: "screenrant.com", url: "https://screenrant.com/game-of-thrones-kingsroad-season-1-july-15/" }
+            source: { label: "Gamemeca — Frost and Steel / Fierce Will", url: "https://www.gamemeca.com/en/view.php?gid=1777711" }
         },
         "weapon-switching": {
             icon: IC.swap, tag: "ระบบใหม่", read: "3 นาที",
@@ -330,6 +330,130 @@
                 ]}
             ],
             source: { label: "Netmarble Twitch Drops", url: "https://gameofthrones.netmarble.com/en/drops" }
+        },
+
+        "knight-combo": {
+            icon: IC.shield, tag: "อุปกรณ์", read: "5 นาที",
+            title: "คอมโบ & Mastery ของ Knight (ฉบับ Ranker)",
+            summary: "แนวทางเลือก Mastery คอมโบหลักของ Knight จากผู้เล่นอันดับต้น ตั้งแต่ต้นจนปลายเกม",
+            body: [
+                { h: "ช่วงต้นเกม — Valor และ Chivalry" },
+                { list: [
+                    "Valor: ปลดล็อกที่ Heavy Strike Combo เลเวล 5 ได้ 1 stack ทุกครั้งที่คอมโบเข้า",
+                    "Chivalry: ปลดล็อกเลเวล 25 เพิ่มอีก 1 stack ที่หมัดสุดท้ายของคอมโบ",
+                    "แนะนำลงทั้งคู่ตั้งแต่เนิ่น ๆ แต่ลงแค่ระดับ 1 พอ"
+                ]},
+                { h: "เลือกอาวุธและคอมโบ" },
+                { p: "ทั้ง Greatsword และ Dual Blades ให้ใช้คอมโบชุดที่ 1 โดยคอมโบ 1 ของ Dual Blades ใช้ง่ายที่สุดในเกม รีคัฟเวอรีสั้น สะสมดาเมจไว และยังคล่องพอจะสวนกลับภัยที่เข้ามา" },
+                { h: "จังหวะการเล่น" },
+                { p: "ใช้ Dual Blades คอมโบ 1 เพื่อความสะดวก แล้วสลับไป Greatsword เพื่อเปิด Fighting Spirit จากนั้นเทสกิล Active — จะได้ลดการใช้ Rage 20% และเพิ่มดาเมจสกิล 25%" },
+                { h: "ปลายเกม — ย้ายไป Explosion" },
+                { p: "ปลายเกมต้องเปลี่ยนไปสาย Explosion เพื่อดาเมจสูงสุด เมื่อมี Inspire แล้ว Valor/Chivalry จะหมดความจำเป็น เปลี่ยนไปเน้น Ignition และ Explosion ที่เล่นกับสถานะ Burn" }
+            ],
+            source: { label: "Gamemeca — Knight Combo Mastery", url: "https://www.gamemeca.com/en/view.php?gid=1777355" }
+        },
+        "sellsword-combo": {
+            icon: IC.combat, tag: "อุปกรณ์", read: "4 นาที",
+            title: "คอมโบ & Mastery ของ Sellsword (Destruction)",
+            summary: "จัด Mastery ให้ Sellsword (Mercenary) สะสม Shock สู่สถานะ Destruction",
+            body: [
+                { p: "Sellsword พึ่งการสะสมสถานะ Shock เมื่อครบ 6 stack จะเปลี่ยนเป็น 'Destruction' ทำให้ศัตรูรับความเสียหายและ groggy damage เพิ่มขึ้นมหาศาล" },
+                { h: "Mastery หลักของคอมโบ Heavy Attack" },
+                { p: "ทั้ง Axe และ Gauntlet ควรลง [Shock], [Heavy Power] และ [Crush]:" },
+                { list: [
+                    "Shock: ให้ Stagger Immunity ระหว่างคอมโบ + ลดดาเมจที่รับ + ใส่ Shock stack ให้เป้าที่โดน",
+                    "Heavy Power: ทำให้ศัตรูหลบหรือ Parry คอมโบไม่ได้ พร้อมเพิ่มดาเมจ",
+                    "Crush: คืน Rage เพิ่มทุกครั้งที่คอมโบเข้า และใส่ Shock stack ที่หมัดสุดท้าย รวมกับ Shock ได้ถึง 3 stack ต่อหนึ่งคอมโบ"
+                ]},
+                { p: "ใช้คอมโบชุด 1 เพียง 2 ครั้งก็ดันศัตรูเข้าสถานะ Destruction ได้ เน้นสาย Efficient ที่ให้ Stagger Immunity และรีเซ็ตคูลดาวน์ไว" }
+            ],
+            source: { label: "Gamemeca — Mercenary Combo Mastery", url: "https://www.gamemeca.com/en/view.php?gid=1777377" }
+        },
+        "assassin-dagger": {
+            icon: IC.sword, tag: "อุปกรณ์", read: "5 นาที",
+            title: "เซ็ตสกิลมีดของ Assassin (ฉบับ Ranker)",
+            summary: "การจัดสกิลมีด, Artifact และ Engraving ของ Assassin จากผู้เล่นอันดับต้น",
+            body: [
+                { h: "แกนหลัก: Bloodrage" },
+                { p: "Assassin ใส่สถานะ Bloodrage สะสมบนศัตรู แล้วจุดระเบิดด้วยสกิลเฉพาะเพื่อดาเมจมหาศาล ทุกบิลด์จึงต้องมีสกิลที่จุดระเบิด Bloodrage เป็นหัวใจ" },
+                { h: "เซ็ตสกิลยอดนิยม" },
+                { list: [
+                    "ใช้ Slash เป็นฐาน คู่กับ Ambush และ Venom",
+                    "Venomous Strike: ทำให้การโจมตี/คอมโบ/สกิลทั้งหมดติดพิษ ดาเมจต่อเนื่องตาม stack และเพิ่ม stagger damage — ครบ 5 stack ทำให้มอนสเตอร์ธรรมดา stun",
+                    "ลง Ambush เพื่อ Retreat จะได้อัตราคริติคอลเพิ่มสูงสุด 17.5% นาน 12 วินาที"
+                ]},
+                { h: "Artifact และ Engraving" },
+                { list: [
+                    "Artifact: Rose Pattern Plate ลงโทษศัตรูที่ติดพิษ",
+                    "Engraving: 'Exploit Weakness' (+3 Hero) สำหรับ Slash เพิ่มดาเมจต่อเป้าที่ติด debuff (ราคาในตลาดสูงถึง 2,500 Gold)"
+                ]}
+            ],
+            source: { label: "Gamemeca — Assassin Dagger Setup", url: "https://www.gamemeca.com/en/view.php?gid=1776044" }
+        },
+        "accessory-refine": {
+            icon: IC.gear, tag: "อุปกรณ์", read: "3 นาที",
+            title: "ตีบวกเครื่องประดับ Legendary ก่อนแยกชิ้นส่วน",
+            summary: "เคล็ดลับรีดวัสดุ Forging Steel ให้ได้มากที่สุดก่อน dismantle",
+            body: [
+                { p: "ถ้าจะแยกชิ้นส่วน (dismantle) เครื่องประดับ Legendary ต้อง 'refine' (ตีบวก) ก่อน ไม่เช่นนั้นจะไม่ได้ Forging Steel เลย" },
+                { h: "ตีบวกกี่ครั้งดี" },
+                { list: [
+                    "ตีบวก 1 ครั้งก่อนแยก คือจุดคุ้มค่าที่สุด",
+                    "ถ้ามีวัสดุ gemstone เหลือเฟือ จะตีบวกถึง 4 ครั้งก่อนแยกก็ได้ ผลได้จะมากขึ้น"
+                ]},
+                { p: "ปริมาณที่ได้จะผันแปรตามจำนวนครั้งที่ตีบวก จึงควรวางแผนตามวัสดุที่มี" }
+            ],
+            source: { label: "Gamemeca — Refine Before Dismantle", url: "https://www.gamemeca.com/en/view.php?gid=1776814" }
+        },
+        "box-run": {
+            icon: IC.coin, tag: "การเติบโต", read: "3 นาที",
+            title: "Box Run — เก็บกล่องรางวัลโดยไม่เสีย RP",
+            summary: "ฟาร์ม Faction Hideout อย่างคุ้ม เก็บกล่องหลักโดยไม่เปลือง RP",
+            body: [
+                { p: "ผู้เล่นเรียกการกวาดเก็บกล่องทุกใบใน Faction Hideout ว่า 'Box Run' ซึ่งทำได้โดยไม่ต้องเสีย RP" },
+                { h: "วิธีทำ" },
+                { list: [
+                    "ปราบบอสสุดท้ายแล้วเลือก 'Basic Reward' จาก 3 ตัวเลือก จะได้แค่ Faction Coins โดยไม่เสีย RP",
+                    "รางวัลจากกล่องและบอสภายใน Hideout ยังเป็นของเราทั้งหมด จึงควรเปิดกล่องให้ครบทุกใบ",
+                    "ข้ามเป้าหมายเสริม (bonus objective) ได้ ถ้าไม่อยากเปลือง RP เพื่อลูทเพิ่ม"
+                ]},
+                { p: "ข้อควรรู้: กล่องจะรีเซ็ตในวันถัดไปหลังเคลียร์ Hideout จะเก็บเฉพาะกล่องโดยไม่เคลียร์ด่านในวันรุ่งขึ้นไม่ได้" }
+            ],
+            source: { label: "Gamemeca — Box Run", url: "https://www.gamemeca.com/en/view.php?gid=1775627" }
+        },
+        "stormlands-bounty": {
+            icon: IC.map, tag: "การเติบโต", read: "3 นาที",
+            title: "ล่าค่าหัวในแคว้น Stormlands",
+            summary: "ตามล่าอาชญากรในพื้นที่ใหม่เพื่อรับแต้ม Weapon Mastery",
+            body: [
+                { p: "ในแคว้นใหม่ Stormlands มีระบบล่าค่าหัว (Bounty Hunt) ให้ตามล่าอาชญากร" },
+                { list: [
+                    "ต้องล่าอาชญากรที่ไม่ซ้ำกัน 15 ราย เพื่อรับ 26 แต้ม Weapon Mastery",
+                    "ตัวเลือกระหว่างทางมีผลต่อผลลัพธ์ของค่าหัว ต้องสังเกตให้ดีขณะสำรวจ"
+                ]},
+                { p: "แต้ม Weapon Mastery ช่วยปลดล็อก Mastery ของคอมโบ จึงเป็นเป้าหมายที่ไม่ควรพลาดในพื้นที่นี้" }
+            ],
+            source: { label: "Gamemeca — Stormlands Bounty Hunt", url: "https://www.gamemeca.com/en/view.php?gid=1776551" }
+        },
+        "faction-hideout": {
+            icon: IC.map, tag: "บอส", read: "4 นาที",
+            title: "ลัด Faction Hideout แคว้น Stormlands",
+            summary: "ทางลัด เป้าหมาย และการเก็บลูทของ Faction Hideout ในพื้นที่ใหม่",
+            body: [
+                { h: "เป้าหมายของด่าน" },
+                { p: "ทุก Faction Hideout ใน Stormlands มีเป้าหมายเหมือนกัน: ปราบบอสสุดท้าย และกำจัดศัตรูระดับ Elite อย่างน้อย 2 ตัวที่ซ่อนตามทางเดิน" },
+                { h: "รอบแรกต้องปลดล็อกเส้นทาง" },
+                { p: "ครั้งแรกที่เข้า ประตูจะล็อกและบันไดถูกยกขึ้น ต้องสำรวจทุกเส้นทาง ปลดล็อกประตูและปล่อยบันไดลง เพื่อให้รอบต่อ ๆ ไปเร็วและมีประสิทธิภาพ" },
+                { h: "ปุ่ม Shortcut" },
+                { p: "เมื่อผ่าน Phase 1 จะมีปุ่ม 'Shortcut' ที่มุมซ้ายบนของ UI กดแล้วพาไปหาบอสได้ทันที" },
+                { h: "แผนที่และการเก็บลูท" },
+                { list: [
+                    "Fortress of Pain และ Ravensrock Fortress อยู่ใต้ดินลึก",
+                    "Ravensrock Fortress เดินง่ายกว่า เพราะตำแหน่งหีบอุปกรณ์หลักคาดเดาได้ง่าย",
+                    "ดูไอคอนเหนือหีบ — หีบที่มีไอคอนคือหีบอุปกรณ์หลัก ให้เก็บก่อนเป็นอันดับแรก"
+                ]}
+            ],
+            source: { label: "Gamemeca — Faction Hideout Shortcut", url: "https://www.gamemeca.com/en/view.php?gid=1777780" }
         }
     };
 
@@ -337,9 +461,9 @@
 
     const CATEGORIES = [
         { id: "start",   icon: IC.start,  title: "เริ่มต้นเล่นเกม", desc: "พื้นฐานสำหรับผู้เล่นใหม่",       ids: ["intro", "choose-class", "combat-basics"] },
-        { id: "progress",icon: IC.power,  title: "การเติบโต & Momentum", desc: "อัปเลเวล ฟาร์ม และค่าพลัง", ids: ["momentum", "level-fast", "gold-farm", "alliance"] },
-        { id: "gear",    icon: IC.gear,   title: "อุปกรณ์ & บิลด์",  desc: "เซ็ตไอเทม Amulet และการจัด Build", ids: ["gear", "amulet", "build"] },
-        { id: "boss",    icon: IC.boss,   title: "บอส & เรด",       desc: "World Boss, Raid และความยากสูง", ids: ["drogon", "kraken", "hedge-knight"] },
+        { id: "progress",icon: IC.power,  title: "การเติบโต & Momentum", desc: "อัปเลเวล ฟาร์ม และค่าพลัง", ids: ["momentum", "level-fast", "gold-farm", "box-run", "stormlands-bounty", "alliance"] },
+        { id: "gear",    icon: IC.gear,   title: "อุปกรณ์ & บิลด์",  desc: "เซ็ตไอเทม Amulet และการจัด Build", ids: ["gear", "amulet", "build", "knight-combo", "sellsword-combo", "assassin-dagger", "accessory-refine"] },
+        { id: "boss",    icon: IC.boss,   title: "บอส & เรด",       desc: "World Boss, Raid และความยากสูง", ids: ["drogon", "kraken", "hedge-knight", "faction-hideout"] },
         { id: "systems", icon: IC.flame,  title: "ระบบใหม่ & อีเวนต์", desc: "กลไกใหม่และกิจกรรมล่าสุด",    ids: ["burning-spirit", "weapon-switching", "events"] },
         { id: "tips",    icon: IC.gift,   title: "ทริก & ของฟรี",    desc: "โค้ด คูปอง และของแจกฟรี",       ids: ["codes", "twitch-drops"] }
     ];
