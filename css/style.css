@@ -2246,3 +2246,457 @@ nav ul > li > a {
     padding: 3px 12px;
     background: rgba(0, 0, 0, .4);
 }
+
+/* ============================================================
+   CLASSES PAGE — หน้าข้อมูลอาชีพ
+============================================================ */
+
+.cls-hero {
+    min-height: 88vh;
+}
+
+/* ปุ่มเลือกอาชีพใน hero */
+.cls-pills {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.cls-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 28px;
+    border: 1px solid rgba(212, 175, 55, .4);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, .45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #eee;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    transition: .3s;
+}
+
+.cls-pill svg {
+    width: 18px;
+    height: 18px;
+    color: var(--gold);
+}
+
+.cls-pill:hover {
+    background: var(--gold);
+    color: #111;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, .35);
+}
+
+.cls-pill:hover svg {
+    color: #111;
+}
+
+/* ---------- ส่วนของแต่ละอาชีพ ---------- */
+
+.cls-section {
+    padding: 110px 0;
+    position: relative;
+    z-index: 2;
+    scroll-margin-top: 90px;
+    background: #0b0b0b;
+}
+
+.cls-section:nth-of-type(even) {
+    background: #101010;
+}
+
+.cls-section + .cls-section {
+    border-top: 1px solid var(--border);
+}
+
+/* โชว์เคส: รูป + ข้อมูลแนะนำ */
+
+.cls-showcase {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 55px;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.cls-section.flip .cls-showcase {
+    grid-template-columns: 1fr 1.15fr;
+}
+
+.cls-section.flip .cls-media {
+    order: 2;
+}
+
+.cls-media {
+    position: relative;
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, .3);
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, .55),
+        0 0 45px rgba(212, 175, 55, .1);
+}
+
+.cls-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, .45), transparent 45%);
+    pointer-events: none;
+}
+
+.cls-media img {
+    width: 100%;
+    display: block;
+    transition: .6s;
+}
+
+.cls-media:hover img {
+    transform: scale(1.04);
+}
+
+.cls-emblem {
+    color: var(--gold);
+    margin-bottom: 18px;
+}
+
+.cls-emblem svg {
+    width: 52px;
+    height: 52px;
+    filter: drop-shadow(0 0 16px rgba(212, 175, 55, .45));
+}
+
+.cls-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 62px;
+    letter-spacing: 4px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    background: var(--steel-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .7));
+    margin-bottom: 14px;
+}
+
+.cls-role {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.cls-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 26px;
+}
+
+.cls-tag {
+    font-size: 13px;
+    letter-spacing: .5px;
+    color: #d3c9ae;
+    border: 1px solid rgba(212, 175, 55, .3);
+    border-radius: 999px;
+    padding: 6px 16px;
+    background: rgba(212, 175, 55, .06);
+}
+
+.cls-desc {
+    color: #c4bda9;
+    font-size: 16.5px;
+    line-height: 2;
+}
+
+/* ---------- บล็อกย่อย ---------- */
+
+.cls-block {
+    margin-bottom: 70px;
+}
+
+.cls-block:last-child {
+    margin-bottom: 0;
+}
+
+.cls-block-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 1px;
+    line-height: 1.45;
+    background: var(--gold-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 32px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.cls-block-title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 65%;
+    background: linear-gradient(180deg, var(--gold), rgba(212, 175, 55, .2));
+    border-radius: 4px;
+}
+
+/* สกิล */
+
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.skill-card {
+    position: relative;
+    background: linear-gradient(180deg, rgba(212, 175, 55, .05), transparent 40%), #161513;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 26px 24px;
+    transition: .3s;
+    overflow: hidden;
+}
+
+.skill-card:hover {
+    border-color: rgba(212, 175, 55, .55);
+    transform: translateY(-6px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .4);
+}
+
+.skill-num {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 44px;
+    line-height: 1;
+    color: rgba(212, 175, 55, .1);
+    pointer-events: none;
+}
+
+.skill-card h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: .5px;
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.skill-card p {
+    color: #b5ae9c;
+    font-size: 14.5px;
+    line-height: 1.85;
+}
+
+/* จุดแข็ง / จุดอ่อน */
+
+.pc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+}
+
+.pc-card {
+    border-radius: 18px;
+    padding: 32px 30px;
+    border: 1px solid var(--border);
+}
+
+.pc-card.pros {
+    background: linear-gradient(180deg, rgba(90, 160, 90, .07), transparent 45%), #131511;
+    border-color: rgba(120, 180, 110, .22);
+}
+
+.pc-card.cons {
+    background: linear-gradient(180deg, rgba(190, 80, 70, .07), transparent 45%), #151211;
+    border-color: rgba(200, 100, 90, .22);
+}
+
+.pc-card h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 22px;
+}
+
+.pc-card.pros h3 { color: #9fd08e; }
+.pc-card.cons h3 { color: #e0897b; }
+
+.pc-card ul {
+    list-style: none;
+}
+
+.pc-card li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    color: #c9c2b0;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 14px;
+}
+
+.pc-card li:last-child {
+    margin-bottom: 0;
+}
+
+.pc-card li svg {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+.pc-card.pros li svg { color: #8fc47e; }
+.pc-card.cons li svg { color: #d97f70; }
+
+/* Build guide */
+
+.build-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.build-card {
+    background: #14130f;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 26px 24px;
+    transition: .3s;
+}
+
+.build-card:hover {
+    border-color: rgba(212, 175, 55, .5);
+}
+
+.build-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.build-head svg {
+    width: 22px;
+    height: 22px;
+    color: var(--gold);
+    flex-shrink: 0;
+}
+
+.build-head h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: #f0e8d4;
+}
+
+.build-card ul {
+    list-style: none;
+}
+
+.build-card li {
+    position: relative;
+    padding-left: 18px;
+    color: #b5ae9c;
+    font-size: 14.5px;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.build-card li:last-child {
+    margin-bottom: 0;
+}
+
+.build-card li::before {
+    content: "◆";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-size: 9px;
+    color: rgba(212, 175, 55, .6);
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 991px) {
+
+    .cls-showcase,
+    .cls-section.flip .cls-showcase {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .cls-section.flip .cls-media {
+        order: 0;
+    }
+
+    .cls-intro {
+        text-align: center;
+    }
+
+    .cls-tags {
+        justify-content: center;
+    }
+
+    .cls-name {
+        font-size: 44px;
+    }
+
+    .pc-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .cls-section {
+        padding: 70px 0;
+    }
+
+    .cls-name {
+        font-size: 36px;
+        letter-spacing: 2px;
+    }
+
+    .cls-desc {
+        font-size: 15px;
+    }
+
+    .cls-pill {
+        padding: 11px 20px;
+        font-size: 13px;
+    }
+
+    .cls-block-title {
+        font-size: 24px;
+    }
+
+}
