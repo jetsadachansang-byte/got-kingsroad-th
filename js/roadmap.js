@@ -59,8 +59,8 @@
                     "เก็บ Season Points จาก Raid Defense, Northern Bannerman Duel Festival และการสำรวจพื้นที่",
                     "เก็บ Season Token จาก expedition, อีเวนต์ตามพื้นที่, World Boss และคอนเทนต์ทำซ้ำได้"
                 ]},
-                { h: "North Bannerman Duel Festival (เริ่ม 22 ก.ค. 2026)" },
-                { p: "โหมดทัวร์นาเมนต์ PvE ดวล 1v1 กับแชมป์เปี้ยน AI ระดับสูงที่เลียนแบบการเล่นแบบ PvP ของมนุษย์ ทั้งการหลบ การ Parry และการโจมตีระยะไกล เป็นหนึ่งในกิจกรรมหลักของซีซัน" },
+                { h: "North Bannerman Duel Festival (เปิด 22 ก.ค. 2026)" },
+                { p: "โหมดดวล 1v1 กับ NPC Bannerman Champion จากตระกูลอื่น — เป็นประสบการณ์แบบ 'PvE-like PvP' ที่ศัตรูเล่นต่างจาก NPC ทั่วไป ทั้งการหลบและ Parry รูปแบบเป็นทัวร์นาเมนต์ 3 รอบแบบ Time Attack เจอ House Champion หลายด่านแข่งกับเวลา พร้อมอีเวนต์ประจำภูมิภาครายวัน รางวัลเป็น Growth Rewards และ Season Token (หมายเหตุ: กิจกรรมนี้เปิดเฉพาะภูมิภาค APAC)" },
                 { h: "กลไกต่อสู้ใหม่: Burning Battle Spirit" },
                 { p: "สะสม Battle Spirit จากการโจมตีศัตรู สะสมอะดรีนาลีนจนเต็ม แล้วปลดปล่อยเป็นสกิลพิเศษพลังสูงที่สร้างความเสียหายรุนแรงและฟื้นฟูพลังชีวิต" },
                 { h: "Battle Pass" },

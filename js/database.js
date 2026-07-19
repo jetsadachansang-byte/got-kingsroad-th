@@ -264,11 +264,11 @@
             summary: "แคว้นใหม่จากอัปเดต The Drowned God Wakes มีพื้นที่ย่อยหลายแห่งและคอนเทนต์ปลายเกม",
             meta: [
                 { k: "ประเภท", v: "ภูมิภาค (เพิ่มใหม่)" },
-                { k: "พื้นที่ย่อย", v: "The Crow's Nest, Scorched Plain, Griffin's Roost" },
+                { k: "พื้นที่ย่อย", v: "The Crow's Nest, Scorched Plain, Griffin's Roost, Storm's End (ปราสาทของ Stannis)" },
                 { k: "คอนเทนต์", v: "Bounty Hunt, Faction Hideout, Drogon ระดับใหม่" }
             ],
             body: [
-                { p: "Stormlands เป็นแคว้นใหม่ที่เปิดพร้อมอัปเดตคอนเทนต์ใหญ่ The Drowned God Wakes ประกอบด้วยพื้นที่ย่อยหลายแห่ง เช่น The Crow's Nest, Scorched Plain และ Griffin's Roost" },
+                { p: "Stormlands เป็นแคว้นใหม่ที่มีสภาพอากาศพายุ เป็นฐานที่มั่นของ Stannis Baratheon ตัวละครจากต้นฉบับ ผู้เล่นได้สำรวจปราสาทของเขา Storm's End ประกอบด้วยพื้นที่ย่อยหลายแห่ง เช่น The Crow's Nest, Scorched Plain และ Griffin's Roost" },
                 { h: "คอนเทนต์ในพื้นที่" },
                 { list: [
                     "ระบบล่าค่าหัว (Bounty Hunt) — ล่าอาชญากร 15 ราย รับแต้ม Weapon Mastery",
@@ -285,7 +285,7 @@
             meta: [
                 { k: "ภูมิภาค", v: "Stormlands" },
                 { k: "อสูรประจำพื้นที่", v: "Shadowcat" },
-                { k: "เนื้อเรื่อง", v: "เกี่ยวข้องกับ Stannis Baratheon และการยึด Griffin's Roost" }
+                { k: "เนื้อเรื่อง", v: "Stannis Baratheon (ฐานที่มั่น: ปราสาท Storm's End) และการยึด Griffin's Roost" }
             ],
             body: [
                 { p: "The Crow's Nest เป็นพื้นที่หลักของแคว้น Stormlands มีเควสหลัก เควสย่อย ซากปรักหักพัง (Ruins) และภารกิจตามล่า ผู้เล่นจะได้พบ Stannis Baratheon ผู้อ้างสิทธิ์ในบัลลังก์เหล็ก ท่ามกลางการทรยศเมื่อทหารรับจ้างยึด Griffin's Roost" },

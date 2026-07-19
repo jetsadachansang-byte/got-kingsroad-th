@@ -273,8 +273,8 @@
             body: [
                 { h: "Season 1: The North Bannerman Qualifiers — Frost and Steel" },
                 { p: "อัปเดตใหญ่ของซีซัน 1 เปิดตัว 15 ก.ค. 2026 นำมาซึ่งเนื้อเรื่อง ระบบ และคอนเทนต์ใหม่ พร้อมกลไกต่อสู้ Burning Battle Spirit" },
-                { h: "North Bannerman Duel Festival" },
-                { p: "กิจกรรมย่อยเริ่ม 22 ก.ค. 2026 ให้ผู้เล่นดวล 1v1 กับ NPC Bannerman Champion จากตระกูลอื่น ๆ เพื่อชิงรางวัล" },
+                { h: "North Bannerman Duel Festival (เปิด 22 ก.ค. 2026)" },
+                { p: "อีเวนต์ดวล 1v1 กับ NPC Bannerman Champion จากตระกูลอื่น แบบ 'PvE-like PvP' รูปแบบทัวร์นาเมนต์ 3 รอบ Time Attack เจอ House Champion หลายด่านแข่งกับเวลา มีอีเวนต์ประจำภูมิภาครายวัน รางวัลเป็น Growth Rewards และ Season Token (เปิดเฉพาะภูมิภาค APAC)" },
                 { h: "Battle Pass: Ripples of the Open Sea" },
                 { p: "Battle Pass ประจำช่วง สะสมความคืบหน้าเพื่อรับรางวัลตามระดับ" },
                 { p: "อีเวนต์และรางวัลอาจต่างกันตามภูมิภาคและช่วงเวลา ตรวจสอบประกาศทางการในเกมเสมอ" }
