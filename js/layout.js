@@ -67,7 +67,7 @@
     </div>
 
     <div class="gk-stats" id="gk-stats" hidden>
-        <div class="gk-stat gk-stat-live">
+        <div class="gk-stat gk-stat-live" id="gk-tile-online">
             <span class="gk-dot" aria-hidden="true"></span>
             <span class="gk-num" id="gk-online">–</span>
             <span class="gk-label">ออนไลน์ตอนนี้</span>

@@ -1,146 +1,121 @@
 /* ============================================================
-   visitors.js — ตัวนับผู้เข้าชมแบบเรียลไทม์ (Firebase Realtime Database)
+   visitors.js — ตัวนับผู้เข้าชม
 
-   แสดง 3 ค่า:
-     • ออนไลน์ตอนนี้ (Online now)     — presence แบบเรียลไทม์
-     • ผู้เข้าชมทั้งหมด (Total visitors) — นับผู้เข้าชมไม่ซ้ำ (ต่ออุปกรณ์) สะสม
-     • เปิดลิงก์ไม่ซ้ำ (Unique views)  — จำนวนการเปิดหน้า/ลิงก์ที่ไม่ซ้ำกัน
+   ทำงานได้ทันทีโดยไม่ต้องตั้งค่าอะไร (zero-setup):
+     • ผู้เข้าชมทั้งหมด (Total visitors) — นับไม่ซ้ำต่ออุปกรณ์ สะสม
+     • เปิดลิงก์ไม่ซ้ำ (Unique views)   — นับการเปิดหน้า/ลิงก์ที่ไม่ซ้ำกัน
+   ใช้บริการตัวนับฟรี Abacus (abacus.jasoncameron.dev) ไม่ต้องมีบัญชี
 
-   ────────────────────────────────────────────────────────────
-   ✏️ วิธีตั้งค่า (ทำครั้งเดียว):
-   1) ไปที่ https://console.firebase.google.com → สร้างโปรเจกต์ (ฟรี)
-   2) เมนู Build → Realtime Database → Create Database (เลือก region + Start in test mode
-      หรือใช้กฎด้านล่าง)
-   3) ตั้งกฎ (Rules) ให้ตัวนับอ่าน/เขียนได้ (เว็บ community ทั่วไปใช้ได้):
-        {
-          "rules": {
-            "presence": { ".read": true, ".write": true },
-            "stats":    { ".read": true, ".write": true }
-          }
-        }
-   4) Project Settings → General → Your apps → Web app (</>) → คัดลอกค่า firebaseConfig
-      มาวางแทนค่าใน CONFIG ด้านล่าง (โดยเฉพาะ apiKey และ databaseURL)
-   5) เพิ่มโดเมนเว็บ (…​.workers.dev) ใน Authentication → Settings → Authorized domains
-      (ถ้าใช้ presence ผ่าน anonymous ไม่จำเป็น แต่ใส่ไว้ก็ดี)
+   ออปชันเสริม (ต้องตั้งค่าเอง):
+     • ออนไลน์ตอนนี้ (Online now) — presence เรียลไทม์จริง ต้องใช้ Firebase
+       Realtime Database ใส่ค่าใน FIREBASE ด้านล่าง (ดูวิธีในคอมเมนต์)
+       ถ้าไม่ตั้งค่า ไทล์ "ออนไลน์ตอนนี้" จะถูกซ่อนไว้
 
-   หมายเหตุ: apiKey ของ Firebase เป็นค่า public ใส่ในโค้ดฝั่งหน้าเว็บได้ตามปกติ
-   ตราบใดที่ตั้ง Rules ให้เหมาะสม (ด้านบนจำกัดเขียนได้เฉพาะ presence/stats)
-
-   วิดเจ็ตจะซ่อนอัตโนมัติจนกว่าจะกรอก CONFIG จริง
+   ทุกอย่าง degrade อย่างนุ่มนวล: ถ้าบริการใดล่ม ไทล์นั้นจะไม่ขึ้น
+   โดยไม่ทำให้หน้าเว็บพัง และไม่มีการโชว์ตัวเลขปลอม
 ============================================================ */
 
 (function () {
 
-    /* ---------- ⬇️ วางค่า firebaseConfig ของคุณตรงนี้ ⬇️ ---------- */
-    var CONFIG = {
-        apiKey:       "PASTE_FIREBASE_API_KEY",
-        authDomain:   "PASTE_PROJECT.firebaseapp.com",
-        databaseURL:  "https://PASTE_PROJECT-default-rtdb.firebaseio.com",
-        projectId:    "PASTE_PROJECT"
+    /* ---------- ตัวนับ (ไม่ต้องตั้งค่า) ---------- */
+    var ABACUS = "https://abacus.jasoncameron.dev";
+    var NS     = "got-kingsroad-th-jc";   // namespace เฉพาะของเว็บนี้
+
+    /* ---------- ออนไลน์ตอนนี้ (ออปชัน — ใส่ Firebase ถ้าต้องการ) ----------
+       สร้างโปรเจกต์ฟรีที่ console.firebase.google.com → Realtime Database
+       → ตั้ง Rules ให้ presence อ่าน/เขียนได้:
+         { "rules": { "presence": { ".read": true, ".write": true } } }
+       แล้ววาง apiKey + databaseURL ด้านล่าง                                   */
+    var FIREBASE = {
+        apiKey:      "PASTE_FIREBASE_API_KEY",
+        databaseURL: "https://PASTE_PROJECT-default-rtdb.firebaseio.com"
     };
-    /* ---------- ⬆️ วางค่า firebaseConfig ของคุณตรงนี้ ⬆️ ---------- */
 
     var SDK = "https://www.gstatic.com/firebasejs/10.12.5/";
-    var STALE_MS = 70000;   // ถือว่าออฟไลน์ถ้าไม่มี heartbeat เกิน 70 วินาที
-    var BEAT_MS  = 25000;   // ส่ง heartbeat ทุก 25 วินาที
+    var STALE_MS = 70000, BEAT_MS = 25000;
 
-    /* ถ้ายังไม่ตั้งค่า → ไม่ทำอะไร (ซ่อนวิดเจ็ต) */
-    if (!CONFIG.apiKey || /PASTE/.test(CONFIG.apiKey) ||
-        !CONFIG.databaseURL || /PASTE/.test(CONFIG.databaseURL)) {
-        if (window.console) console.info("[visitors] ยังไม่ได้ตั้งค่า Firebase — ตัวนับถูกซ่อนไว้ (ดูวิธีตั้งค่าใน js/visitors.js)");
-        return;
-    }
-
-    function loadScript(src, cb) {
-        var s = document.createElement("script");
-        s.src = src; s.async = true;
-        s.onload = cb;
-        s.onerror = function () { if (window.console) console.warn("[visitors] โหลด Firebase SDK ไม่สำเร็จ:", src); };
-        document.head.appendChild(s);
-    }
-
-    function fmt(n) { try { return Number(n || 0).toLocaleString("th-TH"); } catch (e) { return String(n || 0); } }
-    function setText(id, v) { var el = document.getElementById(id); if (el) el.textContent = fmt(v); }
-
-    /* client id ถาวรต่ออุปกรณ์ (สำหรับนับผู้เข้าชมไม่ซ้ำ) */
-    function clientId() {
-        var k = "gk_cid", v;
-        try {
-            v = localStorage.getItem(k);
-            if (!v) { v = "c" + Date.now().toString(36) + Math.random().toString(36).slice(2, 8); localStorage.setItem(k, v); }
-        } catch (e) { v = "anon"; }
-        return v;
-    }
+    /* ---------- utils ---------- */
+    function fmt(n) { try { return Number(n).toLocaleString("th-TH"); } catch (e) { return String(n); } }
+    function el(id) { return document.getElementById(id); }
+    function setVal(id, v) { var e = el(id); if (e && v != null && !isNaN(v)) { e.textContent = fmt(v); reveal(); } }
+    function reveal() { var w = el("gk-stats"); if (w) w.removeAttribute("hidden"); }
     function seen(key) {
         try { if (localStorage.getItem(key)) return true; localStorage.setItem(key, "1"); return false; }
         catch (e) { return false; }
     }
 
-    function boot() {
-        loadScript(SDK + "firebase-app-compat.js", function () {
-            loadScript(SDK + "firebase-database-compat.js", init);
-        });
+    /* ---------- Abacus: total + unique ---------- */
+    function abacus(path) {
+        return fetch(ABACUS + path, { method: "GET" })
+            .then(function (r) { return r.ok ? r.json() : null; })
+            .then(function (j) { return j && typeof j.value === "number" ? j.value : null; })
+            .catch(function () { return null; });
     }
 
-    function init() {
-        if (typeof firebase === "undefined") return;
-        try { firebase.initializeApp(CONFIG); } catch (e) { /* already inited */ }
-        var db = firebase.database();
-        var TS = firebase.database.ServerValue.TIMESTAMP;
-        var cid = clientId();
+    function countTotal() {
+        var isNew = !seen("gk_counted_visitor");
+        abacus((isNew ? "/hit/" : "/get/") + NS + "/visitors").then(function (v) { setVal("gk-total", v); });
+    }
 
-        /* ---- ผู้เข้าชมทั้งหมด: +1 ครั้งเดียวต่ออุปกรณ์ (ครั้งแรกที่เข้า) ---- */
-        if (!seen("gk_counted_visitor")) {
-            db.ref("stats/totalVisitors").transaction(function (v) { return (v || 0) + 1; });
-        }
-
-        /* ---- เปิดลิงก์ไม่ซ้ำ: +1 ครั้งเดียวต่อ (อุปกรณ์ + หน้า) ---- */
+    function countUnique() {
         var pageKey = "gk_pv:" + location.pathname;
-        if (!seen(pageKey)) {
-            db.ref("stats/uniqueViews").transaction(function (v) { return (v || 0) + 1; });
-        }
+        var firstOpen = !seen(pageKey);
+        abacus((firstOpen ? "/hit/" : "/get/") + NS + "/views").then(function (v) { setVal("gk-unique", v); });
+    }
 
-        /* ---- ออนไลน์ตอนนี้ (presence) ---- */
-        var meRef = db.ref("presence").push();
-        var beat = function () { meRef.set({ t: TS, c: cid }); };
-        db.ref(".info/connected").on("value", function (snap) {
-            if (snap.val() === true) { meRef.onDisconnect().remove(); beat(); }
-        });
-        var beatTimer = setInterval(beat, BEAT_MS);
-        window.addEventListener("beforeunload", function () {
-            clearInterval(beatTimer);
-            try { meRef.remove(); } catch (e) {}
-        });
+    /* ---------- Firebase presence: online now (optional) ---------- */
+    function onlineConfigured() {
+        return FIREBASE.apiKey && !/PASTE/.test(FIREBASE.apiKey) &&
+               FIREBASE.databaseURL && !/PASTE/.test(FIREBASE.databaseURL);
+    }
 
-        /* ---- อ่านค่ามาแสดง (เรียลไทม์) ---- */
-        db.ref("presence").on("value", function (snap) {
-            var now = Date.now(), online = 0;
-            snap.forEach(function (child) {
-                var val = child.val() || {};
-                if (now - (val.t || 0) < STALE_MS) {
-                    online++;
-                } else {
-                    // เก็บกวาด node ที่ตายค้าง (best-effort)
-                    try { child.ref.remove(); } catch (e) {}
-                }
+    function hideOnlineTile() {
+        var t = el("gk-tile-online"); if (t) t.style.display = "none";
+    }
+
+    function loadScript(src, cb) {
+        var s = document.createElement("script");
+        s.src = src; s.async = true; s.onload = cb;
+        s.onerror = function () { hideOnlineTile(); };
+        document.head.appendChild(s);
+    }
+
+    function startPresence() {
+        loadScript(SDK + "firebase-app-compat.js", function () {
+            loadScript(SDK + "firebase-database-compat.js", function () {
+                if (typeof firebase === "undefined") { hideOnlineTile(); return; }
+                try { firebase.initializeApp(FIREBASE); } catch (e) {}
+                var db = firebase.database();
+                var TS = firebase.database.ServerValue.TIMESTAMP;
+                var meRef = db.ref("presence").push();
+                var beat = function () { meRef.set({ t: TS }); };
+                db.ref(".info/connected").on("value", function (s) {
+                    if (s.val() === true) { meRef.onDisconnect().remove(); beat(); }
+                });
+                var timer = setInterval(beat, BEAT_MS);
+                window.addEventListener("beforeunload", function () { clearInterval(timer); try { meRef.remove(); } catch (e) {} });
+                db.ref("presence").on("value", function (s) {
+                    var now = Date.now(), n = 0;
+                    s.forEach(function (c) {
+                        var v = c.val() || {};
+                        if (now - (v.t || 0) < STALE_MS) n++;
+                        else { try { c.ref.remove(); } catch (e) {} }
+                    });
+                    setVal("gk-online", n || 1);
+                });
             });
-            setText("gk-online", online || 1);
         });
-        db.ref("stats/totalVisitors").on("value", function (s) { setText("gk-total", s.val()); });
-        db.ref("stats/uniqueViews").on("value", function (s) { setText("gk-unique", s.val()); });
-
-        showWidget();
     }
 
-    function showWidget() {
-        var w = document.getElementById("gk-stats");
-        if (w) w.removeAttribute("hidden");
+    /* ---------- boot ---------- */
+    function boot() {
+        countTotal();
+        countUnique();
+        if (onlineConfigured()) startPresence();
+        else hideOnlineTile();
     }
 
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", boot);
-    } else {
-        boot();
-    }
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+    else boot();
 
 })();
