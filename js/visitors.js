@@ -27,8 +27,7 @@
          { "rules": { "presence": { ".read": true, ".write": true } } }
        แล้ววาง apiKey + databaseURL ด้านล่าง                                   */
     var FIREBASE = {
-        apiKey:      "PASTE_FIREBASE_API_KEY",
-        databaseURL: "https://PASTE_PROJECT-default-rtdb.firebaseio.com"
+        databaseURL: "https://online-89559-default-rtdb.asia-southeast1.firebasedatabase.app"
     };
 
     var SDK = "https://www.gstatic.com/firebasejs/10.12.5/";
@@ -65,8 +64,7 @@
 
     /* ---------- Firebase presence: online now (optional) ---------- */
     function onlineConfigured() {
-        return FIREBASE.apiKey && !/PASTE/.test(FIREBASE.apiKey) &&
-               FIREBASE.databaseURL && !/PASTE/.test(FIREBASE.databaseURL);
+        return FIREBASE.databaseURL && !/PASTE/.test(FIREBASE.databaseURL);
     }
 
     function hideOnlineTile() {
