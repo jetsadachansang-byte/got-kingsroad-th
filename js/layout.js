@@ -66,6 +66,22 @@
 
     </div>
 
+    <div class="gk-stats" id="gk-stats" hidden>
+        <div class="gk-stat gk-stat-live">
+            <span class="gk-dot" aria-hidden="true"></span>
+            <span class="gk-num" id="gk-online">–</span>
+            <span class="gk-label">ออนไลน์ตอนนี้</span>
+        </div>
+        <div class="gk-stat">
+            <span class="gk-num" id="gk-total">–</span>
+            <span class="gk-label">ผู้เข้าชมทั้งหมด</span>
+        </div>
+        <div class="gk-stat">
+            <span class="gk-num" id="gk-unique">–</span>
+            <span class="gk-label">เปิดลิงก์ไม่ซ้ำ</span>
+        </div>
+    </div>
+
     <div class="copyright">© 2026 Game of Thrones: Kingsroad TH • JC Gameservice</div>
 </footer>`;
 
@@ -136,5 +152,14 @@
 
     if (headerSlot) headerSlot.outerHTML = HEADER_HTML;
     if (footerSlot) footerSlot.outerHTML = FOOTER_HTML;
+
+    /* โหลดตัวนับผู้เข้าชม (ทำงานเมื่อกรอก Firebase config แล้วเท่านั้น) */
+    if (!document.getElementById("gk-visitors-js")) {
+        const vs = document.createElement("script");
+        vs.id = "gk-visitors-js";
+        vs.src = "js/visitors.js";
+        vs.async = true;
+        document.body.appendChild(vs);
+    }
 
 })();
