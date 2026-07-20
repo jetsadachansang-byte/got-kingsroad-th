@@ -990,6 +990,51 @@ nav ul > li > .active::after {
     filter: drop-shadow(0 0 16px rgba(198, 162, 78, .6));
 }
 
+/* ---------- รูปไอเทม (Database) ---------- */
+/* กล่องที่ซ้อนรูปจริงทับไอคอน SVG; ถ้ารูปโหลดไม่ได้ img จะถูกซ่อน (onerror) แล้วโชว์ SVG แทน */
+.db-icon-wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.db-icon-wrap .db-thumb {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+    background: #0e141b;
+}
+
+/* กล่องรูปบนการ์ดในหน้ารวม (quick-icon ปกติไม่มีขนาดกล่อง) */
+.quick-icon.db-icon-wrap {
+    width: 58px;
+    height: 58px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--border);
+    background: linear-gradient(135deg, #22303c, #151d27);
+}
+
+.quick-icon.db-icon-wrap svg {
+    width: 32px;
+    height: 32px;
+}
+
+.quick-card:hover .db-icon-wrap .db-thumb {
+    transform: scale(1.06);
+    transition: transform .35s;
+}
+
+/* กล่องรูปใหญ่บนหน้ารายละเอียด (ใช้ขนาดใหญ่ขึ้นเมื่อมีรูปจริง) */
+.ga-icon.db-icon-wrap {
+    width: 118px;
+    height: 118px;
+    border-radius: 20px;
+}
+
 .quick-card h3 {
     font-family: 'Cinzel', serif;
     font-size: 26px;

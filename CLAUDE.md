@@ -43,6 +43,10 @@ Static site (HTML/CSS/JS ล้วน ไม่มี framework/build) โฮส
 - `guide.html` + `guide-article.html` + `js/guides.js` — คู่มือแยกหมวด (`?id=`)
 - `database.html` + `database-detail.html` + `js/database.js` — ฐานข้อมูล (`?id=`)
   แต่ละ record มี field `sources` + `confidence` + `version` + `verified`
+  - **รูปไอเทม:** เพิ่ม field `img: "images/items/<id>.webp"` ที่ record → รูปขึ้นทั้ง
+    การ์ดและหน้ารายละเอียด (ถ้าไม่มี/โหลดไม่ได้ จะ fallback ไปไอคอน SVG อัตโนมัติ)
+    ใช้ **รูปจริงจากในเกม/แหล่งทางการเท่านั้น** ห้ามใช้รูป AI/รูปไม่ตรงไอเทม
+    ดู `images/items/README.md` (network ของ agent บล็อก host รูปทั้งหมด → ต้องให้ผู้ใช้ส่งรูปมา)
 - `classes.html` — หน้าอาชีพ (Knight/Assassin/Sellsword)
 - `css/style.css` — ธีม "The North / Winterfell" (cold blue-black + antique gold +
   frost accent) มี CSS variables ใน `:root` — **ห้าม redesign theme เว้นแต่สั่ง**

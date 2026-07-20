@@ -996,12 +996,25 @@
 
     function cardTags(tags) { return " " + (tags || []).join(" ").toLowerCase() + " "; }
 
+    /* กล่องไอคอน/รูปไอเทม: ถ้ามี obj.img จะโชว์รูปจริง ถ้าโหลดไม่ได้ (ไฟล์ยังไม่มี)
+       จะซ่อนรูปแล้วตกกลับไปโชว์ไอคอน SVG เดิมอัตโนมัติ — ปลอดภัยแม้ไฟล์ยังไม่ถูกส่งมา */
+    function iconBox(baseClass, obj) {
+        const svg = obj.icon || "";
+        if (obj.img) {
+            return `<div class="${baseClass} db-icon-wrap">` +
+                `<img src="${esc(obj.img)}" alt="${esc(obj.name || "")}" class="db-thumb" loading="lazy" onerror="this.style.display='none'">` +
+                svg +
+            `</div>`;
+        }
+        return `<div class="${baseClass}">${svg}</div>`;
+    }
+
     function entryCard(id) {
         const e = DB[id];
         if (!e) return "";
         const search = (e.name + " " + e.nameTh + " " + (e.tags || []).join(" ")).toLowerCase();
         return `<a href="database-detail.html?id=${encodeURIComponent(id)}" class="quick-card guide-card db-card" data-search="${esc(search)}" data-tags="${esc(cardTags(e.tags))}">
-            <div class="quick-icon">${e.icon}</div>
+            ${iconBox("quick-icon", e)}
             <h3>${esc(e.name)}</h3>
             <span class="db-nameth">${esc(e.nameTh)}</span>
             <p>${esc(e.summary)}</p>
@@ -1013,7 +1026,7 @@
     function classCard(c) {
         const search = (c.name + " " + c.nameTh + " " + c.tags.join(" ")).toLowerCase();
         return `<a href="${c.href}" class="quick-card guide-card db-card" data-search="${esc(search)}" data-tags="${esc(cardTags(c.tags))}">
-            <div class="quick-icon">${c.icon}</div>
+            ${iconBox("quick-icon", c)}
             <h3>${esc(c.name)}</h3>
             <span class="db-nameth">${esc(c.nameTh)}</span>
             <p>${esc(c.summary)}</p>
@@ -1153,7 +1166,7 @@
 
             detail.innerHTML = `<div class="container ga-wrap">
                 <nav class="db-crumb"><a href="database.html">ฐานข้อมูล</a> <span>/</span> <a href="database.html#cat-${e.cat}">${esc(cat.title)}</a> <span>/</span> <strong>${esc(e.name)}</strong></nav>
-                <div class="ga-icon">${e.icon}</div>
+                ${iconBox("ga-icon", e)}
                 <span class="hero-badge">${esc(cat.title)}</span>${confBadge}
                 <h1 class="ga-title">${esc(e.name)}</h1>
                 <p class="rm-subtitle">${esc(e.nameTh)}</p>
