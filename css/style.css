@@ -2166,7 +2166,7 @@ nav ul > li > a {
 
 .calc-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 30px;
     align-items: start;
 }
@@ -2291,6 +2291,17 @@ nav ul > li > a {
 
 .calc-result .bad {
     color: #e06a5a;
+}
+
+@media (max-width: 480px) {
+
+    .calc-card {
+        padding: 26px 20px;
+    }
+
+    .calc-head h3 {
+        font-size: 20px;
+    }
 }
 
 /* ---------- การ์ดเร็วๆ นี้ ---------- */
