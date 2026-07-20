@@ -442,15 +442,15 @@
         "set-system": {
             cat: "eq-set", icon: IC.item, name: "Set System", nameTh: "ระบบเซ็ตอุปกรณ์",
             tags: ["System", "Set"], confidence: "Verified", version: "เซิร์ฟปัจจุบัน", verified: "ก.ค. 2026",
-            summary: "จัด Main Set + Sub Set โบนัสสองเซ็ตซ้อนกันได้ มีโบนัส 3 ชิ้น และ 5 ชิ้น ปลดผ่าน Set Research",
+            summary: "จัด Main Set + Sub Set โบนัสสองเซ็ตซ้อนกันได้ มีโบนัส 3 ชิ้น และ 6 ชิ้น ปลดผ่าน Set Research",
             meta: [
                 { k: "โครงสร้าง", v: "Main Set + Sub Set (โบนัสซ้อนกันได้)" },
-                { k: "ระดับโบนัส", v: "3 ชิ้น และ 5 ชิ้น" },
-                { k: "เงื่อนไข", v: "3-Set ~ Research Level 10, 5-Set ~ Research Level 20" }
+                { k: "ระดับโบนัส", v: "3 ชิ้น และ 6 ชิ้น" },
+                { k: "เงื่อนไข", v: "3-Set ~ Research Level 10, 6-Set ~ Research Level 20" }
             ],
             body: [
-                { p: "ระบบเซ็ตให้จัด 'Main Set' และ 'Sub Set' พร้อมกัน โดยโบนัสของทั้งสองเซ็ตซ้อนกันได้ Main Set ควรตรงกับบทบาทของอาชีพและเป็นเซ็ตที่เล็งโบนัส 5 ชิ้น" },
-                { p: "โบนัสเซ็ตปลดล็อกผ่านระบบ Set Research (จากข้อมูลชุมชน: โบนัส 3 ชิ้นต้อง Research Level 10, โบนัส 5 ชิ้นต้อง Research Level 20)" },
+                { p: "ระบบเซ็ตให้จัด 'Main Set' และ 'Sub Set' พร้อมกัน โดยโบนัสของทั้งสองเซ็ตซ้อนกันได้ Main Set ควรตรงกับบทบาทของอาชีพและเป็นเซ็ตที่เล็งโบนัส 6 ชิ้น" },
+                { p: "โบนัสเซ็ตปลดล็อกผ่านระบบ Set Research (จากข้อมูลชุมชน: โบนัส 3 ชิ้นต้อง Research Level 10, โบนัส 6 ชิ้นต้อง Research Level 20)" },
                 { p: "หมายเหตุสำคัญ: ในเกมแสดงคำอธิบายโบนัสเซ็ตแบบคร่าว ๆ ในหน้า Set Research ไม่โชว์ตัวเลขเป๊ะทุกจุด ค่าตัวเลขในหน้ารายการเซ็ตด้านล่างส่วนหนึ่งมาจากชุมชนและอาจต่างกันตามแหล่ง โปรดยืนยันในเกม" }
             ],
             sources: [SRC.eqGuide, SRC.setBonus, SRC.nmSet]
@@ -461,7 +461,7 @@
             summary: "เซ็ตยอดนิยมสายโจมตี เน้น Active Skill และคริติคอล เหมาะกับหลายอาชีพ",
             meta: [
                 { k: "โบนัส 3 ชิ้น (ชุมชน)", v: "ใช้ Active Skill เพิ่ม Attack Power ชั่วคราว, +15.0% Rage Gain" },
-                { k: "โบนัส 5 ชิ้น (ชุมชน)", v: "Active Skill Damage +12.0%, มีโอกาสได้ Rage และลดคูลดาวน์สกิลทั้งหมดเมื่อสังหารศัตรู" },
+                { k: "โบนัส 6 ชิ้น (ชุมชน)", v: "Active Skill Damage +12.0%, มีโอกาสได้ Rage และลดคูลดาวน์สกิลทั้งหมดเมื่อสังหารศัตรู" },
                 { k: "เหมาะกับ", v: "สาย DPS (Sellsword, Assassin ปลายเกม), Knight สายโจมตี" }
             ],
             body: [
@@ -503,7 +503,7 @@
             tags: ["Armor Set", "Stagger"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ก.ค. 2026",
             summary: "เซ็ตเน้น Stagger เพิ่มดาเมจต่อศัตรูที่มึน และมีโอกาสดูดเลือด",
             meta: [
-                { k: "โบนัส (ชุมชน)", v: "+13.5% Stagger Damage, เพิ่มดาเมจต่อศัตรูที่ Stagger (5 ชิ้น), มีโอกาส Life Steal" }
+                { k: "โบนัส (ชุมชน)", v: "+13.5% Stagger Damage, เพิ่มดาเมจต่อศัตรูที่ Stagger (6 ชิ้น), มีโอกาส Life Steal" }
             ],
             body: [
                 { p: "Crusher Set เน้นการทำ Stagger (ทำให้ศัตรูมึน) เพิ่มดาเมจต่อศัตรูที่อยู่ในสถานะ Stagger และมีโอกาสดูดเลือด ค่าตัวเลขอ้างอิงจากคู่มือชุมชน โปรดยืนยันในเกม" }
