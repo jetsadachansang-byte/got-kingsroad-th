@@ -1041,11 +1041,30 @@
         return `<div class="${baseClass}">${svg}</div>`;
     }
 
+    /* ป้ายสถานะความน่าเชื่อถือของข้อมูล (ใช้ค่าจริงจาก field confidence) */
+    const CONF_MAP = {
+        "Official":           { cls: "conf-official",  short: "Official" },
+        "Verified":           { cls: "conf-verified",  short: "Verified" },
+        "Community Verified": { cls: "conf-community", short: "Community" },
+        "อยู่ระหว่างตรวจสอบ":   { cls: "conf-wip",       short: "กำลังตรวจ" }
+    };
+    function confChip(conf, small) {
+        if (!conf) return "";
+        const m = CONF_MAP[conf] || { cls: "conf-wip", short: conf };
+        return `<span class="db-conf ${m.cls}${small ? " db-conf-sm" : ""}">${esc(small ? m.short : conf)}</span>`;
+    }
+    function cardConf(conf) {
+        if (!conf) return "";
+        const m = CONF_MAP[conf] || { cls: "conf-wip", short: conf };
+        return `<span class="db-conf db-conf-sm db-card-conf ${m.cls}">${esc(m.short)}</span>`;
+    }
+
     function entryCard(id) {
         const e = DB[id];
         if (!e) return "";
         const search = (e.name + " " + e.nameTh + " " + (e.tags || []).join(" ")).toLowerCase();
-        return `<a href="database-detail.html?id=${encodeURIComponent(id)}" class="quick-card guide-card db-card" data-search="${esc(search)}" data-tags="${esc(cardTags(e.tags))}">
+        return `<a href="database-detail.html?id=${encodeURIComponent(id)}" class="quick-card guide-card db-card db-entry" data-search="${esc(search)}" data-tags="${esc(cardTags(e.tags))}" data-name="${esc(e.name)}">
+            ${cardConf(e.confidence)}
             ${iconBox("quick-icon", e)}
             <h3>${esc(e.name)}</h3>
             <span class="db-nameth">${esc(e.nameTh)}</span>
@@ -1070,24 +1089,78 @@
         </a>`;
     }
 
-    /* ---------- หน้ารวมฐานข้อมูล ---------- */
+    /* ---------- หน้ารวมฐานข้อมูล — "The Kingsroad Codex" ---------- */
     const hub = document.getElementById("database-hub");
     if (hub) {
-        const nav = `<div class="guide-nav db-nav">${CATEGORIES.map(c => `<a href="#cat-${c.id}">${esc(c.title)}</a>`).join("")}</div>`;
+        const IC_SEARCH = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>';
+        const IC_GRID = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>';
+        const IC_LIST = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg>';
 
+        /* สถิติจากข้อมูลจริง */
+        const catCount = c => c.classLinks ? CLASS_LINKS.length : (c.ids || []).length;
+        const totalEntries = CATEGORIES.reduce((n, c) => n + catCount(c), 0);
+        const VERIFIED = { "Official": 1, "Verified": 1, "Community Verified": 1 };
+        let verifiedCount = 0;
+        CATEGORIES.forEach(c => (c.ids || []).forEach(id => { if (DB[id] && VERIFIED[DB[id].confidence]) verifiedCount++; }));
+
+        const stats = [
+            { n: totalEntries, l: "รายการข้อมูล" },
+            { n: CATEGORIES.length, l: "หมวดหมู่" },
+            { n: verifiedCount, l: "ยืนยันแล้ว" }
+        ];
+        const statsHtml = stats.map(s =>
+            `<div class="codex-stat"><span class="codex-stat-n">${s.n}</span><span class="codex-stat-l">${esc(s.l)}</span></div>`
+        ).join('<span class="codex-stat-div" aria-hidden="true"></span>');
+
+        const header = `<header class="codex-head" id="top">
+            <div class="codex-head-frost" aria-hidden="true"></div>
+            <span class="codex-eyebrow">The Kingsroad Codex</span>
+            <h1 class="codex-title">คลังข้อมูลแห่งเวสเทอรอส</h1>
+            <p class="codex-sub">ศูนย์รวมข้อมูล Game of Thrones: Kingsroad ภาษาไทย — ค้นหาอุปกรณ์ เซ็ต Amulet บอส มอนสเตอร์ แผนที่ ดันเจียน เควส และทรัพยากร จากที่เดียว</p>
+            <div class="codex-search">
+                <span class="codex-search-ic" aria-hidden="true">${IC_SEARCH}</span>
+                <input type="text" id="dbSearch" class="codex-search-input" placeholder="ค้นหา เช่น Drogon, Champion Set, Amulet, Winterfell..." autocomplete="off" aria-label="ค้นหาในฐานข้อมูล">
+                <button type="button" class="codex-search-clear" id="dbClear" aria-label="ล้างการค้นหา" hidden>&times;</button>
+            </div>
+            <p class="codex-result" id="dbResult" hidden></p>
+            <div class="codex-stats">${statsHtml}</div>
+        </header>`;
+
+        /* ดัชนีหมวดหมู่ (Category Index) */
+        const indexHtml = `<div class="codex-index" role="navigation" aria-label="ดัชนีหมวดหมู่">${CATEGORIES.map(c =>
+            `<a href="#cat-${c.id}" class="codex-tile ${c.status === "สมบูรณ์" ? "is-done" : "is-wip"}">
+                <span class="codex-tile-ic">${c.icon}</span>
+                <span class="codex-tile-body">
+                    <span class="codex-tile-name">${esc(c.title)}</span>
+                    <span class="codex-tile-desc">${esc(c.desc)}</span>
+                </span>
+                <span class="codex-tile-count">${catCount(c)}</span>
+            </a>`
+        ).join("")}</div>`;
+
+        /* Toolbar: quick filter + sort + view */
         const FILTERS = [
             { l: "ทั้งหมด", q: "" }, { l: "อาวุธ", q: "weapon" }, { l: "เซ็ต", q: "set" },
             { l: "เครื่องประดับ", q: "accessory" }, { l: "Amulet", q: "amulet" }, { l: "ค่าสถานะ", q: "stat" },
             { l: "วัสดุ", q: "material" }, { l: "บอส", q: "boss" }
         ];
-        const chips = `<div class="db-filters">${FILTERS.map((f, i) =>
+        const chips = FILTERS.map((f, i) =>
             `<button type="button" class="db-chip${i === 0 ? " active" : ""}" data-q="${esc(f.q)}">${esc(f.l)}</button>`
-        ).join("")}</div>`;
-
-        const search = `<div class="db-search-wrap">
-            <input type="text" id="dbSearch" class="db-search" placeholder="ค้นหาในฐานข้อมูล เช่น Drogon, Amulet, Winterfell..." autocomplete="off">
-            ${chips}
-            <p class="db-noresult" id="dbNoResult" hidden>ไม่พบรายการที่ตรงกับคำค้น ลองใช้คำอื่นดูนะ</p>
+        ).join("");
+        const toolbar = `<div class="codex-toolbar">
+            <div class="db-filters" role="group" aria-label="กรองด่วน">${chips}</div>
+            <div class="codex-tools">
+                <label class="codex-sort"><span>เรียง</span>
+                    <select id="dbSort" aria-label="เรียงลำดับ">
+                        <option value="cat">ตามหมวด</option>
+                        <option value="name">ชื่อ A–Z</option>
+                    </select>
+                </label>
+                <div class="codex-view" role="group" aria-label="รูปแบบการแสดง">
+                    <button type="button" class="codex-view-btn is-active" data-view="grid" aria-label="มุมมองการ์ด">${IC_GRID}</button>
+                    <button type="button" class="codex-view-btn" data-view="list" aria-label="มุมมองรายการ">${IC_LIST}</button>
+                </div>
+            </div>
         </div>`;
 
         const sections = CATEGORIES.map(cat => {
@@ -1095,23 +1168,38 @@
                 ? CLASS_LINKS.map(classCard).join("")
                 : (cat.ids || []).map(entryCard).join("");
             const statusCls = cat.status === "สมบูรณ์" ? "db-status-done" : "db-status-wip";
-            return `<div class="guide-cat db-cat" id="cat-${cat.id}">
-                <div class="guide-cat-head">
+            return `<section class="guide-cat db-cat" id="cat-${cat.id}">
+                <div class="guide-cat-head db-cat-head">
                     <span class="guide-cat-icon">${cat.icon}</span>
-                    <div>
-                        <h2>${esc(cat.title)} <span class="db-status ${statusCls}">${esc(cat.status)}</span></h2>
+                    <div class="db-cat-head-txt">
+                        <h2>${esc(cat.title)} <span class="db-count">${catCount(cat)}</span> <span class="db-status ${statusCls}">${esc(cat.status)}</span></h2>
                         <p>${esc(cat.desc)}</p>
                     </div>
+                    <a href="#top" class="db-cat-top" aria-label="กลับขึ้นบนสุด">↑</a>
                 </div>
                 <div class="quick-grid db-grid">${cards}</div>
-            </div>`;
+            </section>`;
         }).join("");
 
-        hub.innerHTML = nav + search + sections;
+        const empty = `<div class="codex-empty" id="dbNoResult" hidden>
+            <span class="codex-empty-ic" aria-hidden="true">${IC_SEARCH}</span>
+            <h3>ไม่พบข้อมูลที่ตรงกับการค้นหา</h3>
+            <p>ลองใช้คำอื่น หรือกลับไปดูข้อมูลทั้งหมดในคลัง</p>
+            <button type="button" class="btn-primary codex-empty-btn" id="dbReset">ล้างการค้นหา</button>
+        </div>`;
 
-        /* ค้นหา/กรอง (client-side) */
+        hub.innerHTML = header + indexHtml + toolbar + `<div class="codex-sections" id="dbSections">${sections}</div>` + empty;
+
+        /* ---------- ตรรกะ ค้นหา / กรอง / เรียง / มุมมอง ---------- */
         const input = document.getElementById("dbSearch");
+        const clearBtn = document.getElementById("dbClear");
+        const resultEl = document.getElementById("dbResult");
         const noResult = document.getElementById("dbNoResult");
+        const sectionsWrap = document.getElementById("dbSections");
+
+        function setAllChip() {
+            document.querySelectorAll(".db-chip").forEach((c, i) => c.classList.toggle("active", i === 0));
+        }
 
         function applyFilter(q, field) {
             q = (q || "").trim().toLowerCase();
@@ -1131,14 +1219,32 @@
                 total += shown;
             });
             if (noResult) noResult.hidden = total !== 0;
+            if (resultEl) {
+                const active = q && field !== "tags-empty";
+                resultEl.hidden = !active;
+                if (active) resultEl.textContent = total ? ("พบ " + total + " รายการ") : "ไม่พบรายการที่ตรงกับคำค้น";
+            }
+            if (clearBtn) clearBtn.hidden = !q || field === "tags";
         }
 
         if (input) {
             input.addEventListener("input", function () {
-                document.querySelectorAll(".db-chip").forEach(c => c.classList.remove("active"));
+                setAllChip();
                 applyFilter(this.value, "search");
             });
         }
+        if (clearBtn) clearBtn.addEventListener("click", function () {
+            if (input) { input.value = ""; input.focus(); }
+            setAllChip();
+            applyFilter("", "search");
+        });
+        const resetBtn = document.getElementById("dbReset");
+        if (resetBtn) resetBtn.addEventListener("click", function () {
+            if (input) input.value = "";
+            setAllChip();
+            applyFilter("", "search");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
 
         document.querySelectorAll(".db-chip").forEach(chip => {
             chip.addEventListener("click", function () {
@@ -1148,6 +1254,34 @@
                 applyFilter(this.dataset.q, "tags");
             });
         });
+
+        /* เรียงลำดับ (ภายในแต่ละหมวด) */
+        document.querySelectorAll(".db-grid").forEach(grid =>
+            Array.prototype.slice.call(grid.children).forEach((card, i) => { card.dataset.order = i; })
+        );
+        const sortSel = document.getElementById("dbSort");
+        if (sortSel) sortSel.addEventListener("change", function () {
+            const byName = this.value === "name";
+            document.querySelectorAll(".db-grid").forEach(grid => {
+                const cards = Array.prototype.slice.call(grid.children);
+                cards.sort((a, b) => byName
+                    ? (a.dataset.name || a.querySelector("h3").textContent).localeCompare(b.dataset.name || b.querySelector("h3").textContent, "en")
+                    : (a.dataset.order - b.dataset.order));
+                cards.forEach(c => grid.appendChild(c));
+            });
+        });
+
+        /* มุมมอง Grid / List (จำค่าใน localStorage) */
+        const VIEW_KEY = "gk-db-view";
+        function setView(v) {
+            if (sectionsWrap) sectionsWrap.classList.toggle("is-list", v === "list");
+            document.querySelectorAll(".codex-view-btn").forEach(b => b.classList.toggle("is-active", b.dataset.view === v));
+            try { localStorage.setItem(VIEW_KEY, v); } catch (e) {}
+        }
+        document.querySelectorAll(".codex-view-btn").forEach(b => b.addEventListener("click", () => setView(b.dataset.view)));
+        let savedView = "grid";
+        try { savedView = localStorage.getItem(VIEW_KEY) || "grid"; } catch (e) {}
+        setView(savedView);
     }
 
     /* ---------- หน้ารายละเอียด ---------- */
@@ -1187,36 +1321,41 @@
                 `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a>`
             ).join(" · ");
 
-            const confMap = {
-                "Official": "conf-official", "Verified": "conf-verified",
-                "Community Verified": "conf-community", "อยู่ระหว่างตรวจสอบ": "conf-wip"
-            };
-            const confBadge = e.confidence
-                ? `<span class="db-conf ${confMap[e.confidence] || "conf-wip"}">${esc(e.confidence)}</span>` : "";
+            const confBadge = confChip(e.confidence, false);
 
-            const verifyBits = [];
-            if (e.version)  verifyBits.push(`เวอร์ชัน: ${esc(e.version)}`);
-            if (e.verified) verifyBits.push(`ตรวจสอบล่าสุด: ${esc(e.verified)}`);
-            const verifyHtml = verifyBits.length
-                ? `<div class="db-verify">${verifyBits.join(" • ")}</div>` : "";
+            const statusRows = [];
+            if (e.confidence) statusRows.push(["สถานะข้อมูล", confChip(e.confidence, false)]);
+            if (e.version)    statusRows.push(["เวอร์ชันเกม", esc(e.version)]);
+            if (e.verified)   statusRows.push(["ตรวจสอบล่าสุด", esc(e.verified)]);
+            if (e.sources && e.sources.length) statusRows.push(["แหล่งอ้างอิง", e.sources.length + " แหล่ง"]);
+            const statusHtml = statusRows.length
+                ? `<aside class="db-datastatus"><h3 class="db-ds-title">สถานะข้อมูล</h3><div class="db-ds-rows">${statusRows.map(r =>
+                    `<div class="db-ds-row"><span class="db-ds-k">${r[0]}</span><span class="db-ds-v">${r[1]}</span></div>`).join("")}</div></aside>`
+                : "";
 
             const related = (cat.ids || []).filter(x => x !== id).slice(0, 3);
             const relatedHtml = related.length
                 ? `<div class="ga-related"><h3 class="cls-block-title">ในหมวดเดียวกัน</h3><div class="quick-grid db-grid">${related.map(entryCard).join("")}</div></div>`
                 : "";
 
-            detail.innerHTML = `<div class="container ga-wrap">
+            detail.innerHTML = `<div class="container ga-wrap db-detail">
                 <nav class="db-crumb"><a href="database.html">ฐานข้อมูล</a> <span>/</span> <a href="database.html#cat-${e.cat}">${esc(cat.title)}</a> <span>/</span> <strong>${esc(e.name)}</strong></nav>
-                ${iconBox("ga-icon", e)}
-                <span class="hero-badge">${esc(cat.title)}</span>${confBadge}
-                <h1 class="ga-title">${esc(e.name)}</h1>
-                <p class="rm-subtitle">${esc(e.nameTh)}</p>
+                <div class="db-detail-head">
+                    ${iconBox("ga-icon", e)}
+                    <div class="db-detail-head-txt">
+                        <div class="db-detail-badges"><span class="hero-badge">${esc(cat.title)}</span>${confBadge}</div>
+                        <h1 class="ga-title">${esc(e.name)}</h1>
+                        <p class="rm-subtitle">${esc(e.nameTh)}</p>
+                    </div>
+                </div>
                 <p class="ga-summary">${esc(e.summary)}</p>
                 <div class="db-tags db-tags-lg">${tagsHtml(e.tags)}</div>
                 ${metaHtml ? `<div class="db-meta">${metaHtml}</div>` : ""}
                 <article class="ga-body">${bodyHtml}</article>
-                ${srcHtml ? `<div class="ga-source">ที่มา: ${srcHtml}</div>` : ""}
-                ${verifyHtml}
+                <div class="db-detail-foot">
+                    ${srcHtml ? `<div class="ga-source">แหล่งอ้างอิง: ${srcHtml}</div>` : ""}
+                    ${statusHtml}
+                </div>
                 ${relatedHtml}
             </div>`;
         }
