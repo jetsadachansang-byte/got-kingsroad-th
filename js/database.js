@@ -306,6 +306,38 @@
             ],
             sources: [SRC.dgw]
         },
+        "map-run-routes": {
+            cat: "map", icon: IC.map, name: "Map Run Routes", nameTh: "รูทเส้นทางวิ่งเช็ค Maps (เก็บ Object)",
+            tags: ["Map", "Exploration", "Farming"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ก.ค. 2026",
+            img: "images/guides/map-route-winterfell.jpeg",
+            summary: "แผนที่รูทวิ่งสำรวจเก็บม้วนคัมภีร์ แร่ และสมุด ครบ 4 โซนแดนเหนือ–รีช พร้อมจุดเริ่ม เส้นทาง และทิศทางการวิ่ง",
+            meta: [
+                { k: "ระยะตรวจจับ Object", v: "วิ่งเข้าใกล้ ~50–70 เมตร Object จะโผล่บนมินิแมป" },
+                { k: "สัญลักษณ์", v: "🟡 จุดเริ่ม (sign post) · 🟥 เส้นทางสำรวจ · ⬆️ ทิศทางการวิ่ง" },
+                { k: "ครอบคลุม", v: "4 โซน: สุดแดนเหนือ, วินเทอร์เฟล, ฮอร์นวูด, รีช" }
+            ],
+            body: [
+                { p: "จากการลองวิ่งเช็ค Maps พบว่าแค่วิ่งเข้าใกล้ Object ประมาณ 50–70 เมตรในเกม ไม่ว่าจะเป็นม้วนคัมภีร์ แร่ หรือสมุด มันก็จะปรากฏขึ้นในมินิแมปแล้ว ไกด์นี้จึงวางเส้นทางวิ่งให้เก็บของครบโดยไม่งงว่าเริ่มตรงไหนหรือเหลือตรงไหน" },
+                { h: "สัญลักษณ์ในไกด์ (อ่านก่อนใช้แผนที่)" },
+                { list: [
+                    "🟡 จุดสีเหลือง = จุดเริ่ม โดยใช้ sign post (จุดวาร์ป) เป็นจุดเริ่มต้นเพื่อลดการสับสน ถ้าวิ่งแล้วไม่เจอ ให้กลับมาจุดเริ่มแล้ววิ่งสำรวจอีกเส้นทางต่อได้เลย",
+                    "🟥 เส้นสีแดง = รูทเส้นทางสำรวจ",
+                    "⬆️ ลูกศรสีฟ้า = ทิศทางการวิ่ง"
+                ]},
+                { h: "เคล็ดลับก่อนออกวิ่ง" },
+                { list: [
+                    "กดปุ่มลูกตา (สแกน) บ่อย ๆ เผื่อมองไม่เห็น Object ที่อยู่รอบตัว",
+                    "แนะนำอัปสกิลทักษะพิเศษ 'การคราฟต์ลูกธนู' ให้เต็ม (อยู่ในเมนูทักษะพิเศษ หมวดสนับสนุน แถวแรกซ้ายสุด) จะได้ไม่ต้องกลับเมืองไปซื้อลูกธนูบ่อย เพราะม้วนคัมภีร์มักอยู่ที่สูงมาก ต้องยิงเก็บ"
+                ]},
+                { h: "รูทวิ่งทั้ง 4 โซน (กดที่รูปเพื่อดูเต็ม)" },
+                { img: "images/guides/map-route-beyond-wall.jpeg", caption: "โซนสุดแดนเหนือ (Beyond the Wall)" },
+                { img: "images/guides/map-route-winterfell.jpeg", caption: "แดนเหนือ เขตวินเทอร์เฟล (Winterfell)" },
+                { img: "images/guides/map-route-hornwood.jpeg", caption: "แดนเหนือ เขตฮอร์นวูด (Hornwood)" },
+                { img: "images/guides/map-route-reach.jpeg", caption: "แคว้นรีช (The Reach)" },
+                { p: "หมายเหตุ: ไกด์นี้จัดทำโดยเพจ JC Online Game เพื่อช่วยเพื่อน ๆ ที่อยากวิ่งสำรวจแต่ไม่รู้จะเริ่มตรงไหน หรือเก็บยังไม่ครบแล้วลืมว่าเหลือตรงไหนบ้าง หากมีข้อผิดพลาดประการใดต้องขออภัย และอ้างอิงตำแหน่งแผนที่จากเว็บแผนที่ชุมชน got-kingsroad.com" }
+            ],
+            sources: [{ label: "JC Online Game · แผนที่อ้างอิง got-kingsroad.com", url: "https://got-kingsroad.com/#share/2.99/-13474/-676439" }]
+        },
 
         /* ================= ระบบอุปกรณ์ (Equipment System) ================= */
         "rarity-grade": {
@@ -967,7 +999,7 @@
         { id: "class",    icon: IC.cls,     title: "อาชีพ",           desc: "Knight / Assassin / Sellsword", status: "สมบูรณ์", classLinks: true },
         { id: "boss",     icon: IC.boss,    title: "บอส",             desc: "World Boss, Raid Boss และ Field Boss", status: "สมบูรณ์", ids: ["drogon", "kraken", "shadowcat"] },
         { id: "dungeon",  icon: IC.dungeon, title: "ดันเจียน & เรด",   desc: "Dungeon, Raid และระดับความยาก", status: "สมบูรณ์", ids: ["wormwalks", "beyond-the-wall", "elite-hideout", "faction-hideout-db", "kraken-raid", "world-difficulty"] },
-        { id: "map",      icon: IC.map,     title: "แผนที่ / สถานที่",  desc: "ภูมิภาคและพื้นที่ในเกม", status: "สมบูรณ์", ids: ["winterfell", "last-hearth", "beyond-the-wall-map", "stormlands", "crows-nest", "sunset-sea"] },
+        { id: "map",      icon: IC.map,     title: "แผนที่ / สถานที่",  desc: "ภูมิภาคและพื้นที่ในเกม", status: "สมบูรณ์", ids: ["map-run-routes", "winterfell", "last-hearth", "beyond-the-wall-map", "stormlands", "crows-nest", "sunset-sea"] },
         { id: "eq-system",   icon: IC.gear,   title: "อุปกรณ์: ระบบ",     desc: "Grade, Tier, ช่องสวมใส่, อาวุธ และระบบอัปเกรด", status: "สมบูรณ์", ids: ["rarity-grade", "gear-tier", "equipment-slots", "weapon-types", "crafting", "forging", "reforging", "enhancement", "refinement"] },
         { id: "eq-set",      icon: IC.item,   title: "อุปกรณ์: เซ็ต",     desc: "ระบบเซ็ต Main/Sub และโบนัสเซ็ต", status: "บางส่วน", ids: ["set-system", "set-champion", "set-sentinel", "set-brute", "set-crusher", "set-mauler", "set-savant", "set-duelist", "set-marksman"] },
         { id: "eq-accessory",icon: IC.ring,   title: "อุปกรณ์: เครื่องประดับ", desc: "Jewelry — แหวนและสร้อยคอ", status: "บางส่วน", ids: ["jewelry-system", "ring", "necklace"] },
@@ -1139,6 +1171,12 @@
                 if (b.h) return `<h3 class="ga-h">${esc(b.h)}</h3>`;
                 if (b.p) return `<p class="ga-p">${esc(b.p)}</p>`;
                 if (b.list) return `<ul class="ga-list">${b.list.map(li => `<li>${esc(li)}</li>`).join("")}</ul>`;
+                if (b.img) return `<figure class="ga-figure">
+                    <a href="${esc(b.img)}" target="_blank" rel="noopener">
+                        <img src="${esc(b.img)}" alt="${esc(b.caption || e.name)}" loading="lazy">
+                    </a>
+                    ${b.caption ? `<figcaption>${esc(b.caption)}</figcaption>` : ""}
+                </figure>`;
                 return "";
             }).join("");
 
