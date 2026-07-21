@@ -82,6 +82,8 @@
         </div>
     </div>
 
+    <p class="footer-disclaimer">เว็บไซต์นี้เป็นแฟนคอมมูนิตี้/ฐานข้อมูลที่จัดทำโดยแฟนเกม ไม่ได้เป็นเว็บไซต์อย่างเป็นทางการ และไม่มีส่วนเกี่ยวข้องกับ Netmarble หรือ HBO — เครื่องหมายการค้าและทรัพย์สินทางปัญญาทั้งหมดเป็นของเจ้าของลิขสิทธิ์</p>
+
     <div class="copyright">© 2026 Game of Thrones: Kingsroad TH • JC Gameservice</div>
 </footer>`;
 

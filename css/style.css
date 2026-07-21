@@ -4006,6 +4006,58 @@ input:focus-visible,
     .codex-tile:hover { transform: none; }
 }
 
+/* ---------- Homepage: section eyebrow + Codex showcase ---------- */
+.section-eyebrow {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    margin-bottom: 10px;
+}
+
+.codex-showcase {
+    position: relative;
+    padding: clamp(56px, 8vw, 96px) 0;
+}
+/* เส้นแบ่งโลหะบาง ๆ คั่น section (ลดความรู้สึกกล่องเรียงต่อกัน) */
+.codex-showcase::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: min(1100px, 84%);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-2), transparent);
+}
+
+.codex-showcase-grid { margin-bottom: 30px; }
+
+.codex-showcase-cta { text-align: center; }
+
+/* ---------- Hero tagline ---------- */
+.hero-tagline {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(14px, 2.4vw, 18px);
+    letter-spacing: 2px;
+    color: var(--frost-soft);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* ---------- Footer disclaimer ---------- */
+.footer-disclaimer {
+    max-width: 760px;
+    margin: 26px auto 0;
+    padding: 0 20px;
+    text-align: center;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: var(--text-3);
+}
+
 /* ============================================================
    VISITOR STATS WIDGET (footer)
 ============================================================ */
