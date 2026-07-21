@@ -29,6 +29,7 @@
             ],
         },
         { id: "guide",      href: "guide.html",      label: "คู่มือ" },
+        { id: "build-planner", href: "build-planner.html", label: "จัดบิลด์" },
         { id: "calculator", href: "calculator.html", label: "คำนวณ" },
     ];
 
@@ -59,6 +60,7 @@
             <h4>JC Gameservice</h4>
             <ul>
                 <li><a href="classes.html">อาชีพ</a></li>
+                <li><a href="build-planner.html">จัดบิลด์</a></li>
                 <li><a href="guide.html">คู่มือ</a></li>
                 <li><a href="calculator.html">เครื่องคำนวณ</a></li>
             </ul>
