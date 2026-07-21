@@ -3048,6 +3048,38 @@ nav ul > li > a {
     box-shadow: 0 0 8px rgba(198, 162, 78, .6);
 }
 
+.ga-figure {
+    margin: 10px 0 26px;
+}
+
+.ga-figure a {
+    display: block;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    background: #0e141b;
+    transition: border-color .3s, box-shadow .3s;
+}
+
+.ga-figure a:hover {
+    border-color: rgba(198, 162, 78, .55);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, .45);
+}
+
+.ga-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.ga-figure figcaption {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--text-3, #9aa7b4);
+    text-align: center;
+    letter-spacing: .3px;
+}
+
 .ga-source {
     margin-top: 40px;
     padding: 16px 20px;
