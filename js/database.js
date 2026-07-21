@@ -982,6 +982,74 @@
                 { p: "Bounty Hunt เป็นภารกิจตามล่าอาชญากรในแคว้น Stormlands ตัวเลือกระหว่างทางมีผลต่อผลลัพธ์ ล่าอาชญากรที่ไม่ซ้ำกัน 15 ราย จะได้รวม 26 แต้ม Weapon Mastery" }
             ],
             sources: [{ label: "Gamemeca — Stormlands Bounty Hunt", url: "https://www.gamemeca.com/en/view.php?gid=1776551" }]
+        },
+
+        /* ================= ระบบเสริมพลัง (Progression Systems) ================= */
+        "traits": {
+            cat: "progression", icon: IC.chart, name: "Trait Tree", nameTh: "ต้นไม้ทักษะ (Traits)",
+            tags: ["System", "Traits", "Momentum"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ก.ค. 2026",
+            summary: "ระบบโบนัสถาวรแบบต้นไม้ 3 สาย Attack / Defense / Support ใช้ Trait Point ปลดล็อกทีละโหนด",
+            meta: [
+                { k: "3 สาย", v: "Attack (เพิ่มดาเมจรวม), Defense (เพิ่มพลังรับ/HP), Support (จัดการ Rage และบัฟเสริม)" },
+                { k: "แต้ม (Trait Point)", v: "ได้จากการต่อสู้และทำภารกิจ" },
+                { k: "เงื่อนไข", v: "โหนดล่างปลดล็อกได้เมื่อปลดโหนดบนที่เชื่อมกันก่อน" },
+                { k: "ชนิดโบนัส", v: "บางโหนดใส่ได้แต้มเดียว บางโหนดอัปได้หลายระดับ (บัฟค่าสถานะ หรือปลดสกิลใหม่)" }
+            ],
+            body: [
+                { p: "Trait Tree เป็นระบบเพิ่มพลังตัวละครแบบโหนดต้นไม้ แบ่งเป็น 3 สาย: Attack, Defense และ Support โดยเลือกเส้นทางอัปในแต่ละสายได้" },
+                { p: "Traits เป็นโบนัสแบบ passive — บางอันบัฟค่าสถานะ บางอันปลดล็อกความสามารถใหม่ ต้องใช้ Trait Point ที่ได้จากการต่อสู้/เควส และปลดล็อกไล่จากโหนดบนลงล่างตามเส้นเชื่อม" }
+            ],
+            sources: [SRC.traits, { label: "ScreenRant — How To Upgrade Your Character", url: "https://screenrant.com/game-of-thrones-kingsroad-how-to-upgrade-your-character/" }, { label: "GameRant — Best Traits To Unlock First", url: "https://gamerant.com/game-of-thrones-kingsroad-best-traits-first/" }]
+        },
+        "artifact": {
+            cat: "progression", icon: IC.gem, name: "Artifacts", nameTh: "อาร์ติแฟกต์",
+            tags: ["System", "Artifact", "Momentum"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ก.ค. 2026",
+            summary: "ไอเทมพลังสูงที่ให้ค่าสถานะพื้นฐาน (Momentum/Attack/Defense/HP) + ความสามารถ Active หรือ Passive และช่วยดัน Momentum",
+            meta: [
+                { k: "ค่าพื้นฐาน", v: "Momentum, Attack Power, Defense, HP" },
+                { k: "ความสามารถ", v: "มีทั้งแบบ Active และ Passive" },
+                { k: "ดัน Momentum", v: "เพิ่ม Momentum เมื่อลงทุนอัปเกรดมากพอ (ใช้ทรัพยากรเยอะ เช่น Copper หลักล้าน + Artifact Wax)" },
+                { k: "ที่ไม่ได้สวม", v: "Artifact ที่ไม่ได้ใส่ก็ให้ Momentum เล็กน้อย (ต่ำกว่า ~5% ของค่าจริง)" },
+                { k: "ใช้ร่วม", v: "แชร์ข้ามตัวละครทั้ง 3 อาชีพในบัญชีเดียว" }
+            ],
+            body: [
+                { p: "Artifacts คือไอเทมพลังสูงที่ให้ทั้งค่าสถานะพื้นฐาน (Momentum, Attack Power, Defense, HP) และความสามารถแบบ Active หรือ Passive" },
+                { p: "การอัปเกรด Artifact ดัน Momentum ได้มาก แต่ใช้ทรัพยากรสูง (Copper หลักล้านสำหรับ Legendary + Artifact Wax) ทั้งนี้ Artifact ที่ไม่ได้สวมก็ยังให้ Momentum เล็กน้อย และ Artifact/Amulet/Jewelry/Set Research แชร์กันข้ามตัวละครทั้ง 3 อาชีพ" }
+            ],
+            sources: [{ label: "GamingWithDaopa — Complete Artifact Guide", url: "https://gamingwithdaopa.ellatha.com/gotkingsroad/artifact-list/" }, { label: "Steam — Artifact enhancement", url: "https://steamcommunity.com/app/3183280/discussions/0/612037897825032521/" }]
+        },
+        "sigil": {
+            cat: "progression", icon: IC.item, name: "Sigil Board", nameTh: "กระดานตราประจำตระกูล (Sigils)",
+            tags: ["System", "Sigil", "Momentum"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ก.ค. 2026",
+            summary: "กระดานวางตราตระกูลเพิ่ม Momentum/ค่าสถานะ ความแรงขึ้นกับพันธมิตร-ศัตรูของตระกูล เป็นแบบ account-wide",
+            meta: [
+                { k: "การจัดวาง", v: "วางตราตระกูลใหญ่ตรงกลาง ล้อมด้วยข้ารับใช้ (ไฮไลต์เขียว) หรือตระกูลเป็นกลาง" },
+                { k: "ศัตรู (แดง)", v: "ตราที่เป็นศัตรูควรแยกไปกระดานอื่น เพื่อเลี่ยงโทษ (penalty)" },
+                { k: "ปลดกระดานเพิ่ม", v: "จาก Stormlands Regional Currency Exchange, Alliance Shop และร้านค้า (ใช้ North Token)" },
+                { k: "ใช้ร่วม", v: "กระดานและตราเป็นแบบ account-wide ใช้ได้ทุกตัวละคร" },
+                { k: "ที่ยังไม่ได้จัด", v: "ตราที่ยังไม่ได้วางลงกระดานก็ให้ Momentum เล็กน้อย" }
+            ],
+            body: [
+                { p: "Sigil Board คือกระดานจัดวางตราประจำตระกูลเพื่อเพิ่มพลัง ความแรงของตราขึ้นกับความสัมพันธ์ของตระกูล: วางตระกูลใหญ่ไว้กลาง ล้อมด้วยข้ารับใช้ (เขียว) หรือตระกูลเป็นกลาง ส่วนตราที่เป็นศัตรู (แดง) ควรแยกกระดานเพื่อเลี่ยงโทษ" },
+                { p: "กระดานเพิ่มเติมปลดได้จาก Stormlands Regional Currency Exchange, Alliance Shop และร้านค้า (ใช้ North Token) กระดานและตราเป็น account-wide ใช้ร่วมทุกตัวละคร และตราที่ยังไม่ได้จัดลงก็ให้ Momentum เล็กน้อย" }
+            ],
+            sources: [{ label: "gamesofthrones.org — Guides", url: "https://www.gamesofthrones.org/guides" }, { label: "Keltorag — A Young Lord's Guide", url: "https://medium.com/@Keltorag/a-young-lords-guide-to-got-kingsroad-c80a83318dfa" }]
+        },
+        "relic-system": {
+            cat: "progression", icon: IC.amulet, name: "Relics", nameTh: "เรลิก (Relic)",
+            tags: ["System", "Relic", "Momentum"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ก.ค. 2026",
+            summary: "ไอเทมเสริมพลังที่ดรอปจาก Expedition และบอส มีโบนัสเซ็ต และช่วงกลางเกมให้ Momentum มากกว่าเครื่องประดับ",
+            meta: [
+                { k: "ที่มา", v: "ดรอปจาก Expedition และการปราบบอส" },
+                { k: "Expedition Ticket", v: "โครงสร้างในที่พัก (estate) ผลิตตั๋ว Expedition ให้เรื่อย ๆ — รันทิ้งไว้ตลอด" },
+                { k: "โบนัสเซ็ต", v: "ให้โบนัสเมื่อครบเซ็ต ควรเล็งเก็บให้ครบเซ็ตมากกว่าคละชิ้น" },
+                { k: "Momentum", v: "ช่วงกลางเกมให้ Momentum มากกว่า Jewelry" }
+            ],
+            body: [
+                { p: "Relics เป็นไอเทมเสริมพลังที่ดรอปจาก Expedition และการปราบบอส ให้ค่าสถานะและโบนัสเซ็ตเมื่อเก็บครบเซ็ต จึงควรเล็งเก็บให้ครบเซ็ตมากกว่าใส่คละชิ้น" },
+                { p: "โครงสร้างในที่พัก (estate) จะผลิตตั๋ว Expedition ให้เรื่อย ๆ ควรรัน Expedition ทิ้งไว้ตลอดและใช้ Cart เร่ง เพราะช่วงกลางเกม Relics ให้ Momentum มากกว่าเครื่องประดับ (Jewelry)" }
+            ],
+            sources: [{ label: "Kingsroad Wiki (Fandom) — Relics", url: "https://game-of-thrones-kingsroad.fandom.com/wiki/Relics" }, { label: "Keltorag — A Young Lord's Guide", url: "https://medium.com/@Keltorag/a-young-lords-guide-to-got-kingsroad-c80a83318dfa" }]
         }
     };
 
@@ -1006,6 +1074,7 @@
         { id: "eq-amulet",   icon: IC.amulet, title: "อุปกรณ์: Amulet",   desc: "ระบบเครื่องราง ความหายาก และ Legendary Amulet", status: "สมบูรณ์", ids: ["amulet-system", "amulet-tiers", "legendary-amulet"] },
         { id: "eq-stat",     icon: IC.chart,  title: "อุปกรณ์: ค่าสถานะ",  desc: "ค่ารุก ค่ารับ และค่าพิเศษ/Engraving", status: "สมบูรณ์", ids: ["stat-offense", "stat-defense", "stat-mechanic"] },
         { id: "eq-material", icon: IC.gem,    title: "อุปกรณ์: วัสดุ",     desc: "วัสดุคราฟ อัปเกรด และ Amulet", status: "สมบูรณ์", ids: ["amulet-design", "kraken-parts", "resource-points", "crafting-materials"] },
+        { id: "progression", icon: IC.chart, title: "ระบบเสริมพลัง",   desc: "Trait Tree, Sigil, Artifact และ Relic (ดัน Momentum)", status: "กำลังรวบรวม", ids: ["traits", "artifact", "sigil", "relic-system"] },
         { id: "resource", icon: IC.resource,title: "ทรัพยากร",         desc: "สกุลเงิน วัสดุ และค่าพลัง", status: "สมบูรณ์", ids: ["golden-dragons", "faction-coins", "forging-steel", "amulet-core", "weapon-mastery", "momentum-res"] },
         { id: "monster",  icon: IC.monster, title: "มอนสเตอร์",        desc: "ศัตรูและอสูรในเกม", status: "สมบูรณ์", ids: ["white-walkers", "wights", "ice-spiders", "fantasy-beasts", "bandits"] },
         { id: "quest",    icon: IC.quest,   title: "เควส",            desc: "เนื้อเรื่องหลัก ซีซัน และภารกิจเสริม", status: "กำลังรวบรวม", ids: ["main-quest", "season-quest", "bounty-quest"] }
