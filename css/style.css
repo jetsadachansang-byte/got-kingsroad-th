@@ -1035,6 +1035,44 @@ nav ul > li > .active::after {
     border-radius: 20px;
 }
 
+/* ---------- แบนเนอร์ตัวละครในหมวดอาชีพ ---------- */
+/* รูปอาชีพเป็นแบนเนอร์เต็มใบ (ตัวละครอยู่ครึ่งซ้าย ข้อความอยู่ขวา)
+   ครอปด้วย CSS ให้โชว์เฉพาะฝั่งตัวละคร โดยใช้กรอบแนวตั้ง + object-position ชิดซ้าย */
+.cls-banner {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-bottom: 18px;
+    background: #0e141b;
+}
+
+/* ไล่เฉดบนสุดเพื่อกลบคำว่า "CLASSES" ที่ติดมากับรูปต้นฉบับ */
+.cls-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 24%;
+    background: linear-gradient(to bottom, #0e141b 0%, #0e141b 58%, transparent 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.cls-banner-img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    object-position: 18% center;
+    transition: transform .45s ease;
+}
+
+.cls-card:hover .cls-banner-img {
+    transform: scale(1.05);
+}
+
 .quick-card h3 {
     font-family: 'Cinzel', serif;
     font-size: 26px;

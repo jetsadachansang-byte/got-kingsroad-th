@@ -990,9 +990,9 @@
     ============================================================ */
 
     const CLASS_LINKS = [
-        { name: "Knight", nameTh: "อัศวินสายแทงก์", href: "classes.html#knight", tags: ["Class", "Tank"], summary: "แนวหน้าเกราะหนัก อึดที่สุด เล่นง่าย ครอบคลุมคอนเทนต์ส่วนใหญ่", icon: IC.cls },
-        { name: "Assassin", nameTh: "นักลอบสังหาร", href: "classes.html#assassin", tags: ["Class", "DPS"], summary: "ดาเมจระเบิดสูงสุด เร็ว แต่ตัวบางต้องหลบแม่น", icon: IC.cls },
-        { name: "Sellsword", nameTh: "ทหารรับจ้าง", href: "classes.html#sellsword", tags: ["Class", "DPS"], summary: "อาวุธหนัก คอมโบไม่ถูกขัดจังหวะ ดาเมจต่อเป้าเดี่ยวสูง", icon: IC.cls }
+        { name: "Knight", nameTh: "อัศวินสายแทงก์", href: "classes.html#knight", tags: ["Class", "Tank"], summary: "แนวหน้าเกราะหนัก อึดที่สุด เล่นง่าย ครอบคลุมคอนเทนต์ส่วนใหญ่", icon: IC.cls, img: "images/classes/knight.webp" },
+        { name: "Assassin", nameTh: "นักลอบสังหาร", href: "classes.html#assassin", tags: ["Class", "DPS"], summary: "ดาเมจระเบิดสูงสุด เร็ว แต่ตัวบางต้องหลบแม่น", icon: IC.cls, img: "images/classes/assassin.webp" },
+        { name: "Sellsword", nameTh: "ทหารรับจ้าง", href: "classes.html#sellsword", tags: ["Class", "DPS"], summary: "อาวุธหนัก คอมโบไม่ถูกขัดจังหวะ ดาเมจต่อเป้าเดี่ยวสูง", icon: IC.cls, img: "images/classes/sellsword.webp" }
     ];
 
     const CATEGORIES = [
@@ -1057,8 +1057,11 @@
 
     function classCard(c) {
         const search = (c.name + " " + c.nameTh + " " + c.tags.join(" ")).toLowerCase();
-        return `<a href="${c.href}" class="quick-card guide-card db-card" data-search="${esc(search)}" data-tags="${esc(cardTags(c.tags))}">
-            ${iconBox("quick-icon", c)}
+        const head = c.img
+            ? `<div class="cls-banner"><img src="${esc(c.img)}" alt="${esc(c.name)}" class="cls-banner-img" loading="lazy" onerror="this.closest('.cls-banner').style.display='none'"></div>`
+            : iconBox("quick-icon", c);
+        return `<a href="${c.href}" class="quick-card guide-card db-card${c.img ? " cls-card" : ""}" data-search="${esc(search)}" data-tags="${esc(cardTags(c.tags))}">
+            ${head}
             <h3>${esc(c.name)}</h3>
             <span class="db-nameth">${esc(c.nameTh)}</span>
             <p>${esc(c.summary)}</p>
