@@ -22,7 +22,8 @@
         swap:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 6h18"/><path d="m7 22-4-4 4-4"/><path d="M21 18H3"/></svg>',
         group:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
         store:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18l-1-4H4L3 9z"/><path d="M4 9v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9"/><path d="M9 22V12h6v10"/></svg>',
-        spark:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4"/><path d="M12 17v4"/><path d="M3 12h4"/><path d="M17 12h4"/><path d="m6 6 2.5 2.5"/><path d="m15.5 15.5 2.5 2.5"/><path d="m18 6-2.5 2.5"/><path d="m8.5 15.5-2.5 2.5"/></svg>'
+        spark:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4"/><path d="M12 17v4"/><path d="M3 12h4"/><path d="M17 12h4"/><path d="m6 6 2.5 2.5"/><path d="m15.5 15.5 2.5 2.5"/><path d="m18 6-2.5 2.5"/><path d="m8.5 15.5-2.5 2.5"/></svg>',
+        flame:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>'
     };
 
     /* ============================================================
@@ -59,8 +60,8 @@
                     "เก็บ Season Points จาก Raid Defense, Northern Bannerman Duel Festival และการสำรวจพื้นที่",
                     "เก็บ Season Token จาก expedition, อีเวนต์ตามพื้นที่, World Boss และคอนเทนต์ทำซ้ำได้"
                 ]},
-                { h: "North Bannerman Duel Festival (เปิด 22 ก.ค. 2026)" },
-                { p: "โหมดดวล 1v1 กับ NPC Bannerman Champion จากตระกูลอื่น — เป็นประสบการณ์แบบ 'PvE-like PvP' ที่ศัตรูเล่นต่างจาก NPC ทั่วไป ทั้งการหลบและ Parry รูปแบบเป็นทัวร์นาเมนต์ 3 รอบแบบ Time Attack เจอ House Champion หลายด่านแข่งกับเวลา พร้อมอีเวนต์ประจำภูมิภาครายวัน รางวัลเป็น Growth Rewards และ Season Token (หมายเหตุ: กิจกรรมนี้เปิดเฉพาะภูมิภาค APAC)" },
+                { h: "North Bannerman Duel Festival (เปิดแล้ว 22 ก.ค. 2026)" },
+                { p: "เปิดให้เล่นแล้ววันนี้ — โหมดดวล 1v1 กับ NPC Bannerman Champion จากตระกูลอื่น — เป็นประสบการณ์แบบ 'PvE-like PvP' ที่ศัตรูเล่นต่างจาก NPC ทั่วไป ทั้งการหลบและ Parry รูปแบบเป็นทัวร์นาเมนต์ 3 รอบแบบ Time Attack เจอ House Champion หลายด่านแข่งกับเวลา พร้อมอีเวนต์ประจำภูมิภาครายวัน รางวัลเป็น Growth Rewards และ Season Token (หมายเหตุ: กิจกรรมนี้เปิดเฉพาะภูมิภาค APAC)" },
                 { h: "กลไกต่อสู้ใหม่: Burning Battle Spirit" },
                 { p: "สะสม Battle Spirit จากการโจมตีศัตรู สะสมอะดรีนาลีนจนเต็ม แล้วปลดปล่อยเป็นสกิลพิเศษพลังสูงที่สร้างความเสียหายรุนแรงและฟื้นฟูพลังชีวิต" },
                 { h: "Battle Pass" },
@@ -140,11 +141,22 @@
                 { p: "ปรับเอฟเฟกต์ระหว่างต่อสู้และตอนสังหารศัตรู เพื่อถ่ายทอดบรรยากาศมืดหม่นและโหดร้ายของต้นฉบับ George R. R. Martin ได้สมจริงและดื่มด่ำยิ่งขึ้น" }
             ],
             source: { label: "Developer Note: 2026 Update Preview", url: "https://forum.netmarble.com/got/view/12/216" }
+        },
+        "hard-mode": {
+            kind: "plan", icon: IC.flame, date: "แผนพัฒนา", status: "ยังไม่เข้าเกม",
+            title: "Hard Mode (โหมดยาก)",
+            subtitle: "ความท้าทายสำหรับผู้เล่นระดับสูง",
+            summary: "โหมดความยากใหม่ที่ออกแบบมาทดสอบฝีมือผู้เล่นที่ช่ำชอง ต้องวางแผนเชิงกลยุทธ์ระดับสูงเพื่อผ่าน",
+            body: [
+                { p: "ผู้พัฒนาประกาศเพิ่ม Hard Mode โหมดความยากใหม่ที่ออกแบบมาเพื่อทดสอบความชำนาญของผู้เล่นระดับสูงโดยเฉพาะ" },
+                { p: "โหมดนี้จะต้องอาศัยการวางแผนเชิงกลยุทธ์ระดับสูงเพื่อเอาชนะ เหมาะกับผู้เล่นที่มองหาความท้าทายเพิ่มเติมหลังผ่านคอนเทนต์หลัก" }
+            ],
+            source: { label: "Developer Note: 2026 Update Preview", url: "https://forum.netmarble.com/got/view/12/216" }
         }
     };
 
     const CURRENT = ["frost-and-steel", "global-launch"];
-    const PLAN = ["story-chapter-4", "harrenhal-pve", "graphics-rework"];
+    const PLAN = ["story-chapter-4", "harrenhal-pve", "graphics-rework", "hard-mode"];
 
     /* ============================================================
        ตัวเรนเดอร์ (ไม่ต้องแก้)
