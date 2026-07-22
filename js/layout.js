@@ -20,6 +20,7 @@
             id: "database", href: "database.html",   label: "ฐานข้อมูล",
             dropdown: [
                 { href: "database.html#cat-class", label: "อาชีพ" },
+                { href: "database.html#cat-skill", label: "สกิล" },
                 { href: "database.html#cat-boss",  label: "บอส" },
                 { href: "database.html#cat-dungeon", label: "ดันเจียน" },
                 { href: "database.html#cat-map",   label: "แผนที่" },

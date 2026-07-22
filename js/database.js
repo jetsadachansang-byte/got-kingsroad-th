@@ -1050,6 +1050,84 @@
                 { p: "โครงสร้างในที่พัก (estate) จะผลิตตั๋ว Expedition ให้เรื่อย ๆ ควรรัน Expedition ทิ้งไว้ตลอดและใช้ Cart เร่ง เพราะช่วงกลางเกม Relics ให้ Momentum มากกว่าเครื่องประดับ (Jewelry)" }
             ],
             sources: [{ label: "Kingsroad Wiki (Fandom) — Relics", url: "https://game-of-thrones-kingsroad.fandom.com/wiki/Relics" }, { label: "Keltorag — A Young Lord's Guide", url: "https://medium.com/@Keltorag/a-young-lords-guide-to-got-kingsroad-c80a83318dfa" }]
+        },
+
+        /* ================= สกิล (Skills) ================= */
+        "skill-system": {
+            cat: "skill", icon: IC.cls, name: "Skill System", nameTh: "ระบบสกิล",
+            tags: ["System", "Skill", "Rage"], confidence: "Verified", version: "เซิร์ฟปัจจุบัน", verified: "ก.ค. 2026",
+            summary: "สกิลแบ่งเป็น Basic (คอมโบ/หลบ/วิ่งชน) และ Active (ท่าไม้ตายเฉพาะอาชีพ ใช้ Rage) อัปด้วย Skill Point",
+            meta: [
+                { k: "Basic Skills", v: "คอมโบพื้นฐานของอาชีพ, Evasion Attack, Sprint Attack — อัปด้วย Basic Skill Points" },
+                { k: "Active Skills", v: "ท่าพิเศษเฉพาะอาชีพ ร่ายโดยใช้ 'Rage' มีจำนวนช่องติดตั้งจำกัด — อัปด้วย Active Skill Points" },
+                { k: "Rage", v: "ทรัพยากรใต้หลอดเลือด (มุมซ้ายล่าง) สะสมจากการโจมตีศัตรู คอมโบเพิ่มเร็วที่สุด" },
+                { k: "การอัปสกิล", v: "ลดคูลดาวน์ / เพิ่มดาเมจ / ยืดเวลาบัฟ (ได้ Skill Point จากเควสและเลเวลอัป)" }
+            ],
+            body: [
+                { p: "สกิลในเกมแบ่งเป็น 2 กลุ่ม: Basic Skills (การโจมตีพื้นฐาน เช่น คอมโบประจำอาชีพ, Evasion Attack, Sprint Attack) และ Active Skills (ท่าพิเศษเฉพาะอาชีพที่ร่ายโดยใช้ Rage)" },
+                { p: "Active Skills มีจำนวนช่องติดตั้งจำกัด จึงต้องเลือกอัปให้เหมาะ การอัปสกิลช่วยลดคูลดาวน์ เพิ่มดาเมจ หรือยืดเวลาบัฟ ใช้ Skill Point ที่ได้จากการทำภารกิจและเลเวลอัป (แยกเป็น Basic / Active)" }
+            ],
+            sources: [{ label: "Netmarble Official Guide — Skills", url: "https://guide.netmarble.com/got/43" }, { label: "ScreenRant — How To Upgrade Your Character", url: "https://screenrant.com/game-of-thrones-kingsroad-how-to-upgrade-your-character/" }]
+        },
+        "knight-skills": {
+            cat: "skill", icon: IC.cls, name: "Knight Skills", nameTh: "สกิลอาชีพ Knight",
+            tags: ["Skill", "Knight"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ก.ค. 2026",
+            summary: "สกิลเด่นสาย Knight เน้นความอึด/ตั้งรับ เช่น Valyrian Strike และ Iron Resolve",
+            meta: [
+                { k: "Active Skills เด่น", v: "Valyrian Strike, Iron Resolve" },
+                { k: "สไตล์", v: "เน้นความอยู่รอด ตั้งรับ และ Parry (ท่า Riposte Stance สวนกลับศัตรูมนุษย์)" },
+                { k: "หมายเหตุ", v: "ชื่อ/ค่าอาจเปลี่ยนหลังแพตช์ปรับสมดุล โปรดยืนยันในเกม" }
+            ],
+            body: [
+                { p: "Knight เน้นสกิลสายอยู่รอดและตั้งรับ สกิลที่คู่มือชุมชนแนะนำบ่อยคือ Valyrian Strike และ Iron Resolve ควบคู่กับการ Parry ด้วย Riposte Stance" },
+                { p: "ดูคอมโบและแนวทาง Mastery ของ Knight แบบละเอียดได้ในคู่มือ 'คอมโบ & Mastery ของ Knight'" }
+            ],
+            sources: [{ label: "gamesofthrones.org — Best Beginner Build", url: "https://www.gamesofthrones.org/guides/best-beginner-build" }, { label: "GameRant — Which Class Should You Pick?", url: "https://gamerant.com/game-of-thrones-kingsroad-which-class-guide/" }]
+        },
+        "assassin-skills": {
+            cat: "skill", icon: IC.cls, name: "Assassin Skills", nameTh: "สกิลอาชีพ Assassin",
+            tags: ["Skill", "Assassin", "DPS"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ก.ค. 2026",
+            summary: "สกิลเด่นสาย Assassin เน้นระเบิดดาเมจ/คริติคอล เช่น Ambush, Blood Burst, Ignite Weapon, Agile Movement",
+            meta: [
+                { k: "Active Skills เด่น", v: "Ambush, Blood Burst, Ignite Weapon, Agile Movement" },
+                { k: "สไตล์", v: "Burst Damage เน้นคริติคอลและดาเมจคอมโบ ว่องไว หลบเก่ง" },
+                { k: "หมายเหตุ", v: "ชื่อ/ค่าอาจเปลี่ยนหลังแพตช์ปรับสมดุล โปรดยืนยันในเกม" }
+            ],
+            body: [
+                { p: "Assassin เน้นสกิลระเบิดดาเมจและคริติคอล สกิลที่ถูกพูดถึงบ่อยได้แก่ Ambush, Blood Burst (เน้นคริ/ดาเมจคอมโบ) รวมถึง Ignite Weapon และ Agile Movement" },
+                { p: "ดูเซ็ตสกิลมีดและแนวทาง Ranker ของ Assassin แบบละเอียดได้ในคู่มือของอาชีพ" }
+            ],
+            sources: [{ label: "TheGamer — Best Assassin Build", url: "https://www.thegamer.com/game-of-thrones-kingsroad-best-assassin-build/" }, { label: "gamesofthrones.org — Best Beginner Build", url: "https://www.gamesofthrones.org/guides/best-beginner-build" }]
+        },
+        "sellsword-skills": {
+            cat: "skill", icon: IC.cls, name: "Sellsword Skills", nameTh: "สกิลอาชีพ Sellsword",
+            tags: ["Skill", "Sellsword", "DPS"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ก.ค. 2026",
+            summary: "สกิลเด่นสาย Sellsword เน้นพลังโจมตี/คริติคอลดาเมจ เช่น Merciless Strike และ Rampage",
+            meta: [
+                { k: "Active Skills เด่น", v: "Merciless Strike, Rampage" },
+                { k: "สไตล์", v: "Heavy Hitter ดาเมจต่อเป้าเดี่ยวสูง คอมโบไม่ถูกขัด (Hit-Stun Immunity)" },
+                { k: "หมายเหตุ", v: "ชื่อ/ค่าอาจเปลี่ยนหลังแพตช์ปรับสมดุล โปรดยืนยันในเกม" }
+            ],
+            body: [
+                { p: "Sellsword เน้นสกิลพลังโจมตีและคริติคอลดาเมจ สกิลที่คู่มือชุมชนแนะนำบ่อยคือ Merciless Strike และ Rampage เหมาะกับการฟาดหนักต่อเป้าเดี่ยว" },
+                { p: "ดูคอมโบ & Mastery ของ Sellsword (สาย Destruction) แบบละเอียดได้ในคู่มือของอาชีพ" }
+            ],
+            sources: [{ label: "gamesofthrones.org — Best Sellsword Build", url: "https://www.gamesofthrones.org/guides/best-sellsword-build" }, { label: "ImmortalBoost — Class Guide (Best Builds)", url: "https://immortalboost.com/blog/got-kingsroad/class-guide-best-builds/" }]
+        },
+        "skill-mastery": {
+            cat: "skill", icon: IC.chart, name: "Skill Mastery", nameTh: "ความชำนาญสกิล (Skill Mastery)",
+            tags: ["System", "Skill", "Mastery"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ก.ค. 2026",
+            summary: "ระบบเพิ่มความชำนาญให้สกิล/อาวุธ ปลดโบนัสเพิ่มเติมเมื่อสะสมแต้ม (เชื่อมกับ Weapon Mastery)",
+            meta: [
+                { k: "แนวคิด", v: "สะสมความชำนาญของสกิล/อาวุธเพื่อปลดโบนัสถาวรเพิ่มเติม" },
+                { k: "แต้ม", v: "Weapon Mastery Points (ได้จากภารกิจ เช่น Bounty Hunt ใน Stormlands)" },
+                { k: "หมายเหตุ", v: "รายละเอียดต่ออาชีพต่างกัน โปรดยืนยันในเกม" }
+            ],
+            body: [
+                { p: "Skill Mastery เป็นระบบเพิ่มความชำนาญให้สกิล/อาวุธ เมื่อสะสมแต้มถึงเกณฑ์จะปลดโบนัสเพิ่มเติม ช่วยดันประสิทธิภาพของบิลด์ในระยะยาว" },
+                { p: "แต้มที่ใช้เชื่อมกับระบบ Weapon Mastery Points (ได้จากภารกิจอย่าง Bounty Hunt ในแคว้น Stormlands) — รายละเอียดเส้นทาง Mastery แตกต่างกันตามอาชีพ โปรดยืนยันในเกม" }
+            ],
+            sources: [{ label: "Vortex Gaming — Assassin Skill Mastery Guide", url: "https://vortexgaming.io/en/postdetail/959126" }, SRC.gmKnight]
         }
     };
 
@@ -1065,6 +1143,7 @@
 
     const CATEGORIES = [
         { id: "class",    icon: IC.cls,     title: "อาชีพ",           desc: "Knight / Assassin / Sellsword", status: "สมบูรณ์", classLinks: true },
+        { id: "skill",    icon: IC.cls,     title: "สกิล",            desc: "ระบบสกิล Active/Basic, Rage และสกิลเด่นแต่ละอาชีพ", status: "กำลังรวบรวม", ids: ["skill-system", "knight-skills", "assassin-skills", "sellsword-skills", "skill-mastery"] },
         { id: "boss",     icon: IC.boss,    title: "บอส",             desc: "World Boss, Raid Boss และ Field Boss", status: "สมบูรณ์", ids: ["drogon", "kraken", "shadowcat"] },
         { id: "dungeon",  icon: IC.dungeon, title: "ดันเจียน & เรด",   desc: "Dungeon, Raid และระดับความยาก", status: "สมบูรณ์", ids: ["wormwalks", "beyond-the-wall", "elite-hideout", "faction-hideout-db", "kraken-raid", "world-difficulty"] },
         { id: "map",      icon: IC.map,     title: "แผนที่ / สถานที่",  desc: "ภูมิภาคและพื้นที่ในเกม", status: "สมบูรณ์", ids: ["map-run-routes", "winterfell", "last-hearth", "beyond-the-wall-map", "stormlands", "crows-nest", "sunset-sea"] },
