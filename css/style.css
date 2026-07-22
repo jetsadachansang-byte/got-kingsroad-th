@@ -1911,7 +1911,8 @@ nav ul > li > a {
     border: 1px solid var(--border);
     border-radius: 20px;
     background:
-        linear-gradient(180deg, rgba(198, 162, 78, .05), transparent 40%),
+        linear-gradient(180deg, rgba(12, 16, 23, .74) 0%, rgba(12, 16, 23, .30) 24%, rgba(12, 16, 23, .32) 48%, rgba(12, 16, 23, .72) 72%, rgba(12, 16, 23, .96) 100%),
+        var(--cbg, none) 16% 30% / auto 150% no-repeat,
         linear-gradient(180deg, #161410, #0e131b);
     overflow: hidden;
     transition: .4s;
@@ -1931,30 +1932,15 @@ nav ul > li > a {
     transition: .4s;
 }
 
-/* ภาพตัวละครเป็นพื้นหลังการ์ด (มืดลงเพื่อให้อ่านข้อความได้ชัด) */
+/* ภาพตัวละครเป็นพื้นหลังการ์ด (ทำให้อ่านข้อความได้ชัดด้วยเฉดมืดด้านล่าง + เงาข้อความ) */
 .class-card > * { position: relative; z-index: 1; }
 
-.class-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background-image:
-        linear-gradient(180deg, rgba(12, 16, 23, .10) 0%, rgba(12, 16, 23, .40) 45%, rgba(12, 16, 23, .88) 100%),
-        var(--cbg, none);
-    background-size: cover, cover;
-    background-position: center, 24% 18%;
-    background-repeat: no-repeat;
-    pointer-events: none;
-    filter: saturate(1.05) brightness(1.12);
-    transition: opacity .4s, filter .4s;
-}
-
-.class-card:hover::after {
-    background-image:
-        linear-gradient(180deg, rgba(12, 16, 23, .04) 0%, rgba(12, 16, 23, .30) 45%, rgba(12, 16, 23, .82) 100%),
-        var(--cbg, none);
-    filter: saturate(1.12) brightness(1.22);
+/* hover: ลดความมืดของเฉดให้ตัวละครเด่นขึ้นเล็กน้อย */
+.class-card:hover {
+    background:
+        linear-gradient(180deg, rgba(12, 16, 23, .66) 0%, rgba(12, 16, 23, .20) 24%, rgba(12, 16, 23, .22) 48%, rgba(12, 16, 23, .64) 72%, rgba(12, 16, 23, .94) 100%),
+        var(--cbg, none) 16% 30% / auto 158% no-repeat,
+        linear-gradient(180deg, #161410, #0e131b);
 }
 
 .class-card h3,
