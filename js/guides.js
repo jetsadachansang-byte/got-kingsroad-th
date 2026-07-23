@@ -389,6 +389,38 @@
             ],
             source: { label: "Gamemeca — Refine Before Dismantle", url: "https://www.gamemeca.com/en/view.php?gid=1776814" }
         },
+        "jewelry-polish": {
+            icon: IC.amulet, tag: "อุปกรณ์", read: "3 นาที",
+            title: "เครื่องประดับ Legendary ควรขัดเงาถึงระดับไหนถึงคุ้ม?",
+            summary: "เทียบอัตราคืนแร่คริสตัลหลังแยกชิ้นส่วน ขัดเงา (Polish) ระดับ 1–4 ว่าระดับไหนคุ้มทรัพยากรที่สุด",
+            body: [
+                { p: "หลังอัปเดตระบบ Amulet / เครื่องประดับ หลายคนสงสัยว่าควรขัดเงา (Polish) ไปถึงระดับไหน เพราะถ้าเปลี่ยนของในอนาคต การแยกเครื่องประดับ (dismantle) จะไม่ได้คืนวัตถุดิบทั้งหมด — ยิ่งขัดสูง ต้นทุนที่จมไปก็ยิ่งมาก" },
+                { img: "images/guides/jewelry-polish-table.jpeg", caption: "ตารางการขัดเงาเครื่องประดับ ระดับ 1–4 (วัตถุดิบที่ใช้/สะสม, ที่ได้คืน และประสิทธิภาพการคืนแร่คริสตัล)" },
+                { h: "ประสิทธิภาพการคืนแร่คริสตัล (ระดับ 1–4)" },
+                { p: "ประสิทธิภาพการคืน = (แร่คริสตัลที่ได้คืนจากการแยก ÷ แร่คริสตัลสะสมที่ใช้ขัดเงา) × 100" },
+                { table: {
+                    head: ["ระดับขัดเงา", "คริสตัลสะสมที่ใช้", "คืนแร่คริสตัล", "คืนเหล็กหลอม", "ประสิทธิภาพ"],
+                    rows: [
+                        ["⭐ +1", "67", "53", "11", "79.10%"],
+                        ["⭐⭐ +2", "157", "89", "17", "56.69%"],
+                        ["⭐⭐⭐ +3", "271", "134", "24", "49.45%"],
+                        ["⭐⭐⭐⭐ +4", "405", "188", "40", "46.42%"]
+                    ]
+                }},
+                { h: "วิเคราะห์" },
+                { p: "หลังจาก +1 เป็นต้นไป อัตราการคืนวัตถุดิบลดลงค่อนข้างเยอะ:" },
+                { list: [
+                    "+1 → ได้คืนเกือบ 80% (79.10%)",
+                    "+2 → เหลือประมาณ 57% (56.69%)",
+                    "+3 → เหลือไม่ถึง 50% (49.45%)",
+                    "+4 → เหลือเพียง ~46% (46.42%)"
+                ]},
+                { h: "สรุป: ควรขัดถึงระดับไหน" },
+                { p: "ยิ่งขัดสูง ต้นทุนที่เสียไปก็ยิ่งมาก หากวันหนึ่งต้องเปลี่ยนเครื่องประดับชิ้นใหม่ — ถ้าเป้าหมายคือหา 'เหล็กหลอม (Forging Steel)' การขัด +1 คุ้มที่สุด เพราะเสียทรัพยากรน้อยและได้แร่คริสตัลกลับคืนมาค่อนข้างเยอะ ส่วนการขัดสูงกว่านั้นเหมาะกับของที่ตั้งใจจะใช้ยาว ไม่คิดจะแยกทิ้ง" },
+                { p: "หมายเหตุ: ตัวเลขข้างต้นอ้างอิงข้อมูลการใช้งานจากชุมชน อาจต่างกันเล็กน้อยตามชิ้นเครื่องประดับ โปรดตรวจสอบในเกม" }
+            ],
+            source: { label: "Gamemeca — Refine/Polish Before Dismantle", url: "https://www.gamemeca.com/en/view.php?gid=1776814" }
+        },
         "box-run": {
             icon: IC.coin, tag: "การเติบโต", read: "3 นาที",
             title: "Box Run — เก็บกล่องรางวัลโดยไม่เสีย RP",
@@ -446,7 +478,7 @@
     const CATEGORIES = [
         { id: "start",   icon: IC.start,  title: "เริ่มต้นเล่นเกม", desc: "พื้นฐานสำหรับผู้เล่นใหม่",       ids: ["intro", "choose-class", "combat-basics"] },
         { id: "progress",icon: IC.power,  title: "การเติบโต & Momentum", desc: "อัปเลเวล ฟาร์ม และค่าพลัง", ids: ["momentum", "level-fast", "gold-farm", "box-run", "stormlands-bounty", "alliance"] },
-        { id: "gear",    icon: IC.gear,   title: "อุปกรณ์ & บิลด์",  desc: "เซ็ตไอเทม Amulet คอมโบ และการจัด Build", ids: ["gear", "amulet", "build", "knight-combo", "sellsword-combo", "assassin-dagger", "accessory-refine"] },
+        { id: "gear",    icon: IC.gear,   title: "อุปกรณ์ & บิลด์",  desc: "เซ็ตไอเทม Amulet คอมโบ และการจัด Build", ids: ["gear", "amulet", "build", "knight-combo", "sellsword-combo", "assassin-dagger", "accessory-refine", "jewelry-polish"] },
         { id: "boss",    icon: IC.boss,   title: "บอส & เรด",       desc: "World Boss, Kraken Raid และ Faction Hideout", ids: ["drogon", "kraken", "faction-hideout"] },
         { id: "systems", icon: IC.flame,  title: "ระบบใหม่ & อีเวนต์", desc: "กลไกใหม่และกิจกรรมล่าสุด",    ids: ["burning-spirit", "weapon-switching", "events"] },
         { id: "tips",    icon: IC.gift,   title: "ทริก & ของฟรี",    desc: "โค้ด คูปอง และของแจกฟรี",       ids: ["codes", "twitch-drops"] }
@@ -516,6 +548,10 @@
                     </a>
                     ${block.caption ? `<figcaption>${esc(block.caption)}</figcaption>` : ""}
                 </figure>`;
+                if (block.table) return `<div class="ga-table-wrap"><table class="ga-table">
+                    ${block.table.head ? `<thead><tr>${block.table.head.map(h => `<th>${esc(h)}</th>`).join("")}</tr></thead>` : ""}
+                    <tbody>${(block.table.rows || []).map(r => `<tr>${r.map((c, i) => `<td${i === 0 ? ' class="ga-td-head"' : ""}>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody>
+                </table></div>`;
                 return "";
             }).join("\n");
 

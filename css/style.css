@@ -3135,6 +3135,53 @@ nav ul > li > a {
     letter-spacing: .3px;
 }
 
+/* ตารางข้อมูลในบทความ (เลื่อนแนวนอนได้บนมือถือ) */
+.ga-table-wrap {
+    overflow-x: auto;
+    margin: 10px 0 26px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.ga-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    min-width: 460px;
+}
+
+.ga-table th,
+.ga-table td {
+    padding: 12px 16px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+.ga-table thead th {
+    background: rgba(198, 162, 78, .1);
+    color: var(--gold-soft);
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    letter-spacing: .3px;
+    border-bottom: 1px solid var(--border-gold);
+}
+
+.ga-table tbody tr:last-child td { border-bottom: none; }
+.ga-table tbody tr:nth-child(even) td { background: rgba(190, 212, 228, .03); }
+
+.ga-table .ga-td-head {
+    color: var(--text);
+    font-weight: 600;
+    text-align: left;
+}
+
+.ga-table tbody td:last-child {
+    color: var(--frost-soft);
+    font-weight: 700;
+}
+
 .ga-source {
     margin-top: 40px;
     padding: 16px 20px;
