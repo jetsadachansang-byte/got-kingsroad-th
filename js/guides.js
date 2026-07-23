@@ -437,6 +437,52 @@
             ],
             source: { label: "Gamemeca — Box Run", url: "https://www.gamemeca.com/en/view.php?gid=1775627" }
         },
+        "sigil-board": {
+            icon: IC.shield, tag: "การเติบโต", read: "6 นาที",
+            title: "จัดวางตราตระกูล (Sigil Board) ให้ได้ Might สูงสุด",
+            summary: "แนวทางวางตราตระกูลตามความสัมพันธ์มิตร-ศัตรู เพื่อดัน Might / Momentum ให้คุ้มที่สุด แยกตามบอร์ด",
+            body: [
+                { p: "หลายคนปลดล็อก Support Board (Sigil Board) แล้ว แต่ยังวางตราแบบสุ่ม ๆ การจัดวางมีผลกับ Might / Momentum โดยตรง — วางตระกูลที่เป็น 'พันธมิตร' ร่วมกันจะได้โบนัสเพิ่ม แต่ถ้าวางตระกูล 'ศัตรู' ไว้ใกล้กันจะโดนโทษ (penalty) แค่จัดตำแหน่งใหม่ให้ถูก ค่า Might ขึ้นได้หลักพันถึงหลักหมื่น" },
+                { img: "images/guides/sigil-relations.jpeg", caption: "ความสัมพันธ์ระหว่างตระกูล — พันธมิตร (โบนัส) / ศัตรู (โทษ) / เป็นกลาง (ไม่มีผล)" },
+                { h: "ความสัมพันธ์ตระกูลที่ควรรู้" },
+                { list: [
+                    "🌹 Tyrell (ไทเรลล์) — พันธมิตร: Costayne, Tarly, Hightower, Florent, Rowan, Redwyne, Beesbury, Fossoway · ไม่มีศัตรูในชุดนี้ (พันธมิตรเยอะที่สุดในเกม)",
+                    "⚔️ Bolton (โบลตัน) — พันธมิตร: Umber, Glover, Dustin · ศัตรู: Stark, Hornwood",
+                    "🐺 Stark (สตาร์ก) — พันธมิตร: Hornwood, Mormont · ศัตรู: Bolton, Umber, Glover, Dustin"
+                ]},
+                { h: "เทคนิคจัดบอร์ด (หลักการรวม)" },
+                { list: [
+                    "วาง Great House ไว้ตำแหน่งสำคัญ (ช่อง x2 ตรงกลาง)",
+                    "รวมบ้านที่เป็นพันธมิตรไว้ด้วยกัน",
+                    "แยกบ้านที่เป็นศัตรูออกคนละบอร์ด",
+                    "ก่อนอัปเกรด Sigil ควรเช็กความสัมพันธ์ก่อนเสมอ"
+                ]},
+                { h: "⚖️ Balance Board (ความสมดุล)" },
+                { img: "images/guides/sigil-board-balance.jpeg", caption: "Balance Board — ช่อง x2 กลาง + 3 ช่องเชื่อมรอบ" },
+                { p: "แนะนำวาง Bolton ตรงกลาง เพราะมีพันธมิตรพอดีกับจำนวนช่องรอบตัว รอบ ๆ ใช้: Dustin, Glover, Umber — หลายคนเอา Stark มาลงแต่ไม่คุ้ม เพราะ Stark มีพันธมิตรแค่ 2 ตระกูล" },
+                { p: "โบนัสบอร์ดนี้: ⚔️ โจมตี · 🗡️ เจาะเกราะ · 💥 ดาเมจบอส" },
+                { h: "👑 Crown Board (มงกุฎ)" },
+                { img: "images/guides/sigil-board-crown.jpeg", caption: "Crown Board — ช่อง x2 กลาง + 5 ช่องเชื่อมรอบ (สำคัญที่สุด)" },
+                { p: "แนะนำวาง Tyrell ตรงกลาง เพราะมีพันธมิตรเยอะที่สุดในเกม ใช้โบนัสจากช่องรอบได้เต็มที่ เลือก 5 ตระกูลเลเวลสูงสุดจาก: Hightower, Rowan, Florent, Costayne, Fossoway, Redwyne, Beesbury, Tarly มาล้อมรอบ" },
+                { p: "โบนัสบอร์ดนี้: 🛡️ Defense · 🗡️ Armor Penetration · 👹 ลดความเสียหายจาก Boss" },
+                { h: "⚔️ Siege Board (การปิดล้อม)" },
+                { img: "images/guides/sigil-board-siege.jpeg", caption: "Siege Board — เหมาะกับ Stark ที่มีพันธมิตรน้อย" },
+                { p: "บอร์ดนี้เหมาะกับ Stark มากที่สุด เพราะ Stark มีพันธมิตรน้อย เลยไม่เหมาะกับ Crown/Balance แนะนำวาง Stark ที่ตำแหน่ง 1, 5 และ 9 นาฬิกา ช่องที่เหลือใช้ Hornwood และ Mormont จะดึงค่า Might ของ Stark ออกมาได้คุ้มสุด" },
+                { p: "โบนัสบอร์ดนี้: ⚔️ Attack · 🗡️ Armor Penetration · 🎯 ดาเมจต่อ Elite Enemy" },
+                { h: "🏹 Duel Board (แข่งขัน)" },
+                { img: "images/guides/sigil-board-duel.jpeg", caption: "Duel Board — ใช้ Great House เลเวลสูงสุดที่เหลือ" },
+                { p: "หลังใช้ Tyrell, Bolton และ Stark ไปแล้ว ให้นำ Great House เลเวลสูงสุดที่เหลือมาลงช่อง x2 จากนั้นเติมตระกูลบริวารรอบ ๆ เน้นค่า Might สูงสุดเป็นหลัก" },
+                { h: "✂️ Split Board" },
+                { p: "ซื้อได้จาก Alliance Shop (ร้านค้าสหพันธ์) ราคา 2,200 Alliance Token หลายคนวางผิด เพราะช่องกลาง x2 เชื่อมต่อเฉพาะซ้ายและขวาเท่านั้น" },
+                { list: [
+                    "ช่องกลาง = Great House ที่เหลือ",
+                    "ช่องซ้าย/ขวา = ตระกูลที่เป็นมิตรกับช่องกลาง",
+                    "ช่องบน/ล่าง = ตราที่มีค่า Might สูงที่สุดที่เหลืออยู่"
+                ]},
+                { p: "แม้เป็นรายละเอียดเล็ก ๆ แต่การจัด Sigil ให้ถูกต้องเพิ่ม Momentum ได้มากกว่าที่คิด โดยเฉพาะช่วงท้ายเกมที่ต้องดันพลังผ่านคอนเทนต์ระดับสูง (ดูภาพรวมระบบได้ที่ฐานข้อมูล → ระบบเสริมพลัง → Sigil Board)" }
+            ],
+            source: { label: "Gamemeca — House Sigil Relationships", url: "https://www.gamemeca.com/en/view.php?gid=1775826" }
+        },
         "stormlands-bounty": {
             icon: IC.map, tag: "การเติบโต", read: "3 นาที",
             title: "ล่าค่าหัวในแคว้น Stormlands",
@@ -477,7 +523,7 @@
 
     const CATEGORIES = [
         { id: "start",   icon: IC.start,  title: "เริ่มต้นเล่นเกม", desc: "พื้นฐานสำหรับผู้เล่นใหม่",       ids: ["intro", "choose-class", "combat-basics"] },
-        { id: "progress",icon: IC.power,  title: "การเติบโต & Momentum", desc: "อัปเลเวล ฟาร์ม และค่าพลัง", ids: ["momentum", "level-fast", "gold-farm", "box-run", "stormlands-bounty", "alliance"] },
+        { id: "progress",icon: IC.power,  title: "การเติบโต & Momentum", desc: "อัปเลเวล ฟาร์ม และค่าพลัง", ids: ["momentum", "level-fast", "gold-farm", "sigil-board", "box-run", "stormlands-bounty", "alliance"] },
         { id: "gear",    icon: IC.gear,   title: "อุปกรณ์ & บิลด์",  desc: "เซ็ตไอเทม Amulet คอมโบ และการจัด Build", ids: ["gear", "amulet", "build", "knight-combo", "sellsword-combo", "assassin-dagger", "accessory-refine", "jewelry-polish"] },
         { id: "boss",    icon: IC.boss,   title: "บอส & เรด",       desc: "World Boss, Kraken Raid และ Faction Hideout", ids: ["drogon", "kraken", "faction-hideout"] },
         { id: "systems", icon: IC.flame,  title: "ระบบใหม่ & อีเวนต์", desc: "กลไกใหม่และกิจกรรมล่าสุด",    ids: ["burning-spirit", "weapon-switching", "events"] },
