@@ -472,8 +472,9 @@
                 { h: "🏹 Duel Board (แข่งขัน)" },
                 { img: "images/guides/sigil-board-duel.jpeg", caption: "Duel Board — ใช้ Great House เลเวลสูงสุดที่เหลือ" },
                 { p: "หลังใช้ Tyrell, Bolton และ Stark ไปแล้ว ให้นำ Great House เลเวลสูงสุดที่เหลือมาลงช่อง x2 จากนั้นเติมตระกูลบริวารรอบ ๆ เน้นค่า Might สูงสุดเป็นหลัก" },
-                { h: "✂️ Split Board" },
-                { p: "ซื้อได้จาก Alliance Shop (ร้านค้าสหพันธ์) ราคา 2,200 Alliance Token หลายคนวางผิด เพราะช่องกลาง x2 เชื่อมต่อเฉพาะซ้ายและขวาเท่านั้น" },
+                { h: "✂️ Split Board (การแบ่งแยก)" },
+                { img: "images/guides/sigil-board-split.jpeg", caption: "Split Board — ช่อง x2 กลางเชื่อมเฉพาะซ้าย-ขวา (ซื้อจาก Alliance Shop)" },
+                { p: "ซื้อได้จาก Alliance Shop (ร้านค้าสหพันธ์) ราคา 2,200 Alliance Token หลายคนวางผิด เพราะช่องกลาง x2 เชื่อมต่อเฉพาะซ้ายและขวาเท่านั้น (บน/ล่างไม่เชื่อมกับกลาง)" },
                 { list: [
                     "ช่องกลาง = Great House ที่เหลือ",
                     "ช่องซ้าย/ขวา = ตระกูลที่เป็นมิตรกับช่องกลาง",
