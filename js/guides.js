@@ -517,6 +517,63 @@
                 ]}
             ],
             source: { label: "Gamemeca — Faction Hideout Shortcut", url: "https://www.gamemeca.com/en/view.php?gid=1777780" }
+        },
+        "trade-post": {
+            icon: IC.coin, tag: "การเติบโต", read: "3 นาที",
+            title: "จัดการ Trade Post & ผลิตวัตถุดิบอัตโนมัติ",
+            summary: "ตั้งค่าที่พัก (Fief) ให้ worker เก็บวัตถุดิบเอง แล้วโฟกัสของใน Trade Post ให้คุ้มที่สุด",
+            body: [
+                { p: "ที่พัก (Fief) คือศูนย์กลางการผลิตทั้งหมด — ใช้คราฟอุปกรณ์และของใช้ จ้าง worker เก็บวัตถุดิบอัตโนมัติ และนำวัตถุดิบไปแลกของใหม่ผ่านการเทรด" },
+                { h: "วางแผนก่อนซื้อ" },
+                { list: [
+                    "Trade Post มีของหลายอย่างพร้อมความน่าจะเป็นต่างกัน ควรตัดสินใจก่อนว่าจะเน้นซื้ออะไร",
+                    "จ้าง worker ที่เก็บวัตถุดิบตรงกับของที่อยากซื้อ แล้วมอบหมายไปที่ Production Management Office",
+                    "ปล่อยให้ระบบเก็บวัตถุดิบเดินไปเรื่อย ๆ จะได้ของที่ต้องการโดยไม่ต้องฟาร์มเอง"
+                ]}
+            ],
+            source: { label: "Gamemeca — Organizing 'Trade Post' Items", url: "https://www.gamemeca.com/en/view.php?gid=1775739" }
+        },
+        "world-difficulty-legendary": {
+            icon: IC.boss, tag: "การเติบโต", read: "3 นาที",
+            title: "เพิ่ม World Difficulty เพื่อรับเครื่องประดับ Legendary",
+            summary: "ปรับความยากโลกให้สูงขึ้นตามลำดับเพื่อลุ้นเครื่องประดับระดับ Legendary",
+            body: [
+                { p: "ระบบปรับความยากในเกมเรียกว่า 'World Difficulty Selection' โดยความยากจะปลดล็อกทีละขั้นตามความคืบหน้าของเนื้อเรื่องหลัก และแต่ละขั้นจะเปิดหลังจากเคลียร์ 'Limit Break Dungeon' ของขั้นนั้น" },
+                { h: "ทำไมต้องดันความยาก" },
+                { p: "การเพิ่มระดับ World Difficulty ช่วยเพิ่มโอกาสได้เครื่องประดับ (accessories) ระดับ Legendary จึงคุ้มที่จะดันความยากขึ้นเมื่อค่าพลังพร้อม" }
+            ],
+            source: { label: "Gamemeca — Increase Difficulty & Legendary Accessories", url: "https://www.gamemeca.com/en/view.php?gid=1775817" }
+        },
+        "slot-enhancement": {
+            icon: IC.gear, tag: "อุปกรณ์", read: "2 นาที",
+            title: "Slot Enhancement — เสริมช่องสวมใส่แบบถาวร",
+            summary: "โบนัสจากการเสริมช่องติดอยู่กับ 'ช่อง' ไม่หายแม้เปลี่ยนอุปกรณ์ — ควรกระจายให้ทั่ว",
+            body: [
+                { p: "Slot Enhancement คือการอัปเกรด 'ช่องสวมใส่อุปกรณ์' แบบถาวร โบนัสจะติดอยู่กับตัวช่อง ไม่หายไปแม้จะสลับอุปกรณ์ชิ้นใหม่เข้ามาในช่องนั้น" },
+                { p: "จึงแนะนำให้กระจายการเสริมช่องให้ทั่วทุกช่องอย่างสม่ำเสมอ แทนที่จะทุ่มลงช่องเดียว เพราะเป็นการลงทุนที่อยู่กับเราถาวร" }
+            ],
+            source: { label: "Gamemeca — Evenly Distribute Slot Enhancement", url: "https://www.gamemeca.com/en/view.php?gid=1776520" }
+        },
+        "skill-engraving": {
+            icon: IC.gear, tag: "อุปกรณ์", read: "3 นาที",
+            title: "Skill Engraving — สลักสกิลด้วย Gear Parts",
+            summary: "แยกอุปกรณ์เป็น Gear Parts เพื่อสลักเอฟเฟกต์สกิลเสริม และซื้อขายในตลาดได้",
+            body: [
+                { p: "แยกชิ้นส่วน (dismantle) อาวุธหรือเกราะจะได้ 'Gear Parts' ซึ่งเป็นวัสดุจำเป็นสำหรับการสลัก (engrave) อุปกรณ์ที่สวมอยู่ เพื่อปลดล็อกเอฟเฟกต์สกิลเสริม" },
+                { h: "ซื้อขายในตลาดได้" },
+                { p: "Gear Parts ซื้อขายในตลาด (marketplace) ได้ ราคาผันแปรตามความนิยมของอาชีพและโบนัสสกิลที่เป็นเมตา — ปัจจุบันชิ้นส่วนของ Assassin และ Knight ราคาสูงที่สุด" }
+            ],
+            source: { label: "Gamemeca — Effective Skill Engravings via Exchange", url: "https://www.gamemeca.com/en/view.php?gid=1777183" }
+        },
+        "talent-ranker": {
+            icon: IC.power, tag: "อุปกรณ์", read: "2 นาที",
+            title: "แนวทางเลือก Talent (Trait) ฉบับ Ranker",
+            summary: "Talent Tree ลงแต้มเพิ่มค่าสถานะ/เอฟเฟกต์พิเศษ — อ้างอิงตัวเลือกของผู้เล่นอันดับต้น ๆ",
+            body: [
+                { p: "ระบบ Talent Tree (Trait) ให้ลงแต้มเพื่อรับค่าสถานะหรือเอฟเฟกต์พิเศษ ด้วยตัวเลือกที่เยอะจึงทำให้ผู้เล่นหลายคนลังเลว่าจะลงทางไหน" },
+                { p: "แนวทางที่ปลอดภัยคืออ้างอิงตัวเลือกที่ผู้เล่นอันดับต้น ๆ (ranker) เลือกใช้ในช่วงปัจจุบัน แล้วปรับตามสไตล์/อาชีพของตัวเอง (ดูภาพรวมระบบได้ที่ฐานข้อมูล → ระบบเสริมพลัง → Trait Tree)" }
+            ],
+            source: { label: "Gamemeca — Ranker's Talent Selection Direction", url: "https://www.gamemeca.com/en/view.php?gid=1775983" }
         }
     };
 
@@ -524,8 +581,8 @@
 
     const CATEGORIES = [
         { id: "start",   icon: IC.start,  title: "เริ่มต้นเล่นเกม", desc: "พื้นฐานสำหรับผู้เล่นใหม่",       ids: ["intro", "choose-class", "combat-basics"] },
-        { id: "progress",icon: IC.power,  title: "การเติบโต & Momentum", desc: "อัปเลเวล ฟาร์ม และค่าพลัง", ids: ["momentum", "level-fast", "gold-farm", "sigil-board", "box-run", "stormlands-bounty", "alliance"] },
-        { id: "gear",    icon: IC.gear,   title: "อุปกรณ์ & บิลด์",  desc: "เซ็ตไอเทม Amulet คอมโบ และการจัด Build", ids: ["gear", "amulet", "build", "knight-combo", "sellsword-combo", "assassin-dagger", "accessory-refine", "jewelry-polish"] },
+        { id: "progress",icon: IC.power,  title: "การเติบโต & Momentum", desc: "อัปเลเวล ฟาร์ม และค่าพลัง", ids: ["momentum", "level-fast", "gold-farm", "sigil-board", "trade-post", "world-difficulty-legendary", "box-run", "stormlands-bounty", "alliance"] },
+        { id: "gear",    icon: IC.gear,   title: "อุปกรณ์ & บิลด์",  desc: "เซ็ตไอเทม Amulet คอมโบ และการจัด Build", ids: ["gear", "amulet", "build", "knight-combo", "sellsword-combo", "assassin-dagger", "accessory-refine", "jewelry-polish", "slot-enhancement", "skill-engraving", "talent-ranker"] },
         { id: "boss",    icon: IC.boss,   title: "บอส & เรด",       desc: "World Boss, Kraken Raid และ Faction Hideout", ids: ["drogon", "kraken", "faction-hideout"] },
         { id: "systems", icon: IC.flame,  title: "ระบบใหม่ & อีเวนต์", desc: "กลไกใหม่และกิจกรรมล่าสุด",    ids: ["burning-spirit", "weapon-switching", "events"] },
         { id: "tips",    icon: IC.gift,   title: "ทริก & ของฟรี",    desc: "โค้ด คูปอง และของแจกฟรี",       ids: ["codes", "twitch-drops"] }
