@@ -911,6 +911,29 @@ nav ul > li > .active::after {
 .news-card:nth-child(5) .news-image { background-image: url("../images/news/guide.jpg"); }
 .news-card:nth-child(6) .news-image { background-image: url("../images/news/database.jpg"); }
 
+/* การ์ดข่าวเด่น (ใบแรก) — เต็มความกว้าง + วางแนวนอน สร้างลำดับความสำคัญ */
+.news-featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+}
+.news-featured .news-image { height: 100%; min-height: 340px; }
+.news-featured .news-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+}
+.news-featured .news-content h3 { font-size: 34px; }
+.news-featured .news-content p { font-size: 16px; line-height: 1.8; }
+
+@media (max-width: 760px) {
+    .news-featured { grid-template-columns: 1fr; }
+    .news-featured .news-image { min-height: 220px; }
+    .news-featured .news-content { padding: 28px; }
+    .news-featured .news-content h3 { font-size: 26px; }
+}
+
 .news-content {
     padding: 28px;
 }
