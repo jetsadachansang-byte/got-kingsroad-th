@@ -4393,3 +4393,229 @@ a.bp-slot-name:hover { color: var(--gold-soft); }
     .gk-num { font-size: 21px; }
     .gk-label { font-size: 11px; }
 }
+
+/* ============================================================
+   INTRO 3D — ฉากเปิดเว็บ cinematic (หน้าแรกเท่านั้น)
+   เวที 3D perspective + เลเยอร์ตามความลึก + parallax เมาส์
+   + หิมะตก + โลโก้เข้าฉากแบบ 3 มิติ · ข้ามได้ · เคารพ reduce-motion
+============================================================ */
+.intro3d { display: none; }
+body.intro-lock { overflow: hidden; }
+
+.intro3d.is-active {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1000000;
+    perspective: 1200px;
+    perspective-origin: 50% 42%;
+    background: radial-gradient(120% 120% at 50% 30%, #0c141d 0%, #070a0e 70%, #04070a 100%);
+    overflow: hidden;
+    animation: introIn .9s ease both;
+}
+
+@keyframes introIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.intro-stage {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    transition: transform .4s cubic-bezier(.2, .7, .2, 1);
+    will-change: transform;
+}
+
+.intro-layer {
+    position: absolute;
+    inset: -6%;
+    backface-visibility: hidden;
+}
+
+.intro-bg {
+    background: url("../images/background/hero-bg.webp") center/cover no-repeat;
+    transform: translateZ(-360px) scale(1.55);
+    filter: saturate(.85) brightness(.5) contrast(1.05);
+    animation: introBg 12s ease-in-out infinite alternate;
+}
+
+@keyframes introBg {
+    from { transform: translateZ(-360px) scale(1.55); }
+    to   { transform: translateZ(-360px) scale(1.62) translateY(-1.5%); }
+}
+
+.intro-glow {
+    transform: translateZ(-180px) scale(1.3);
+    background:
+        radial-gradient(60% 45% at 50% 34%, rgba(198, 162, 78, .28), transparent 70%),
+        radial-gradient(80% 60% at 50% 90%, rgba(77, 106, 128, .22), transparent 72%);
+    mix-blend-mode: screen;
+    animation: introGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes introGlow {
+    from { opacity: .7; }
+    to   { opacity: 1; }
+}
+
+.intro-vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(to bottom, rgba(4, 7, 10, .55) 0%, transparent 28%, transparent 62%, rgba(4, 7, 10, .82) 100%);
+}
+
+/* หิมะตก */
+.intro-snow {
+    position: absolute;
+    inset: 0;
+    transform: translateZ(60px);
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.intro-snow span {
+    position: absolute;
+    top: -8vh;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff 0%, rgba(255, 255, 255, .55) 60%, transparent 100%);
+    box-shadow: 0 0 6px rgba(188, 212, 228, .55);
+    animation-name: introSnow;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes introSnow {
+    from { transform: translateY(0) translateX(0); }
+    to   { transform: translateY(118vh) translateX(var(--drift, 0px)); }
+}
+
+/* โลโก้ + ข้อความ */
+.intro-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inset: 0;
+    transform: translateZ(90px);
+    top: -7%;
+}
+
+.intro-logo img {
+    width: min(560px, 74vw);
+    max-height: 42vh;
+    object-fit: contain;
+    filter: drop-shadow(0 18px 46px rgba(0, 0, 0, .7)) drop-shadow(0 0 26px rgba(198, 162, 78, .28));
+    animation: introLogo 1.5s cubic-bezier(.16, .84, .3, 1) both;
+    animation-delay: .35s;
+}
+
+@keyframes introLogo {
+    from { opacity: 0; transform: perspective(800px) rotateX(38deg) scale(.82) translateY(24px); }
+    to   { opacity: 1; transform: perspective(800px) rotateX(0deg) scale(1) translateY(0); }
+}
+
+.intro-copy {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 16%;
+    transform: translateZ(120px);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 0 20px;
+    animation: introCopy 1s ease both;
+    animation-delay: 1s;
+}
+
+@keyframes introCopy {
+    from { opacity: 0; transform: translateZ(120px) translateY(18px); }
+    to   { opacity: 1; transform: translateZ(120px) translateY(0); }
+}
+
+.intro-eyebrow {
+    font-family: "Cinzel", serif;
+    letter-spacing: .42em;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: var(--frost-soft);
+    padding-left: .42em;
+}
+
+.intro-sub {
+    font-family: "Noto Sans Thai", sans-serif;
+    color: var(--text-2);
+    font-size: 15px;
+    letter-spacing: .04em;
+    margin: 0;
+}
+
+.intro-enter {
+    margin-top: 6px;
+    font-family: "Cinzel", "Noto Sans Thai", serif;
+    font-size: 15px;
+    letter-spacing: .06em;
+    color: #0a0d12;
+    background: linear-gradient(to bottom, #efd98a 0%, #d8b45a 45%, #b8860b 100%);
+    border: 1px solid var(--gold-soft);
+    border-radius: 3px;
+    padding: 13px 34px;
+    cursor: pointer;
+    box-shadow: 0 8px 26px rgba(0, 0, 0, .5), 0 0 22px rgba(198, 162, 78, .32);
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.intro-enter:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.06);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .55), 0 0 30px rgba(198, 162, 78, .5);
+}
+
+.intro-skip {
+    position: absolute;
+    top: 22px;
+    right: 24px;
+    z-index: 3;
+    font-family: "Inter", sans-serif;
+    font-size: 12.5px;
+    letter-spacing: .08em;
+    color: var(--text-3);
+    background: rgba(12, 16, 23, .5);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 7px 16px;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: color .2s ease, border-color .2s ease;
+}
+
+.intro-skip:hover {
+    color: var(--gold-soft);
+    border-color: var(--border-gold);
+}
+
+.intro3d.is-hiding {
+    animation: introOut .85s ease forwards;
+}
+
+@keyframes introOut {
+    from { opacity: 1; }
+    to   { opacity: 0; transform: scale(1.06); }
+}
+
+@media (max-width: 640px) {
+    .intro-eyebrow { font-size: 11px; letter-spacing: .34em; }
+    .intro-sub { font-size: 13.5px; }
+    .intro-copy { bottom: 13%; }
+    .intro-logo { top: -10%; }
+    .intro-enter { font-size: 14px; padding: 12px 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .intro3d { display: none !important; }
+}
