@@ -267,14 +267,30 @@
             source: { label: "Netmarble Developer Note", url: "https://forum.netmarble.com/got/view/12/216" }
         },
         "events": {
-            icon: IC.calendar, tag: "อีเวนต์", read: "4 นาที",
+            icon: IC.calendar, tag: "อีเวนต์", read: "5 นาที",
             title: "อีเวนต์ล่าสุด",
-            summary: "รวมกิจกรรมที่กำลังจัดและกำลังจะมาถึง อัปเดตตามประกาศทางการ",
+            summary: "รวมกิจกรรมที่กำลังจัดและกำลังจะมาถึง พร้อมวิธีสะสม Season Point อัปเดตตามประกาศทางการ",
             body: [
                 { h: "Season 1: The North Bannerman Qualifiers — Frost and Steel" },
-                { p: "อัปเดตใหญ่ของซีซัน 1 เปิดตัว 15 ก.ค. 2026 นำมาซึ่งเนื้อเรื่อง ระบบ และคอนเทนต์ใหม่ พร้อมกลไกต่อสู้ Burning Battle Spirit" },
+                { p: "อัปเดตใหญ่ที่สุดของซีซัน 1 เปิดตัว 15 ก.ค. 2026 จัดต่อเนื่อง 6 สัปดาห์ ธีมสงครามตระกูลแดนเหนือที่ต้องรับศึกการบุกของชาว Ironborn นำมาซึ่งเนื้อเรื่อง ระบบ และคอนเทนต์ใหม่ พร้อมกลไกต่อสู้ Burning Battle Spirit" },
+                { h: "คอนเทนต์ใหม่ในซีซัน" },
+                { list: [
+                    "บอสใหม่ Unicorn และ Hard Mode ใน Altar of Memories (ดันเจียนทีม 4 คนสู้บอสจากตำนาน A Song of Ice and Fire)",
+                    "ด่านท้าทาย Worm Road ขยายเป็น 40 ชั้น",
+                    "ดันเจียนซีซันใหม่: Wormwalks, Beyond the Wall Expedition และ Elite Hideout"
+                ]},
                 { h: "North Bannerman Duel Festival (เปิด 22 ก.ค. 2026)" },
-                { p: "อีเวนต์ดวล 1v1 กับ NPC Bannerman Champion จากตระกูลอื่น แบบ 'PvE-like PvP' รูปแบบทัวร์นาเมนต์ 3 รอบ Time Attack เจอ House Champion หลายด่านแข่งกับเวลา มีอีเวนต์ประจำภูมิภาครายวัน รางวัลเป็น Growth Rewards และ Season Token (เปิดเฉพาะภูมิภาค APAC)" },
+                { p: "อีเวนต์ดวล 1v1 กับ NPC Bannerman Champion จากตระกูลอื่น แบบ 'PvE-like PvP' — ศัตรู AI หลบ สวน (parry) และยิงระยะไกลเลียนแบบการเล่นของคนจริง รูปแบบทัวร์นาเมนต์ Time Attack เจอ House Champion หลายด่านแข่งกับเวลา มีอีเวนต์ประจำภูมิภาครายวัน รางวัลเป็น Growth Rewards และ Season Token (เปิดเฉพาะภูมิภาค APAC)" },
+                { h: "Season Point & Season Token — สะสมยังไง" },
+                { p: "ซีซันนี้ออกแบบให้ทั้งสายฮาร์ดคอร์และสายเล่นชิล ๆ เก็บแต้มได้ สะสม Season Point จากหลายทาง:" },
+                { list: [
+                    "Raid Defense (ป้องกันเรด)",
+                    "North Bannerman Duel Festival",
+                    "สำรวจพื้นที่ (field exploration) และอีเวนต์ประจำภูมิภาค",
+                    "ทำคะแนนสูงในดันเจียน 5 ประเภท รวมถึงดันเจียนซีซัน",
+                    "World Boss และคอนเทนต์ที่เล่นซ้ำได้ (repeatable)"
+                ]},
+                { p: "เก็บ Season Token 'Coastal Watchman's Iron Shard' จากกิจกรรมข้างต้น แล้วนำไปแลกรางวัลประจำซีซัน" },
                 { h: "Battle Pass: Ripples of the Open Sea" },
                 { p: "Battle Pass ประจำช่วง สะสมความคืบหน้าเพื่อรับรางวัลตามระดับ" },
                 { p: "อีเวนต์และรางวัลอาจต่างกันตามภูมิภาคและช่วงเวลา ตรวจสอบประกาศทางการในเกมเสมอ" }
