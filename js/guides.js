@@ -369,6 +369,49 @@
             ],
             source: { label: "Gamemeca — Mercenary Combo Mastery", url: "https://www.gamemeca.com/en/view.php?gid=1777377" }
         },
+        "swordsman-savant-build": {
+            icon: IC.sword, tag: "อุปกรณ์", read: "6 นาที",
+            title: "บิลด์นักดาบ เซ็ตนักปราชญ์ (สลับอาวุธ ดาบใหญ่/ดาบคู่)",
+            summary: "แนวทางจัดเซ็ต สกิลสลับอาวุธ วัตถุโบราณ และแผงสกิลทั้ง 4 สาย — บิลด์จากผู้เล่นในชุมชน",
+            body: [
+                { p: "บิลด์นักดาบสายสลับอาวุธ ใช้ระบบ Weapon Switching สลับระหว่างดาบใหญ่ (Greatsword) และดาบคู่ (Dual Blades) วางบนแกนเซ็ตนักปราชญ์ (Savant) 7 ชิ้น เน้นดาเมจต่อเนื่องและความอึดในการยืนคอมโบ" },
+                { h: "เซ็ตอุปกรณ์" },
+                { list: [
+                    "เซ็ตหลัก: นักปราชญ์ (Savant) 7 ชิ้น",
+                    "เซ็ตรอง: นักรบคลั่ง (Berserker) หรือ ผู้พิทักษ์ (Guardian)"
+                ]},
+                { h: "สกิลดาบใหญ่ (Greatsword)" },
+                { list: [
+                    "ปลุกขวัญ (เสริมแกร่ง) + บุกตะลุย 4–5 จุด",
+                    "รวมพลังแทง (เสริมแกร่ง) + โทสะไม่สิ้นสุด 4–5 จุด + เจ็บปวดมาก 4–5 จุด",
+                    "ฟันต่อเนื่อง (เสริมแกร่ง) + โทสะที่ลุกโชน 1 จุดขึ้นไป"
+                ]},
+                { h: "สกิลดาบคู่ (Dual Blades)" },
+                { list: [
+                    "แทงสองมือ (เสริมแกร่ง) + โฟกัส 1 จุดขึ้นไป",
+                    "สองมือทิ่มแทง (เสริมแกร่ง) — ไม่ต้องลงจุด",
+                    "บุกกระหน่ำ (เสริมแกร่ง) — ไม่ต้องลงจุด"
+                ]},
+                { h: "วัตถุโบราณ (Ancient Artifacts)" },
+                { p: "แอคทีฟ (Active):" },
+                { list: [
+                    "โครงกระดูกบุตรแห่งนักรบ 3 ดาวขึ้นไป",
+                    "ผ้าเช็ดตัวที่เปื้อนเลือด 3 ดาวขึ้นไป"
+                ]},
+                { p: "พาสซีฟ (Passive):" },
+                { list: [
+                    "จดหมายของเมสเตอร์คอสโซ่ 1 ดาวขึ้นไป"
+                ]},
+                { h: "แผงสกิล (Skill Boards) ทั้ง 4 สาย" },
+                { p: "จัดแผงสกิลครบทั้ง 4 สาย — โจมตี ป้องกัน สนับสนุน และชำนาญเฉพาะ (พอยต์ชำนาญรวม 100) ตามภาพด้านล่าง" },
+                { img: "images/guides/skillboard-attack.png", caption: "แผงสกิลสายโจมตี (Attack)" },
+                { img: "images/guides/skillboard-defense.png", caption: "แผงสกิลสายป้องกัน (Defense)" },
+                { img: "images/guides/skillboard-support.png", caption: "แผงสกิลสายสนับสนุน (Support)" },
+                { img: "images/guides/skillboard-mastery.png", caption: "แผงสกิลสายชำนาญเฉพาะ (Mastery) — พอยต์ชำนาญ 100" },
+                { p: "หมายเหตุ: เป็นบิลด์แนะนำจากผู้เล่นในชุมชน สามารถปรับจำนวนจุด วัตถุโบราณ และเซ็ตรองตามอุปกรณ์และสไตล์การเล่นของคุณได้" }
+            ],
+            source: { label: "บิลด์จากผู้เล่นในชุมชน GoT: Kingsroad TH", url: "https://forum.netmarble.com/got" }
+        },
         "assassin-dagger": {
             icon: IC.sword, tag: "อุปกรณ์", read: "5 นาที",
             title: "เซ็ตสกิลมีดของ Assassin (ฉบับ Ranker)",
@@ -598,7 +641,7 @@
     const CATEGORIES = [
         { id: "start",   icon: IC.start,  title: "เริ่มต้นเล่นเกม", desc: "พื้นฐานสำหรับผู้เล่นใหม่",       ids: ["intro", "choose-class", "combat-basics"] },
         { id: "progress",icon: IC.power,  title: "การเติบโต & Momentum", desc: "อัปเลเวล ฟาร์ม และค่าพลัง", ids: ["momentum", "level-fast", "gold-farm", "sigil-board", "trade-post", "world-difficulty-legendary", "box-run", "stormlands-bounty", "alliance"] },
-        { id: "gear",    icon: IC.gear,   title: "อุปกรณ์ & บิลด์",  desc: "เซ็ตไอเทม Amulet คอมโบ และการจัด Build", ids: ["gear", "amulet", "build", "knight-combo", "sellsword-combo", "assassin-dagger", "accessory-refine", "jewelry-polish", "slot-enhancement", "skill-engraving", "talent-ranker"] },
+        { id: "gear",    icon: IC.gear,   title: "อุปกรณ์ & บิลด์",  desc: "เซ็ตไอเทม Amulet คอมโบ และการจัด Build", ids: ["gear", "amulet", "build", "knight-combo", "sellsword-combo", "swordsman-savant-build", "assassin-dagger", "accessory-refine", "jewelry-polish", "slot-enhancement", "skill-engraving", "talent-ranker"] },
         { id: "boss",    icon: IC.boss,   title: "บอส & เรด",       desc: "World Boss, Kraken Raid และ Faction Hideout", ids: ["drogon", "kraken", "faction-hideout"] },
         { id: "systems", icon: IC.flame,  title: "ระบบใหม่ & อีเวนต์", desc: "กลไกใหม่และกิจกรรมล่าสุด",    ids: ["burning-spirit", "weapon-switching", "events"] },
         { id: "tips",    icon: IC.gift,   title: "ทริก & ของฟรี",    desc: "โค้ด คูปอง และของแจกฟรี",       ids: ["codes", "twitch-drops"] }
