@@ -23,7 +23,8 @@
         group:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
         store:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18l-1-4H4L3 9z"/><path d="M4 9v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9"/><path d="M9 22V12h6v10"/></svg>',
         spark:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4"/><path d="M12 17v4"/><path d="M3 12h4"/><path d="M17 12h4"/><path d="m6 6 2.5 2.5"/><path d="m15.5 15.5 2.5 2.5"/><path d="m18 6-2.5 2.5"/><path d="m8.5 15.5-2.5 2.5"/></svg>',
-        flame:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>'
+        flame:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>',
+        gem:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>'
     };
 
     /* ============================================================
@@ -152,11 +153,37 @@
                 { p: "โหมดนี้จะต้องอาศัยการวางแผนเชิงกลยุทธ์ระดับสูงเพื่อเอาชนะ เหมาะกับผู้เล่นที่มองหาความท้าทายเพิ่มเติมหลังผ่านคอนเทนต์หลัก" }
             ],
             source: { label: "Developer Note: 2026 Update Preview", url: "https://forum.netmarble.com/got/view/12/216" }
+        },
+        "artifact-jewelry-rework": {
+            kind: "plan", icon: IC.gem, date: "แผนพัฒนา", status: "ยังไม่เข้าเกม",
+            title: "รื้อระบบวัตถุโบราณ & เครื่องประดับ",
+            subtitle: "Artifact & Jewelry Rework",
+            summary: "ออกแบบวิธีได้มาและโครงสร้างของระบบ Artifact และ Jewelry ใหม่ทั้งหมด ให้เข้าใจเส้นทางการเติบโตได้ง่ายและเป็นระบบขึ้น",
+            body: [
+                { p: "ในสารจากผู้พัฒนา 'Major Update Plans and Updated Timeline' ทีมงานยอมรับถึงความล่าช้าของอัปเดตที่ผ่านมา และประกาศแผนหลักหลายอย่างพร้อมกรอบเวลาที่อัปเดตใหม่เป็นครั้งแรก" },
+                { h: "ปรับโครงสร้างการเติบโตให้เข้าใจง่าย" },
+                { p: "ทีมงานจะรื้อวิธีการได้มา (acquisition) และโครงสร้างของระบบวัตถุโบราณ (Artifact) และเครื่องประดับ (Jewelry) ใหม่ทั้งหมด เพื่อให้ผู้เล่นเข้าใจเส้นทางการเติบโตได้ชัดเจนและเป็นเหตุเป็นผลมากขึ้น" },
+                { p: "รวมถึงการปรับปรุงระบบการรีไฟน์ (refining) และภาพรวมของโครงสร้างทั้งหมด" },
+                { p: "หมายเหตุ: ทุกอย่างยังอยู่ระหว่างการพัฒนาและอาจเปลี่ยนแปลงก่อนปล่อยจริง รายละเอียดสุดท้ายจะประกาศผ่านประกาศทางการในภายหลัง" }
+            ],
+            source: { label: "Developer's Note: Major Update Plans and Updated Timeline", url: "https://store.steampowered.com/news/app/3183280/view/637963704478990405" }
+        },
+        "market-system": {
+            kind: "plan", icon: IC.store, date: "แผนพัฒนา", status: "ยังไม่เข้าเกม",
+            title: "ระบบตลาดซื้อขาย",
+            subtitle: "Market System",
+            summary: "ระบบตลาดเต็มรูปแบบ ให้ผู้เล่นซื้อขายแลกเปลี่ยนทรัพยากรและวัสดุระหว่างกันได้",
+            body: [
+                { p: "ผู้พัฒนาประกาศแผนเพิ่มระบบตลาด (Market System) เต็มรูปแบบ ที่ให้ผู้เล่นซื้อขายแลกเปลี่ยนทรัพยากรและวัสดุระหว่างกันได้" },
+                { p: "ระบบนี้จะช่วยให้เศรษฐกิจในเกมมีชีวิตชีวาขึ้น ผู้เล่นสามารถหาของที่ขาดและปล่อยของที่เหลือได้สะดวกกว่าเดิม" },
+                { p: "หมายเหตุ: ยังอยู่ระหว่างการพัฒนาและอาจเปลี่ยนแปลงก่อนปล่อยจริง" }
+            ],
+            source: { label: "Developer's Note: Major Update Plans and Updated Timeline", url: "https://store.steampowered.com/news/app/3183280/view/637963704478990405" }
         }
     };
 
     const CURRENT = ["frost-and-steel", "global-launch"];
-    const PLAN = ["story-chapter-4", "harrenhal-pve", "graphics-rework", "hard-mode"];
+    const PLAN = ["artifact-jewelry-rework", "market-system", "story-chapter-4", "harrenhal-pve", "graphics-rework", "hard-mode"];
 
     /* ============================================================
        ตัวเรนเดอร์ (ไม่ต้องแก้)
