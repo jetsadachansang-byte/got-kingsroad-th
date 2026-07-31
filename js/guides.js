@@ -413,10 +413,10 @@
                 ]},
                 { h: "แผงสกิล (Skill Boards) ทั้ง 4 สาย" },
                 { p: "จัดแผงสกิลครบทั้ง 4 สาย — โจมตี ป้องกัน สนับสนุน และชำนาญเฉพาะ (พอยต์ชำนาญรวม 100) ตามภาพด้านล่าง" },
-                { img: "images/guides/skillboard-attack.png", caption: "แผงสกิลสายโจมตี (Attack)" },
-                { img: "images/guides/skillboard-defense.png", caption: "แผงสกิลสายป้องกัน (Defense)" },
-                { img: "images/guides/skillboard-support.png", caption: "แผงสกิลสายสนับสนุน (Support)" },
-                { img: "images/guides/skillboard-mastery.png", caption: "แผงสกิลสายชำนาญเฉพาะ (Mastery) — พอยต์ชำนาญ 100" },
+                { img: "images/guides/skillboard-attack.webp", caption: "แผงสกิลสายโจมตี (Attack)" },
+                { img: "images/guides/skillboard-defense.webp", caption: "แผงสกิลสายป้องกัน (Defense)" },
+                { img: "images/guides/skillboard-support.webp", caption: "แผงสกิลสายสนับสนุน (Support)" },
+                { img: "images/guides/skillboard-mastery.webp", caption: "แผงสกิลสายชำนาญเฉพาะ (Mastery) — พอยต์ชำนาญ 100" },
                 { p: "หมายเหตุ: เป็นบิลด์แนะนำจากผู้เล่นในชุมชน สามารถปรับจำนวนจุด วัตถุโบราณ และเซ็ตรองตามอุปกรณ์และสไตล์การเล่นของคุณได้" }
             ],
             source: { label: "บิลด์จากผู้เล่นในชุมชน GoT: Kingsroad TH", url: "https://forum.netmarble.com/got" }

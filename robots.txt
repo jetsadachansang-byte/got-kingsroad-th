@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://got-kingsroad-th.jcgameservice.workers.dev/sitemap.xml
