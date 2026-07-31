@@ -38,6 +38,7 @@
         dgw:      { label: "gamingonphone.com — The Drowned God Wakes", url: "https://gamingonphone.com/news/game-of-thrones-kingsroad-first-content-update-the-drowned-god-wakes" },
         notes626: { label: "Netmarble — 6/26 Update Notes", url: "https://forum.netmarble.com/got/view/4/110" },
         frost:    { label: "Inven Global — Frost and Steel", url: "https://www.invenglobal.com/articles/23790/game-of-thrones-kingsroad-season-1-frost-and-steel-update" },
+        patch729: { label: "Netmarble TH — ประกาศอัปเดต 29 ก.ค.", url: "https://forum.netmarble.com/got_th/view/4/211" },
         creatures:{ label: "WinterIsComing / BleedingCool — Creatures", url: "https://winteriscoming.net/check-out-the-monsters-and-bosses-you-ll-fight-in-game-of-thrones-kingsroad" },
         gmKnight: { label: "Gamemeca — Class/Combat Tips", url: "https://www.gamemeca.com/en/view.php?gid=1777355" },
         gmHide:   { label: "Gamemeca — Faction Hideout", url: "https://www.gamemeca.com/en/view.php?gid=1777780" },
@@ -81,6 +82,23 @@
                 { p: "มีเทคนิค 'channel-hopping' คือปราบ Drogon ในช่องหนึ่งแล้วสลับไปช่องถัดไปเพื่อสู้ซ้ำและเก็บรางวัลเพิ่ม รวมทีมให้พร้อมก่อนถึงเวลาเกิด ปัจจุบันยังมีระดับความยากเพิ่มที่เข้าได้จาก Scorched Plain ในแคว้น Stormlands" }
             ],
             sources: [SRC.drogon, SRC.dgw]
+        },
+        "shadow-drogon": {
+            cat: "boss", icon: IC.boss, name: "Shadow Drogon", nameTh: "โดรกอน เงามืด (เวิลด์บอสความยากสูง)",
+            tags: ["World Boss", "World Lv.5", "Endgame"],
+            summary: "เวิลด์บอสสายความยากสูงที่ผูกกับระดับความยากเวิลด์ Lv.5 ปรับเพิ่มรางวัลตามอัปเดต 29 ก.ค. 2026",
+            meta: [
+                { k: "ประเภท", v: "World Boss (ความยากสูง)" },
+                { k: "เกี่ยวข้องกับ", v: "ระดับความยากเวิลด์ Lv.5 (ทหารติดอาวุธ ขั้น 3)" },
+                { k: "อัปเดตล่าสุด", v: "ปรับเพิ่มรางวัล — 29 ก.ค. 2026" }
+            ],
+            body: [
+                { p: "'โดรกอน เงามืด' (Shadow Drogon) คือเวิลด์บอสสายความยากสูงในเซิร์ฟเวอร์ปัจจุบัน เชื่อมโยงกับระบบระดับความยากเวิลด์ (World Difficulty)" },
+                { h: "อัปเดต 29 ก.ค. 2026" },
+                { p: "พร้อมกับการเปิดระดับความยากเวิลด์ Lv.5 (ทหารติดอาวุธ ขั้น 3) รางวัลของโดรกอน เงามืด ถูกปรับเพิ่มขึ้นตามระดับความยากที่สูงขึ้น และอัตราการได้อุปกรณ์ Tier 4 ระดับตำนานใน Lv.5 ก็เพิ่มสูงขึ้นด้วย" },
+                { p: "หมายเหตุ: รายละเอียดกลไก/แพตเทิร์นการโจมตีเฉพาะของโดรกอน เงามืด ที่ยืนยันได้ยังจำกัด จะอัปเดตเพิ่มเมื่อมีข้อมูลทางการที่ตรวจสอบได้" }
+            ],
+            sources: [SRC.patch729]
         },
         "kraken": {
             cat: "boss", icon: IC.boss, name: "Kraken", nameTh: "อสูรทะเลแห่ง Iron Islands",
@@ -132,9 +150,11 @@
             ],
             body: [
                 { p: "Worm Walks เป็นดันเจียนที่ศัตรูส่วนใหญ่เป็นมนุษย์ จึงเหมาะกับคลาสที่ Parry เก่งอย่าง Knight (ใช้ Riposte Stance ร่วมกับชุด Sentinel เพื่อ Parry การโจมตีสีเหลือง)" },
-                { p: "ในซีซัน 1 Frost and Steel ดันเจียนใหญ่หลายแห่งรวมถึง Wormwalks ถูกแปลงเป็นเวอร์ชันประจำซีซันเพื่อความท้าทายและการจัดอันดับ" }
+                { p: "ในซีซัน 1 Frost and Steel ดันเจียนใหญ่หลายแห่งรวมถึง Wormwalks ถูกแปลงเป็นเวอร์ชันประจำซีซันเพื่อความท้าทายและการจัดอันดับ" },
+                { h: "พื้นที่ไร้ขอบเขต (Boundless Area) — เพิ่ม 29 ก.ค. 2026" },
+                { p: "อัปเดต 29 ก.ค. 2026 เพิ่มสเตจสุดท้ายของวอร์มวอล์คซีซัน 'พื้นที่ไร้ขอบเขต' ซึ่งจะนับพอยต์จากจำนวนมอนสเตอร์ที่กำจัดได้ภายในเวลาที่กำหนด (เน้นเคลียร์ให้ไวและมากที่สุดเพื่อทำคะแนน)" }
             ],
-            sources: [SRC.gmKnight, SRC.frost]
+            sources: [SRC.patch729, SRC.gmKnight, SRC.frost]
         },
         "beyond-the-wall": {
             cat: "dungeon", icon: IC.dungeon, name: "Beyond the Wall Expedition", nameTh: "การเดินทางเหนือกำแพง",
@@ -204,16 +224,25 @@
         "world-difficulty": {
             cat: "dungeon", icon: IC.dungeon, name: "World Difficulty", nameTh: "ระดับความยากโลก",
             tags: ["Difficulty", "Endgame"],
-            summary: "ระบบระดับความยากของโลกที่เพิ่มความท้าทายและคุณภาพดรอปเมื่อผู้เล่นแข็งแกร่งขึ้น",
+            summary: "ระบบระดับความยากของโลกที่เพิ่มความท้าทายและคุณภาพดรอปเมื่อผู้เล่นแข็งแกร่งขึ้น — ล่าสุดเปิดถึง Lv.5",
             meta: [
                 { k: "ประเภท", v: "ระบบความยาก (Endgame)" },
+                { k: "ระดับสูงสุดปัจจุบัน", v: "Lv.5 ทหารติดอาวุธ ขั้น 3 (เปิด 29 ก.ค. 2026)" },
                 { k: "ผลของการยกระดับ", v: "ศัตรูแข็งขึ้น + รางวัล/ดรอปคุณภาพสูงขึ้น" }
             ],
             body: [
                 { p: "เกมมีระบบยกระดับความยากของโลก (World Level / World Difficulty) เพื่อเพิ่มความท้าทายและคุณภาพของรางวัลสำหรับผู้เล่นที่พัฒนา Momentum สูงขึ้น" },
+                { h: "ระดับล่าสุด: Lv.5 ทหารติดอาวุธ ขั้น 3 (อัปเดต 29 ก.ค. 2026)" },
+                { list: [
+                    "เงื่อนไขปลดล็อก: เคลียร์ 'ทะลุขีดจำกัด ขั้น 5' (Limit Break ขั้น 5)",
+                    "อัตราการรับอุปกรณ์ Tier 4 ระดับตำนานในระดับความยากเวิลด์ Lv.5 เพิ่มสูงขึ้น",
+                    "ปรับเพิ่มรางวัลของเวิลด์บอส 'โดรกอน เงามืด' (Shadow Drogon) ตามการเพิ่ม Lv.5"
+                ]},
+                { h: "ทะลุขีดจำกัด (Limit Break)" },
+                { p: "ทะลุขีดจำกัด ขั้น 5 — พลังต่อสู้ (Combat Power) ที่แนะนำอยู่ที่ 132,000 ขึ้นไป จึงจะพร้อมสำหรับ World Lv.5" },
                 { p: "หมายเหตุเวอร์ชัน: ระดับความยากขั้นสูงบางระดับ (เช่น Hedge Knight III ที่ต้องใช้ Momentum สูงมากและดรอป Tier สูง) เคยปรากฏบนไทม์ไลน์เซิร์ฟเวอร์รุ่นก่อน สำหรับเซิร์ฟเวอร์ปัจจุบันที่อุปกรณ์สูงสุดยังอยู่ที่ Tier 4 ระดับความยากจะทยอยเปิดตามอัปเดต" }
             ],
-            sources: [SRC.frost]
+            sources: [SRC.patch729, SRC.frost]
         },
 
         /* ---------------- แผนที่ / สถานที่ ---------------- */
@@ -1144,7 +1173,7 @@
     const CATEGORIES = [
         { id: "class",    icon: IC.cls,     title: "อาชีพ",           desc: "Knight / Assassin / Sellsword", status: "สมบูรณ์", classLinks: true },
         { id: "skill",    icon: IC.cls,     title: "สกิล",            desc: "ระบบสกิล Active/Basic, Rage และสกิลเด่นแต่ละอาชีพ", status: "กำลังรวบรวม", ids: ["skill-system", "knight-skills", "assassin-skills", "sellsword-skills", "skill-mastery"] },
-        { id: "boss",     icon: IC.boss,    title: "บอส",             desc: "World Boss, Raid Boss และ Field Boss", status: "สมบูรณ์", ids: ["drogon", "kraken", "shadowcat"] },
+        { id: "boss",     icon: IC.boss,    title: "บอส",             desc: "World Boss, Raid Boss และ Field Boss", status: "สมบูรณ์", ids: ["drogon", "shadow-drogon", "kraken", "shadowcat"] },
         { id: "dungeon",  icon: IC.dungeon, title: "ดันเจียน & เรด",   desc: "Dungeon, Raid และระดับความยาก", status: "สมบูรณ์", ids: ["wormwalks", "beyond-the-wall", "elite-hideout", "faction-hideout-db", "kraken-raid", "world-difficulty"] },
         { id: "map",      icon: IC.map,     title: "แผนที่ / สถานที่",  desc: "ภูมิภาคและพื้นที่ในเกม", status: "สมบูรณ์", ids: ["map-run-routes", "winterfell", "last-hearth", "beyond-the-wall-map", "stormlands", "crows-nest", "sunset-sea"] },
         { id: "eq-system",   icon: IC.gear,   title: "อุปกรณ์: ระบบ",     desc: "Grade, Tier, ช่องสวมใส่, อาวุธ และระบบอัปเกรด", status: "สมบูรณ์", ids: ["rarity-grade", "gear-tier", "equipment-slots", "weapon-types", "crafting", "forging", "reforging", "enhancement", "refinement"] },
