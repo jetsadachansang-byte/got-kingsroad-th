@@ -99,12 +99,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (mobileBtn && nav) {
         mobileBtn.addEventListener("click", () => {
-            nav.classList.toggle("open");
+            const isOpen = nav.classList.toggle("open");
+            mobileBtn.setAttribute("aria-expanded", String(isOpen));
         });
 
         // ปิดเมนูเมื่อกดลิงก์
         nav.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", () => nav.classList.remove("open"));
+            link.addEventListener("click", () => {
+                nav.classList.remove("open");
+                mobileBtn.setAttribute("aria-expanded", "false");
+            });
         });
     }
 

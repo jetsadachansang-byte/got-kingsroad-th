@@ -135,7 +135,7 @@
                  alt="Game of Thrones Kingsroad Thailand">
         </a>
 
-        <nav>
+        <nav id="primary-nav">
             <ul>
                 ${menuHtml}
             </ul>
@@ -146,7 +146,7 @@
             <button id="searchBtn" aria-label="ค้นหา"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
         </div>
 
-        <div class="mobile-btn" role="button" aria-label="เมนู"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg></div>
+        <button type="button" class="mobile-btn" aria-label="เมนู" aria-expanded="false" aria-controls="primary-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg></button>
 
     </div>
 </header>`;

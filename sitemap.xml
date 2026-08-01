@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://got-kingsroad-th.jcgameservice.workers.dev</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://got-kingsroad-th.jcgameservice.workers.dev/build-planner.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
   <url><loc>https://got-kingsroad-th.jcgameservice.workers.dev/calculator.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
   <url><loc>https://got-kingsroad-th.jcgameservice.workers.dev/classes.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
   <url><loc>https://got-kingsroad-th.jcgameservice.workers.dev/database.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
@@ -24,9 +23,6 @@
   <url><loc>https://got-kingsroad-th.jcgameservice.workers.dev/index.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
   <url><loc>https://got-kingsroad-th.jcgameservice.workers.dev/news.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
   <url><loc>https://got-kingsroad-th.jcgameservice.workers.dev/roadmap.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
-  <url><loc>https://got-kingsroad-th.jcgameservice.workers.dev/build-planner.html?c=assassin</loc><changefreq>daily</changefreq><priority>0.6</priority></url>
-  <url><loc>https://got-kingsroad-th.jcgameservice.workers.dev/build-planner.html?c=knight</loc><changefreq>daily</changefreq><priority>0.6</priority></url>
-  <url><loc>https://got-kingsroad-th.jcgameservice.workers.dev/build-planner.html?c=sellsword</loc><changefreq>daily</changefreq><priority>0.6</priority></url>
   <url><loc>https://got-kingsroad-th.jcgameservice.workers.dev/database-detail.html?id=amulet-core</loc><changefreq>daily</changefreq><priority>0.6</priority></url>
   <url><loc>https://got-kingsroad-th.jcgameservice.workers.dev/database-detail.html?id=amulet-design</loc><changefreq>daily</changefreq><priority>0.6</priority></url>
   <url><loc>https://got-kingsroad-th.jcgameservice.workers.dev/database-detail.html?id=amulet-system</loc><changefreq>daily</changefreq><priority>0.6</priority></url>
