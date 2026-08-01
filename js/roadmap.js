@@ -33,6 +33,22 @@
     ============================================================ */
 
     const UPDATES = {
+        "update-0801": {
+            kind: "current", icon: IC.group, date: "1 ส.ค. 2026", status: "ล่าสุด • สรุปข่าว",
+            title: "สรุปซีซัน 1 สัปดาห์แรก + ประกาศปรับสกุลเงิน",
+            subtitle: "Week 1 House Ranking Recap & Currency Update",
+            summary: "ผลจัดอันดับตระกูลสัปดาห์แรกของ Frost and Steel (House Hornwood ขึ้นนำ) และประกาศปรับระบบสกุลเงิน Iron Bank Marks เตรียมปิดช่องทางเติมเงิน 19 ส.ค. 2026",
+            body: [
+                { h: "ผลจัดอันดับตระกูลสัปดาห์แรก (House Allegiance)" },
+                { p: "สัปดาห์แรกของระบบเลือกตระกูล (Banner Selection) ในซีซัน 1 Frost and Steel ปิดฉากลง โดย House Hornwood คว้าอันดับ 1 ด้วยคะแนนสะสม 591,705 คะแนน ตามด้วย House Umber และ House Manderly ตามลำดับ — Hornwood ยังเป็นตระกูลที่มีผู้เลือกมากที่สุดตั้งแต่วันแรกของอัปเดต คิดเป็นราว 50% ของผู้เล่นทั้งหมด ผู้เล่นหลายคนเริ่มปรับกลยุทธ์ 'กดคะแนนไว้' ก่อนทุ่มแต้มช่วงท้ายสัปดาห์เพื่อหลบการจับตาจากตระกูลคู่แข่ง" },
+                { h: "ประกาศปรับระบบสกุลเงิน Iron Bank Marks" },
+                { p: "ผู้พัฒนาประกาศปรับโครงสร้างระบบสกุลเงิน — ตั้งแต่ 19 ส.ค. 2026 จะปิดช่องทางเติมเงิน (top-up) ด้วย Iron Bank Marks และหยุดขายสินค้าบางส่วนที่ซื้อด้วยสกุลเงินนี้ โดยสินค้าที่ได้รับผลกระทบบางส่วนจะปรับให้ซื้อด้วย Golden Dragon (สกุลเงินพรีเมียมหลัก) แทน ผู้เล่นที่มี Iron Bank Marks สะสมอยู่ควรวางแผนใช้ให้หมดก่อนวันที่มีผล" },
+                { h: "อีเวนต์สุดสัปดาห์: Hot Time เพิ่มอัตรา 'Bronze'" },
+                { p: "มีการจัดอีเวนต์ Hot Time ช่วงสุดสัปดาห์ เพิ่มอัตราได้รับวัสดุ 'Bronze' (ใช้คราฟอุปกรณ์และอัปเกรดช่อง) จากการเคลียร์คอนเทนต์ฟิลด์ 4 ประเภท ได้แก่ Faction Hideout, Ferocious Animal, Memory of Weirwood และ Smoking Shack" },
+                { p: "หมายเหตุ: เนื้อหาส่วนนี้สรุป/แปลจากรายงานของสื่อเกม (Gamemeca) ยังไม่มีประกาศทางการฉบับเต็มจาก Netmarble TH ในขณะที่อัปเดตหน้านี้ — โปรดตรวจสอบประกาศในเกมอีกครั้งก่อนตัดสินใจใช้จ่ายสกุลเงิน" }
+            ],
+            source: { label: "Gamemeca — House Rankings / Global Talk (สัปดาห์ 1 ส.ค. 2026)", url: "https://www.gamemeca.com/en/view.php?gid=1778233" }
+        },
         "patch-0729": {
             kind: "current", icon: IC.notes, date: "29 ก.ค. 2026", status: "ล่าสุด • อัปเดต",
             title: "อัปเดต 29 ก.ค. 2026",
@@ -238,7 +254,7 @@
         }
     };
 
-    const CURRENT = ["patch-0729", "frost-and-steel", "global-launch"];
+    const CURRENT = ["update-0801", "patch-0729", "frost-and-steel", "global-launch"];
     const PLAN = ["artifact-jewelry-rework", "market-system", "story-chapter-4", "harrenhal-pve", "graphics-rework", "hard-mode"];
 
     /* ============================================================
