@@ -339,7 +339,7 @@
         "map-run-routes": {
             cat: "map", icon: IC.map, name: "Map Run Routes", nameTh: "รูทเส้นทางวิ่งเช็ค Maps (เก็บ Object)",
             tags: ["Map", "Exploration", "Farming"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ก.ค. 2026",
-            img: "images/guides/map-route-winterfell.jpeg",
+            img: "images/guides/map-route-winterfell.webp",
             summary: "แผนที่รูทวิ่งสำรวจเก็บม้วนคัมภีร์ แร่ และสมุด ครบ 4 โซนแดนเหนือ–รีช พร้อมจุดเริ่ม เส้นทาง และทิศทางการวิ่ง",
             meta: [
                 { k: "ระยะตรวจจับ Object", v: "วิ่งเข้าใกล้ ~50–70 เมตร Object จะโผล่บนมินิแมป" },
@@ -360,10 +360,10 @@
                     "แนะนำอัปสกิลทักษะพิเศษ 'การคราฟต์ลูกธนู' ให้เต็ม (อยู่ในเมนูทักษะพิเศษ หมวดสนับสนุน แถวแรกซ้ายสุด) จะได้ไม่ต้องกลับเมืองไปซื้อลูกธนูบ่อย เพราะม้วนคัมภีร์มักอยู่ที่สูงมาก ต้องยิงเก็บ"
                 ]},
                 { h: "รูทวิ่งทั้ง 4 โซน (กดที่รูปเพื่อดูเต็ม)" },
-                { img: "images/guides/map-route-beyond-wall.jpeg", caption: "โซนสุดแดนเหนือ (Beyond the Wall)" },
-                { img: "images/guides/map-route-winterfell.jpeg", caption: "แดนเหนือ เขตวินเทอร์เฟล (Winterfell)" },
-                { img: "images/guides/map-route-hornwood.jpeg", caption: "แดนเหนือ เขตฮอร์นวูด (Hornwood)" },
-                { img: "images/guides/map-route-reach.jpeg", caption: "แคว้นรีช (The Reach)" },
+                { img: "images/guides/map-route-beyond-wall.webp", caption: "โซนสุดแดนเหนือ (Beyond the Wall)" },
+                { img: "images/guides/map-route-winterfell.webp", caption: "แดนเหนือ เขตวินเทอร์เฟล (Winterfell)" },
+                { img: "images/guides/map-route-hornwood.webp", caption: "แดนเหนือ เขตฮอร์นวูด (Hornwood)" },
+                { img: "images/guides/map-route-reach.webp", caption: "แคว้นรีช (The Reach)" },
                 { p: "หมายเหตุ: ไกด์นี้จัดทำโดยเพจ JC Online Game เพื่อช่วยเพื่อน ๆ ที่อยากวิ่งสำรวจแต่ไม่รู้จะเริ่มตรงไหน หรือเก็บยังไม่ครบแล้วลืมว่าเหลือตรงไหนบ้าง หากมีข้อผิดพลาดประการใดต้องขออภัย และอ้างอิงตำแหน่งแผนที่จากเว็บแผนที่ชุมชน got-kingsroad.com" }
             ],
             sources: [{ label: "JC Online Game · แผนที่อ้างอิง got-kingsroad.com", url: "https://got-kingsroad.com/#share/2.99/-13474/-676439" }]

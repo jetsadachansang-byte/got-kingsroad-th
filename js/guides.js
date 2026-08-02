@@ -468,7 +468,7 @@
             summary: "เทียบอัตราคืนแร่คริสตัลหลังแยกชิ้นส่วน ขัดเงา (Polish) ระดับ 1–4 ว่าระดับไหนคุ้มทรัพยากรที่สุด",
             body: [
                 { p: "หลังอัปเดตระบบ Amulet / เครื่องประดับ หลายคนสงสัยว่าควรขัดเงา (Polish) ไปถึงระดับไหน เพราะถ้าเปลี่ยนของในอนาคต การแยกเครื่องประดับ (dismantle) จะไม่ได้คืนวัตถุดิบทั้งหมด — ยิ่งขัดสูง ต้นทุนที่จมไปก็ยิ่งมาก" },
-                { img: "images/guides/jewelry-polish-table.jpeg", caption: "ตารางการขัดเงาเครื่องประดับ ระดับ 1–4 (วัตถุดิบที่ใช้/สะสม, ที่ได้คืน และประสิทธิภาพการคืนแร่คริสตัล)" },
+                { img: "images/guides/jewelry-polish-table.webp", caption: "ตารางการขัดเงาเครื่องประดับ ระดับ 1–4 (วัตถุดิบที่ใช้/สะสม, ที่ได้คืน และประสิทธิภาพการคืนแร่คริสตัล)" },
                 { h: "ประสิทธิภาพการคืนแร่คริสตัล (ระดับ 1–4)" },
                 { p: "ประสิทธิภาพการคืน = (แร่คริสตัลที่ได้คืนจากการแยก ÷ แร่คริสตัลสะสมที่ใช้ขัดเงา) × 100" },
                 { table: {
@@ -516,7 +516,7 @@
             summary: "แนวทางวางตราตระกูลตามความสัมพันธ์มิตร-ศัตรู เพื่อดัน Might / Momentum ให้คุ้มที่สุด แยกตามบอร์ด",
             body: [
                 { p: "หลายคนปลดล็อก Support Board (Sigil Board) แล้ว แต่ยังวางตราแบบสุ่ม ๆ การจัดวางมีผลกับ Might / Momentum โดยตรง — วางตระกูลที่เป็น 'พันธมิตร' ร่วมกันจะได้โบนัสเพิ่ม แต่ถ้าวางตระกูล 'ศัตรู' ไว้ใกล้กันจะโดนโทษ (penalty) แค่จัดตำแหน่งใหม่ให้ถูก ค่า Might ขึ้นได้หลักพันถึงหลักหมื่น" },
-                { img: "images/guides/sigil-relations.jpeg", caption: "ความสัมพันธ์ระหว่างตระกูล — พันธมิตร (โบนัส) / ศัตรู (โทษ) / เป็นกลาง (ไม่มีผล)" },
+                { img: "images/guides/sigil-relations.webp", caption: "ความสัมพันธ์ระหว่างตระกูล — พันธมิตร (โบนัส) / ศัตรู (โทษ) / เป็นกลาง (ไม่มีผล)" },
                 { h: "ความสัมพันธ์ตระกูลที่ควรรู้" },
                 { list: [
                     "🌹 Tyrell (ไทเรลล์) — พันธมิตร: Costayne, Tarly, Hightower, Florent, Rowan, Redwyne, Beesbury, Fossoway · ไม่มีศัตรูในชุดนี้ (พันธมิตรเยอะที่สุดในเกม)",
@@ -531,22 +531,22 @@
                     "ก่อนอัปเกรด Sigil ควรเช็กความสัมพันธ์ก่อนเสมอ"
                 ]},
                 { h: "⚖️ Balance Board (ความสมดุล)" },
-                { img: "images/guides/sigil-board-balance.jpeg", caption: "Balance Board — ช่อง x2 กลาง + 3 ช่องเชื่อมรอบ" },
+                { img: "images/guides/sigil-board-balance.webp", caption: "Balance Board — ช่อง x2 กลาง + 3 ช่องเชื่อมรอบ" },
                 { p: "แนะนำวาง Bolton ตรงกลาง เพราะมีพันธมิตรพอดีกับจำนวนช่องรอบตัว รอบ ๆ ใช้: Dustin, Glover, Umber — หลายคนเอา Stark มาลงแต่ไม่คุ้ม เพราะ Stark มีพันธมิตรแค่ 2 ตระกูล" },
                 { p: "โบนัสบอร์ดนี้: ⚔️ โจมตี · 🗡️ เจาะเกราะ · 💥 ดาเมจบอส" },
                 { h: "👑 Crown Board (มงกุฎ)" },
-                { img: "images/guides/sigil-board-crown.jpeg", caption: "Crown Board — ช่อง x2 กลาง + 5 ช่องเชื่อมรอบ (สำคัญที่สุด)" },
+                { img: "images/guides/sigil-board-crown.webp", caption: "Crown Board — ช่อง x2 กลาง + 5 ช่องเชื่อมรอบ (สำคัญที่สุด)" },
                 { p: "แนะนำวาง Tyrell ตรงกลาง เพราะมีพันธมิตรเยอะที่สุดในเกม ใช้โบนัสจากช่องรอบได้เต็มที่ เลือก 5 ตระกูลเลเวลสูงสุดจาก: Hightower, Rowan, Florent, Costayne, Fossoway, Redwyne, Beesbury, Tarly มาล้อมรอบ" },
                 { p: "โบนัสบอร์ดนี้: 🛡️ Defense · 🗡️ Armor Penetration · 👹 ลดความเสียหายจาก Boss" },
                 { h: "⚔️ Siege Board (การปิดล้อม)" },
-                { img: "images/guides/sigil-board-siege.jpeg", caption: "Siege Board — เหมาะกับ Stark ที่มีพันธมิตรน้อย" },
+                { img: "images/guides/sigil-board-siege.webp", caption: "Siege Board — เหมาะกับ Stark ที่มีพันธมิตรน้อย" },
                 { p: "บอร์ดนี้เหมาะกับ Stark มากที่สุด เพราะ Stark มีพันธมิตรน้อย เลยไม่เหมาะกับ Crown/Balance แนะนำวาง Stark ที่ตำแหน่ง 1, 5 และ 9 นาฬิกา ช่องที่เหลือใช้ Hornwood และ Mormont จะดึงค่า Might ของ Stark ออกมาได้คุ้มสุด" },
                 { p: "โบนัสบอร์ดนี้: ⚔️ Attack · 🗡️ Armor Penetration · 🎯 ดาเมจต่อ Elite Enemy" },
                 { h: "🏹 Duel Board (แข่งขัน)" },
-                { img: "images/guides/sigil-board-duel.jpeg", caption: "Duel Board — ใช้ Great House เลเวลสูงสุดที่เหลือ" },
+                { img: "images/guides/sigil-board-duel.webp", caption: "Duel Board — ใช้ Great House เลเวลสูงสุดที่เหลือ" },
                 { p: "หลังใช้ Tyrell, Bolton และ Stark ไปแล้ว ให้นำ Great House เลเวลสูงสุดที่เหลือมาลงช่อง x2 จากนั้นเติมตระกูลบริวารรอบ ๆ เน้นค่า Might สูงสุดเป็นหลัก" },
                 { h: "✂️ Split Board (การแบ่งแยก)" },
-                { img: "images/guides/sigil-board-split.jpeg", caption: "Split Board — ช่อง x2 กลางเชื่อมเฉพาะซ้าย-ขวา (ซื้อจาก Alliance Shop)" },
+                { img: "images/guides/sigil-board-split.webp", caption: "Split Board — ช่อง x2 กลางเชื่อมเฉพาะซ้าย-ขวา (ซื้อจาก Alliance Shop)" },
                 { p: "ซื้อได้จาก Alliance Shop (ร้านค้าสหพันธ์) ราคา 2,200 Alliance Token หลายคนวางผิด เพราะช่องกลาง x2 เชื่อมต่อเฉพาะซ้ายและขวาเท่านั้น (บน/ล่างไม่เชื่อมกับกลาง)" },
                 { list: [
                     "ช่องกลาง = Great House ที่เหลือ",

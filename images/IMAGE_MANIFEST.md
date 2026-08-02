@@ -35,7 +35,7 @@
 images/
   background/  hero-bg.webp
   classes/     knight.webp · assassin.webp · sellsword.webp      ← Classes มีรูปแล้ว ✅
-  guides/      map-route-{beyond-wall,winterfell,hornwood,reach}.jpeg  ← ไกด์แผนที่ ✅
+  guides/      map-route-{beyond-wall,winterfell,hornwood,reach}.webp  ← ไกด์แผนที่ ✅
   items/       README.md  (โฟลเดอร์กลางของรูป Database — ยังว่าง)
   logo/        got-header.webp · got-logo.webp
   news/        update · event · guide · roadmap · devnotes · database (.jpg — แบนเนอร์ทั่วไป)
