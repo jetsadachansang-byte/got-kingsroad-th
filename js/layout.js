@@ -8,6 +8,30 @@
      <div id="site-header"></div>  และ  <div id="site-footer"></div>
 ============================================================ */
 
+/* หน้ารายละเอียดแบบ dynamic (?id=) เรียกใช้เพื่ออัปเดต title/description/
+   canonical/og:* ให้ตรงกับเนื้อหาจริงของแต่ละรายการ (ไม่งั้นทุก URL จะแชร์
+   ค่า SEO เดียวกันหมด) — path คือส่วนหลัง origin เช่น "guide-article.html?id=intro" */
+function gkUpdatePageMeta({ title, description, path }) {
+    const setAttr = (selector, attr, value) => {
+        const el = document.querySelector(selector);
+        if (el) el.setAttribute(attr, value);
+    };
+    if (title) {
+        document.title = title;
+        setAttr('meta[property="og:title"]', "content", title);
+    }
+    if (description) {
+        setAttr('meta[name="description"]', "content", description);
+        setAttr('meta[property="og:description"]', "content", description);
+    }
+    if (path) {
+        const url = "https://got-kingsroad-th.jcgameservice.workers.dev/" + path;
+        setAttr('link[rel="canonical"]', "href", url);
+        setAttr('meta[property="og:url"]', "content", url);
+    }
+}
+window.gkUpdatePageMeta = gkUpdatePageMeta;
+
 (function () {
 
     /* ---------- เมนูหลัก (แก้ตรงนี้ที่เดียว) ---------- */

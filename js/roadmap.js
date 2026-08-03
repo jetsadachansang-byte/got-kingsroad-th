@@ -301,7 +301,11 @@
                 <a href="roadmap.html" class="btn-primary">กลับไปหน้า Roadmap</a>
             </div></div>`;
         } else {
-            document.title = u.title + " | Game of Thrones: Kingsroad TH";
+            if (window.gkUpdatePageMeta) gkUpdatePageMeta({
+                title: u.title + " | Game of Thrones: Kingsroad TH",
+                description: u.summary,
+                path: "roadmap-article.html?id=" + encodeURIComponent(id)
+            });
             const bodyHtml = u.body.map(b => {
                 if (b.h) return `<h3 class="ga-h">${esc(b.h)}</h3>`;
                 if (b.p) return `<p class="ga-p">${esc(b.p)}</p>`;

@@ -1492,7 +1492,11 @@
             </div></div>`;
         } else {
             const cat = CAT_BY_ID[e.cat] || { title: "ฐานข้อมูล" };
-            document.title = e.name + " | ฐานข้อมูล Game of Thrones: Kingsroad TH";
+            if (window.gkUpdatePageMeta) gkUpdatePageMeta({
+                title: e.name + " | ฐานข้อมูล Game of Thrones: Kingsroad TH",
+                description: e.summary,
+                path: "database-detail.html?id=" + encodeURIComponent(id)
+            });
 
             const metaHtml = (e.meta || []).map(m =>
                 `<div class="db-meta-row"><span class="db-meta-k">${esc(m.k)}</span><span class="db-meta-v">${esc(m.v)}</span></div>`

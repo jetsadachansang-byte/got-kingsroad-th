@@ -714,7 +714,11 @@
                 <a href="guide.html" class="btn-primary">กลับไปหน้าคู่มือ</a>
             </div></div>`;
         } else {
-            document.title = g.title + " | Game of Thrones: Kingsroad TH";
+            if (window.gkUpdatePageMeta) gkUpdatePageMeta({
+                title: g.title + " | Game of Thrones: Kingsroad TH",
+                description: g.summary,
+                path: "guide-article.html?id=" + encodeURIComponent(id)
+            });
             const bodyHtml = g.body.map(block => {
                 if (block.h) return `<h3 class="ga-h">${esc(block.h)}</h3>`;
                 if (block.p) return `<p class="ga-p">${esc(block.p)}</p>`;

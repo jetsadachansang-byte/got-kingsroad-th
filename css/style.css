@@ -3412,6 +3412,26 @@ nav ul > li > a {
     color: #fff;
 }
 
+/* Skip-to-content: off-screen until keyboard focus reaches it */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 999;
+    padding: .7rem 1.2rem;
+    background: var(--surface-3);
+    color: var(--gold-soft);
+    border: 1px solid var(--border-gold);
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: top .15s ease;
+}
+
+.skip-link:focus {
+    top: 1rem;
+}
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
