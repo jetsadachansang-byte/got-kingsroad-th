@@ -1,8 +1,8 @@
 /* ============================================================
-   skilltree.js — Skill Tree ชุมชน (แก้ไข/เพิ่มข้อมูลร่วมกันได้)
+   combo.js — ระบบ Combo & Build จากผู้เล่น (แชร์/แก้ไขร่วมกันได้)
 
    • 3 อาชีพ: Knight / Assassin / Sellsword (แท็บแยก)
-   • ทุกคนเพิ่มหัวข้อ + ข้อความ + รูปภาพได้ (ไม่ต้องล็อกอิน)
+   • ทุกคนแชร์คอมโบและเซตบิลด์ + ข้อความ + รูปภาพได้ (ไม่ต้องล็อกอิน)
    • ข้อมูลเก็บบน Firebase Realtime Database (ตัวเดียวกับตัวนับผู้เข้าชม)
    • รูปภาพ: อัปโหลดไฟล์ (ย่อ+บีบอัดในเครื่องก่อนส่ง) หรือวางลิงก์รูป
    • ผู้เขียนลบ/แก้โพสต์ตัวเองได้ (เก็บ token ไว้ใน localStorage ของเครื่อง)
@@ -13,7 +13,7 @@
 ============================================================ */
 (function () {
 
-    const root = document.getElementById("skilltree");
+    const root = document.getElementById("combo");
     if (!root) return;
 
     /* ---------- ตั้งค่า ---------- */
@@ -21,6 +21,8 @@
         databaseURL: "https://online-89559-default-rtdb.asia-southeast1.firebasedatabase.app"
     };
     const SDK = "https://www.gstatic.com/firebasejs/10.12.5/";
+    // path ใน RTDB คงชื่อเดิมไว้ ไม่เปลี่ยนตามชื่อระบบ
+    // เพราะข้อมูลที่ผู้เล่นโพสต์ไว้แล้วอยู่ใต้ path นี้
     const DB_PATH = "skilltree";
 
     const MAX_IMG_PX    = 1100;      // ย่อรูปด้านยาวสุดไม่เกินนี้
@@ -94,7 +96,7 @@
             <div class="st-tabs" role="tablist">${tabs}</div>
             <div class="st-classhead" id="st-classhead"></div>
             <div class="st-toolbar">
-                <button class="btn-primary st-add" id="st-add" type="button">+ เพิ่มข้อมูลสกิล</button>
+                <button class="btn-primary st-add" id="st-add" type="button">+ แชร์คอมโบ / บิลด์</button>
                 <span class="st-count" id="st-count"></span>
             </div>
             <div class="st-status" id="st-status">กำลังโหลดข้อมูล…</div>
@@ -197,15 +199,15 @@
         box.hidden = false;
         box.innerHTML = `
             <div class="st-editor-inner">
-                <h3>${entry ? "แก้ไขข้อมูล" : "เพิ่มข้อมูลสกิล"} — ${esc(CLASSES.find(c => c.id === current).name)}</h3>
+                <h3>${entry ? "แก้ไขข้อมูล" : "แชร์คอมโบ / บิลด์"} — ${esc(CLASSES.find(c => c.id === current).name)}</h3>
 
                 <label class="st-label" for="st-f-title">หัวข้อ <span class="st-req">*</span></label>
-                <input class="st-input" id="st-f-title" maxlength="${MAX_TITLE}" placeholder="เช่น แนวทางลงจุดสายป้องกัน / ตำแหน่งสกิลเปิดคอมโบ"
+                <input class="st-input" id="st-f-title" maxlength="${MAX_TITLE}" placeholder="เช่น คอมโบดาบใหญ่สายเลือดเดือด / เซตบิลด์ตีบอสสายคริ"
                        value="${entry ? esc(entry.title) : ""}">
 
                 <label class="st-label" for="st-f-body">รายละเอียด <span class="st-req">*</span></label>
                 <textarea class="st-input st-textarea" id="st-f-body" rows="8" maxlength="${MAX_BODY}"
-                          placeholder="อธิบายแนวทางลงสกิล จำนวนจุด ลำดับการปลด หรือเหตุผลที่เลือกสายนี้…">${entry ? esc(entry.body) : ""}</textarea>
+                          placeholder="อธิบายลำดับคอมโบ เซตอุปกรณ์ที่ใส่ วัตถุโบราณ จำนวนจุดสกิล และเหตุผลที่เลือกแนวนี้…">${entry ? esc(entry.body) : ""}</textarea>
 
                 <label class="st-label">รูปภาพ (ถ้ามี)</label>
                 <div class="st-imgrow">
@@ -214,7 +216,7 @@
                     <input class="st-input st-url" id="st-f-url" placeholder="วางลิงก์รูป https://…"
                            value="${entry && /^https:/i.test(entry.img || "") ? esc(entry.img) : ""}">
                 </div>
-                <p class="st-hint">แนะนำภาพแผงสกิลจากในเกมจริง (สกรีนช็อต) — ระบบจะย่อขนาดให้อัตโนมัติ ห้ามใช้ภาพที่ไม่เกี่ยวข้อง</p>
+                <p class="st-hint">แนะนำภาพแผงสกิล เซตอุปกรณ์ หรือคอมโบจากในเกมจริง (สกรีนช็อต) — ระบบจะย่อขนาดให้อัตโนมัติ ห้ามใช้ภาพที่ไม่เกี่ยวข้อง</p>
                 <div class="st-preview" id="st-preview"></div>
 
                 <label class="st-label" for="st-f-author">ชื่อผู้แชร์</label>

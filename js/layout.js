@@ -55,7 +55,7 @@ window.gkUpdatePageMeta = gkUpdatePageMeta;
             ],
         },
         { id: "guide",      href: "guide.html",      label: "คู่มือ" },
-        { id: "skilltree",  href: "skilltree.html",  label: "Skill Tree" },
+        { id: "combo",      href: "combo.html",      label: "Combo & Build" },
         { id: "calculator", href: "calculator.html", label: "คำนวณ" },
     ];
 
@@ -86,7 +86,7 @@ window.gkUpdatePageMeta = gkUpdatePageMeta;
             <h4>JC Gameservice</h4>
             <ul>
                 <li><a href="classes.html">อาชีพ</a></li>
-                <li><a href="skilltree.html">Skill Tree</a></li>
+                <li><a href="combo.html">Combo &amp; Build</a></li>
                 <li><a href="guide.html">คู่มือ</a></li>
                 <li><a href="calculator.html">เครื่องคำนวณ</a></li>
             </ul>
