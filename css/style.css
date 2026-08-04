@@ -4772,7 +4772,8 @@ body.intro-lock { overflow: hidden; }
 .st-edited { font-style: italic; }
 
 .st-entry-img { margin: 14px 0; border-radius: 4px; overflow: hidden; border: 1px solid var(--border); }
-.st-entry-img img { display: block; width: 100%; height: auto; }
+/* max-width ไม่ใช่ width เพื่อไม่ให้ภาพเล็กถูกยืดจนแตก */
+.st-entry-img img { display: block; max-width: 100%; height: auto; margin: 0 auto; }
 
 .st-entry-body {
     color: var(--text-2);
@@ -4946,4 +4947,80 @@ body.intro-lock { overflow: hidden; }
 
 @media (max-width: 640px) {
     .st-login .st-input { flex: 1 1 100%; }
+}
+
+/* บล็อกภาพ+ข้อความ (เรียงเป็นขั้นตอน) */
+.st-block + .st-block { margin-top: 4px; }
+.st-block .st-entry-body { margin-top: 10px; }
+.st-block .st-entry-img { margin: 16px 0 0; }
+
+.st-blocks-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.st-blocks-head .st-label { margin-bottom: 8px; }
+.st-blocks-head .st-hint { margin: 0; white-space: nowrap; }
+
+.st-blockbox {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 14px;
+    margin-bottom: 12px;
+}
+
+.st-blockbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.st-blockno {
+    font-family: "Cinzel", serif;
+    font-size: 12.5px;
+    letter-spacing: .08em;
+    color: var(--gold-soft);
+}
+
+.st-blockacts { display: flex; gap: 6px; }
+
+.st-mini {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--text-2);
+    width: 30px;
+    height: 28px;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 1;
+    transition: border-color .2s ease, color .2s ease, opacity .2s ease;
+}
+
+.st-mini:hover:not(:disabled) { border-color: var(--gold); color: var(--gold-soft); }
+.st-mini:disabled { opacity: .3; cursor: default; }
+.st-mini-del:hover { border-color: rgba(190, 90, 80, .6); color: #e0a9a2; }
+
+.st-blocktext { margin-top: 10px; resize: vertical; line-height: 1.75; }
+
+.st-addblock {
+    width: 100%;
+    padding: 11px;
+    border-style: dashed;
+    font-size: 13.5px;
+}
+
+.st-addblock:hover { border-color: var(--gold); color: var(--gold-soft); }
+
+.st-preview .st-hint { display: block; margin-top: 6px; }
+
+@media (max-width: 640px) {
+    .st-blockbox { padding: 11px; }
+    .st-blocks-head .st-hint { white-space: normal; }
 }

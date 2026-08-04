@@ -16,6 +16,10 @@
 
 ---
 
+> 🔔 **อัปเดต:** ระบบรองรับ "ภาพ + ข้อความ หลายบล็อกต่อกัน" แล้ว
+> ถ้าเคยวาง Rules ไปก่อนหน้านี้ **ต้องวางชุดใหม่ทับอีกครั้ง** เพราะชุดเดิมยังไม่รู้จัก
+> field `blocks` และจะปฏิเสธการบันทึก (ขึ้นว่าเปิดสิทธิ์เขียนไม่ครบ)
+
 ## 🚑 ทำก่อนเลย — เปิดให้ผู้เล่นโพสต์ได้ (2 นาที)
 
 **อาการ:** กด "เผยแพร่" แล้วขึ้นว่าเปิดสิทธิ์เขียนไม่ครบ / บันทึกไม่สำเร็จ
@@ -41,6 +45,13 @@
           "body":   { ".validate": "newData.isString() && newData.val().length >= 10 && newData.val().length <= 4000" },
           "author": { ".validate": "newData.isString() && newData.val().length <= 40" },
           "img":    { ".validate": "newData.isString() && newData.val().length <= 400000" },
+          "blocks": {
+            "$i": {
+              "img":  { ".validate": "newData.isString() && newData.val().length <= 400000" },
+              "text": { ".validate": "newData.isString() && newData.val().length <= 4000" },
+              "$other": { ".validate": false }
+            }
+          },
           "tok":    { ".validate": "newData.isString() && newData.val().length <= 64" },
           "ts":     { ".validate": "newData.isNumber()" },
           "edited": { ".validate": "newData.isBoolean()" },
@@ -101,6 +112,13 @@
           "body":   { ".validate": "newData.isString() && newData.val().length >= 10 && newData.val().length <= 4000" },
           "author": { ".validate": "newData.isString() && newData.val().length <= 40" },
           "img":    { ".validate": "newData.isString() && newData.val().length <= 400000" },
+          "blocks": {
+            "$i": {
+              "img":  { ".validate": "newData.isString() && newData.val().length <= 400000" },
+              "text": { ".validate": "newData.isString() && newData.val().length <= 4000" },
+              "$other": { ".validate": false }
+            }
+          },
           "tok":    { ".validate": "newData.isString() && newData.val().length <= 64" },
           "ts":     { ".validate": "newData.isNumber()" },
           "edited": { ".validate": "newData.isBoolean()" },
@@ -143,7 +161,12 @@ skilltree/                ← path เดิม ตั้งใจไม่เ�
     <auto-id>/
       title:  "หัวข้อคอมโบ/บิลด์"
       body:   "รายละเอียด"
-      img:    "https://..." หรือ "data:image/webp;base64,..." (ถ้ามี)
+      blocks: [                       ← ภาพ+ข้อความเรียงเป็นขั้นตอน (สูงสุด 10)
+        { img: "data:image/webp;base64,...", text: "คำอธิบายภาพที่ 1" },
+        { img: "https://...",                text: "คำอธิบายภาพที่ 2" },
+        { img: "",                           text: "ขั้นตอนที่ไม่มีรูปก็ได้" }
+      ]
+      img:    (เฉพาะโพสต์รุ่นเก่าที่มีรูปเดียว — ยังแสดงผลได้ปกติ)
       author: "ชื่อผู้แชร์"
       ts:     1754000000000
       tok:    "โทเคนเจ้าของโพสต์ (ใช้ตรวจสิทธิ์แก้ไข)"

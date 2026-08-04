@@ -30,6 +30,8 @@
     const MAX_TITLE     = 120;
     const MAX_BODY      = 4000;
     const MAX_AUTHOR    = 40;
+    const MAX_BLOCKS      = 10;               // จำนวนภาพ/ขั้นตอนต่อโพสต์
+    const MAX_TOTAL_BYTES = 2.6 * 1024 * 1024; // ขนาดรวมทั้งโพสต์ กันเขียนก้อนใหญ่เกิน
 
     const CLASSES = [
         { id: "knight",    name: "Knight",    nameTh: "อัศวิน",       role: "Frontline · แทงก์",        img: "images/classes/knight.webp" },
@@ -184,8 +186,20 @@
         }
 
         list.innerHTML = entries.map(e => {
-            const img = safeImgSrc(e.img);
             const mine = ownsEntry(e.id, e.tok);
+            const legacyImg = safeImgSrc(e.img);   // โพสต์รุ่นเก่าที่มีรูปเดียว
+            const blocks = normalizeBlocks(e.blocks);
+
+            const blocksHtml = blocks.map((b, i) => {
+                const src = safeImgSrc(b.img);
+                if (!src && !b.text) return "";
+                return `<div class="st-block">
+                    ${src ? `<div class="st-entry-img"><img src="${esc(src)}" alt="${esc(e.title)} — ภาพที่ ${i + 1}" loading="lazy"
+                              onerror="this.closest('.st-entry-img').style.display='none'"></div>` : ""}
+                    ${b.text ? `<div class="st-entry-body">${nl2br(b.text)}</div>` : ""}
+                </div>`;
+            }).join("");
+
             return `<article class="st-entry" id="e-${esc(e.id)}">
                 <header class="st-entry-head">
                     <h3>${esc(e.title)}</h3>
@@ -193,12 +207,14 @@
                         <span class="st-author">${esc(e.author || "ผู้เล่นนิรนาม")}</span>
                         <span class="st-dot">·</span>
                         <span>${esc(timeAgo(e.ts))}</span>
+                        ${blocks.length ? `<span class="st-dot">·</span><span>${blocks.length} ภาพ/ขั้นตอน</span>` : ""}
                         ${e.edited ? '<span class="st-dot">·</span><span class="st-edited">แก้ไขแล้ว</span>' : ""}
                     </div>
                 </header>
-                ${img ? `<div class="st-entry-img"><img src="${esc(img)}" alt="${esc(e.title)}" loading="lazy"
+                ${legacyImg && !blocks.length ? `<div class="st-entry-img"><img src="${esc(legacyImg)}" alt="${esc(e.title)}" loading="lazy"
                           onerror="this.closest('.st-entry-img').style.display='none'"></div>` : ""}
-                <div class="st-entry-body">${nl2br(e.body)}</div>
+                ${e.body ? `<div class="st-entry-body">${nl2br(e.body)}</div>` : ""}
+                ${blocksHtml}
                 <footer class="st-entry-foot">
                     ${mine ? `<button class="st-act" data-edit="${esc(e.id)}" type="button">แก้ไข</button>`
                            : `<span class="st-byline">แชร์โดยผู้เล่นในชุมชน</span>`}
@@ -213,13 +229,27 @@
             b.addEventListener("click", () => removeEntry(b.dataset.del)));
     }
 
-    /* ---------- ฟอร์มเพิ่ม/แก้ไข ---------- */
-    let pendingImg = "";
+    /* ---------- ฟอร์มเพิ่ม/แก้ไข ----------
+       เนื้อหาเก็บเป็น "บล็อก" เรียงกัน: แต่ละบล็อกมีรูป 1 ภาพ + ข้อความของภาพนั้น
+       ใช้อธิบายคอมโบทีละขั้นได้ (ภาพ 1 → คำอธิบาย → ภาพ 2 → คำอธิบาย …) */
+    let blocks = [];
+
+    // แปลงข้อมูลจากฐานข้อมูลให้เป็นอาร์เรย์เสมอ (RTDB อาจคืนเป็น object ที่คีย์เป็นเลข)
+    function normalizeBlocks(raw) {
+        if (!raw) return [];
+        const arr = Array.isArray(raw) ? raw : Object.keys(raw).sort((a, b) => a - b).map(k => raw[k]);
+        return arr.filter(b => b && (b.img || b.text))
+                  .map(b => ({ img: String(b.img || ""), text: String(b.text || "") }));
+    }
 
     function openEditor(entry) {
         const box = document.getElementById("st-editor");
         if (!box) return;
-        pendingImg = entry ? (entry.img || "") : "";
+
+        blocks = entry ? normalizeBlocks(entry.blocks) : [];
+        // โพสต์รุ่นเก่าที่มีรูปเดียว → ย้ายมาเป็นบล็อกแรกให้อัตโนมัติ
+        if (entry && !blocks.length && entry.img) blocks = [{ img: entry.img, text: "" }];
+        if (!blocks.length) blocks = [{ img: "", text: "" }];
 
         box.hidden = false;
         box.innerHTML = `
@@ -230,19 +260,18 @@
                 <input class="st-input" id="st-f-title" maxlength="${MAX_TITLE}" placeholder="เช่น คอมโบดาบใหญ่สายเลือดเดือด / เซตบิลด์ตีบอสสายคริ"
                        value="${entry ? esc(entry.title) : ""}">
 
-                <label class="st-label" for="st-f-body">รายละเอียด <span class="st-req">*</span></label>
-                <textarea class="st-input st-textarea" id="st-f-body" rows="8" maxlength="${MAX_BODY}"
-                          placeholder="อธิบายลำดับคอมโบ เซตอุปกรณ์ที่ใส่ วัตถุโบราณ จำนวนจุดสกิล และเหตุผลที่เลือกแนวนี้…">${entry ? esc(entry.body) : ""}</textarea>
+                <label class="st-label" for="st-f-body">เกริ่นนำ <span class="st-req">*</span></label>
+                <textarea class="st-input st-textarea" id="st-f-body" rows="5" maxlength="${MAX_BODY}"
+                          placeholder="สรุปภาพรวม เช่น บิลด์นี้เหมาะกับใคร ใช้เซตอะไร เล่นยังไง…">${entry ? esc(entry.body || "") : ""}</textarea>
 
-                <label class="st-label">รูปภาพ (ถ้ามี)</label>
-                <div class="st-imgrow">
-                    <input type="file" id="st-f-file" accept="image/*" class="st-file">
-                    <span class="st-or">หรือ</span>
-                    <input class="st-input st-url" id="st-f-url" placeholder="วางลิงก์รูป https://…"
-                           value="${entry && /^https:/i.test(entry.img || "") ? esc(entry.img) : ""}">
+                <div class="st-blocks-head">
+                    <label class="st-label">ภาพและคำอธิบาย (ใส่ได้หลายภาพ ต่อกันเป็นขั้นตอน)</label>
+                    <span class="st-hint" id="st-blockcount"></span>
                 </div>
-                <p class="st-hint">แนะนำภาพแผงสกิล เซตอุปกรณ์ หรือคอมโบจากในเกมจริง (สกรีนช็อต) — ระบบจะย่อขนาดให้อัตโนมัติ ห้ามใช้ภาพที่ไม่เกี่ยวข้อง</p>
-                <div class="st-preview" id="st-preview"></div>
+                <div id="st-blocks"></div>
+                <button class="st-act st-addblock" id="st-addblock" type="button">+ เพิ่มภาพ / ข้อความ</button>
+                <p class="st-hint">แต่ละบล็อกใส่รูป 1 ภาพพร้อมคำอธิบายของภาพนั้น เรียงลำดับได้ด้วยปุ่ม ↑ ↓ —
+                   แนะนำสกรีนช็อตจากในเกมจริง ระบบย่อขนาดให้อัตโนมัติ</p>
 
                 <label class="st-label" for="st-f-author">ชื่อผู้แชร์</label>
                 <input class="st-input" id="st-f-author" maxlength="${MAX_AUTHOR}" placeholder="ใส่หรือไม่ใส่ก็ได้"
@@ -257,33 +286,113 @@
                 <p class="st-tos">เมื่อกดเผยแพร่ ข้อมูลจะแสดงต่อสาธารณะให้ผู้เล่นคนอื่นเห็น กรุณาแชร์เฉพาะข้อมูลจากในเกมจริง</p>
             </div>`;
 
-        drawPreview();
-        document.getElementById("st-f-file").addEventListener("change", onPickFile);
-        document.getElementById("st-f-url").addEventListener("input", function () {
-            pendingImg = this.value.trim(); drawPreview();
+        renderBlocks();
+        document.getElementById("st-addblock").addEventListener("click", () => {
+            syncBlocks();
+            if (blocks.length >= MAX_BLOCKS) {
+                document.getElementById("st-form-msg").textContent = "ใส่ได้สูงสุด " + MAX_BLOCKS + " ภาพต่อโพสต์";
+                return;
+            }
+            blocks.push({ img: "", text: "" });
+            renderBlocks();
+            const last = document.querySelector("#st-blocks .st-blockbox:last-child");
+            if (last) last.scrollIntoView({ behavior: "smooth", block: "center" });
         });
         document.getElementById("st-cancel").addEventListener("click", closeEditor);
         document.getElementById("st-save").addEventListener("click", () => save(entry));
         box.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
+    // อ่านค่าที่ผู้ใช้พิมพ์กลับเข้าโมเดล ก่อนวาดใหม่ทุกครั้ง (กันข้อความหาย)
+    function syncBlocks() {
+        blocks.forEach((b, i) => {
+            const t = document.getElementById("st-b-text-" + i);
+            const u = document.getElementById("st-b-url-" + i);
+            if (t) b.text = t.value;
+            if (u && u.value.trim()) b.img = u.value.trim();
+            else if (u && !u.value.trim() && /^https:/i.test(b.img)) b.img = "";
+        });
+    }
+
+    function renderBlocks() {
+        const wrap = document.getElementById("st-blocks");
+        if (!wrap) return;
+
+        wrap.innerHTML = blocks.map((b, i) => {
+            const src = safeImgSrc(b.img);
+            const isData = /^data:/i.test(b.img);
+            return `<div class="st-blockbox" data-i="${i}">
+                <div class="st-blockbar">
+                    <span class="st-blockno">ภาพที่ ${i + 1}</span>
+                    <span class="st-blockacts">
+                        <button class="st-mini" data-up="${i}" type="button" title="เลื่อนขึ้น" ${i === 0 ? "disabled" : ""}>↑</button>
+                        <button class="st-mini" data-down="${i}" type="button" title="เลื่อนลง" ${i === blocks.length - 1 ? "disabled" : ""}>↓</button>
+                        <button class="st-mini st-mini-del" data-rm="${i}" type="button" title="ลบบล็อกนี้">✕</button>
+                    </span>
+                </div>
+                <div class="st-imgrow">
+                    <input type="file" id="st-b-file-${i}" accept="image/*" class="st-file" data-file="${i}">
+                    <span class="st-or">หรือ</span>
+                    <input class="st-input st-url" id="st-b-url-${i}" data-url="${i}" placeholder="วางลิงก์รูป https://…"
+                           value="${/^https:/i.test(b.img) ? esc(b.img) : ""}">
+                </div>
+                <div class="st-preview" id="st-b-prev-${i}">
+                    ${src ? `<img src="${esc(src)}" alt="ตัวอย่างภาพที่ ${i + 1}">${isData ? '<span class="st-hint">รูปที่อัปโหลดแล้ว (ย่อขนาดอัตโนมัติ)</span>' : ""}` : ""}
+                </div>
+                <textarea class="st-input st-blocktext" id="st-b-text-${i}" rows="3" maxlength="${MAX_BODY}"
+                          placeholder="คำอธิบายของภาพนี้ เช่น กดสกิลอะไรต่อจากอะไร จังหวะไหน…">${esc(b.text)}</textarea>
+            </div>`;
+        }).join("");
+
+        const c = document.getElementById("st-blockcount");
+        if (c) c.textContent = blocks.length + " / " + MAX_BLOCKS;
+
+        wrap.querySelectorAll("[data-file]").forEach(el =>
+            el.addEventListener("change", ev => onPickFile(ev, +el.dataset.file)));
+        wrap.querySelectorAll("[data-url]").forEach(el =>
+            el.addEventListener("input", () => {
+                const i = +el.dataset.url;
+                blocks[i].img = el.value.trim();
+                drawPreview(i);
+            }));
+        wrap.querySelectorAll("[data-rm]").forEach(el =>
+            el.addEventListener("click", () => {
+                syncBlocks();
+                blocks.splice(+el.dataset.rm, 1);
+                if (!blocks.length) blocks = [{ img: "", text: "" }];
+                renderBlocks();
+            }));
+        wrap.querySelectorAll("[data-up]").forEach(el =>
+            el.addEventListener("click", () => move(+el.dataset.up, -1)));
+        wrap.querySelectorAll("[data-down]").forEach(el =>
+            el.addEventListener("click", () => move(+el.dataset.down, 1)));
+    }
+
+    function move(i, dir) {
+        const j = i + dir;
+        if (j < 0 || j >= blocks.length) return;
+        syncBlocks();
+        const tmp = blocks[i]; blocks[i] = blocks[j]; blocks[j] = tmp;
+        renderBlocks();
+    }
+
     function closeEditor() {
         const box = document.getElementById("st-editor");
         if (box) { box.hidden = true; box.innerHTML = ""; }
-        pendingImg = "";
+        blocks = [];
     }
 
-    function drawPreview() {
-        const p = document.getElementById("st-preview");
+    function drawPreview(i) {
+        const p = document.getElementById("st-b-prev-" + i);
         if (!p) return;
-        const src = safeImgSrc(pendingImg);
+        const src = safeImgSrc(blocks[i] && blocks[i].img);
         p.innerHTML = src
-            ? `<img src="${esc(src)}" alt="ตัวอย่างรูป" onerror="this.parentNode.innerHTML='<span class=\\'st-hint\\'>โหลดรูปจากลิงก์นี้ไม่ได้</span>'">`
+            ? `<img src="${esc(src)}" alt="ตัวอย่างภาพที่ ${i + 1}" onerror="this.parentNode.innerHTML='<span class=\\'st-hint\\'>โหลดรูปจากลิงก์นี้ไม่ได้</span>'">`
             : "";
     }
 
     // ย่อ + บีบอัดรูปในเครื่องก่อนอัปโหลด (กันไฟล์ใหญ่เกิน)
-    function onPickFile(ev) {
+    function onPickFile(ev, i) {
         const f = ev.target.files && ev.target.files[0];
         if (!f) return;
         const msg = document.getElementById("st-form-msg");
@@ -302,20 +411,21 @@
                 cv.getContext("2d").drawImage(im, 0, 0, w, h);
 
                 let q = 0.82, out = "";
-                for (let i = 0; i < 6; i++) {
+                for (let k = 0; k < 6; k++) {
                     out = cv.toDataURL("image/webp", q);
                     if (out.length * 0.75 <= MAX_IMG_BYTES) break;
                     q -= 0.12;
                 }
                 if (out.length * 0.75 > MAX_IMG_BYTES) {
-                    if (msg) msg.textContent = "รูปใหญ่เกินไป ลองใช้รูปที่เล็กลงหรือวางลิงก์รูปแทน";
+                    if (msg) msg.textContent = "ภาพที่ " + (i + 1) + " ใหญ่เกินไป ลองใช้รูปที่เล็กลงหรือวางลิงก์รูปแทน";
                     return;
                 }
-                pendingImg = out;
-                const urlBox = document.getElementById("st-f-url");
+                if (!blocks[i]) return;
+                blocks[i].img = out;
+                const urlBox = document.getElementById("st-b-url-" + i);
                 if (urlBox) urlBox.value = "";
                 if (msg) msg.textContent = "";
-                drawPreview();
+                drawPreview(i);
             };
             im.onerror = function () { if (msg) msg.textContent = "อ่านไฟล์รูปไม่สำเร็จ"; };
             im.src = rd.result;
@@ -376,7 +486,11 @@
             const out = [];
             snap.forEach(ch => {
                 const v = ch.val() || {};
-                if (v.title && v.body) out.push({ id: ch.key, title: v.title, body: v.body, img: v.img || "", author: v.author || "", ts: v.ts || 0, tok: v.tok || "", edited: !!v.edited });
+                if (v.title && v.body) out.push({
+                    id: ch.key, title: v.title, body: v.body,
+                    img: v.img || "", blocks: v.blocks || null,
+                    author: v.author || "", ts: v.ts || 0, tok: v.tok || "", edited: !!v.edited
+                });
             });
             out.sort((a, b) => (b.ts || 0) - (a.ts || 0));
             entries = out;
@@ -392,11 +506,27 @@
         const title = document.getElementById("st-f-title").value.trim();
         const body = document.getElementById("st-f-body").value.trim();
         const author = document.getElementById("st-f-author").value.trim().slice(0, MAX_AUTHOR);
-        const img = safeImgSrc(pendingImg);
+
+        syncBlocks();
+        // ตัดบล็อกว่างทิ้ง และกันลิงก์รูปที่ไม่ใช่ https
+        let badUrlAt = -1;
+        const clean = blocks.map((b, i) => {
+            const img = safeImgSrc(b.img);
+            if (b.img && !img && badUrlAt < 0) badUrlAt = i;
+            return { img: img, text: String(b.text || "").trim().slice(0, MAX_BODY) };
+        }).filter(b => b.img || b.text);
 
         if (title.length < 3) { msg.textContent = "กรุณาใส่หัวข้ออย่างน้อย 3 ตัวอักษร"; return; }
-        if (body.length < 10) { msg.textContent = "กรุณาใส่รายละเอียดอย่างน้อย 10 ตัวอักษร"; return; }
-        if (pendingImg && !img) { msg.textContent = "ลิงก์รูปต้องขึ้นต้นด้วย https:// เท่านั้น"; return; }
+        if (body.length < 10) { msg.textContent = "กรุณาใส่เกริ่นนำอย่างน้อย 10 ตัวอักษร"; return; }
+        if (badUrlAt >= 0) { msg.textContent = "ลิงก์รูปของภาพที่ " + (badUrlAt + 1) + " ต้องขึ้นต้นด้วย https:// เท่านั้น"; return; }
+        if (clean.length > MAX_BLOCKS) { msg.textContent = "ใส่ได้สูงสุด " + MAX_BLOCKS + " ภาพต่อโพสต์"; return; }
+
+        const bytes = clean.reduce((n, b) => n + b.img.length + b.text.length, 0);
+        if (bytes > MAX_TOTAL_BYTES) {
+            msg.textContent = "รูปทั้งหมดรวมกันใหญ่เกินไป (" + Math.round(bytes / 1024) +
+                "KB) ลองลดจำนวนภาพ หรือใช้ลิงก์รูปแทนการอัปโหลดบางภาพ";
+            return;
+        }
         if (!ready) { msg.textContent = "ยังเชื่อมต่อฐานข้อมูลไม่ได้ ลองรีเฟรชหน้าอีกครั้ง"; return; }
 
         lsSet("gk_st_name", author);
@@ -405,10 +535,10 @@
         const payload = {
             title: title.slice(0, MAX_TITLE),
             body: body.slice(0, MAX_BODY),
-            img: img,
             author: author,
             ts: firebase.database.ServerValue.TIMESTAMP
         };
+        if (clean.length) payload.blocks = clean;
 
         let p;
         if (entry && ownsEntry(entry.id, entry.tok)) {
