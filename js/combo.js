@@ -426,7 +426,19 @@
         }
 
         p.then(() => { closeEditor(); })
-         .catch(() => { msg.textContent = "บันทึกไม่สำเร็จ อาจถูกจำกัดสิทธิ์การเขียน ลองใหม่อีกครั้ง"; });
+         .catch(err => { msg.textContent = writeErrorText(err); });
+    }
+
+    // แยกสาเหตุที่บันทึกไม่สำเร็จ ให้ผู้ใช้รู้ว่าเป็นที่ตัวเองหรือที่ระบบ
+    function writeErrorText(err) {
+        const code = String((err && (err.code || err.message)) || "").toUpperCase();
+        if (code.indexOf("PERMISSION_DENIED") > -1)
+            return "ยังเปิดสิทธิ์เขียนข้อมูลไม่ครบ — ผู้ดูแลเว็บต้องตั้ง Firebase Rules ของ path นี้ก่อน (ดู docs/FIREBASE_RULES.md) ข้อมูลที่พิมพ์ไว้ยังอยู่ ไม่ต้องพิมพ์ใหม่";
+        if (code.indexOf("NETWORK") > -1 || code.indexOf("UNAVAILABLE") > -1 || code.indexOf("DISCONNECT") > -1)
+            return "เชื่อมต่อฐานข้อมูลไม่ได้ ตรวจสอบอินเทอร์เน็ตแล้วกดเผยแพร่อีกครั้ง";
+        if (code.indexOf("TOO_BIG") > -1 || code.indexOf("MAX") > -1)
+            return "ข้อมูลใหญ่เกินที่ระบบรับได้ ลองลดขนาดรูปหรือย่อรายละเอียดลง";
+        return "บันทึกไม่สำเร็จ ลองกดเผยแพร่อีกครั้ง — ถ้ายังไม่ได้ แจ้งผู้ดูแลเว็บพร้อมข้อความนี้: " + (code || "unknown");
     }
 
     /* ---------- ผู้ดูแล (ลบได้คนเดียว) ----------
@@ -438,8 +450,11 @@
         const e = entries.find(x => x.id === id);
         if (!e) return;
         if (!confirm('ลบ "' + e.title + '" ออกจากเว็บ?')) return;
-        db.ref(DB_PATH + "/" + current + "/" + id).remove().catch(() => {
-            setStatus("ลบไม่สำเร็จ — ตรวจสอบว่าล็อกอินผู้ดูแลอยู่และตั้ง Rules แล้ว", "err");
+        db.ref(DB_PATH + "/" + current + "/" + id).remove().catch(err => {
+            const code = String((err && (err.code || err.message)) || "").toUpperCase();
+            setStatus(code.indexOf("PERMISSION_DENIED") > -1
+                ? "ลบไม่สำเร็จ — Rules ยังไม่อนุญาตให้ UID นี้ลบ ตรวจสอบว่าใส่ UID ผู้ดูแลใน Rules แล้ว"
+                : "ลบไม่สำเร็จ ลองอีกครั้ง", "err");
         });
     }
 
