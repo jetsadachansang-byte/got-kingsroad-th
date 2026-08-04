@@ -4903,3 +4903,47 @@ body.intro-lock { overflow: hidden; }
     .st-editor-inner { padding: 16px; }
     .st-url { flex: 1 1 100%; }
 }
+
+/* แถบผู้ดูแล (ล็อกอินเพื่อลบโพสต์) */
+.st-ownerbar {
+    margin-top: 26px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    min-height: 24px;
+}
+
+.st-linkbtn {
+    background: none;
+    border: none;
+    color: var(--text-3);
+    font-size: 12.5px;
+    cursor: pointer;
+    padding: 0;
+    font-family: "Noto Sans Thai", sans-serif;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color .2s ease;
+}
+
+.st-linkbtn:hover { color: var(--gold-soft); }
+
+.st-owner-on {
+    font-size: 12.5px;
+    color: var(--gold-soft);
+    background: rgba(198, 162, 78, .1);
+    border: 1px solid var(--border-gold);
+    border-radius: 999px;
+    padding: 5px 14px;
+}
+
+.st-login { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.st-login .st-input { width: auto; flex: 0 1 200px; padding: 8px 11px; font-size: 13.5px; }
+.st-loginmsg { font-size: 12.5px; color: var(--text-3); }
+
+@media (max-width: 640px) {
+    .st-login .st-input { flex: 1 1 100%; }
+}

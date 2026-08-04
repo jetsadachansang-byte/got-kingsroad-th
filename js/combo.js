@@ -101,7 +101,8 @@
             </div>
             <div class="st-status" id="st-status">กำลังโหลดข้อมูล…</div>
             <div class="st-list" id="st-list"></div>
-            <div class="st-editor" id="st-editor" hidden></div>`;
+            <div class="st-editor" id="st-editor" hidden></div>
+            <div class="st-ownerbar" id="st-ownerbar"></div>`;
 
         root.querySelectorAll(".st-tab").forEach(b =>
             b.addEventListener("click", () => switchTo(b.dataset.cls)));
@@ -151,9 +152,9 @@
 
         if (!entries.length) {
             list.innerHTML = `<div class="st-empty">
-                <h3>ยังไม่มีข้อมูลของอาชีพนี้</h3>
-                <p>เป็นคนแรกที่แชร์แนวทางลงสกิล ตำแหน่งจุด หรือภาพแผงสกิลของ ${esc(CLASSES.find(c => c.id === current).name)}
-                   กด “เพิ่มข้อมูลสกิล” ด้านบนได้เลย</p>
+                <h3>ยังไม่มีคอมโบหรือบิลด์ของอาชีพนี้</h3>
+                <p>เป็นคนแรกที่แชร์คอมโบ เซตอุปกรณ์ หรือแนวทางลงสกิลของ ${esc(CLASSES.find(c => c.id === current).name)}
+                   กด “แชร์คอมโบ / บิลด์” ด้านบนได้เลย</p>
             </div>`;
             return;
         }
@@ -175,9 +176,9 @@
                           onerror="this.closest('.st-entry-img').style.display='none'"></div>` : ""}
                 <div class="st-entry-body">${nl2br(e.body)}</div>
                 <footer class="st-entry-foot">
-                    ${mine ? `<button class="st-act" data-edit="${esc(e.id)}" type="button">แก้ไข</button>
-                              <button class="st-act st-act-del" data-del="${esc(e.id)}" type="button">ลบ</button>`
+                    ${mine ? `<button class="st-act" data-edit="${esc(e.id)}" type="button">แก้ไข</button>`
                            : `<span class="st-byline">แชร์โดยผู้เล่นในชุมชน</span>`}
+                    ${isOwner ? `<button class="st-act st-act-del" data-del="${esc(e.id)}" type="button">ลบ (ผู้ดูแล)</button>` : ""}
                 </footer>
             </article>`;
         }).join("");
@@ -301,6 +302,7 @@
 
     /* ---------- Firebase ---------- */
     let db = null, ref = null, ready = false;
+    let isOwner = false, authReady = false;
 
     function setStatus(txt, kind) {
         const s = document.getElementById("st-status");
@@ -326,7 +328,17 @@
                 try { firebase.initializeApp(FIREBASE); } catch (e) {}
                 db = firebase.database();
                 ready = true;
-            });
+            })
+            // auth ใช้เฉพาะให้ผู้ดูแลลบโพสต์ — โหลดไม่สำเร็จก็ยังใช้เว็บได้ตามปกติ
+            .then(() => loadScript(SDK + "firebase-auth-compat.js").then(() => {
+                if (!firebase.auth) return;
+                authReady = true;
+                firebase.auth().onAuthStateChanged(user => {
+                    isOwner = !!user;
+                    renderOwnerBar();
+                    render();
+                });
+            }).catch(() => {}));
     }
 
     function watch() {
@@ -393,12 +405,55 @@
          .catch(() => { msg.textContent = "บันทึกไม่สำเร็จ อาจถูกจำกัดสิทธิ์การเขียน ลองใหม่อีกครั้ง"; });
     }
 
+    /* ---------- ผู้ดูแล (ลบได้คนเดียว) ----------
+       ลบได้เฉพาะเจ้าของเว็บที่ล็อกอิน Firebase Auth เท่านั้น
+       การซ่อนปุ่มเป็นแค่ UI — ตัวบังคับจริงอยู่ที่ Rules ฝั่ง Firebase
+       ที่อนุญาต remove เฉพาะ auth.uid ของเจ้าของ (ดู docs/FIREBASE_RULES.md) */
     function removeEntry(id) {
+        if (!isOwner) return;
         const e = entries.find(x => x.id === id);
-        if (!e || !ownsEntry(id, e.tok)) return;
-        if (!confirm("ลบข้อมูลนี้ออกจากเว็บ?")) return;
+        if (!e) return;
+        if (!confirm('ลบ "' + e.title + '" ออกจากเว็บ?')) return;
         db.ref(DB_PATH + "/" + current + "/" + id).remove().catch(() => {
-            setStatus("ลบไม่สำเร็จ ลองอีกครั้ง", "err");
+            setStatus("ลบไม่สำเร็จ — ตรวจสอบว่าล็อกอินผู้ดูแลอยู่และตั้ง Rules แล้ว", "err");
+        });
+    }
+
+    function renderOwnerBar() {
+        const bar = document.getElementById("st-ownerbar");
+        if (!bar || !authReady) return;
+        bar.innerHTML = isOwner
+            ? `<span class="st-owner-on">โหมดผู้ดูแล — ลบโพสต์ได้ทุกรายการ</span>
+               <button class="st-act" id="st-signout" type="button">ออกจากระบบ</button>`
+            : `<button class="st-linkbtn" id="st-signin" type="button">เข้าสู่ระบบผู้ดูแล</button>`;
+
+        const inBtn = document.getElementById("st-signin");
+        const outBtn = document.getElementById("st-signout");
+        if (inBtn) inBtn.addEventListener("click", openLogin);
+        if (outBtn) outBtn.addEventListener("click", () => firebase.auth().signOut());
+    }
+
+    function openLogin() {
+        const bar = document.getElementById("st-ownerbar");
+        if (!bar) return;
+        bar.innerHTML = `
+            <form class="st-login" id="st-loginform">
+                <input class="st-input" id="st-email" type="email" placeholder="อีเมลผู้ดูแล" autocomplete="username" required>
+                <input class="st-input" id="st-pass" type="password" placeholder="รหัสผ่าน" autocomplete="current-password" required>
+                <button class="st-act" type="submit">เข้าสู่ระบบ</button>
+                <button class="st-act" type="button" id="st-logincancel">ยกเลิก</button>
+                <span class="st-loginmsg" id="st-loginmsg"></span>
+            </form>`;
+        document.getElementById("st-logincancel").addEventListener("click", renderOwnerBar);
+        document.getElementById("st-loginform").addEventListener("submit", ev => {
+            ev.preventDefault();
+            const msg = document.getElementById("st-loginmsg");
+            msg.textContent = "กำลังตรวจสอบ…";
+            firebase.auth()
+                .signInWithEmailAndPassword(
+                    document.getElementById("st-email").value.trim(),
+                    document.getElementById("st-pass").value)
+                .catch(() => { msg.textContent = "อีเมลหรือรหัสผ่านไม่ถูกต้อง"; });
         });
     }
 

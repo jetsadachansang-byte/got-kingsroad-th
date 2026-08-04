@@ -1,15 +1,35 @@
-# Firebase Rules สำหรับระบบ Combo & Build จากผู้เล่น
+# Firebase — ตั้งค่าสิทธิ์ระบบ Combo & Build จากผู้เล่น
 
 หน้า `combo.html` เก็บคอมโบและเซตบิลด์ที่ผู้เล่นแชร์ไว้บน Firebase Realtime Database
 ตัวเดียวกับที่ตัวนับผู้เข้าชมใช้ (`js/visitors.js`)
 
-## ⚠️ สิ่งที่ต้องทำ (สำคัญ)
+## สิทธิ์ที่ระบบนี้บังคับ
 
-โค้ดฝั่งเบราว์เซอร์กันได้แค่การใช้งานทั่วไป — **ความปลอดภัยจริงอยู่ที่ Rules**
-ถ้าไม่ตั้ง Rules ใครก็ตามที่รู้ URL ของฐานข้อมูลสามารถลบหรือเขียนทับข้อมูลทั้งหมดได้
+| ใคร | ทำอะไรได้ |
+|---|---|
+| ผู้เล่นทั่วไป | **เขียนโพสต์ใหม่** และเผยแพร่ได้ทันที |
+| เจ้าของโพสต์ | **แก้ไขโพสต์ของตัวเอง** ได้ (จากอุปกรณ์เดิม) |
+| **เจ้าของเว็บเท่านั้น** | **ลบโพสต์** ได้ — ต้องล็อกอินก่อน |
 
-เข้า [Firebase Console](https://console.firebase.google.com/) → เลือกโปรเจกต์
-→ **Realtime Database** → แท็บ **Rules** แล้ววาง:
+> ⚠️ การซ่อน/แสดงปุ่มบนหน้าเว็บเป็นแค่ส่วนติดต่อผู้ใช้ กันคนทั่วไปได้เท่านั้น
+> **ตัวบังคับสิทธิ์จริงคือ Rules ด้านล่าง** ถ้าไม่ตั้ง ใครก็ลบข้อมูลทั้งหมดได้
+
+---
+
+## ขั้นที่ 1 — สร้างบัญชีผู้ดูแล (ทำครั้งเดียว)
+
+1. เข้า [Firebase Console](https://console.firebase.google.com/) → เลือกโปรเจกต์
+2. เมนูซ้าย → **Authentication** → **Get started**
+3. แท็บ **Sign-in method** → เปิดใช้ **Email/Password** → Save
+4. แท็บ **Users** → **Add user** → ใส่อีเมลกับรหัสผ่านที่จะใช้เป็นผู้ดูแล → Add user
+5. คัดลอก **User UID** ของบัญชีนั้นเก็บไว้ (แถวผู้ใช้จะมีคอลัมน์ User UID)
+
+> ใช้รหัสผ่านที่คาดเดายาก และอย่าใช้ซ้ำกับที่อื่น — ใครได้บัญชีนี้ไปจะลบข้อมูลได้ทั้งหมด
+
+## ขั้นที่ 2 — วาง Rules
+
+ไปที่ **Realtime Database** → แท็บ **Rules** แล้ววางทับทั้งหมด
+**อย่าลืมแทน `PASTE_OWNER_UID_HERE` ด้วย UID จากขั้นที่ 1**
 
 ```json
 {
@@ -22,15 +42,15 @@
       ".read": true,
       "$class": {
         "$entry": {
-          ".write": "!data.exists() || !data.child('tok').exists() || newData.child('tok').val() === data.child('tok').val()",
+          ".write": "auth.uid === 'PASTE_OWNER_UID_HERE' || (!data.exists() && newData.exists()) || (data.exists() && newData.exists() && newData.child('tok').val() === data.child('tok').val())",
           ".validate": "newData.hasChildren(['title', 'body', 'ts'])",
-          "title": { ".validate": "newData.isString() && newData.val().length >= 3 && newData.val().length <= 120" },
-          "body":  { ".validate": "newData.isString() && newData.val().length >= 10 && newData.val().length <= 4000" },
-          "author":{ ".validate": "newData.isString() && newData.val().length <= 40" },
-          "img":   { ".validate": "newData.isString() && newData.val().length <= 400000" },
-          "tok":   { ".validate": "newData.isString() && newData.val().length <= 64" },
-          "ts":    { ".validate": "newData.isNumber()" },
-          "edited":{ ".validate": "newData.isBoolean()" },
+          "title":  { ".validate": "newData.isString() && newData.val().length >= 3 && newData.val().length <= 120" },
+          "body":   { ".validate": "newData.isString() && newData.val().length >= 10 && newData.val().length <= 4000" },
+          "author": { ".validate": "newData.isString() && newData.val().length <= 40" },
+          "img":    { ".validate": "newData.isString() && newData.val().length <= 400000" },
+          "tok":    { ".validate": "newData.isString() && newData.val().length <= 64" },
+          "ts":     { ".validate": "newData.isNumber()" },
+          "edited": { ".validate": "newData.isBoolean()" },
           "$other": { ".validate": false }
         }
       }
@@ -39,42 +59,47 @@
 }
 ```
 
-### Rules นี้บังคับอะไร
+### เงื่อนไข `.write` แต่ละท่อนทำอะไร
 
-| กฎ | ผลลัพธ์ |
+| ท่อน | ผลลัพธ์ |
 |---|---|
-| `.read: true` | ทุกคนอ่านข้อมูลคอมโบ/บิลด์ได้ (จำเป็น เพราะเป็นเว็บสาธารณะ) |
-| เงื่อนไข `tok` ใน `.write` | โพสต์ใหม่สร้างได้เสรี แต่**แก้/ลบของคนอื่นไม่ได้** ต้องส่ง `tok` ตรงกับของเดิม |
-| `.validate` ต่าง ๆ | จำกัดความยาวหัวข้อ/เนื้อหา/ชื่อ และขนาดรูป กันสแปมยัดข้อมูลใหญ่ |
-| `$other: false` | ห้ามเขียน field แปลกปลอมที่เว็บไม่ได้ใช้ |
+| `auth.uid === 'OWNER_UID'` | เจ้าของเว็บทำได้ทุกอย่าง **รวมถึงลบ** |
+| `!data.exists() && newData.exists()` | ใครก็สร้างโพสต์ใหม่ได้ (ยังไม่มีข้อมูลเดิมตรงนั้น) |
+| `data.exists() && newData.exists() && tok ตรงกัน` | แก้ไขได้เฉพาะเจ้าของโพสต์ที่ถือ token เดิม |
 
-> หมายเหตุ: path ใน RTDB ยังใช้ชื่อ `skilltree` ตามเดิมโดยตั้งใจ เพื่อไม่ให้ข้อมูลที่ผู้เล่น
-> โพสต์ไว้ก่อนเปลี่ยนชื่อระบบหายไป
->
-> การลบโพสต์ต้องส่ง `tok` เดิมมาด้วย ซึ่ง Firebase จะเห็นเป็น `newData` ว่าง
-> กฎด้านบนอนุญาตให้ลบได้เมื่อ node นั้นไม่มี `tok` — ถ้าต้องการล็อกการลบให้แน่นกว่านี้
-> ให้เปลี่ยนเป็นระบบ "ซ่อน" (ตั้ง field `hidden: true`) แทนการลบจริง
+**การลบของคนทั่วไปจะถูกปฏิเสธอัตโนมัติ** เพราะการลบคือ `newData` ว่าง
+ซึ่งไม่ตรงกับเงื่อนไขข้อ 2 และ 3 เหลือแค่ข้อ 1 ที่ต้องเป็นเจ้าของเว็บ
 
-## การดูแลเนื้อหา (moderation)
+`.validate` ที่เหลือจำกัดความยาวข้อความและขนาดรูป กันคนยัดข้อมูลใหญ่ถล่มฐานข้อมูล
+และ `$other: false` ห้ามเขียน field แปลกปลอมที่เว็บไม่ได้ใช้
 
-ตอนนี้ยังไม่มีระบบผู้ดูแลในเว็บ ถ้าเจอโพสต์ที่ไม่เหมาะสม เจ้าของเว็บลบได้จาก
-Firebase Console → Realtime Database → เปิด path `skilltree/<อาชีพ>/<id>` → กดลบ
+## ขั้นที่ 3 — ใช้งานจริง
 
-ถ้าต้องการระบบรายงานโพสต์ / ผู้ดูแลลบผ่านหน้าเว็บ แจ้งได้ เพิ่มให้ในรอบถัดไปได้
+1. เปิดหน้า `combo.html` เลื่อนลงล่างสุด กด **"เข้าสู่ระบบผู้ดูแล"**
+2. ใส่อีเมล/รหัสผ่านจากขั้นที่ 1
+3. เมื่อล็อกอินแล้วจะเห็นป้าย **"โหมดผู้ดูแล"** และปุ่ม **ลบ (ผู้ดูแล)** ทุกโพสต์
+4. เสร็จแล้วกด **ออกจากระบบ** ได้ (ระบบจำการล็อกอินไว้จนกว่าจะกดออก)
+
+---
 
 ## โครงสร้างข้อมูล
 
 ```
-skilltree/
-  knight/
+skilltree/                ← path เดิม ตั้งใจไม่เปลี่ยนตามชื่อระบบ
+  knight/                   เพื่อไม่ให้โพสต์ที่มีอยู่แล้วหาย
     <auto-id>/
-      title:  "หัวข้อ"
+      title:  "หัวข้อคอมโบ/บิลด์"
       body:   "รายละเอียด"
       img:    "https://..." หรือ "data:image/webp;base64,..." (ถ้ามี)
       author: "ชื่อผู้แชร์"
       ts:     1754000000000
-      tok:    "โทเคนเจ้าของโพสต์"
+      tok:    "โทเคนเจ้าของโพสต์ (ใช้ตรวจสิทธิ์แก้ไข)"
       edited: true (ถ้าเคยแก้)
   assassin/  ...
   sellsword/ ...
 ```
+
+## ลบจาก Console (สำรอง)
+
+ถ้าล็อกอินหน้าเว็บไม่ได้ ลบตรง ๆ ได้ที่
+**Realtime Database** → เปิด path `skilltree/<อาชีพ>/<id>` → กดไอคอนถังขยะ
