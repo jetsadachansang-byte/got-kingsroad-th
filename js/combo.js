@@ -86,29 +86,47 @@
     if (!CLASSES.some(c => c.id === current)) current = "knight";
 
     function shell() {
-        const tabs = CLASSES.map(c =>
-            `<button class="st-tab${c.id === current ? " is-on" : ""}" data-cls="${c.id}" type="button">
+        const tabs = CLASSES.map(c => {
+            const on = c.id === current;
+            return `<button class="st-tab${on ? " is-on" : ""}" data-cls="${c.id}" type="button"
+                    role="tab" id="st-tab-${c.id}" aria-selected="${on}" aria-controls="st-list" tabindex="${on ? "0" : "-1"}">
                 <span class="st-tab-name">${esc(c.name)}</span>
                 <span class="st-tab-sub">${esc(c.nameTh)}</span>
-            </button>`).join("");
+            </button>`;
+        }).join("");
 
         root.innerHTML = `
-            <div class="st-tabs" role="tablist">${tabs}</div>
+            <div class="st-tabs" role="tablist" aria-label="เลือกอาชีพ">${tabs}</div>
             <div class="st-classhead" id="st-classhead"></div>
             <div class="st-toolbar">
                 <button class="btn-primary st-add" id="st-add" type="button">+ แชร์คอมโบ / บิลด์</button>
                 <span class="st-count" id="st-count"></span>
             </div>
-            <div class="st-status" id="st-status">กำลังโหลดข้อมูล…</div>
-            <div class="st-list" id="st-list"></div>
+            <div class="st-status" id="st-status" role="status" aria-live="polite">กำลังโหลดข้อมูล…</div>
+            <div class="st-list" id="st-list" role="tabpanel" aria-labelledby="st-tab-${current}"></div>
             <div class="st-editor" id="st-editor" hidden></div>
             <div class="st-ownerbar" id="st-ownerbar"></div>`;
 
         root.querySelectorAll(".st-tab").forEach(b =>
             b.addEventListener("click", () => switchTo(b.dataset.cls)));
+        root.querySelector(".st-tabs").addEventListener("keydown", onTabKeydown);
 
         document.getElementById("st-add").addEventListener("click", () => openEditor(null));
         renderHead();
+    }
+
+    function onTabKeydown(ev) {
+        if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(ev.key)) return;
+        ev.preventDefault();
+        const idx = CLASSES.findIndex(c => c.id === current);
+        let next = idx;
+        if (ev.key === "ArrowLeft") next = (idx - 1 + CLASSES.length) % CLASSES.length;
+        else if (ev.key === "ArrowRight") next = (idx + 1) % CLASSES.length;
+        else if (ev.key === "Home") next = 0;
+        else if (ev.key === "End") next = CLASSES.length - 1;
+        switchTo(CLASSES[next].id);
+        const btn = document.getElementById("st-tab-" + CLASSES[next].id);
+        if (btn) btn.focus();
     }
 
     function renderHead() {
@@ -133,8 +151,14 @@
         if (!CLASSES.some(c => c.id === id) || id === current) return;
         current = id;
         history.replaceState(null, "", "#" + id);
-        root.querySelectorAll(".st-tab").forEach(b =>
-            b.classList.toggle("is-on", b.dataset.cls === id));
+        root.querySelectorAll(".st-tab").forEach(b => {
+            const on = b.dataset.cls === id;
+            b.classList.toggle("is-on", on);
+            b.setAttribute("aria-selected", on);
+            b.tabIndex = on ? 0 : -1;
+        });
+        const list = document.getElementById("st-list");
+        if (list) list.setAttribute("aria-labelledby", "st-tab-" + id);
         renderHead();
         closeEditor();
         watch();
