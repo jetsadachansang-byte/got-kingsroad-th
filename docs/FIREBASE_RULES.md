@@ -16,6 +16,58 @@
 
 ---
 
+## 🚑 ทำก่อนเลย — เปิดให้ผู้เล่นโพสต์ได้ (2 นาที)
+
+**อาการ:** กด "เผยแพร่" แล้วขึ้นว่าเปิดสิทธิ์เขียนไม่ครบ / บันทึกไม่สำเร็จ
+**สาเหตุ:** Rules เดิมเปิดสิทธิ์ไว้แค่ `presence` (ของตัวนับผู้เข้าชม) ยังไม่ได้เปิดให้ path ของระบบ Combo
+
+เข้า [Firebase Console](https://console.firebase.google.com/) → โปรเจกต์ของคุณ
+→ **Realtime Database** → แท็บ **Rules** → วางทับทั้งหมด → **Publish**
+
+```json
+{
+  "rules": {
+    "presence": {
+      ".read": true,
+      ".write": true
+    },
+    "skilltree": {
+      ".read": true,
+      "$class": {
+        "$entry": {
+          ".write": "(!data.exists() && newData.exists()) || (data.exists() && newData.exists() && newData.child('tok').val() === data.child('tok').val())",
+          ".validate": "newData.hasChildren(['title', 'body', 'ts'])",
+          "title":  { ".validate": "newData.isString() && newData.val().length >= 3 && newData.val().length <= 120" },
+          "body":   { ".validate": "newData.isString() && newData.val().length >= 10 && newData.val().length <= 4000" },
+          "author": { ".validate": "newData.isString() && newData.val().length <= 40" },
+          "img":    { ".validate": "newData.isString() && newData.val().length <= 400000" },
+          "tok":    { ".validate": "newData.isString() && newData.val().length <= 64" },
+          "ts":     { ".validate": "newData.isNumber()" },
+          "edited": { ".validate": "newData.isBoolean()" },
+          "$other": { ".validate": false }
+        }
+      }
+    }
+  }
+}
+```
+
+**วางแค่นี้ก็ใช้งานได้ทันที:**
+
+| ใคร | ผลลัพธ์ |
+|---|---|
+| ผู้เล่น | โพสต์และเผยแพร่ได้ ✅ |
+| เจ้าของโพสต์ | แก้ไขของตัวเองได้ ✅ |
+| ทุกคน (รวมคุณ) | **ลบผ่านหน้าเว็บไม่ได้เลย** — ยังไม่มีเงื่อนไข auth |
+| คุณ | ลบได้จาก **Firebase Console** (เปิด path → กดถังขยะ) |
+
+สถานะนี้ตรงกับที่ต้องการอยู่แล้ว (คุณเป็นคนเดียวที่ลบได้) เพียงแต่ต้องลบผ่าน Console
+ถ้าอยากลบได้จากหน้าเว็บเลย ทำขั้นที่ 1–3 ด้านล่างต่อ
+
+---
+
+# เพิ่มเติม (ถ้าต้องการลบจากหน้าเว็บ)
+
 ## ขั้นที่ 1 — สร้างบัญชีผู้ดูแล (ทำครั้งเดียว)
 
 1. เข้า [Firebase Console](https://console.firebase.google.com/) → เลือกโปรเจกต์
@@ -26,9 +78,10 @@
 
 > ใช้รหัสผ่านที่คาดเดายาก และอย่าใช้ซ้ำกับที่อื่น — ใครได้บัญชีนี้ไปจะลบข้อมูลได้ทั้งหมด
 
-## ขั้นที่ 2 — วาง Rules
+## ขั้นที่ 2 — วาง Rules ฉบับเต็ม (เพิ่มสิทธิ์ลบให้เจ้าของ)
 
 ไปที่ **Realtime Database** → แท็บ **Rules** แล้ววางทับทั้งหมด
+ต่างจากชุดด้านบนตรงที่เพิ่มเงื่อนไข `auth.uid` เข้าไปเป็นตัวแรก
 **อย่าลืมแทน `PASTE_OWNER_UID_HERE` ด้วย UID จากขั้นที่ 1**
 
 ```json
