@@ -83,9 +83,25 @@
         } catch (e) { return String(Date.now()) + Math.random().toString(16).slice(2); }
     }
 
-    /* ---------- โครงหน้า ---------- */
-    let current = (location.hash || "").replace("#", "");
-    if (!CLASSES.some(c => c.id === current)) current = "knight";
+    /* ---------- เส้นทางในหน้า ----------
+       #knight          → รายการการ์ดของอาชีพนั้น
+       #knight/<id>     → หน้าอ่านโพสต์นั้นแบบเต็ม (แชร์ลิงก์ได้) */
+    let current = "knight";
+    let viewId = null;
+
+    function readHash() {
+        const parts = (location.hash || "").replace(/^#/, "").split("/");
+        const cls = parts[0];
+        current = CLASSES.some(c => c.id === cls) ? cls : "knight";
+        viewId = parts[1] ? decodeURIComponent(parts[1]) : null;
+    }
+    readHash();
+
+    function goto(cls, id) {
+        const h = "#" + cls + (id ? "/" + encodeURIComponent(id) : "");
+        if (location.hash === h) return;
+        location.hash = h;   // ให้ hashchange จัดการต่อ (ปุ่ม back ใช้งานได้)
+    }
 
     function shell() {
         const tabs = CLASSES.map(c => {
@@ -150,34 +166,89 @@
     }
 
     function switchTo(id) {
-        if (!CLASSES.some(c => c.id === id) || id === current) return;
-        current = id;
-        history.replaceState(null, "", "#" + id);
+        if (!CLASSES.some(c => c.id === id)) return;
+        if (id === current && !viewId) return;
+        goto(id, null);
+    }
+
+    // ซิงก์แท็บ/หัวข้อให้ตรงกับ current แล้วโหลดข้อมูลของอาชีพนั้น
+    function applyClass(reload) {
         root.querySelectorAll(".st-tab").forEach(b => {
-            const on = b.dataset.cls === id;
+            const on = b.dataset.cls === current;
             b.classList.toggle("is-on", on);
             b.setAttribute("aria-selected", on);
             b.tabIndex = on ? 0 : -1;
         });
         const list = document.getElementById("st-list");
-        if (list) list.setAttribute("aria-labelledby", "st-tab-" + id);
+        if (list) list.setAttribute("aria-labelledby", "st-tab-" + current);
         renderHead();
         closeEditor();
-        watch();
+        if (reload) watch();
     }
+
+    function onHashChange() {
+        const prev = current;
+        readHash();
+        applyClass(prev !== current);
+        if (prev === current) render();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    window.addEventListener("hashchange", onHashChange);
 
     /* ---------- แสดงรายการ ---------- */
     let entries = [];
+    let loaded = false;   // โหลดข้อมูลของอาชีพปัจจุบันครบแล้วหรือยัง
+
+    // ข้อความย่อสำหรับการ์ดในรายการ
+    function excerpt(e, n) {
+        let s = String(e.body || "");
+        if (!s) {
+            const b = normalizeBlocks(e.blocks).find(x => x.text);
+            s = b ? b.text : "";
+        }
+        s = s.replace(/\s+/g, " ").trim();
+        return s.length > n ? s.slice(0, n).trim() + "…" : s;
+    }
+
+    // ภาพแรกที่ใช้ได้ ใช้เป็นรูปย่อบนการ์ด
+    function coverOf(e) {
+        const b = normalizeBlocks(e.blocks).find(x => safeImgSrc(x.img));
+        return b ? safeImgSrc(b.img) : safeImgSrc(e.img);
+    }
 
     function render() {
-        const list = document.getElementById("st-list");
-        const count = document.getElementById("st-count");
-        if (!list) return;
+        const wrap = document.getElementById("st-list");
+        if (!wrap) return;
 
+        // เปิดอ่านโพสต์เดียว
+        if (viewId) {
+            const e = entries.find(x => x.id === viewId);
+            if (e) { renderDetail(wrap, e); return; }
+            // ยังโหลดข้อมูลไม่เสร็จ ให้รอ listener เรียก render อีกรอบ
+            // (ต้องเช็ก loaded ไม่ใช่ entries.length ไม่งั้นคลาสที่ยังว่างจะค้างหน้าเปล่า)
+            if (!loaded) { wrap.innerHTML = ""; return; }
+            wrap.innerHTML = `<div class="st-empty">
+                <h3>ไม่พบโพสต์นี้</h3>
+                <p>โพสต์อาจถูกลบไปแล้ว หรือลิงก์ไม่ถูกต้อง</p>
+                <button class="st-act" id="st-back-empty" type="button">← กลับไปรายการทั้งหมด</button>
+            </div>`;
+            const back = document.getElementById("st-back-empty");
+            if (back) back.addEventListener("click", () => goto(current, null));
+            return;
+        }
+
+        renderList(wrap);
+    }
+
+    function renderList(wrap) {
+        const count = document.getElementById("st-count");
         if (count) count.textContent = entries.length ? entries.length + " รายการ" : "";
 
+        const add = document.getElementById("st-add");
+        if (add) add.style.display = "";
+
         if (!entries.length) {
-            list.innerHTML = `<div class="st-empty">
+            wrap.innerHTML = `<div class="st-empty">
                 <h3>ยังไม่มีคอมโบหรือบิลด์ของอาชีพนี้</h3>
                 <p>เป็นคนแรกที่แชร์คอมโบ เซตอุปกรณ์ หรือแนวทางลงสกิลของ ${esc(CLASSES.find(c => c.id === current).name)}
                    กด “แชร์คอมโบ / บิลด์” ด้านบนได้เลย</p>
@@ -185,22 +256,55 @@
             return;
         }
 
-        list.innerHTML = entries.map(e => {
+        wrap.innerHTML = `<div class="st-cards">` + entries.map(e => {
+            const cover = coverOf(e);
+            const n = normalizeBlocks(e.blocks).length;
             const mine = ownsEntry(e.id, e.tok);
-            const legacyImg = safeImgSrc(e.img);   // โพสต์รุ่นเก่าที่มีรูปเดียว
-            const blocks = normalizeBlocks(e.blocks);
+            return `<a class="st-card" href="#${esc(current)}/${encodeURIComponent(e.id)}">
+                <span class="st-card-thumb">
+                    ${cover ? `<img src="${esc(cover)}" alt="" loading="lazy"
+                                onerror="this.parentNode.classList.add('is-blank');this.remove()">`
+                            : `<span class="st-card-noimg">ไม่มีรูป</span>`}
+                    ${n > 1 ? `<span class="st-card-count">${n} ภาพ</span>` : ""}
+                </span>
+                <span class="st-card-body">
+                    <span class="st-card-title">${esc(e.title)}</span>
+                    <span class="st-card-meta">
+                        <span class="st-author">${esc(e.author || "ผู้เล่นนิรนาม")}</span>
+                        <span class="st-dot">·</span>${esc(timeAgo(e.ts))}
+                        ${e.edited ? '<span class="st-dot">·</span><span class="st-edited">แก้ไขแล้ว</span>' : ""}
+                        ${mine ? '<span class="st-dot">·</span><span class="st-mine">โพสต์ของคุณ</span>' : ""}
+                    </span>
+                    <span class="st-card-excerpt">${esc(excerpt(e, 110))}</span>
+                    <span class="st-card-more">อ่านต่อ →</span>
+                </span>
+            </a>`;
+        }).join("") + `</div>`;
+    }
 
-            const blocksHtml = blocks.map((b, i) => {
-                const src = safeImgSrc(b.img);
-                if (!src && !b.text) return "";
-                return `<div class="st-block">
-                    ${src ? `<div class="st-entry-img"><img src="${esc(src)}" alt="${esc(e.title)} — ภาพที่ ${i + 1}" loading="lazy"
-                              onerror="this.closest('.st-entry-img').style.display='none'"></div>` : ""}
-                    ${b.text ? `<div class="st-entry-body">${nl2br(b.text)}</div>` : ""}
-                </div>`;
-            }).join("");
+    function renderDetail(wrap, e) {
+        const count = document.getElementById("st-count");
+        if (count) count.textContent = "";
+        const add = document.getElementById("st-add");
+        if (add) add.style.display = "none";   // ในหน้าอ่าน ไม่ต้องมีปุ่มเขียนใหม่
 
-            return `<article class="st-entry" id="e-${esc(e.id)}">
+        const mine = ownsEntry(e.id, e.tok);
+        const legacyImg = safeImgSrc(e.img);
+        const blocks = normalizeBlocks(e.blocks);
+
+        const blocksHtml = blocks.map((b, i) => {
+            const src = safeImgSrc(b.img);
+            if (!src && !b.text) return "";
+            return `<div class="st-block">
+                ${src ? `<div class="st-entry-img"><img src="${esc(src)}" alt="${esc(e.title)} — ภาพที่ ${i + 1}" loading="lazy"
+                          onerror="this.closest('.st-entry-img').style.display='none'"></div>` : ""}
+                ${b.text ? `<div class="st-entry-body">${nl2br(b.text)}</div>` : ""}
+            </div>`;
+        }).join("");
+
+        wrap.innerHTML = `
+            <button class="st-back" id="st-back" type="button">← กลับไปรายการทั้งหมด</button>
+            <article class="st-entry st-entry-full" id="e-${esc(e.id)}">
                 <header class="st-entry-head">
                     <h3>${esc(e.title)}</h3>
                     <div class="st-meta">
@@ -213,7 +317,7 @@
                 </header>
                 ${legacyImg && !blocks.length ? `<div class="st-entry-img"><img src="${esc(legacyImg)}" alt="${esc(e.title)}" loading="lazy"
                           onerror="this.closest('.st-entry-img').style.display='none'"></div>` : ""}
-                ${e.body ? `<div class="st-entry-body">${nl2br(e.body)}</div>` : ""}
+                ${e.body ? `<div class="st-entry-body st-lead">${nl2br(e.body)}</div>` : ""}
                 ${blocksHtml}
                 <footer class="st-entry-foot">
                     ${mine ? `<button class="st-act" data-edit="${esc(e.id)}" type="button">แก้ไข</button>`
@@ -221,11 +325,11 @@
                     ${isOwner ? `<button class="st-act st-act-del" data-del="${esc(e.id)}" type="button">ลบ (ผู้ดูแล)</button>` : ""}
                 </footer>
             </article>`;
-        }).join("");
 
-        list.querySelectorAll("[data-edit]").forEach(b =>
+        document.getElementById("st-back").addEventListener("click", () => goto(current, null));
+        wrap.querySelectorAll("[data-edit]").forEach(b =>
             b.addEventListener("click", () => openEditor(entries.find(x => x.id === b.dataset.edit))));
-        list.querySelectorAll("[data-del]").forEach(b =>
+        wrap.querySelectorAll("[data-del]").forEach(b =>
             b.addEventListener("click", () => removeEntry(b.dataset.del)));
     }
 
@@ -479,6 +583,7 @@
         if (!ready) return;
         if (ref) ref.off();
         entries = [];
+        loaded = false;
         render();
         setStatus("กำลังโหลดข้อมูล…");
         ref = db.ref(DB_PATH + "/" + current);
@@ -494,6 +599,7 @@
             });
             out.sort((a, b) => (b.ts || 0) - (a.ts || 0));
             entries = out;
+            loaded = true;
             setStatus("");
             render();
         }, () => {
@@ -540,10 +646,11 @@
         };
         if (clean.length) payload.blocks = clean;
 
-        let p;
+        let p, savedId;
         if (entry && ownsEntry(entry.id, entry.tok)) {
             payload.tok = entry.tok;
             payload.edited = true;
+            savedId = entry.id;
             p = db.ref(DB_PATH + "/" + current + "/" + entry.id).set(payload);
         } else {
             const tok = newToken();
@@ -552,10 +659,12 @@
             // จำ token ก่อนเขียน เพราะ listener อาจ re-render ทันทีที่ข้อมูลเข้า
             // ถ้าจำทีหลังจะยังไม่รู้ว่าเป็นโพสต์ของเรา ปุ่มแก้ไข/ลบจะไม่ขึ้น
             rememberToken(node.key, tok);
+            savedId = node.key;
             p = node.set(payload);
         }
 
-        p.then(() => { closeEditor(); })
+        // บันทึกเสร็จแล้วพาไปหน้าอ่านของโพสต์นั้นเลย จะได้เห็นผลลัพธ์เต็ม ๆ
+        p.then(() => { closeEditor(); goto(current, savedId); })
          .catch(err => { msg.textContent = writeErrorText(err); });
     }
 
@@ -580,7 +689,9 @@
         const e = entries.find(x => x.id === id);
         if (!e) return;
         if (!confirm('ลบ "' + e.title + '" ออกจากเว็บ?')) return;
-        db.ref(DB_PATH + "/" + current + "/" + id).remove().catch(err => {
+        db.ref(DB_PATH + "/" + current + "/" + id).remove()
+          .then(() => { if (viewId === id) goto(current, null); })  // ลบจากหน้าอ่าน → กลับไปรายการ
+          .catch(err => {
             const code = String((err && (err.code || err.message)) || "").toUpperCase();
             setStatus(code.indexOf("PERMISSION_DENIED") > -1
                 ? "ลบไม่สำเร็จ — Rules ยังไม่อนุญาตให้ UID นี้ลบ ตรวจสอบว่าใส่ UID ผู้ดูแลใน Rules แล้ว"
