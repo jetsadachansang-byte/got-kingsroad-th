@@ -15,6 +15,34 @@
     document.body.classList.add("intro-lock");
     intro.classList.add("is-active");
 
+    /* ---------- กันโฟกัส/สกรีนรีดเดอร์หลุดไปหลังฉาก ----------
+       layout.js แทนที่ #site-header/#site-footer ด้วย <header>/<footer> จริง
+       ก่อน intro.js ทำงาน (สคริปต์ถูกโหลดตามลำดับ) จึงต้องหาแบบ selector */
+    const hidden = [];
+    ["header", "#main-content", "footer"].forEach(function (sel) {
+        const el = document.querySelector(sel);
+        if (el && !el.hasAttribute("aria-hidden")) {
+            el.setAttribute("aria-hidden", "true");
+            hidden.push(el);
+        }
+    });
+    const skipLink = document.querySelector(".skip-link");
+    if (skipLink) { skipLink.setAttribute("tabindex", "-1"); }
+
+    const enterBtn = document.getElementById("introEnter");
+    const skipBtn = document.getElementById("introSkip");
+    (enterBtn || intro).focus();
+
+    function trapTab(e) {
+        if (e.key !== "Tab" || !enterBtn || !skipBtn) return;
+        if (e.shiftKey && document.activeElement === enterBtn) {
+            e.preventDefault(); skipBtn.focus();
+        } else if (!e.shiftKey && document.activeElement === skipBtn) {
+            e.preventDefault(); enterBtn.focus();
+        }
+    }
+    intro.addEventListener("keydown", trapTab);
+
     /* ---------- หิมะตก (สร้างด้วย JS แบบเบา) ---------- */
     const snow = intro.querySelector(".intro-snow");
     if (snow) {
@@ -57,6 +85,9 @@
         clearTimeout(timer);
         try { sessionStorage.setItem("gk-intro", "1"); } catch (e) {}
         window.removeEventListener("mousemove", onMove);
+        intro.removeEventListener("keydown", trapTab);
+        hidden.forEach(function (el) { el.removeAttribute("aria-hidden"); });
+        if (skipLink) { skipLink.removeAttribute("tabindex"); }
         intro.classList.add("is-hiding");
         setTimeout(function () {
             intro.classList.remove("is-active", "is-hiding");
@@ -65,10 +96,8 @@
         }, 850);
     }
 
-    const enter = document.getElementById("introEnter");
-    const skip = document.getElementById("introSkip");
-    if (enter) enter.addEventListener("click", dismiss);
-    if (skip) skip.addEventListener("click", dismiss);
+    if (enterBtn) enterBtn.addEventListener("click", dismiss);
+    if (skipBtn) skipBtn.addEventListener("click", dismiss);
     intro.addEventListener("wheel", dismiss, { passive: true });
     intro.addEventListener("touchmove", dismiss, { passive: true });
     window.addEventListener("keydown", function (e) {
