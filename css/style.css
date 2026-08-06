@@ -303,7 +303,8 @@ nav ul > li > .active::after {
     box-shadow: 0 15px 40px rgba(0, 0, 0, .4);
 }
 
-.dropdown:hover .dropdown-menu {
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
     display: block;
 }
 
@@ -3430,6 +3431,19 @@ nav ul > li > a {
 
 .skip-link:focus {
     top: 1rem;
+}
+
+/* Visually hidden but readable by screen readers / search engines */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 a:focus-visible,

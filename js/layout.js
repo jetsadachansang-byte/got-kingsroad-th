@@ -168,7 +168,7 @@ window.gkUpdatePageMeta = gkUpdatePageMeta;
         </nav>
 
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="ค้นหาข่าว คู่มือ บอส ไอเทม...">
+            <input type="text" id="searchInput" placeholder="ค้นหาข่าว คู่มือ บอส ไอเทม..." aria-label="ค้นหาข่าว คู่มือ บอส ไอเทม">
             <button id="searchBtn" aria-label="ค้นหา"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
         </div>
 
