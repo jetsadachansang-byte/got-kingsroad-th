@@ -435,15 +435,17 @@
                     </span>
                 </div>
                 <div class="st-imgrow">
-                    <input type="file" id="st-b-file-${i}" accept="image/*" class="st-file" data-file="${i}">
+                    <input type="file" id="st-b-file-${i}" accept="image/*" class="st-file" data-file="${i}" aria-label="อัปโหลดไฟล์รูปภาพที่ ${i + 1}">
                     <span class="st-or">หรือ</span>
                     <input class="st-input st-url" id="st-b-url-${i}" data-url="${i}" placeholder="วางลิงก์รูป https://…"
+                           aria-label="ลิงก์รูปภาพที่ ${i + 1}"
                            value="${/^https:/i.test(b.img) ? esc(b.img) : ""}">
                 </div>
                 <div class="st-preview" id="st-b-prev-${i}">
                     ${src ? `<img src="${esc(src)}" alt="ตัวอย่างภาพที่ ${i + 1}">${isData ? '<span class="st-hint">รูปที่อัปโหลดแล้ว (ย่อขนาดอัตโนมัติ)</span>' : ""}` : ""}
                 </div>
                 <textarea class="st-input st-blocktext" id="st-b-text-${i}" rows="3" maxlength="${MAX_BODY}"
+                          aria-label="คำอธิบายของภาพที่ ${i + 1}"
                           placeholder="คำอธิบายของภาพนี้ เช่น กดสกิลอะไรต่อจากอะไร จังหวะไหน…">${esc(b.text)}</textarea>
             </div>`;
         }).join("");
@@ -718,8 +720,8 @@
         if (!bar) return;
         bar.innerHTML = `
             <form class="st-login" id="st-loginform">
-                <input class="st-input" id="st-email" type="email" placeholder="อีเมลผู้ดูแล" autocomplete="username" required>
-                <input class="st-input" id="st-pass" type="password" placeholder="รหัสผ่าน" autocomplete="current-password" required>
+                <input class="st-input" id="st-email" type="email" placeholder="อีเมลผู้ดูแล" aria-label="อีเมลผู้ดูแล" autocomplete="username" required>
+                <input class="st-input" id="st-pass" type="password" placeholder="รหัสผ่าน" aria-label="รหัสผ่าน" autocomplete="current-password" required>
                 <button class="st-act" type="submit">เข้าสู่ระบบ</button>
                 <button class="st-act" type="button" id="st-logincancel">ยกเลิก</button>
                 <span class="st-loginmsg" id="st-loginmsg"></span>
