@@ -33,8 +33,26 @@
     ============================================================ */
 
     const UPDATES = {
+        "update-0807": {
+            kind: "current", icon: IC.spark, date: "7 ส.ค. 2026", status: "ล่าสุด • วิเคราะห์เมต้า",
+            title: "จัดกลุ่มอันดับใหม่ + เมต้า Elite Hideout สัปดาห์ 2-3",
+            subtitle: "Meca Ranking: Banner Re-assembly & Elite Hideout Meta",
+            summary: "หลังจัดกลุ่มอันดับใหม่ (Banner Re-assembly) ช่องว่างคะแนนผู้เล่นแคบลงชัดเจน ส่วน Elite Hideout คลาส Sellsword ไล่ตาม Knight/Assassin ทัน และวัตถุโบราณ Maester Corso's Letter กลายเป็นตัวเลือกเมต้ายอดนิยม",
+            body: [
+                { h: "จัดกลุ่มอันดับใหม่ (Banner Re-assembly) ช่องว่างแคบลง" },
+                { p: "หลังกิจกรรมจัดกลุ่มอันดับใหม่ (Banner Re-assembly) ของระบบ House Allegiance ช่องว่างคะแนนระหว่างผู้เล่นกลุ่มบนและกลุ่มล่างของตารางแคบลงชัดเจน จุดตัดเข้ากลุ่ม Top 100 ขยับขึ้นไปอยู่ที่ 172,033 คะแนนโมเมนตัม ส่วนต่างระหว่างกลุ่ม Top 10% กับ Bottom 10% หดเหลือ 51,118 คะแนน สะท้อนว่าผู้เล่นไล่ตามกันสูสีขึ้นเมื่อเข้าสู่ช่วงสัปดาห์ที่ 2-3 ของซีซัน" },
+                { p: "อันดับ 'Chief' (ระดับสูงสุด) ยังคงแข่งขันกันดุเดือด ในขณะที่อันดับ 'Greatsword' รองลงมาเริ่มไต่อันดับได้ช้าลงเมื่อเทียบกับสัปดาห์แรก" },
+                { h: "วิเคราะห์เมต้า Elite Hideout: Sellsword ไล่ตามทัน" },
+                { p: "รายงานวิเคราะห์อันดับ Elite Hideout ล่าสุดจาก Gamemeca ระบุว่าคลาส Sellsword (ต้นฉบับอังกฤษเรียก 'Mercenary') ไต่ขึ้นมาอีก 4 คนในกลุ่ม Top 100 จนสัดส่วนคลาสในกลุ่ม Top 100 เกือบสมดุล คือ Sellsword 34 คน, Knight 33 คน และ Assassin 33 คน โดยรวม Knight ยังครองความได้เปรียบในดันเจียน Raid ทั่วไป ส่วน Sellsword มาแรงในดันเจียน Elite Hideout" },
+                { p: "ดันเจียน Elite Hideout ประจำสัปดาห์นี้คือ 'Old Town: Shaded Monastery' — ต้องเคลียร์ถึงชั้น 15 ภายใน 10 นาทีเพื่อติด Top 100 และเคลียร์ชั้น 20 ภายใน 5 นาทีเพื่อติด Top 10" },
+                { h: "วัตถุโบราณเมต้า: Maester Corso's Letter" },
+                { p: "วัตถุโบราณ (Artifact) 'Maester Corso's Letter' กำลังมาแรงเป็นตัวเลือกยอดนิยมของทุกคลาส เพิ่มอัตราสะสม Rage 1.0% และเพิ่มดาเมจสูงสุด 40% ตามปริมาณ Rage สะสม เหมาะกับบิลด์สายรุกที่รักษาค่า Rage ไว้สูงตลอดการต่อสู้ อัตราการใช้งานล่าสุด: Assassin ใช้มากสุดราว 50% ส่วน Knight และ Sellsword ใช้ราว 30% — เมื่อเทียบกับวัตถุโบราณใหม่ 'Broken Sword' จะแรงกว่าตอน Rage ต่ำกว่า 200 แต่ต่ำกว่านั้น Maester Corso's Letter ยังได้เปรียบอยู่" },
+                { p: "หมายเหตุ: เนื้อหาส่วนนี้เป็นการวิเคราะห์อันดับ/เมต้าจากสื่อเกม (Gamemeca) ไม่ใช่ประกาศแพตช์ทางการจาก Netmarble ตัวเลขและอันดับอาจเปลี่ยนแปลงได้ตลอดช่วงที่เหลือของซีซัน" }
+            ],
+            source: { label: "Gamemeca — Meca Ranking (Group Reorganization / Elite Hideout)", url: "https://www.gamemeca.com/en/view.php?gid=1778123" }
+        },
         "update-0801": {
-            kind: "current", icon: IC.group, date: "1 ส.ค. 2026", status: "ล่าสุด • สรุปข่าว",
+            kind: "current", icon: IC.group, date: "1 ส.ค. 2026", status: "สรุปข่าว",
             title: "สรุปซีซัน 1 สัปดาห์แรก + ประกาศปรับสกุลเงิน",
             subtitle: "Week 1 House Ranking Recap & Currency Update",
             summary: "ผลจัดอันดับตระกูลสัปดาห์แรกของ Frost and Steel (House Hornwood ขึ้นนำ) และประกาศปรับระบบสกุลเงิน Iron Bank Marks เตรียมปิดช่องทางเติมเงิน 19 ส.ค. 2026",
@@ -50,7 +68,7 @@
             source: { label: "Gamemeca — House Rankings / Global Talk (สัปดาห์ 1 ส.ค. 2026)", url: "https://www.gamemeca.com/en/view.php?gid=1778233" }
         },
         "patch-0729": {
-            kind: "current", icon: IC.notes, date: "29 ก.ค. 2026", status: "ล่าสุด • อัปเดต",
+            kind: "current", icon: IC.notes, date: "29 ก.ค. 2026", status: "อัปเดต",
             title: "อัปเดต 29 ก.ค. 2026",
             subtitle: "ประกาศแจ้งรายละเอียดอัปเดต (Patch Notes)",
             summary: "ขยายระดับความยากเวิลด์ Lv.5, เปิดหน้าต่างเปลี่ยนตระกูลซีซัน, เพิ่ม 'พื้นที่ไร้ขอบเขต' ในวอร์มวอล์คซีซัน พร้อมรายการปรับปรุงและแก้บั๊กหลายรายการ",
@@ -254,7 +272,7 @@
         }
     };
 
-    const CURRENT = ["update-0801", "patch-0729", "frost-and-steel", "global-launch"];
+    const CURRENT = ["update-0807", "update-0801", "patch-0729", "frost-and-steel", "global-launch"];
     const PLAN = ["artifact-jewelry-rework", "market-system", "story-chapter-4", "harrenhal-pve", "graphics-rework", "hard-mode"];
 
     /* ============================================================
