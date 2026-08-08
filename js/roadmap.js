@@ -33,8 +33,24 @@
     ============================================================ */
 
     const UPDATES = {
+        "patch-0808": {
+            kind: "current", icon: IC.notes, date: "8 ส.ค. 2026", status: "ล่าสุด • แก้บั๊ก",
+            title: "แพตช์ย่อยแก้เกมแครชบน PC",
+            subtitle: "8/7 Patch Notes (Hotfix)",
+            summary: "แพตช์ย่อยจาก Netmarble มีผลตั้งแต่คืน 7 ส.ค. (เวลาไทยราวเที่ยง 8 ส.ค. 2026) แก้ปัญหาเกมแครชบนเวอร์ชัน PC มีผลทั้ง PC และมือถือ (iOS)",
+            body: [
+                { p: "Netmarble ปล่อยแพตช์ย่อย (hotfix) มีผลตั้งแต่ 7 ส.ค. 2026 เวลา 22:40 น. (PT) ซึ่งตรงกับราวเที่ยงวันที่ 8 ส.ค. 2026 ตามเวลาไทย" },
+                { h: "รายละเอียดการแก้ไข" },
+                { list: [
+                    "แก้ปัญหาที่เกมอาจแครชในบางกรณีบนเวอร์ชัน PC",
+                    "แพตช์มีผลกับทั้งเวอร์ชัน PC และมือถือ (iOS)"
+                ]},
+                { p: "หมายเหตุ: เป็นแพตช์ย่อยแก้บั๊กเฉพาะจุด ยังไม่มีรายละเอียดอื่นเพิ่มเติมในประกาศทางการ ณ ขณะอัปเดตหน้านี้ — ยังไม่พบประกาศฉบับเต็มบน Netmarble Forum TH" }
+            ],
+            source: { label: "Steam News — Game of Thrones: Kingsroad 8/7 Patch Notes", url: "https://store.steampowered.com/news/app/3183280/view/536609788663955893" }
+        },
         "update-0807": {
-            kind: "current", icon: IC.spark, date: "7 ส.ค. 2026", status: "ล่าสุด • วิเคราะห์เมต้า",
+            kind: "current", icon: IC.spark, date: "7 ส.ค. 2026", status: "วิเคราะห์เมต้า",
             title: "จัดกลุ่มอันดับใหม่ + เมต้า Elite Hideout สัปดาห์ 2-3",
             subtitle: "Meca Ranking: Banner Re-assembly & Elite Hideout Meta",
             summary: "หลังจัดกลุ่มอันดับใหม่ (Banner Re-assembly) ช่องว่างคะแนนผู้เล่นแคบลงชัดเจน ส่วน Elite Hideout คลาส Sellsword ไล่ตาม Knight/Assassin ทัน และวัตถุโบราณ Maester Corso's Letter กลายเป็นตัวเลือกเมต้ายอดนิยม",
@@ -272,7 +288,7 @@
         }
     };
 
-    const CURRENT = ["update-0807", "update-0801", "patch-0729", "frost-and-steel", "global-launch"];
+    const CURRENT = ["patch-0808", "update-0807", "update-0801", "patch-0729", "frost-and-steel", "global-launch"];
     const PLAN = ["artifact-jewelry-rework", "market-system", "story-chapter-4", "harrenhal-pve", "graphics-rework", "hard-mode"];
 
     /* ============================================================
