@@ -211,15 +211,27 @@
         ============================================================ */
 
         "story-chapter-4": {
-            kind: "plan", icon: IC.scroll, date: "แผนพัฒนา", status: "ยังไม่เข้าเกม",
-            title: "บทที่ 4: Casterly Rock",
-            subtitle: "เนื้อเรื่องบทใหม่",
-            summary: "เนื้อเรื่องบทที่ 4 เริ่มเมื่อฮีโร่ถูกจองจำใน Casterly Rock ภายใต้ House Lannister",
+            kind: "plan", icon: IC.scroll, date: "19 ส.ค. 2026 (ยืนยันวันที่แล้ว)", status: "ประกาศกำหนดการแล้ว",
+            title: "อัปเดตใหญ่ Westerlands & Casterly Rock (19 ส.ค. 2026)",
+            subtitle: "เนื้อเรื่องบทที่ 4 + ขยับเพดานเลเวล + ปรับสกุลเงิน",
+            summary: "Netmarble ยืนยันวันที่อัปเดตใหญ่ถัดไป 19 ส.ค. 2026 — พื้นที่ใหม่ Westerlands (Lannisport, Casterly Rock) เนื้อเรื่องบทที่ 4 ตระกูล Lannister ปลดล็อกระดับความยากเวิลด์ 6-7 อุปกรณ์ Tier 5 พร้อมยกเลิก Iron Bank Coin เปลี่ยนเป็น Dragon Gold ที่หาได้จากการเล่น",
             body: [
-                { p: "เกมจะได้รับเนื้อเรื่องบทที่ 4 โดยเรื่องราวใหม่เริ่มต้นด้วยการที่ฮีโร่ถูกจองจำใน Casterly Rock ภายใต้การปกครองของ House Lannister" },
-                { p: "เหตุการณ์นี้จะกลายเป็นจุดเริ่มต้นของความขัดแย้งใหม่และทางแยกของเนื้อเรื่อง ต่อยอดจากเนื้อเรื่องหลักที่ผ่านมา" }
+                { p: "ตามสารจากผู้พัฒนา 'Developer Note: 2026 Update Preview' บน Netmarble Forum ยืนยันวันที่อัปเดตใหญ่ถัดไปคือ 19 ส.ค. 2026 (นับเป็นอัปเดตใหญ่หลัง Season 1: Frost and Steel) — ข้อมูลด้านล่างมาจากประกาศล่วงหน้าและรายงานสื่อเกม (Gamemeca) อาจมีรายละเอียดปลีกย่อยเปลี่ยนแปลงได้ก่อนแพตช์จริง" },
+                { h: "พื้นที่ใหม่: Westerlands" },
+                { p: "เปิดภูมิภาค Westerlands ดินแดนที่ร่ำรวยทองคำและเงินที่สุดของ Westeros มาพร้อมเมือง 'Lannisport' และป้อมปราการ 'Casterly Rock' ที่ไม่เคยถูกตีแตก" },
+                { h: "เนื้อเรื่องบทที่ 4 — House Lannister" },
+                { p: "เนื้อเรื่องบทใหม่เริ่มต้นด้วยฮีโร่ถูกจองจำใน Casterly Rock ภายใต้การปกครองของ House Lannister ปูทางความขัดแย้งใหม่ต่อจากเนื้อเรื่องหลักที่ผ่านมา ตัวละครสำคัญที่จะปรากฏตัว ได้แก่ Tywin Lannister (ผู้ปกครอง Westerlands), Jaime Lannister (Kingslayer ที่เคยเจอในเนื้อเรื่องก่อนหน้า) และ Tyrion Lannister" },
+                { h: "ขยับเพดานเลเวล: Tier 5 + ระดับความยาก 6-7" },
+                { list: [
+                    "ปลดล็อกระดับความยากเวิลด์ (World Difficulty) 6 และ 7",
+                    "เพิ่มอุปกรณ์ระดับ Tier 5 (จากปัจจุบันสูงสุด Tier 4)",
+                    "คอนเทนต์ท้าทายใหม่: 'Challenge Worm Road' และดันเจียน Limit Break"
+                ]},
+                { h: "ปรับระบบสกุลเงิน: เลิก Iron Bank Coin → Dragon Gold" },
+                { p: "สอดคล้องกับประกาศปิดช่องทางเติมเงิน Iron Bank Marks ตั้งแต่ 19 ส.ค. 2026 ที่แจ้งไว้ก่อนหน้า — รายงานล่าสุดระบุว่า Iron Bank Coin (สกุลเงินที่เดิมได้จากการซื้อเท่านั้น) จะถูกยกเลิก แทนที่ด้วย 'Dragon Gold' ที่หาได้จากการเล่นเกม พร้อมปรับอัตราการได้รับ Dragon Gold ให้สูงขึ้น" },
+                { p: "หมายเหตุ: บางรายงานยังระบุด้วยว่าซีซันปกติ (regular season) จะปรับให้สั้นลงเหลือ 4 สัปดาห์ (จากเดิม 6 สัปดาห์ของ Frost and Steel) เพื่อลดความล้าของผู้เล่น — ยังไม่มีประกาศทางการฉบับเต็มยืนยันจุดนี้ ณ ขณะอัปเดตหน้านี้ ควรตรวจสอบอีกครั้งเมื่อใกล้วันที่ 19 ส.ค." }
             ],
-            source: { label: "Developer Note: 2026 Update Preview", url: "https://forum.netmarble.com/got/view/12/216" }
+            source: { label: "Netmarble Forum — Developer Note: 2026 Update Preview / Gamemeca", url: "https://forum.netmarble.com/got/view/12/216" }
         },
         "harrenhal-pve": {
             kind: "plan", icon: IC.group, date: "แผนพัฒนา", status: "ยังไม่เข้าเกม",
