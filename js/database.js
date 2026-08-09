@@ -39,6 +39,7 @@
         notes626: { label: "Netmarble — 6/26 Update Notes", url: "https://forum.netmarble.com/got/view/4/110" },
         frost:    { label: "Inven Global — Frost and Steel", url: "https://www.invenglobal.com/articles/23790/game-of-thrones-kingsroad-season-1-frost-and-steel-update" },
         patch729: { label: "Netmarble TH — ประกาศอัปเดต 29 ก.ค.", url: "https://forum.netmarble.com/got_th/view/4/211" },
+        westerlands: { label: "Gamemeca — Westerlands / Tyrion Update Preview (19 ส.ค. 2026)", url: "https://www.gamemeca.com/en/view.php?gid=1778894" },
         creatures:{ label: "WinterIsComing / BleedingCool — Creatures", url: "https://winteriscoming.net/check-out-the-monsters-and-bosses-you-ll-fight-in-game-of-thrones-kingsroad" },
         gmKnight: { label: "Gamemeca — Class/Combat Tips", url: "https://www.gamemeca.com/en/view.php?gid=1777355" },
         gmHide:   { label: "Gamemeca — Faction Hideout", url: "https://www.gamemeca.com/en/view.php?gid=1777780" },
@@ -241,9 +242,11 @@
                 ]},
                 { h: "ทะลุขีดจำกัด (Limit Break)" },
                 { p: "ทะลุขีดจำกัด ขั้น 5 — พลังต่อสู้ (Combat Power) ที่แนะนำอยู่ที่ 132,000 ขึ้นไป จึงจะพร้อมสำหรับ World Lv.5" },
+                { h: "กำลังจะมา: Lv.6 และ Lv.7 (19 ส.ค. 2026)" },
+                { p: "อัปเดตแคว้น Westerlands ที่มีกำหนด 19 ส.ค. 2026 จะปลดล็อกระดับความยากเวิลด์เพิ่มอีก 2 ขั้น (Lv.6 และ Lv.7) พร้อมอุปกรณ์ Tier 5 — ยังไม่เข้าเกม ณ ขณะที่อัปเดตหน้านี้" },
                 { p: "หมายเหตุเวอร์ชัน: ระดับความยากขั้นสูงบางระดับ (เช่น Hedge Knight III ที่ต้องใช้ Momentum สูงมากและดรอป Tier สูง) เคยปรากฏบนไทม์ไลน์เซิร์ฟเวอร์รุ่นก่อน สำหรับเซิร์ฟเวอร์ปัจจุบันที่อุปกรณ์สูงสุดยังอยู่ที่ Tier 4 ระดับความยากจะทยอยเปิดตามอัปเดต" }
             ],
-            sources: [SRC.patch729, SRC.frost]
+            sources: [SRC.patch729, SRC.westerlands, SRC.frost]
         },
 
         /* ---------------- แผนที่ / สถานที่ ---------------- */
@@ -395,9 +398,11 @@
             ],
             body: [
                 { p: "นอกจาก Grade แล้ว อุปกรณ์ยังแบ่งเป็น Tier ยิ่ง Tier สูงยิ่งแรง บนเซิร์ฟเวอร์ปัจจุบัน (เปิด 21 พ.ค. 2026) อุปกรณ์ระดับสูงสุดอยู่ที่ Legendary Tier 4 และ Tier ที่สูงขึ้นจะทยอยเพิ่มตามอัปเดต" },
-                { p: "ควรอัปเกรด/Refine ให้ทันเลเวลเสมอ เพื่อไม่ให้ค่าพลังรวม (Momentum) ตกหลัง" }
+                { p: "ควรอัปเกรด/Refine ให้ทันเลเวลเสมอ เพื่อไม่ให้ค่าพลังรวม (Momentum) ตกหลัง" },
+                { h: "กำลังจะมา: Tier 5 (19 ส.ค. 2026)" },
+                { p: "อัปเดตแคว้น Westerlands ที่มีกำหนด 19 ส.ค. 2026 จะเพิ่มอุปกรณ์ Tier 5 ขยายเพดานจาก Tier 4 ในปัจจุบัน — ยังไม่เข้าเกม ณ ขณะที่อัปเดตหน้านี้ ดูรายละเอียดที่หน้า Roadmap" }
             ],
-            sources: [SRC.gmKnight, SRC.eqGuide]
+            sources: [SRC.gmKnight, SRC.eqGuide, SRC.westerlands]
         },
         "equipment-slots": {
             cat: "eq-system", icon: IC.gear, name: "Equipment Slots", nameTh: "ช่องสวมใส่อุปกรณ์",

@@ -301,7 +301,7 @@
     };
 
     const CURRENT = ["patch-0808", "update-0807", "update-0801", "patch-0729", "frost-and-steel", "global-launch"];
-    const PLAN = ["artifact-jewelry-rework", "market-system", "story-chapter-4", "harrenhal-pve", "graphics-rework", "hard-mode"];
+    const PLAN = ["story-chapter-4", "artifact-jewelry-rework", "market-system", "harrenhal-pve", "graphics-rework", "hard-mode"];
 
     /* ============================================================
        ตัวเรนเดอร์ (ไม่ต้องแก้)
