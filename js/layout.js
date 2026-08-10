@@ -158,6 +158,7 @@ window.gkUpdatePageMeta = gkUpdatePageMeta;
         <a href="index.html" class="logo">
             <img src="images/logo/got-header.webp"
                  class="logo-image"
+                 width="844" height="492"
                  alt="Game of Thrones Kingsroad Thailand">
         </a>
 
