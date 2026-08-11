@@ -54,7 +54,10 @@ document.addEventListener("DOMContentLoaded", () => {
             "ฟาร์ม": "guide.html",
             "build": "guide.html",
             "คำนวณ": "calculator.html",
-            "calculator": "calculator.html"
+            "calculator": "calculator.html",
+            "combo": "combo.html",
+            "คอมโบ": "combo.html",
+            "สกิลทรี": "combo.html"
         };
 
         for (const key in routes) {

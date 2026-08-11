@@ -64,7 +64,7 @@
         /* ---------------- บอส ---------------- */
         "drogon": {
             cat: "boss", icon: IC.boss, name: "Drogon", nameTh: "มังกรของ Daenerys Targaryen",
-            tags: ["World Boss", "Winterfell", "Dragon"],
+            tags: ["World Boss", "Winterfell", "Dragon"], confidence: "Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "World Boss มังกรดำของ Daenerys Targaryen เกิดเป็นเวลาใกล้ Winterfell ให้รางวัลสกุลเงินพรีเมียมและวัสดุหายาก",
             meta: [
                 { k: "ประเภท", v: "World Boss" },
@@ -87,7 +87,7 @@
         },
         "shadow-drogon": {
             cat: "boss", icon: IC.boss, name: "Shadow Drogon", nameTh: "โดรกอน เงามืด (เวิลด์บอสความยากสูง)",
-            tags: ["World Boss", "World Lv.5", "Endgame"],
+            tags: ["World Boss", "World Lv.5", "Endgame"], confidence: "อยู่ระหว่างตรวจสอบ", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "เวิลด์บอสสายความยากสูงที่ผูกกับระดับความยากเวิลด์ Lv.5 ปรับเพิ่มรางวัลตามอัปเดต 29 ก.ค. 2026",
             meta: [
                 { k: "ประเภท", v: "World Boss (ความยากสูง)" },
@@ -104,7 +104,7 @@
         },
         "kraken": {
             cat: "boss", icon: IC.boss, name: "Kraken", nameTh: "อสูรทะเลแห่ง Iron Islands",
-            tags: ["Raid Boss", "Sunset Sea", "Co-op"],
+            tags: ["Raid Boss", "Sunset Sea", "Co-op"], confidence: "Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "Raid Boss ตัวแรกของเกม อสูรทะเลขนาดมหึมาใน Sunset Sea ต่อสู้แบบร่วมมือกลางทะเล",
             meta: [
                 { k: "ประเภท", v: "Raid Boss (บอสเรดตัวแรก)" },
@@ -127,7 +127,7 @@
         },
         "shadowcat": {
             cat: "boss", icon: IC.boss, name: "Shadowcat", nameTh: "เสือเงาแห่ง The Crow's Nest",
-            tags: ["Field Boss", "Stormlands"],
+            tags: ["Field Boss", "Stormlands"], confidence: "อยู่ระหว่างตรวจสอบ", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "อสูรร้ายในพื้นที่ The Crow's Nest แคว้น Stormlands (ข้อมูลรายละเอียดยังจำกัด)",
             meta: [
                 { k: "ประเภท", v: "Field Boss / อสูรประจำพื้นที่" },
@@ -143,7 +143,7 @@
         /* ---------------- ดันเจียน & เรด ---------------- */
         "wormwalks": {
             cat: "dungeon", icon: IC.dungeon, name: "Worm Walks", nameTh: "ดันเจียนศัตรูมนุษย์",
-            tags: ["Dungeon", "PvE"],
+            tags: ["Dungeon", "PvE"], confidence: "Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "ดันเจียนที่ศัตรูเป็นมนุษย์เป็นหลัก เหมาะกับสาย Parry โดยเฉพาะ Knight",
             meta: [
                 { k: "ประเภท", v: "Dungeon (PvE)" },
@@ -160,7 +160,7 @@
         },
         "beyond-the-wall": {
             cat: "dungeon", icon: IC.dungeon, name: "Beyond the Wall Expedition", nameTh: "การเดินทางเหนือกำแพง",
-            tags: ["Expedition", "PvE", "Beyond the Wall"],
+            tags: ["Expedition", "PvE", "Beyond the Wall"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "คอนเทนต์สำรวจดินแดนเหนือกำแพง หนึ่งในดันเจียนซีซันของ Frost and Steel",
             meta: [
                 { k: "ประเภท", v: "Expedition / Dungeon" },
@@ -174,7 +174,7 @@
         },
         "elite-hideout": {
             cat: "dungeon", icon: IC.dungeon, name: "Elite Hideout", nameTh: "รังศัตรูระดับ Elite",
-            tags: ["Dungeon", "Elite", "PvE"],
+            tags: ["Dungeon", "Elite", "PvE"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "ดันเจียนที่เต็มไปด้วยศัตรูระดับ Elite หนึ่งในดันเจียนซีซันของ Frost and Steel",
             meta: [
                 { k: "ประเภท", v: "Dungeon (PvE)" },
@@ -187,7 +187,7 @@
         },
         "faction-hideout-db": {
             cat: "dungeon", icon: IC.dungeon, name: "Faction Hideout", nameTh: "ฐานที่มั่นกลุ่มใน Stormlands",
-            tags: ["Dungeon", "Stormlands", "Farm"],
+            tags: ["Dungeon", "Stormlands", "Farm"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "ฐานที่มั่นในแคว้น Stormlands ปราบบอสสุดท้าย + Elite เก็บกล่องลูท มีปุ่ม Shortcut",
             meta: [
                 { k: "ประเภท", v: "Dungeon (ทำซ้ำได้)" },
@@ -210,7 +210,7 @@
         },
         "kraken-raid": {
             cat: "dungeon", icon: IC.dungeon, name: "Kraken Raid", nameTh: "โหมดเรดปราบ Kraken",
-            tags: ["Raid", "Co-op", "Sunset Sea"],
+            tags: ["Raid", "Co-op", "Sunset Sea"], confidence: "Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "โหมด Raid แบบร่วมมือกลางทะเล ปราบ Kraken เพื่อชิงวัสดุ Amulet Core",
             meta: [
                 { k: "ประเภท", v: "Raid (ร่วมมือ)" },
@@ -225,7 +225,7 @@
         },
         "world-difficulty": {
             cat: "dungeon", icon: IC.dungeon, name: "World Difficulty", nameTh: "ระดับความยากโลก",
-            tags: ["Difficulty", "Endgame"],
+            tags: ["Difficulty", "Endgame"], confidence: "Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "ระบบระดับความยากของโลกที่เพิ่มความท้าทายและคุณภาพดรอปเมื่อผู้เล่นแข็งแกร่งขึ้น — ล่าสุดเปิดถึง Lv.5",
             meta: [
                 { k: "ประเภท", v: "ระบบความยาก (Endgame)" },
@@ -252,7 +252,7 @@
         /* ---------------- แผนที่ / สถานที่ ---------------- */
         "winterfell": {
             cat: "map", icon: IC.map, name: "Winterfell", nameTh: "วินเทอร์เฟล — ที่มั่น House Stark",
-            tags: ["The North", "Region", "เริ่มต้น"],
+            tags: ["The North", "Region", "เริ่มต้น"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "ที่มั่นของ House Stark ในแดนเหนือ พื้นที่หลักช่วงต้นเกม และจุดเกิดของ World Boss Drogon",
             meta: [
                 { k: "ภูมิภาค", v: "The North (แดนเหนือ)" },
@@ -267,7 +267,7 @@
         },
         "last-hearth": {
             cat: "map", icon: IC.map, name: "Last Hearth", nameTh: "ที่มั่นของ House Umber",
-            tags: ["The North", "Region", "House Umber"],
+            tags: ["The North", "Region", "House Umber"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "พื้นที่ในแดนเหนือ เกี่ยวข้องกับ House Umber ผู้พิทักษ์แห่ง The Gift",
             meta: [
                 { k: "ภูมิภาค", v: "The North (แดนเหนือ)" },
@@ -280,7 +280,7 @@
         },
         "beyond-the-wall-map": {
             cat: "map", icon: IC.map, name: "Beyond the Wall", nameTh: "ดินแดนเหนือกำแพง",
-            tags: ["Region", "Expedition"],
+            tags: ["Region", "Expedition"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "ดินแดนหนาวเหน็บเหนือกำแพง พื้นที่ต้นเกมและคอนเทนต์สำรวจ (Expedition)",
             meta: [
                 { k: "ประเภท", v: "ภูมิภาค / พื้นที่สำรวจ" },
@@ -293,7 +293,7 @@
         },
         "stormlands": {
             cat: "map", icon: IC.map, name: "Stormlands", nameTh: "แคว้นสตอร์มแลนด์ส",
-            tags: ["Region", "The Drowned God Wakes"],
+            tags: ["Region", "The Drowned God Wakes"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "แคว้นใหม่จากอัปเดต The Drowned God Wakes มีพื้นที่ย่อยหลายแห่งและคอนเทนต์ปลายเกม",
             meta: [
                 { k: "ประเภท", v: "ภูมิภาค (เพิ่มใหม่)" },
@@ -313,7 +313,7 @@
         },
         "crows-nest": {
             cat: "map", icon: IC.map, name: "The Crow's Nest", nameTh: "พื้นที่ในแคว้น Stormlands",
-            tags: ["Stormlands", "Area"],
+            tags: ["Stormlands", "Area"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "พื้นที่หลักในแคว้น Stormlands มีเควส ซากปรักหักพัง อสูร Shadowcat และเนื้อเรื่องเกี่ยวกับ Stannis Baratheon",
             meta: [
                 { k: "ภูมิภาค", v: "Stormlands" },
@@ -328,7 +328,7 @@
         },
         "sunset-sea": {
             cat: "map", icon: IC.map, name: "Sunset Sea", nameTh: "ทะเลตะวันตก (พื้นที่เรด Kraken)",
-            tags: ["Raid", "Ocean"],
+            tags: ["Raid", "Ocean"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "ท้องทะเลทางตะวันตกของ Westeros จุดที่ต่อสู้กับ Raid Boss Kraken",
             meta: [
                 { k: "ประเภท", v: "พื้นที่ทะเล (Raid)" },
@@ -363,10 +363,10 @@
                     "แนะนำอัปสกิลทักษะพิเศษ 'การคราฟต์ลูกธนู' ให้เต็ม (อยู่ในเมนูทักษะพิเศษ หมวดสนับสนุน แถวแรกซ้ายสุด) จะได้ไม่ต้องกลับเมืองไปซื้อลูกธนูบ่อย เพราะม้วนคัมภีร์มักอยู่ที่สูงมาก ต้องยิงเก็บ"
                 ]},
                 { h: "รูทวิ่งทั้ง 4 โซน (กดที่รูปเพื่อดูเต็ม)" },
-                { img: "images/guides/map-route-beyond-wall.webp", caption: "โซนสุดแดนเหนือ (Beyond the Wall)" },
-                { img: "images/guides/map-route-winterfell.webp", caption: "แดนเหนือ เขตวินเทอร์เฟล (Winterfell)" },
-                { img: "images/guides/map-route-hornwood.webp", caption: "แดนเหนือ เขตฮอร์นวูด (Hornwood)" },
-                { img: "images/guides/map-route-reach.webp", caption: "แคว้นรีช (The Reach)" },
+                { img: "images/guides/map-route-beyond-wall.webp", caption: "โซนสุดแดนเหนือ (Beyond the Wall)", imgW: 1920, imgH: 1080 },
+                { img: "images/guides/map-route-winterfell.webp", caption: "แดนเหนือ เขตวินเทอร์เฟล (Winterfell)", imgW: 1920, imgH: 1080 },
+                { img: "images/guides/map-route-hornwood.webp", caption: "แดนเหนือ เขตฮอร์นวูด (Hornwood)", imgW: 1920, imgH: 1080 },
+                { img: "images/guides/map-route-reach.webp", caption: "แคว้นรีช (The Reach)", imgW: 1920, imgH: 1080 },
                 { p: "หมายเหตุ: ไกด์นี้จัดทำโดยเพจ JC Online Game เพื่อช่วยเพื่อน ๆ ที่อยากวิ่งสำรวจแต่ไม่รู้จะเริ่มตรงไหน หรือเก็บยังไม่ครบแล้วลืมว่าเหลือตรงไหนบ้าง หากมีข้อผิดพลาดประการใดต้องขออภัย และอ้างอิงตำแหน่งแผนที่จากเว็บแผนที่ชุมชน got-kingsroad.com" }
             ],
             sources: [{ label: "JC Online Game · แผนที่อ้างอิง got-kingsroad.com", url: "https://got-kingsroad.com/#share/2.99/-13474/-676439" }]
@@ -833,7 +833,7 @@
         /* ---------------- ทรัพยากร ---------------- */
         "golden-dragons": {
             cat: "resource", icon: IC.resource, name: "Golden Dragons", nameTh: "สกุลเงินพรีเมียม",
-            tags: ["Currency", "Premium"],
+            tags: ["Currency", "Premium"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "สกุลเงินพรีเมียมหลักของเกม ได้จาก World Boss Drogon และช่องทางอื่น ๆ",
             meta: [
                 { k: "ประเภท", v: "สกุลเงินพรีเมียม" },
@@ -862,7 +862,7 @@
         },
         "faction-coins": {
             cat: "resource", icon: IC.resource, name: "Faction Coins", nameTh: "เหรียญกลุ่ม",
-            tags: ["Currency", "Stormlands"],
+            tags: ["Currency", "Stormlands"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "เหรียญที่ได้จาก Faction Hideout ใช้แลกของในร้านของกลุ่ม",
             meta: [
                 { k: "ประเภท", v: "สกุลเงินกลุ่ม" },
@@ -875,7 +875,7 @@
         },
         "forging-steel": {
             cat: "resource", icon: IC.resource, name: "Forging Steel", nameTh: "เหล็กหลอม (วัสดุอัปเกรด)",
-            tags: ["Material", "Upgrade"],
+            tags: ["Material", "Upgrade"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "วัสดุที่ได้จากการแยกชิ้นส่วนเครื่องประดับ Legendary ที่ตีบวกแล้ว",
             meta: [
                 { k: "ประเภท", v: "วัสดุ (Upgrade Material)" },
@@ -888,7 +888,7 @@
         },
         "amulet-core": {
             cat: "resource", icon: IC.resource, name: "Amulet Core", nameTh: "แกนเครื่องราง",
-            tags: ["Material", "Amulet", "Raid"],
+            tags: ["Material", "Amulet", "Raid"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "วัสดุคราฟระบบ Amulet ได้จากการปราบ Kraken Raid",
             meta: [
                 { k: "ประเภท", v: "วัสดุคราฟ (Amulet)" },
@@ -901,7 +901,7 @@
         },
         "weapon-mastery": {
             cat: "resource", icon: IC.resource, name: "Weapon Mastery Points", nameTh: "แต้มความชำนาญอาวุธ",
-            tags: ["Progression"],
+            tags: ["Progression"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "แต้มสำหรับปลดล็อก Mastery ของคอมโบ ได้จากการล่าค่าหัวใน Stormlands และอื่น ๆ",
             meta: [
                 { k: "ประเภท", v: "แต้มความก้าวหน้า" },
@@ -914,7 +914,7 @@
         },
         "momentum-res": {
             cat: "resource", icon: IC.resource, name: "Momentum", nameTh: "ค่าพลังรวม",
-            tags: ["System", "Power"],
+            tags: ["System", "Power"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "ค่าพลังรวมของตัวละครที่ควบคุมความคืบหน้า คำนวณจากอุปกรณ์ การตีบวก Sigil, Artifact ฯลฯ",
             meta: [
                 { k: "ประเภท", v: "ค่าพลังรวม (Power Rating)" },
@@ -929,7 +929,7 @@
         /* ---------------- มอนสเตอร์ ---------------- */
         "white-walkers": {
             cat: "monster", icon: IC.monster, name: "White Walkers", nameTh: "ไวต์วอล์คเกอร์",
-            tags: ["Undead", "Beyond the Wall"],
+            tags: ["Undead", "Beyond the Wall"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "ศัตรูน้ำแข็งจากดินแดนไกลเหนือ ผู้ควบคุมกองทัพศพ (Wights)",
             meta: [
                 { k: "ประเภท", v: "ศัตรูน้ำแข็ง (Undead)" },
@@ -942,7 +942,7 @@
         },
         "wights": {
             cat: "monster", icon: IC.monster, name: "Wights", nameTh: "ศพคืนชีพ",
-            tags: ["Undead", "Beyond the Wall"],
+            tags: ["Undead", "Beyond the Wall"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "ศพคืนชีพที่ White Walkers ควบคุม จุดอ่อนคือไฟ",
             meta: [
                 { k: "ประเภท", v: "ศพคืนชีพ (Undead)" },
@@ -955,7 +955,7 @@
         },
         "ice-spiders": {
             cat: "monster", icon: IC.monster, name: "Ice Spiders", nameTh: "แมงมุมน้ำแข็ง",
-            tags: ["Creature", "Beyond the Wall"],
+            tags: ["Creature", "Beyond the Wall"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "แมงมุมน้ำแข็งขนาดใหญ่เท่าสุนัขล่าเนื้อ พาหนะของ White Walkers ตามตำนาน",
             meta: [
                 { k: "ประเภท", v: "อสูร (Creature)" },
@@ -968,7 +968,7 @@
         },
         "fantasy-beasts": {
             cat: "monster", icon: IC.monster, name: "Fantasy Beasts", nameTh: "อสูรแฟนตาซี (Griffin/Unicorn/Basilisk)",
-            tags: ["Creature"],
+            tags: ["Creature"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "นอกจากโจรและ White Walkers ยังมีอสูรแฟนตาซี เช่น กริฟฟิน ยูนิคอร์นดุร้าย และบาซิลิสก์",
             meta: [
                 { k: "ตัวอย่าง", v: "Griffin, Unicorn (ดุร้าย), Basilisk, แมงมุมยักษ์, Dragon" }
@@ -980,7 +980,7 @@
         },
         "bandits": {
             cat: "monster", icon: IC.monster, name: "Human Enemies", nameTh: "ศัตรูมนุษย์ (โจร/นักรบ)",
-            tags: ["Human", "Dungeon"],
+            tags: ["Human", "Dungeon"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "ศัตรูมนุษย์ที่พบทั่วไป โดยเฉพาะในดันเจียนอย่าง Worm Walks — Parry ได้ผลดี",
             meta: [
                 { k: "ประเภท", v: "ศัตรูมนุษย์" },
@@ -995,7 +995,7 @@
         /* ---------------- เควส ---------------- */
         "main-quest": {
             cat: "quest", icon: IC.quest, name: "Main Quest", nameTh: "เนื้อเรื่องหลัก",
-            tags: ["Story", "Main"],
+            tags: ["Story", "Main"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "เนื้อเรื่องหลักในช่วงพลบค่ำของสงครามห้ากษัตริย์ ผู้เล่นฟื้นฟูตระกูลและเดินทางบน Kingsroad",
             meta: [
                 { k: "ประเภท", v: "Main Quest (เนื้อเรื่องหลัก)" },
@@ -1009,7 +1009,7 @@
         },
         "season-quest": {
             cat: "quest", icon: IC.quest, name: "Season & Relic Quest", nameTh: "เควสประจำซีซันและเรลิก",
-            tags: ["Season", "Frost and Steel"],
+            tags: ["Season", "Frost and Steel"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "เควสประจำซีซัน 1 Frost and Steel รวมถึง Relic Quest และการสะสม Season Points",
             meta: [
                 { k: "ประเภท", v: "Season Quest / Relic Quest" },
@@ -1022,7 +1022,7 @@
         },
         "bounty-quest": {
             cat: "quest", icon: IC.quest, name: "Bounty Hunt", nameTh: "ภารกิจล่าค่าหัว",
-            tags: ["Stormlands", "Side"],
+            tags: ["Stormlands", "Side"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
             summary: "ภารกิจล่าอาชญากรในแคว้น Stormlands เพื่อรับแต้ม Weapon Mastery",
             meta: [
                 { k: "ประเภท", v: "ภารกิจเสริม (Bounty)" },
@@ -1514,7 +1514,7 @@
                 if (b.list) return `<ul class="ga-list">${b.list.map(li => `<li>${esc(li)}</li>`).join("")}</ul>`;
                 if (b.img) return `<figure class="ga-figure">
                     <a href="${esc(b.img)}" target="_blank" rel="noopener">
-                        <img src="${esc(b.img)}" alt="${esc(b.caption || e.name)}" loading="lazy">
+                        <img src="${esc(b.img)}" alt="${esc(b.caption || e.name)}" loading="lazy"${b.imgW && b.imgH ? ` width="${b.imgW}" height="${b.imgH}"` : ""}>
                     </a>
                     ${b.caption ? `<figcaption>${esc(b.caption)}</figcaption>` : ""}
                 </figure>`;
