@@ -1375,7 +1375,7 @@
                 <input type="text" id="dbSearch" class="codex-search-input" placeholder="ค้นหา เช่น Drogon, Champion Set, Amulet, Winterfell..." autocomplete="off" aria-label="ค้นหาในฐานข้อมูล">
                 <button type="button" class="codex-search-clear" id="dbClear" aria-label="ล้างการค้นหา" hidden>&times;</button>
             </div>
-            <p class="codex-result" id="dbResult" hidden></p>
+            <p class="codex-result" id="dbResult" role="status" aria-live="polite" hidden></p>
             <div class="codex-stats">${statsHtml}</div>
         </header>`;
 
