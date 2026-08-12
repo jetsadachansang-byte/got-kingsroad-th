@@ -22,6 +22,8 @@
         item:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1 1 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>',
         resource:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>',
         monster: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 6C6 4.5 5 3 5 3s-1 3 0 5"/><path d="M17 6c1-1.5 2-3 2-3s1 3 0 5"/><path d="M6 10a6 6 0 0 1 12 0v4a6 6 0 0 1-12 0Z"/><path d="M9.5 11h.01"/><path d="M14.5 11h.01"/><path d="m9 16 1.5 1.5L12 16l1.5 1.5L15 16"/></svg>',
+        outfit:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3a3 3 0 0 1-6 0"/><path d="M9 3 4 5.5 5.5 10 8 9v11h8V9l2.5 1L20 5.5 15 3"/></svg>',
+        mount:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c0-4 2-6 5-7l2-3-2-2 2-3 3 2 4 1 2 3-2 2v3c0 3-2 4-4 4"/><path d="M8 20v-2"/><path d="M16 20v-2"/><path d="M14 7h.01"/></svg>',
         quest:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></svg>',
         cls:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"/><line x1="13" y1="19" x2="19" y2="13"/><line x1="16" y1="16" x2="20" y2="20"/><line x1="19" y1="21" x2="21" y2="19"/><polyline points="14.5 6.5 18 3 21 3 21 6 17.5 10"/><line x1="5" y1="14" x2="9" y2="18"/><line x1="7" y1="17" x2="4" y2="20"/><line x1="3" y1="19" x2="5" y2="21"/></svg>',
         gear:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3"/><path d="M12 19v3"/><path d="m4.9 4.9 2.1 2.1"/><path d="m17 17 2.1 2.1"/><path d="M2 12h3"/><path d="M19 12h3"/><path d="m4.9 19.1 2.1-2.1"/><path d="m17 7 2.1-2.1"/></svg>',
@@ -50,6 +52,9 @@
         nmEquip:  { label: "Netmarble Official Guide — Equipment", url: "https://guide.netmarble.com/gotasia/27" },
         nmEnh:    { label: "Netmarble Official Guide — Enhancement", url: "https://guide.netmarble.com/got/87" },
         nmSet:    { label: "Netmarble Official Guide — Set Research", url: "https://guide.netmarble.com/got/46" },
+        nmOutfit: { label: "Netmarble Official Guide — Outfits", url: "https://guide.netmarble.com/got/40" },
+        nmShop:   { label: "Netmarble Official Guide — Shop (Cosmetics)", url: "https://guide.netmarble.com/got/8" },
+        pcLaunch: { label: "PR Newswire — Kingsroad PC launch rewards", url: "https://www.prnewswire.co.uk/news-releases/netmarble-releases-game-of-thrones-kingsroad-on-pc-ahead-of-grand-launch-302771884.html" },
         ldEquip:  { label: "LDPlayer — Equipment Crafting Guide", url: "https://www.ldplayer.net/blog/game-of-thrones-kingsroad-equipment-crafting-guide.html" },
         amuletSteam: { label: "Steam Community — Amulet / Kraken", url: "https://steamcommunity.com/app/3183280/discussions/0/603034244395111668/" },
         traits:   { label: "GamingonPhone — Traits Guide", url: "https://gamingonphone.com/guides/game-of-thrones-kingsroad-the-complete-traits-guide-and-how-to-use-them/" }
@@ -927,6 +932,53 @@
         },
 
         /* ---------------- มอนสเตอร์ ---------------- */
+        /* ---------------- แฟชั่น & พาหนะ (Cosmetics) ---------------- */
+        "outfit-system": {
+            cat: "cosmetic", icon: IC.outfit, name: "Outfits", nameTh: "ระบบชุดแฟชั่น (คอสตูม)",
+            tags: ["Cosmetic", "Outfit", "Customization"], confidence: "Official", version: "เซิร์ฟปัจจุบัน (หลัง 21 พ.ค. 2026)", verified: "ส.ค. 2026",
+            summary: "เปลี่ยนหน้าตาตัวละครได้อิสระโดยไม่ขึ้นกับเกราะที่ใส่จริง เก็บแยกรายตัวละคร",
+            meta: [
+                { k: "ประเภท", v: "ไอเทมตกแต่ง (Cosmetic)" },
+                { k: "ผูกกับ", v: "รายตัวละคร (per-character)" },
+                { k: "แหล่งที่มา", v: "ร้านค้า → หมวด Cosmetics" }
+            ],
+            body: [
+                { p: "ระบบ Outfits ให้ผู้เล่นเปลี่ยนรูปลักษณ์ของตัวละครได้ตามใจ จุดสำคัญคือเปลี่ยนชุดได้โดยไม่เกี่ยวกับเกราะที่สวมอยู่จริง — ค่าสถานะยังมาจากอุปกรณ์ที่ใส่เหมือนเดิม จึงแต่งตัวตามชอบได้โดยไม่เสียพลัง" },
+                { h: "จุดที่ควรรู้" },
+                { list: [
+                    "ชุดแฟชั่นเป็นของ 'รายตัวละคร' ไม่ใช่ของบัญชี — ตัวละครแต่ละตัวมีคลังชุดของตัวเอง",
+                    "ซื้อได้จากร้านค้าในหมวด Cosmetics (พร้อมกับพาหนะและอุปกรณ์พาหนะ)",
+                    "มีระบบสีย้อม (Dye) — กดไอคอน Dye เพื่อดูตัวอย่างสีบนชุดก่อนตัดสินใจ"
+                ]},
+                { h: "ชุดที่เคยแจกช่วงเปิดเกม" },
+                { p: "ตัวอย่างชุดที่แจกในกิจกรรมช่วงเปิดตัว เช่น Northern Outfit (จากการลงทะเบียนล่วงหน้าบน PC) และ Rare Wildling Outfit (จากกิจกรรมเปิดตัวเวอร์ชัน PC)" },
+                { p: "หมายเหตุ: รายชื่อชุดที่วางขาย/แจกจะหมุนเวียนตามช่วงเวลาและภูมิภาค หน้านี้เก็บเฉพาะรายการที่ยืนยันได้จากประกาศทางการ — จะเพิ่มเติมเมื่อมีชุดใหม่ประกาศออกมา" }
+            ],
+            sources: [SRC.nmOutfit, SRC.nmShop, SRC.pcLaunch]
+        },
+        "mount-system": {
+            cat: "cosmetic", icon: IC.mount, name: "Mounts", nameTh: "ระบบพาหนะ (สัตว์ขี่)",
+            tags: ["Cosmetic", "Mount", "การเดินทาง"], confidence: "Official", version: "เซิร์ฟปัจจุบัน (หลัง 21 พ.ค. 2026)", verified: "ส.ค. 2026",
+            summary: "พาหนะสำหรับเดินทางในโลกเปิด มีทั้งตัวพาหนะและอุปกรณ์ตกแต่งพาหนะ ซื้อได้จากหมวด Cosmetics",
+            meta: [
+                { k: "ประเภท", v: "พาหนะ / ไอเทมตกแต่ง" },
+                { k: "แหล่งที่มา", v: "ร้านค้า → หมวด Cosmetics" },
+                { k: "ของแต่งเพิ่ม", v: "Mount Equipment (อุปกรณ์พาหนะ)" }
+            ],
+            body: [
+                { p: "พาหนะใช้เดินทางในโลกเปิดของ Westeros ให้เคลื่อนที่ระหว่างพื้นที่ได้เร็วขึ้น นอกจากตัวพาหนะแล้วยังมี 'อุปกรณ์พาหนะ' (Mount Equipment) สำหรับตกแต่งเพิ่ม" },
+                { h: "วิธีได้มา" },
+                { list: [
+                    "ซื้อจากร้านค้าในเกม หมวด Cosmetics (ที่เดียวกับชุดแฟชั่น)",
+                    "ได้จากกิจกรรมและของรางวัลตามช่วงเวลา"
+                ]},
+                { h: "พาหนะที่เคยแจกช่วงเปิดเกม" },
+                { p: "ผู้ลงทะเบียนล่วงหน้าบนมือถือได้รับพาหนะ 1 ตัวพร้อมชุดตกแต่งพาหนะ 1 ชิ้น และกิจกรรมเปิดตัวเวอร์ชัน PC แจก Uncommon Elk Mount (กวาง)" },
+                { p: "หมายเหตุ: ยังไม่มีประกาศทางการเรื่องพาหนะตัวใหม่หลังจากนี้ ณ วันที่อัปเดตหน้านี้ (ส.ค. 2026) — จะเพิ่มทันทีที่มีการประกาศ" }
+            ],
+            sources: [SRC.nmShop, SRC.pcLaunch]
+        },
+
         "white-walkers": {
             cat: "monster", icon: IC.monster, name: "White Walkers", nameTh: "ไวต์วอล์คเกอร์",
             tags: ["Undead", "Beyond the Wall"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
@@ -1206,6 +1258,7 @@
         { id: "eq-material", icon: IC.gem,    title: "อุปกรณ์: วัสดุ",     desc: "วัสดุคราฟ อัปเกรด และ Amulet", status: "สมบูรณ์", ids: ["amulet-design", "kraken-parts", "resource-points", "crafting-materials"] },
         { id: "progression", icon: IC.chart, title: "ระบบเสริมพลัง",   desc: "Trait Tree, Sigil, Artifact และ Relic (ดัน Momentum)", status: "กำลังรวบรวม", ids: ["traits", "artifact", "sigil", "relic-system"] },
         { id: "resource", icon: IC.resource,title: "ทรัพยากร",         desc: "สกุลเงิน วัสดุ และค่าพลัง", status: "สมบูรณ์", ids: ["golden-dragons", "iron-bank-marks", "faction-coins", "forging-steel", "amulet-core", "weapon-mastery", "momentum-res"] },
+        { id: "cosmetic", icon: IC.outfit,  title: "แฟชั่น & พาหนะ",   desc: "ชุดคอสตูม สีย้อม และพาหนะ (สัตว์ขี่)", status: "กำลังรวบรวม", ids: ["outfit-system", "mount-system"] },
         { id: "monster",  icon: IC.monster, title: "มอนสเตอร์",        desc: "ศัตรูและอสูรในเกม", status: "สมบูรณ์", ids: ["white-walkers", "wights", "ice-spiders", "fantasy-beasts", "bandits"] },
         { id: "quest",    icon: IC.quest,   title: "เควส",            desc: "เนื้อเรื่องหลัก ซีซัน และภารกิจเสริม", status: "กำลังรวบรวม", ids: ["main-quest", "season-quest", "bounty-quest"] }
     ];

@@ -51,6 +51,7 @@ window.gkUpdatePageMeta = gkUpdatePageMeta;
                 { href: "database.html#cat-eq-system", label: "อุปกรณ์" },
                 { href: "database.html#cat-eq-amulet", label: "Amulet" },
                 { href: "database.html#cat-progression", label: "ระบบเสริมพลัง" },
+                { href: "database.html#cat-cosmetic", label: "แฟชั่น & พาหนะ" },
                 { href: "database.html#cat-monster", label: "มอนสเตอร์" },
             ],
         },
