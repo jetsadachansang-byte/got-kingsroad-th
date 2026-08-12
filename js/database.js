@@ -41,6 +41,7 @@
         notes626: { label: "Netmarble — 6/26 Update Notes", url: "https://forum.netmarble.com/got/view/4/110" },
         frost:    { label: "Inven Global — Frost and Steel", url: "https://www.invenglobal.com/articles/23790/game-of-thrones-kingsroad-season-1-frost-and-steel-update" },
         patch729: { label: "Netmarble TH — ประกาศอัปเดต 29 ก.ค.", url: "https://forum.netmarble.com/got_th/view/4/211" },
+        gmBroken: { label: "Gamemeca — Efficiency Comparison of the New Artifact 'Broken Sword'", url: "https://www.gamemeca.com/en/view.php?gid=1778005" },
         westerlands: { label: "Gamemeca — Westerlands / Tyrion Update Preview (19 ส.ค. 2026)", url: "https://www.gamemeca.com/en/view.php?gid=1778894" },
         creatures:{ label: "WinterIsComing / BleedingCool — Creatures", url: "https://winteriscoming.net/check-out-the-monsters-and-bosses-you-ll-fight-in-game-of-thrones-kingsroad" },
         gmKnight: { label: "Gamemeca — Class/Combat Tips", url: "https://www.gamemeca.com/en/view.php?gid=1777355" },
@@ -1132,6 +1133,53 @@
             ],
             sources: [{ label: "GamingWithDaopa — Complete Artifact Guide", url: "https://gamingwithdaopa.ellatha.com/gotkingsroad/artifact-list/" }, { label: "Steam — Artifact enhancement", url: "https://steamcommunity.com/app/3183280/discussions/0/612037897825032521/" }]
         },
+        "artifact-broken-sword": {
+            cat: "progression", icon: IC.gem, name: "Broken Sword", nameTh: "ดาบหัก (วัตถุโบราณ Passive)",
+            tags: ["Artifact", "Passive", "Season 1"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน (เพิ่มพร้อมซีซัน 1)", verified: "ส.ค. 2026",
+            summary: "วัตถุโบราณ Passive ที่เพิ่มบัฟ 'Deadly Sharpness' ทุกครั้งที่ใช้สกิล สะสมได้ 5 ชั้น แรงมากเมื่อกดสกิลถี่",
+            meta: [
+                { k: "ประเภท", v: "วัตถุโบราณ Passive" },
+                { k: "เงื่อนไขทำงาน", v: "ใช้ Active Skill 1 ครั้ง = สะสมบัฟ 1 ชั้น" },
+                { k: "จำนวนชั้นสูงสุด", v: "5 ชั้น (Deadly Sharpness)" },
+                { k: "อายุบัฟ", v: "15 วินาที (ต่ออายุเมื่อกดสกิลใหม่)" },
+                { k: "เพิ่มพร้อม", v: "ซีซัน 1 Frost and Steel (15 ก.ค. 2026)" }
+            ],
+            body: [
+                { p: "Broken Sword เป็นวัตถุโบราณแบบ Passive ที่เพิ่มเข้ามาพร้อมซีซัน 1 Frost and Steel ทุกครั้งที่ใช้สกิลแอคทีฟจะสะสมบัฟ 'Deadly Sharpness' 1 ชั้น สะสมได้สูงสุด 5 ชั้น บัฟมีอายุ 15 วินาที" },
+                { h: "จุดเด่นและจุดอ่อน" },
+                { list: [
+                    "ต้องกดสกิลอุ่นเครื่องราว 5 ครั้งก่อนถึงจะได้พลังเต็ม — ช่วงเปิดตัวจะยังไม่แรง",
+                    "เมื่อสะสมครบ 5 ชั้น ค่า Active Skill Damage จะสูงกว่าวัตถุโบราณ White Staff มากกว่าเท่าตัว",
+                    "เหมาะกับบิลด์ที่กดสกิลถี่และสู้ยาว ไม่เหมาะกับการไล่เก็บมอนสเตอร์เร็ว ๆ ทีละกลุ่ม"
+                ]},
+                { h: "ค่าที่ได้เมื่อสะสมเต็ม (ระดับ 7 ดาว)" },
+                { p: "เมื่ออัปถึง 7 ดาวและรักษาบัฟไว้ครบ 5 ชั้น จะได้เพิ่มพลังโจมตี 10%, ดาเมจสกิล 15.5% และดาเมจรวม 5.5%" },
+                { h: "เทียบกับ Maester Corso's Letter" },
+                { p: "Broken Sword จะแรงกว่าเมื่อค่า Rage ต่ำกว่า 200 แต่ถ้า Rage สูงกว่านั้น Maester Corso's Letter ยังได้เปรียบ — เลือกตามบิลด์และรูปแบบการเล่นของตัวเอง" },
+                { p: "หมายเหตุ: ตัวเลขข้างต้นมาจากการทดสอบเปรียบเทียบของสื่อเกม (Gamemeca) อาจต่างกันตามระดับดาวและค่าอัปเกรดของแต่ละคน" }
+            ],
+            sources: [SRC.gmBroken]
+        },
+        "artifact-corso-letter": {
+            cat: "progression", icon: IC.gem, name: "Maester Corso's Letter", nameTh: "จดหมายของเมสเตอร์คอสโซ่ (วัตถุโบราณ Passive)",
+            tags: ["Artifact", "Passive", "Rage", "Meta"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ส.ค. 2026",
+            summary: "วัตถุโบราณสาย Rage ที่ผู้เล่นนิยมที่สุดในตอนนี้ เพิ่มอัตราสะสม Rage และเพิ่มดาเมจตามปริมาณ Rage ที่มี",
+            meta: [
+                { k: "ประเภท", v: "วัตถุโบราณ Passive" },
+                { k: "เพิ่มอัตราสะสม Rage", v: "1.0%" },
+                { k: "เพิ่มดาเมจ", v: "สูงสุด 40% ตามปริมาณ Rage ที่สะสมไว้" },
+                { k: "อัตราการใช้งาน", v: "Assassin ~50% · Knight และ Sellsword ~30%" }
+            ],
+            body: [
+                { p: "Maester Corso's Letter เป็นวัตถุโบราณที่กลายเป็นตัวเลือกยอดนิยมของทุกคลาสในเซิร์ฟเวอร์ปัจจุบัน เพิ่มอัตราสะสม Rage 1.0% และเพิ่มดาเมจได้สูงสุด 40% ตามปริมาณ Rage ที่สะสมอยู่" },
+                { h: "เหมาะกับใคร" },
+                { p: "เหมาะกับบิลด์สายรุกที่รักษาค่า Rage ไว้สูงตลอดการต่อสู้ ยิ่ง Rage สูงยิ่งได้ดาเมจเพิ่มมาก — เป็นเหตุผลที่ Assassin ซึ่งกด Rage ได้ไวใช้มากที่สุด" },
+                { h: "เทียบกับ Broken Sword" },
+                { p: "ถ้า Rage ต่ำกว่า 200 วัตถุโบราณใหม่ Broken Sword จะให้ผลดีกว่า แต่เมื่อ Rage สูงกว่า 200 ขึ้นไป Maester Corso's Letter ยังคงได้เปรียบ" },
+                { p: "ดูการจัดวัตถุโบราณจริงในบิลด์ได้ที่คู่มือบิลด์นักดาบในหมวดคู่มือ" }
+            ],
+            sources: [SRC.gmBroken]
+        },
         "sigil": {
             cat: "progression", icon: IC.item, name: "Sigil Board", nameTh: "กระดานตราประจำตระกูล (Sigils)",
             tags: ["System", "Sigil", "Momentum"], confidence: "Community Verified", version: "เซิร์ฟปัจจุบัน", verified: "ก.ค. 2026",
@@ -1267,7 +1315,7 @@
         { id: "eq-amulet",   icon: IC.amulet, title: "อุปกรณ์: Amulet",   desc: "ระบบเครื่องราง ความหายาก และ Legendary Amulet", status: "สมบูรณ์", ids: ["amulet-system", "amulet-tiers", "legendary-amulet"] },
         { id: "eq-stat",     icon: IC.chart,  title: "อุปกรณ์: ค่าสถานะ",  desc: "ค่ารุก ค่ารับ และค่าพิเศษ/Engraving", status: "สมบูรณ์", ids: ["stat-offense", "stat-defense", "stat-mechanic"] },
         { id: "eq-material", icon: IC.gem,    title: "อุปกรณ์: วัสดุ",     desc: "วัสดุคราฟ อัปเกรด และ Amulet", status: "สมบูรณ์", ids: ["amulet-design", "kraken-parts", "resource-points", "crafting-materials"] },
-        { id: "progression", icon: IC.chart, title: "ระบบเสริมพลัง",   desc: "Trait Tree, Sigil, Artifact และ Relic (ดัน Momentum)", status: "กำลังรวบรวม", ids: ["traits", "artifact", "sigil", "relic-system"] },
+        { id: "progression", icon: IC.chart, title: "ระบบเสริมพลัง",   desc: "Trait Tree, Sigil, Artifact และ Relic (ดัน Momentum)", status: "กำลังรวบรวม", ids: ["traits", "artifact", "artifact-broken-sword", "artifact-corso-letter", "sigil", "relic-system"] },
         { id: "resource", icon: IC.resource,title: "ทรัพยากร",         desc: "สกุลเงิน วัสดุ และค่าพลัง", status: "สมบูรณ์", ids: ["golden-dragons", "iron-bank-marks", "faction-coins", "forging-steel", "amulet-core", "weapon-mastery", "momentum-res"] },
         { id: "cosmetic", icon: IC.outfit,  title: "แฟชั่น & พาหนะ",   desc: "ชุดคอสตูม สีย้อม และพาหนะ (สัตว์ขี่)", status: "กำลังรวบรวม", ids: ["outfit-system", "mount-system"] },
         { id: "monster",  icon: IC.monster, title: "มอนสเตอร์",        desc: "ศัตรูและอสูรในเกม", status: "สมบูรณ์", ids: ["white-walkers", "wights", "ice-spiders", "fantasy-beasts", "bandits"] },
