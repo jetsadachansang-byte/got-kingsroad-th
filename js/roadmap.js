@@ -286,6 +286,32 @@
             ],
             source: { label: "Developer's Note: Major Update Plans and Updated Timeline", url: "https://store.steampowered.com/news/app/3183280/view/637963704478990405" }
         },
+        "weapon-swap": {
+            kind: "plan", icon: IC.swap, date: "แผนพัฒนา", status: "ยังไม่เข้าเกม",
+            title: "ระบบสลับอาวุธ (Weapon Swap)",
+            subtitle: "Weapon Swap System",
+            summary: "สลับชุดอาวุธกลางการต่อสู้ได้ แต่ละชุดมีสกิลและคูลดาวน์แยกอิสระจากกัน เพิ่มความหลากหลายของสไตล์การต่อสู้",
+            body: [
+                { p: "อยู่ในสารจากผู้พัฒนา 'Major Update Plans and Updated Timeline' ชุดเดียวกับแผนรื้อระบบ Artifact/Jewelry — ทีมงานประกาศเพิ่มระบบสลับอาวุธ (Weapon Swap) ให้ผู้เล่นสลับชุดอาวุธกลางการต่อสู้ได้ เพิ่มความหลากหลายของสไตล์การต่อสู้ในแต่ละอาชีพ" },
+                { p: "อุปกรณ์และความคืบหน้าของตัวละครยังคงอยู่เหมือนเดิมเมื่อสลับ แต่ระบบสกิลจะสลับตามชุดอาวุธที่ใช้โดยอัตโนมัติ — แต่ละชุดมีช่องสกิลและคูลดาวน์เป็นของตัวเอง แยกอิสระจากกัน" },
+                { p: "เป้าหมายของทีมงานคือให้ผู้เล่นรู้สึกถึงน้ำหนักของการโจมตีแต่ละครั้งและเอกลักษณ์ของอาวุธแต่ละแบบชัดเจนขึ้น พร้อมคงความลื่นไหลของการต่อสู้ไว้" },
+                { p: "หมายเหตุ: ยังอยู่ระหว่างการพัฒนาและอาจเปลี่ยนแปลงก่อนปล่อยจริง รายละเอียดสุดท้ายจะประกาศผ่านประกาศทางการในภายหลัง" }
+            ],
+            source: { label: "Developer's Note: Major Update Plans and Updated Timeline", url: "https://store.steampowered.com/news/app/3183280/view/637963704478990405" }
+        },
+        "support-ally": {
+            kind: "plan", icon: IC.group, date: "แผนพัฒนา", status: "ยังไม่เข้าเกม",
+            title: "ระบบ Support Ally",
+            subtitle: "ตัวช่วยเติมทีมในคอนเทนต์หลายผู้เล่น",
+            summary: "เพิ่มตัวช่วย (Ally) มาเติมช่องทีมที่ว่างในคอนเทนต์หลายผู้เล่น ลดเวลารอจับคู่ และช่วย Altar of Memories ให้เข้าถึงง่ายขึ้น",
+            body: [
+                { p: "อยู่ในสารจากผู้พัฒนาฉบับเดียวกัน 'Major Update Plans and Updated Timeline' — ทีมงานประกาศระบบ Support Ally ให้ผู้เล่นได้รับความช่วยเหลือจากตัวช่วยที่ทำหน้าที่แทนผู้เล่นจริง เติมช่องทีมที่ว่างในคอนเทนต์หลายผู้เล่น" },
+                { p: "ออกแบบมาเพื่อลดเวลารอจับคู่ (matchmaking) และเพิ่มความเสถียรในการเข้าเล่น โดยเฉพาะ Altar of Memories ให้เข้าถึงง่ายและมั่นคงขึ้น" },
+                { p: "เหมาะกับผู้เล่นใหม่หรือผู้เล่นที่กลับมาเล่นอีกครั้ง ให้สามารถท้าทายคอนเทนต์ร่วมกับตัวช่วยได้แม้จะหาทีมเต็มไม่ทัน" },
+                { p: "หมายเหตุ: ยังอยู่ระหว่างการพัฒนาและอาจเปลี่ยนแปลงก่อนปล่อยจริง รายละเอียดสุดท้ายจะประกาศผ่านประกาศทางการในภายหลัง" }
+            ],
+            source: { label: "Developer's Note: Major Update Plans and Updated Timeline", url: "https://store.steampowered.com/news/app/3183280/view/637963704478990405" }
+        },
         "market-system": {
             kind: "plan", icon: IC.store, date: "แผนพัฒนา", status: "ยังไม่เข้าเกม",
             title: "ระบบตลาดซื้อขาย",
@@ -301,7 +327,7 @@
     };
 
     const CURRENT = ["patch-0808", "update-0807", "update-0801", "patch-0729", "frost-and-steel", "global-launch"];
-    const PLAN = ["story-chapter-4", "artifact-jewelry-rework", "market-system", "harrenhal-pve", "graphics-rework", "hard-mode"];
+    const PLAN = ["story-chapter-4", "artifact-jewelry-rework", "weapon-swap", "support-ally", "market-system", "harrenhal-pve", "graphics-rework", "hard-mode"];
 
     /* ============================================================
        ตัวเรนเดอร์ (ไม่ต้องแก้)
