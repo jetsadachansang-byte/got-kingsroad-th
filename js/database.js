@@ -47,6 +47,8 @@
         gmKnight: { label: "Gamemeca — Class/Combat Tips", url: "https://www.gamemeca.com/en/view.php?gid=1777355" },
         gmHide:   { label: "Gamemeca — Faction Hideout", url: "https://www.gamemeca.com/en/view.php?gid=1777780" },
         gmRanking:{ label: "Gamemeca — House Rankings / Global Talk (1 ส.ค. 2026)", url: "https://www.gamemeca.com/en/view.php?gid=1778233" },
+        gmSprint: { label: "Gamemeca — Meca Ranking: Final Sprint of Season 1", url: "https://www.gamemeca.com/en/view.php?gid=1779018" },
+        gmPrep:   { label: "Gamemeca — Preparations Before the New Update", url: "https://www.gamemeca.com/en/view.php?gid=1779167" },
         map:      { label: "got-kingsroad.com — Interactive Map", url: "https://got-kingsroad.com/" },
         eqGuide:  { label: "gamesofthrones.org — Equipment & Gear Guide", url: "https://www.gamesofthrones.org/guides/equipment-gear-guide" },
         setBonus: { label: "CoffeeGamer — Gearset Bonuses", url: "https://coffeegamer.com/game-of-thrones-kingsroad-quick-guide-to-gearset-bonuses/" },
@@ -853,18 +855,18 @@
         "iron-bank-marks": {
             cat: "resource", icon: IC.resource, name: "Iron Bank Marks", nameTh: "เหรียญธนาคารเหล็ก",
             tags: ["Currency", "Iron Bank"],
-            summary: "สกุลเงินรอง ใช้แลกของในร้านค้าบางส่วน — ประกาศปิดช่องทางเติมเงินตั้งแต่ 19 ส.ค. 2026",
+            summary: "สกุลเงินรอง ใช้แลกของในร้านค้าบางส่วน — ปิดช่องทางเติมเงินตั้งแต่ 19 ส.ค. 2026 แทนที่ด้วย Dragon Gold ที่หาได้จากการเล่น",
             meta: [
                 { k: "ประเภท", v: "สกุลเงินรอง (Iron Bank)" },
                 { k: "แหล่งได้", v: "โค้ด/คูปอง, กิจกรรมในเกม, เติมเงิน (ก่อน 19 ส.ค. 2026)" },
-                { k: "ประกาศล่าสุด", v: "ปิดช่องทางเติมเงินและหยุดขายสินค้าบางส่วนที่ซื้อด้วยเหรียญนี้ ตั้งแต่ 19 ส.ค. 2026 — สินค้าที่ได้รับผลกระทบบางส่วนย้ายไปให้ซื้อด้วย Golden Dragon แทน" }
+                { k: "ประกาศล่าสุด", v: "ปิดช่องทางเติมเงินและหยุดขายสินค้าบางส่วนที่ซื้อด้วยเหรียญนี้ ตั้งแต่ 19 ส.ค. 2026 — ยกเลิกและแทนที่ด้วยสกุลเงินใหม่ 'Dragon Gold' ที่หาได้จากการเล่นเกม สินค้าบางส่วนที่เคยซื้อด้วยเหรียญนี้ (เช่น ชุดคอสตูม 'Salt Reef', 'Scoundrel' และม้าอีก 3 แบบ) จะย้ายไปให้ซื้อด้วย Dragon Gold แทน" }
             ],
             body: [
                 { p: "Iron Bank Marks เป็นสกุลเงินรองของเกม ใช้แลกซื้อสินค้าบางรายการในร้านค้า ได้จากการแลกโค้ด/คูปองและกิจกรรมในเกม" },
-                { p: "ผู้พัฒนาประกาศปรับโครงสร้างระบบสกุลเงิน — ตั้งแต่ 19 ส.ค. 2026 จะปิดช่องทางเติมเงินด้วย Iron Bank Marks และหยุดขายสินค้าบางส่วนที่ซื้อด้วยสกุลเงินนี้ โดยสินค้าที่ได้รับผลกระทบจะปรับให้ซื้อด้วย Golden Dragon แทน ผู้เล่นที่มี Iron Bank Marks สะสมอยู่ควรวางแผนใช้ให้หมดก่อนวันที่มีผล" }
+                { p: "ผู้พัฒนาประกาศปรับโครงสร้างระบบสกุลเงิน — ตั้งแต่ 19 ส.ค. 2026 จะปิดช่องทางเติมเงินด้วย Iron Bank Marks และยกเลิกสกุลเงินนี้ทั้งหมด แทนที่ด้วยสกุลเงินใหม่ที่ชื่อ 'Dragon Gold' ซึ่งหาได้จากการเล่นเกม (ไม่ต้องเติมเงิน) สินค้าที่ได้รับผลกระทบบางส่วน เช่น ชุดคอสตูม 'Salt Reef' และ 'Scoundrel' รวมถึงม้าอีก 3 แบบ จะปรับให้ซื้อด้วย Dragon Gold แทน ผู้เล่นที่มี Iron Bank Marks สะสมอยู่ควรวางแผนใช้ให้หมดก่อนวันที่มีผล" }
             ],
-            confidence: "รายงานจากสื่อ (ยังไม่มีประกาศทางการฉบับเต็มจาก Netmarble TH)", version: "เซิร์ฟปัจจุบัน", verified: "1 ส.ค. 2026",
-            sources: [SRC.gmRanking]
+            confidence: "รายงานจากสื่อเกมหลายแหล่ง (ยังไม่มีประกาศทางการฉบับเต็มจาก Netmarble TH)", version: "เซิร์ฟปัจจุบัน", verified: "15 ส.ค. 2026",
+            sources: [SRC.gmRanking, SRC.westerlands]
         },
         "faction-coins": {
             cat: "resource", icon: IC.resource, name: "Faction Coins", nameTh: "เหรียญกลุ่ม",
