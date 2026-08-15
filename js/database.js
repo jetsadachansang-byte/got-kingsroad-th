@@ -1331,10 +1331,7 @@
        ตัวเรนเดอร์
     ============================================================ */
 
-    function esc(s) {
-        return String(s == null ? "" : s).replace(/[&<>"']/g, c =>
-            ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-    }
+    const esc = window.escHtml;
 
     function tagsHtml(tags) {
         return (tags || []).map(t => `<span class="db-tag">${esc(t)}</span>`).join("");
@@ -1623,7 +1620,7 @@
             ).join("");
 
             const bodyHtml = (e.body || []).map(b => {
-                if (b.h) return `<h3 class="ga-h">${esc(b.h)}</h3>`;
+                if (b.h) return `<h2 class="ga-h">${esc(b.h)}</h2>`;
                 if (b.p) return `<p class="ga-p">${esc(b.p)}</p>`;
                 if (b.list) return `<ul class="ga-list">${b.list.map(li => `<li>${esc(li)}</li>`).join("")}</ul>`;
                 if (b.img) return `<figure class="ga-figure">
@@ -1647,13 +1644,13 @@
             if (e.verified)   statusRows.push(["ตรวจสอบล่าสุด", esc(e.verified)]);
             if (e.sources && e.sources.length) statusRows.push(["แหล่งอ้างอิง", e.sources.length + " แหล่ง"]);
             const statusHtml = statusRows.length
-                ? `<aside class="db-datastatus"><h3 class="db-ds-title">สถานะข้อมูล</h3><div class="db-ds-rows">${statusRows.map(r =>
+                ? `<aside class="db-datastatus"><h2 class="db-ds-title">สถานะข้อมูล</h2><div class="db-ds-rows">${statusRows.map(r =>
                     `<div class="db-ds-row"><span class="db-ds-k">${r[0]}</span><span class="db-ds-v">${r[1]}</span></div>`).join("")}</div></aside>`
                 : "";
 
             const related = (cat.ids || []).filter(x => x !== id).slice(0, 3);
             const relatedHtml = related.length
-                ? `<div class="ga-related"><h3 class="cls-block-title">ในหมวดเดียวกัน</h3><div class="quick-grid db-grid">${related.map(entryCard).join("")}</div></div>`
+                ? `<div class="ga-related"><h2 class="cls-block-title">ในหมวดเดียวกัน</h2><div class="quick-grid db-grid">${related.map(entryCard).join("")}</div></div>`
                 : "";
 
             detail.innerHTML = `<div class="container ga-wrap db-detail">

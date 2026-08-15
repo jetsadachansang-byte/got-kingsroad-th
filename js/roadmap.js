@@ -328,10 +328,7 @@
        ตัวเรนเดอร์ (ไม่ต้องแก้)
     ============================================================ */
 
-    function esc(s) {
-        return String(s == null ? "" : s).replace(/[&<>"']/g, c =>
-            ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-    }
+    const esc = window.escHtml;
 
     function cardHtml(id) {
         const u = UPDATES[id];
@@ -375,7 +372,7 @@
                 path: "roadmap-article.html?id=" + encodeURIComponent(id)
             });
             const bodyHtml = u.body.map(b => {
-                if (b.h) return `<h3 class="ga-h">${esc(b.h)}</h3>`;
+                if (b.h) return `<h2 class="ga-h">${esc(b.h)}</h2>`;
                 if (b.p) return `<p class="ga-p">${esc(b.p)}</p>`;
                 if (b.list) return `<ul class="ga-list">${b.list.map(li => `<li>${esc(li)}</li>`).join("")}</ul>`;
                 return "";

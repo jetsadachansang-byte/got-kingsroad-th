@@ -665,10 +665,7 @@
        ด้านล่างนี้ไม่ต้องแก้ (ตัวเรนเดอร์)
     ============================================================ */
 
-    function esc(s) {
-        return String(s == null ? "" : s).replace(/[&<>"']/g, c =>
-            ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-    }
+    const esc = window.escHtml;
 
     function cardHtml(id) {
         const g = GUIDES[id];
@@ -721,7 +718,7 @@
                 path: "guide-article.html?id=" + encodeURIComponent(id)
             });
             const bodyHtml = g.body.map(block => {
-                if (block.h) return `<h3 class="ga-h">${esc(block.h)}</h3>`;
+                if (block.h) return `<h2 class="ga-h">${esc(block.h)}</h2>`;
                 if (block.p) return `<p class="ga-p">${esc(block.p)}</p>`;
                 if (block.list) return `<ul class="ga-list">${block.list.map(li => `<li>${esc(li)}</li>`).join("")}</ul>`;
                 if (block.img) return `<figure class="ga-figure">
@@ -739,7 +736,7 @@
 
             const others = Object.keys(GUIDES).filter(k => k !== id && GUIDES[k].tag === g.tag).slice(0, 3);
             const relatedHtml = others.length
-                ? `<div class="ga-related"><h3 class="cls-block-title">คู่มือที่เกี่ยวข้อง</h3><div class="quick-grid">${others.map(cardHtml).join("")}</div></div>`
+                ? `<div class="ga-related"><h2 class="cls-block-title">คู่มือที่เกี่ยวข้อง</h2><div class="quick-grid">${others.map(cardHtml).join("")}</div></div>`
                 : "";
 
             article.innerHTML = `<div class="container ga-wrap">

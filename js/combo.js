@@ -40,10 +40,7 @@
     ];
 
     /* ---------- utils ---------- */
-    function esc(s) {
-        return String(s == null ? "" : s).replace(/[&<>"']/g, c =>
-            ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-    }
+    const esc = window.escHtml;
 
     // ยอมเฉพาะ https: และ data:image/ เพื่อกัน javascript: / XSS
     function safeImgSrc(u) {
