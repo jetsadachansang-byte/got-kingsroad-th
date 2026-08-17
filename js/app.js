@@ -201,6 +201,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ==========================
+       TICKER PAUSE/PLAY (WCAG 2.2.2)
+    ========================== */
+
+    const tickerToggle = document.getElementById("tickerToggle");
+    const tickerTrack = document.querySelector(".ticker-track");
+
+    if (tickerToggle && tickerTrack) {
+        tickerToggle.addEventListener("click", () => {
+            const paused = tickerTrack.classList.toggle("paused");
+            tickerToggle.classList.toggle("is-paused", paused);
+            tickerToggle.setAttribute("aria-pressed", String(paused));
+            tickerToggle.setAttribute("aria-label", paused ? "เล่นข้อความเลื่อน" : "หยุดข้อความเลื่อน");
+        });
+    }
+
+    /* ==========================
        BACK TO TOP
     ========================== */
 

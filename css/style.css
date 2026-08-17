@@ -1846,7 +1846,8 @@ nav ul > li > a {
     animation: tickerMove 35s linear infinite;
 }
 
-.ticker-view:hover .ticker-track {
+.ticker-view:hover .ticker-track,
+.ticker-track.paused {
     animation-play-state: paused;
 }
 
@@ -1859,6 +1860,43 @@ nav ul > li > a {
 @keyframes tickerMove {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
+}
+
+.ticker-toggle {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text-3);
+    cursor: pointer;
+}
+
+.ticker-toggle svg {
+    width: 14px;
+    height: 14px;
+}
+
+.ticker-toggle .icon-play {
+    display: none;
+}
+
+.ticker-toggle.is-paused .icon-pause {
+    display: none;
+}
+
+.ticker-toggle.is-paused .icon-play {
+    display: block;
+}
+
+.ticker-toggle:hover,
+.ticker-toggle:focus-visible {
+    color: var(--gold-soft);
 }
 
 /* ---------- แถบสถิติ ---------- */
